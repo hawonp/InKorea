@@ -26,7 +26,7 @@ InKorea will go out and meet with foreigners in person and ask them for their op
 
 InKorea will take that information and present it back to you in a website that is both easy to use and pleasant to look at.
 
-### Team Members
+## Team Members
 - Hawon Park (hawon.park@stonybrook.edu)
 - Jeong Ho Shin (jeongho.shin@stonybrook.edu)
 - Sangwoo Park (sangwoo.park.2@stonybrook.edu)
