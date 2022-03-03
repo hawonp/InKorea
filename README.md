@@ -1,7 +1,9 @@
 ## Welcome to Foreigner-galloo
 
-diwhud
+Living in a country abroad is very hard. Each country has their own system. 
 
-1. ddd
-2. cc
-3. ddd
+### Team Members
+- Hawon Park (hawon.park@stonybrook.edu)
+- Jeong Ho Shin (jeongho.shin@stonybrook.edu)
+- Sangwoo Park (sangwoo.park.2@stonybrook.edu)
+- Youngwon Choi (youngwon.choi@stonybrook.edu)
