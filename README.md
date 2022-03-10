@@ -1,7 +1,7 @@
 ## Welcome to InKorea!
 
 Living abroad in a country can be confusing and even difficult. Each country has their own system and Korea is no different. 
-Sometimes the grocery stores aren't open on the weekend. The address system might be different from the one back home. There is a festival that you only hear about after its over. It is especially difficult if you are a foreigner and it is your first time in Korea. There are alot of guides written on tourist attractions and whatnot, but there isn't alot of material on how to make a smooth transition.
+Sometimes the grocery stores aren't open on the weekend. The address system might be different from the one back home. There is a festival that you only hear about after its over. It is especially difficult if you are a foreigner and it is your first time in Korea. There are alot of guides written on tourist attractions and whatnot, but there isn't alot of material on how to make a smooth transition. InKorea hopes to help those foreigners in Korea by functioning as an aggregation of exisitng high quality content.
 
 ### What is Out There Already?
 1. [IsHomePlusOpen](https://ishomeplusopen.com/#top)
@@ -14,7 +14,7 @@ Sometimes the grocery stores aren't open on the weekend. The address system migh
     - This website provides a comprehensive list of everything you'd need to live in Korea as a foreigner.
 
 ### What We Propose To Do
-InKorea aims to consolidate useful features taken from here and there to give you useful tools for adjusting to Korea. There may be individual websites and applications that give you advice on living in Korea, but there isn't one that combines all that information into a beautiful user interface and presentation.
+InKorea aims to aggregate exising content into one platform so that foreigners in Korea can have an easier time adjusting to a new country. After all, there are many individual websites and applications that helps you adjust to Korea, but there is no platform that aggregates all those tools into one system. 
 
 At the very least, InKorea hopes to combine the three websites mentioned above into a singular experience with the following modules
 1) A module that tells if a grocery store is open right now
@@ -22,7 +22,7 @@ At the very least, InKorea hopes to combine the three websites mentioned above i
 3) A module that tells you of popular seasonal events that you might miss out on
 
 ### How We Will Improve Our Product
-InKorea will go out and meet with foreigners in person and ask them for their opinions. Each member with ask a different foreigner what they thought was difficult when first adjusting to Korea and what sort of tools they wish they had.
+InKorea will go out and meet with foreigners in person and ask them for their opinions. Each member with ask a different foreigner what they thought was difficult when first adjusting to Korea and what sort of tools they wish they had. As a first step, we would ask our mutual friends and acquaintances. We also plan to ask on various social media platforms such as Facebook's Songdo Community to reach a greater number of expats.
 
 InKorea will take that information and present it back to you in a website that is both easy to use and pleasant to look at.
 
