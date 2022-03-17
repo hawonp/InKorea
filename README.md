@@ -7,7 +7,7 @@ Sometimes the grocery stores aren't open on the weekend. The address system migh
 1. [IsHomePlusOpen](https://ishomeplusopen.com/#top)
     - This website informs you if popular grocery stores like Homeplus is open on any current day.
 
-3. [ePost](https://ishomeplusopen.com/#top)
+3. [ePost](https://www.epost.go.kr/roadAreaCdEng.retrieveLnEngAreaCdList.comm)
     - This website allows you to convert your address from the Korean format to the English format and vice versa.
 
 5. [InterNations](https://www.internations.org/go/moving-to-south-korea/living)
