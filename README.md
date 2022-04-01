@@ -1,4 +1,4 @@
-## Welcome to InKorea!
+## Welcome to InKorea! (To Be Updated Later)
 
 Living abroad in a country can be confusing and even difficult. Each country has their own system and Korea is no different. 
 Sometimes the grocery stores aren't open on the weekend. The address system might be different from the one back home. There is a festival that you only hear about after its over. It is especially difficult if you are a foreigner and it is your first time in Korea. There are alot of guides written on tourist attractions and whatnot, but there isn't alot of material on how to make a smooth transition. InKorea hopes to help those foreigners in Korea by functioning as an aggregation of exisitng high quality content.
