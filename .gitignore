@@ -1,0 +1,6 @@
+dbms/db/data/
+backend/venv/
+dbms/db/initdb.d/1.sql
+dbms/db/initdb.d/2.sql
+
+backend/.env
