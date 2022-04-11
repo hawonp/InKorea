@@ -6,7 +6,7 @@ from config.config import ApplicationConfig
 # Import APIs
 # import api.Login as Login
 # import api.Post as Post
-# import api.Dev as Dev
+import api.Dev as Dev
 # import api.User as User
 # import api.Reply as Reply
 # import api.Mod as Mod
