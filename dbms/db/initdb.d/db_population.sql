@@ -9,5 +9,7 @@ INSERT INTO Subcategory(subcategory_name, category_id) VALUES("Creating a bank a
 
 
 -- Document helper related
--- INSERT INTO Document() VALUES();
+INSERT INTO Document(document_title, has_details, subcategory_id) VALUES("Alien Registration Card (ARC)", "Yes", "0");
+INSERT INTO Document(document_title, has_details, subcategory_id) VALUES("Passport / ID", "No", "0");
+INSERT INTO Document(document_title, has_details, subcategory_id) VALUES("Passport / ID", "No", "0");
 
