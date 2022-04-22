@@ -22,6 +22,7 @@ def get_all_apps(page, filter):
 
         # Set up query statements and values
         query = "SELECT * FROM App DESC LIMIT ?, ?"
+        values = ""
         print("Selecting with query", query)
         cursor.execute(query, values)
 
