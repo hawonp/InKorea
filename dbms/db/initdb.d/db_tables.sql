@@ -13,13 +13,13 @@ USE inkorea_db;
 
 -- TABLE INITIALIZATION
 CREATE TABLE Category(
-    category_id INTEGER NOT NULL AUTO INCREMENT,
+    category_id INTEGER NOT NULL AUTO_INCREMENT,
     category_name VARCHAR(100),
     PRIMARY KEY(category_id)
 );
 
 CREATE TABLE Subcategory(
-    subcategory_id INTEGER NOT NULL AUTO INCREMENT,
+    subcategory_id INTEGER NOT NULL AUTO_INCREMENT,
     subcategory_name VARCHAR(100),
     category_id INTEGER,
     PRIMARY KEY(subcategory_id),
@@ -28,7 +28,7 @@ CREATE TABLE Subcategory(
 
 -- QUIZ SPECIFIC TABLES
 CREATE TABLE Quiz_Question(
-    question_id INTEGER NOT NULL AUTO INCREMENT,
+    question_id INTEGER NOT NULL AUTO_INCREMENT,
     question_text VARCHAR(100),
     subcategory_id INTEGER,
     PRIMARY KEY (question_id),
@@ -36,7 +36,7 @@ CREATE TABLE Quiz_Question(
 );
 
 CREATE TABLE Quiz_Answer(
-    answer_id INTEGER NOT NULL AUTO INCREMENT,
+    answer_id INTEGER NOT NULL AUTO_INCREMENT,
     answer_text VARCHAR(100),
     explanation VARCHAR(100),
     is_correct BOOLEAN,
@@ -53,7 +53,7 @@ CREATE TABLE Question_To_Answer(
 
 -- SCENARIO GUIDE SPECIFIC TABLES
 CREATE TABLE Phrase(
-    phrase_id INTEGER NOT NULL AUTO INCREMENT,
+    phrase_id INTEGER NOT NULL AUTO_INCREMENT,
     phrase_text VARCHAR(100),
     phrase_text_kor VARCHAR(100),
     phrase_audio_link VARCHAR(1000),
@@ -78,7 +78,7 @@ CREATE TABLE Phrase_Start(
 
 -- DOCUMENT HELPER SPECIFIC TABLES
 CREATE TABLE Document(
-    document_id INTEGER NOT NULL AUTO INCREMENT,
+    document_id INTEGER NOT NULL AUTO_INCREMENT,
     document_title VARCHAR(100),
     has_details BOOLEAN,
     subcategory_id INTEGER,
@@ -95,7 +95,7 @@ CREATE TABLE Document_Subcategory(
 );
 
 CREATE TABLE Entry(
-    entry_id INTEGER NOT NULL AUTO INCREMENT,
+    entry_id INTEGER NOT NULL AUTO_INCREMENT,
     entry_index INTEGER NOT NULL,
     entry_title VARCHAR(100),
     entry_text VARCHAR(100),
@@ -107,7 +107,7 @@ CREATE TABLE Entry(
 
 -- APP CATALOG SPECIFIC TABLES
 CREATE TABLE App(
-    app_id INTEGER NOT NULL AUTO INCREMENT,
+    app_id INTEGER NOT NULL AUTO_INCREMENT,
     app_title VARCHAR(100),
     app_text VARCHAR(1000),
     app_image VARCHAR(1000),
@@ -125,7 +125,7 @@ CREATE TABLE App_Platform(
 );
 
 CREATE TABLE Tag(
-    tag_id INTEGER NOT NULL AUTO INCREMENT,
+    tag_id INTEGER NOT NULL AUTO_INCREMENT,
     tag_title VARCHAR(100),
     PRIMARY KEY(tag_id)
 );
@@ -139,7 +139,7 @@ CREATE TABLE App_Tag(
 );
 
 CREATE TABLE App_Info_Block(
-    info_id INTEGER NOT NULL AUTO INCREMENT,
+    info_id INTEGER NOT NULL AUTO_INCREMENT,
     info_title VARCHAR(100),
     info_text VARCHAR(1000),
     info_image VARCHAR(1000),
