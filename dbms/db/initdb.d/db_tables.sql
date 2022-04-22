@@ -86,8 +86,17 @@ CREATE TABLE Document(
     FOREIGN KEY (subcategory_id) REFERENCES Subcategory(subcategory_id) ON DELETE CASCADE
 );
 
+CREATE TABLE Document_Subcategory(
+    document_id INTEGER NOT NULL,
+    subcategory_id INTEGER NOT NULL,
+    PRIMARY KEY(document_id, subcategory_id),
+    FOREIGN KEY (document_id) REFERENCES Document(document_id) ON DELETE CASCADE,
+    FOREIGN KEY (subcategory_id) REFERENCES Subcategory(subcategory_id) ON DELETE CASCADE
+);
+
 CREATE TABLE Entry(
     entry_id INTEGER NOT NULL AUTO INCREMENT,
+    entry_index INTEGER NOT NULL,
     entry_title VARCHAR(100),
     entry_text VARCHAR(100),
     entry_image VARCHAR(1000),
