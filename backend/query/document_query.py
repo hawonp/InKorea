@@ -41,8 +41,8 @@ def get_documents(document_id):
     return json_data
 
     #Getting the details for a document
-    def get_entries(document_id):
-        try:
+def get_entries(document_id):
+    try:
         # Obtainting DB cursor
         conn = get_connection()
         cursor = conn.cursor()
