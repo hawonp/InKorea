@@ -7,10 +7,10 @@ from config.config import ApplicationConfig
 # import api.Login as Login
 # import api.Post as Post
 import api.Dev as Dev
-# import api.User as User
-# import api.Reply as Reply
-# import api.Mod as Mod
-# import api.MySql as MySql
+import api.Guide as Guide
+import api.AppCatalog as AppCatalog
+import api.Documents as Documents
+import api.Scenario as Scenario
 
 
 # initialize Flask,
@@ -27,10 +27,10 @@ api = Api(app)
 Dev.init_routes(api)
 
 # import routes
-# Login.init_routes(api)
-# User.init_routes(api)
-# Post.init_routes(api)
-# Reply.init_routes(api)
+Guide.init_routes(api)
+AppCatalog.init_routes(api)
+Documents.init_routes(api)
+Scenario.init_routes(api)
 # Mod.init_routes(api)
 # MySql.init_routes(api)
 

@@ -5,15 +5,15 @@ from config.imports import mariadb
 #                         SELECT                         #
 ##########################################################
 
-# Getting all the required documents for a subcategory
-def get_documents(subcategory_id):
+# Getting all the required documents for a subcategory :TODO: Check functionality
+def get_first_phrase(subcategory_id):
     try:
         # Obtainting DB cursor
         conn = get_connection()
         cursor = conn.cursor()
 
         # Set up query statements and values
-        query = "SELECT doc.* FROM Document doc INNER JOIN (SELECT document_id FROM Document_Subcategory WHERE subcategory_id = ?) AS dsc ON dsc.document_id = doc.document_id"
+        query = "SELECT p.* FROM Phrase p INNER JOIN (SELECT phrase_id FROM Phrase_Start WHERE subcategory_id = subcategory_id) AS pid ON pid.phrase_id = p.phrase_id"
         values = (subcategory_id,)
         print("Selecting with query", query)
         cursor.execute(query, values)
@@ -36,16 +36,16 @@ def get_documents(subcategory_id):
     conn.close()
     return json_data
 
-    #Getting the details for a document
-def get_entries(document_id):
+    # Getting all the required documents for a subcategory :TODO: Check functionality
+def get_following_phrase(phrase_id):
     try:
         # Obtainting DB cursor
         conn = get_connection()
         cursor = conn.cursor()
 
         # Set up query statements and values
-        query = "SELECT entry_index, entry_title, entry_text, entry_image FROM Entry WHERE document_id = ?"
-        values = (document_id,)
+        query = "SELECT *.p FROM Phrase p INNER JOIN (SELECT to_id FROM Phrase_Link WHERE from_id = ?) AS pl ON pl.to_id = p.phrase_id"
+        values = (phrase_id,)
         print("Selecting with query", query)
         cursor.execute(query, values)
 

@@ -2,29 +2,19 @@ from config.db_connect import get_connection
 from config.imports import mariadb
 
 ##########################################################
-#                         INSERT                         #
-##########################################################
-
-##########################################################
 #                         SELECT                         #
 ##########################################################
 
-# Getting all the list of apps
-def get_apps_wth_category_and_platform(page, category, platform):
+# Getting all the required documents for a subcategory :TODO: yes
+def get_question(subcategory_id):
     try:
-        print("get_apps_wth_category_and_platform")
-        print("page, category, platform", page, category, platform)
         # Obtainting DB cursor
         conn = get_connection()
         cursor = conn.cursor()
 
         # Set up query statements and values
-        limit = 10
-        offset = (page - 1) * 10  # if page 1, then it should start from 1.
-
-        # Set up query statements and values
-        query = "SELECT s.*, a.app_id, a.app_title, a.app_title_kor, a.app_text, a.app_image FROM App a INNER JOIN(SELECT DISTINCT * FROM App_Platform WHERE platform_title = ?) AS s ON s.app_id = a.app_id LIMIT ?, ?"
-        values = (platform, offset, limit)
+        query = "SELECT "
+        values = (subcategory_id,)
         print("Selecting with query", query)
         cursor.execute(query, values)
 

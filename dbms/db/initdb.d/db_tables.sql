@@ -17,7 +17,7 @@ CREATE TABLE Category(
     category_name VARCHAR(100),
     PRIMARY KEY(category_id)
 );
-SELECT * FROM Category;
+
 CREATE TABLE Subcategory(
     subcategory_id INTEGER NOT NULL AUTO_INCREMENT,
     subcategory_name VARCHAR(100),

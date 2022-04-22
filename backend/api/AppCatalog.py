@@ -1,11 +1,18 @@
-from config.imports import Resource, json, mariadb
-from query.dev_query import say_hello
+from config.imports import Resource, json, mariadb, request
+from api.APIConstants import APPS
+from query.app_catalog_query import get_apps_wth_category_and_platform
 
-class Dev(Resource):
+class Apps(Resource):
     def get(self):
-        return say_hello()
+        page = int(request.args.get('page'))
+        category = request.args.get('category')
+        platform = request.args.get('platform')
+
+        data = get_apps_wth_category_and_platform(page, category, platform)
+
+        return json.dumps(data)
 
 
 # Add routes to api
 def init_routes(api):
-    api.add_resource(Dev, '/dev')
+    api.add_resource(Apps, APPS)
