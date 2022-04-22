@@ -70,7 +70,7 @@ CREATE TABLE Phrase_Link(
 
 CREATE TABLE Phrase_Start(
     subcategory_id INTEGER,
-    phrase_id INTEGER,    
+    phrase_id INTEGER,
     PRIMARY KEY (subcategory_id, phrase_id),
     FOREIGN KEY (subcategory_id) REFERENCES Subcategory(subcategory_id) ON DELETE CASCADE,
     FOREIGN KEY (phrase_id) REFERENCES Phrase(phrase_id) ON DELETE CASCADE
@@ -81,9 +81,7 @@ CREATE TABLE Document(
     document_id INTEGER NOT NULL AUTO_INCREMENT,
     document_title VARCHAR(100),
     has_details BOOLEAN,
-    subcategory_id INTEGER,
-    PRIMARY KEY(document_id),
-    FOREIGN KEY (subcategory_id) REFERENCES Subcategory(subcategory_id) ON DELETE CASCADE
+    PRIMARY KEY(document_id)
 );
 
 CREATE TABLE Document_Subcategory(
