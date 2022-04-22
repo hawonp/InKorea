@@ -108,6 +108,7 @@ CREATE TABLE Entry(
 CREATE TABLE App(
     app_id INTEGER NOT NULL AUTO_INCREMENT,
     app_title VARCHAR(100),
+    app_title_kor VARCHAR(100),
     app_text VARCHAR(1000),
     app_image VARCHAR(1000),
     PRIMARY KEY(app_id)
