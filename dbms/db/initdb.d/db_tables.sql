@@ -80,6 +80,7 @@ CREATE TABLE Phrase_Start(
 CREATE TABLE Document(
     document_id INTEGER NOT NULL AUTO_INCREMENT,
     document_title VARCHAR(100),
+    document_title_kor VARCHAR(100),
     has_details BOOLEAN,
     PRIMARY KEY(document_id)
 );

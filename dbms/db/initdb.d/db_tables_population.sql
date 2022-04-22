@@ -33,6 +33,6 @@ INSERT INTO Phrase_Link(from_id, to_id) VALUES (2, 3);
 INSERT INTO Phrase_Link(from_id, to_id) VALUES (4, 5);
 
 -- Document Helper (Banking Specific)
-INSERT INTO Document(document_title, has_details, )
+INSERT INTO Document(document_title, has_details) VALUES ("");
 
 SELECT * FROM Phrase_Link;
