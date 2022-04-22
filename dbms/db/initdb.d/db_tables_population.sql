@@ -32,7 +32,43 @@ INSERT INTO Phrase_Link(from_id, to_id) VALUES (1, 2);
 INSERT INTO Phrase_Link(from_id, to_id) VALUES (2, 3);
 INSERT INTO Phrase_Link(from_id, to_id) VALUES (4, 5);
 
+-- Quiz (Banking Specific)
+INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("Question 1", 1);
+INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("Question 2", 1);
+INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("Question 3", 1);
+INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("Question 4", 1);
+INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("Question 5", 1);
+
+INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("Answer 1", "This is the explanation for answer 1", true);
+INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("Answer 2", "This is the explanation for answer 2", false);
+INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("Answer 3", "This is the explanation for answer 3", false);
+INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("Answer 4", "This is the explanation for answer 4", false);
+
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 1);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 2);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 3);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 4);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(2, 1);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(3, 1);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(4, 1);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(5, 1);
+
 -- Document Helper (Banking Specific)
-INSERT INTO Document(document_title, has_details) VALUES ("");
+INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Bank Document 1", "은행 서류 1번", true);
+INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Bank Document 2", "은행 서류 2번", false);
+
+INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 1);
+INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 2);
+INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(2, 2);
+
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(1, "Entry 1", "doc1 text1", "image url", 1);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(2, "Entry 2", "doc1 text2", "image url", 1);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Entry 3", "doc1 text3", "image url", 1);
+
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(1, "Entry 1", "doc2 text1", "image url", 2);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(2, "Entry 2", "doc2 text2", "image url", 2);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Entry 3", "doc2 text3", "image url", 2);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Entry 4", "doc2 text4", "image url", 2);
+
 
 SELECT * FROM Phrase_Link;
