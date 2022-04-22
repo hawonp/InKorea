@@ -5,6 +5,7 @@ from config.imports import mariadb
 #                         SELECT                         #
 ##########################################################
 
+# Getting all the categories
 def get_categories():
     try:
         # Obtainting DB cursor
@@ -34,6 +35,7 @@ def get_categories():
     conn.close()
     return json_data
 
+# Getting all the subcategories for one category
 def get_subcategories(category_id):
     try:
         # Obtainting DB cursor

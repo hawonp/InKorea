@@ -9,15 +9,19 @@ from config.imports import mariadb
 #                         SELECT                         #
 ##########################################################
 
-def get_documents(document_id):
+# Getting all the list of apps
+def get_all_apps(page, filter):
     try:
         # Obtainting DB cursor
         conn = get_connection()
         cursor = conn.cursor()
 
         # Set up query statements and values
-        query = "SELECT * FROM Document WHERE document_id = ?"
-        values = (document_id,)
+        limit = 10
+        offset = (page - 1) * 10  # if page 1, then it should start from 1.
+
+        # Set up query statements and values
+        query = "SELECT * FROM App DESC LIMIT ?, ?"
         print("Selecting with query", query)
         cursor.execute(query, values)
 
