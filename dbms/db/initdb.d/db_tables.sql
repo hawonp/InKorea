@@ -17,7 +17,7 @@ CREATE TABLE Category(
     category_name VARCHAR(100),
     PRIMARY KEY(category_id)
 );
-
+SELECT * FROM Category;
 CREATE TABLE Subcategory(
     subcategory_id INTEGER NOT NULL AUTO_INCREMENT,
     subcategory_name VARCHAR(100),
@@ -144,6 +144,6 @@ CREATE TABLE App_Info_Block(
     info_text VARCHAR(1000),
     info_image VARCHAR(1000),
     app_id INTEGER,
-    PRIMARY KEY(app_id, info_id),
+    PRIMARY KEY(info_id, app_id),
     FOREIGN KEY (app_id) REFERENCES App(app_id) ON DELETE CASCADE
 );
