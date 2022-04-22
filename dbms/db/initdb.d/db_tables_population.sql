@@ -6,7 +6,7 @@ INSERT INTO Category(category_name) VALUES("Mobile");
 
 -- Subcategory (Banking)
 INSERT INTO Subcategory(subcategory_name, category_id) VALUES("Creating a bank account", "1");
-INSERT INTO Subcategory(subcategory_name, category_id) VALUES("Creating a bank account", "1");
+INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to use an ATM", "1");
 
 
 -- Document helper related
