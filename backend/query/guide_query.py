@@ -43,7 +43,7 @@ def get_subcategories(category_name):
         cursor = conn.cursor()
 
         # Set up query statements and values
-        query = "SELECT subcategory_id, subcategory_name FROM Subcategory INNER JOIN (SELCT * FROM Category WHERE category_name = ?) AS cat ON cat.category_id = category_id"
+        query = "SELECT subcategory_id, subcategory_name FROM Subcategory INNER JOIN (SELECT * FROM Category WHERE category_name = ?) AS cat ON cat.category_id = Subcategory.category_id"
         values = (category_name,)
         print("Selecting with query", query)
         cursor.execute(query, values)
@@ -58,8 +58,7 @@ def get_subcategories(category_name):
 
     except mariadb.Error as e:
         print(f"Error ocurred while querying database: {e}")
-        return 0
-
+        json_data = 0
     # Closing cursor and commiting  connection
     cursor.close()
     conn.commit()
