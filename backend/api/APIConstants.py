@@ -1,7 +1,7 @@
 # Guide top layer
 GUIDE = '/guide'
 CATEGORIES = '/categories'
-CATEGORY_NAME = '/<int:category_name>'
+CATEGORY_NAME = '/<string:category_name>'
 SUBCATEGORY_NAME = '/<string:subcategory_name>'
 
 # Scenario
@@ -12,6 +12,7 @@ QUIZ = '/quiz'
 
 # Document Helper
 DOCUMENTS = '/documents'
+DOCUMENT_ID = '/<int:document_id>'
 
 # App catalog
 APPS = '/apps'

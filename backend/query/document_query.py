@@ -28,8 +28,8 @@ def get_documents(subcategory_id):
 
     except mariadb.Error as e:
         print(f"Error ocurred while querying database: {e}")
-        return 0
-
+        json_data = 0
+        
     # Closing cursor and commiting  connection
     cursor.close()
     conn.commit()
@@ -59,7 +59,7 @@ def get_entries(document_id):
 
     except mariadb.Error as e:
         print(f"Error ocurred while querying database: {e}")
-        return 0
+        json_data = 0
 
     # Closing cursor and commiting  connection
     cursor.close()
