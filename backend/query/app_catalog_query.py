@@ -20,13 +20,13 @@ def get_apps_wth_category_and_platform(page, category, platform):
         if category == "All" and platform == "All":
             query = "SELECT s.*, a.app_id, a.app_title, a.app_title_kor, a.app_text, a.app_image FROM App a LIMIT ?, ?"
             values = (offset, limit)
-        elif category == "All": TODO:
+        elif category == "All": #TODO:
             query = "SELECT s.*, a.app_id, a.app_title, a.app_title_kor, a.app_text, a.app_image FROM App a INNER JOIN(SELECT DISTINCT * FROM App_Platform WHERE platform_title = ?) AS s ON s.app_id = a.app_id LIMIT ?, ?"
             values = (platform, offset, limit)
         elif platform == "All":
             query = "SELECT s.*, a.app_id, a.app_title, a.app_title_kor, a.app_text, a.app_image FROM App a INNER JOIN(SELECT DISTINCT * FROM App_Platform WHERE platform_title = ?) AS s ON s.app_id = a.app_id LIMIT ?, ?"
             values = (platform, offset, limit)
-        else: TODO:
+        else: #TODO:
             query = "SELECT s.*, a.app_id, a.app_title, a.app_title_kor, a.app_text, a.app_image FROM App a INNER JOIN(SELECT DISTINCT * FROM App_Platform WHERE platform_title = ?) AS s ON s.app_id = a.app_id LIMIT ?, ?"
             values = (platform, offset, limit)
         # Set up query statements and values
