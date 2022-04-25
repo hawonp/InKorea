@@ -66,7 +66,7 @@ def get_subcategories(category_name):
     conn.close()
     return json_data
 
-    # Getting subcategory id with name
+# Getting subcategory id with name
 def get_subcategory_id(subcategory_name):
     try:
         # Obtainting DB cursor

@@ -6,7 +6,7 @@ from config.imports import mariadb
 ##########################################################
 
 # Getting all the list of apps
-def get_apps_wth_category_and_platform(page, category, platform):
+def get_apps_wth_category_and_platform(page, category_id, platform):
     try:
         print("get_apps_wth_category_and_platform")
         print("page, category, platform", page, category, platform)
@@ -25,10 +25,10 @@ def get_apps_wth_category_and_platform(page, category, platform):
             values = (platform, offset, limit)
         elif platform == "All":
             query = "SELECT s.*, a.app_id, a.app_title, a.app_title_kor, a.app_text, a.app_image FROM App a INNER JOIN(SELECT DISTINCT * FROM App_Platform WHERE platform_title = ?) AS s ON s.app_id = a.app_id LIMIT ?, ?"
-            values = (platform, offset, limit)
+            values = (platform, category_id, offset, limit)
         else: #TODO:
             query = "SELECT s.*, a.app_id, a.app_title, a.app_title_kor, a.app_text, a.app_image FROM App a INNER JOIN(SELECT DISTINCT * FROM App_Platform WHERE platform_title = ?) AS s ON s.app_id = a.app_id LIMIT ?, ?"
-            values = (platform, offset, limit)
+            values = (platform, category_id, offset, limit)
         # Set up query statements and values
         
         print("Selecting with query", query)
@@ -51,3 +51,30 @@ def get_apps_wth_category_and_platform(page, category, platform):
     conn.commit()
     conn.close()
     return json_data
+
+
+# Getting subcategory id with name
+def get_tag_id(tag_name):
+    try:
+        # Obtainting DB cursor
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        # Set up query statements and values
+        query = "SELECT tag_id FROM Tag WHERE tag_name = ?"
+        values = (tag_name,)
+        print("Selecting with query", query)
+        cursor.execute(query, values)
+
+        #Fetching one row since we know its only one
+        rv = cursor.fetchone()
+
+    except mariadb.Error as e:
+        print(f"Error ocurred while querying database: {e}")
+        return 0
+
+    # Closing cursor and commiting  connection
+    cursor.close()
+    conn.commit()
+    conn.close()
+    return rv[0]
