@@ -3,7 +3,9 @@ from api.APIConstants import DOCUMENTS, SUBCATEGORY_NAME
 from query.scenario_query import get_first_phrase
 from query.guide_query import get_subcategory_id, get_following_phrase
 
-class Scenario(Resource)::TODO: implement
+
+# TODO
+class Scenario(Resource):
     def get(self):
         data = "lul"
         return json.dumps(data)

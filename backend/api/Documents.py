@@ -1,5 +1,5 @@
 from config.imports import Resource, json, mariadb
-from api.APIConstants import SCENARIO, SUBCATEGORY_NAME
+from api.APIConstants import SCENARIO, SUBCATEGORY_NAME, DOCUMENTS
 from query.document_query import get_documents
 from query.guide_query import get_subcategory_id
 
