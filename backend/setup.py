@@ -31,8 +31,6 @@ Guide.init_routes(api)
 AppCatalog.init_routes(api)
 Documents.init_routes(api)
 Scenario.init_routes(api)
-# Mod.init_routes(api)
-# MySql.init_routes(api)
 
 # Run the application
 if __name__ == '__main__':

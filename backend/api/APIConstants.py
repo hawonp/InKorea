@@ -16,3 +16,7 @@ DOCUMENT_ID = '/<int:document_id>'
 
 # App catalog
 APPS = '/apps'
+APP_ID = '/<int:app_id>'
+PLATFORMS = '/platforms'
+SEARCH = '/search'
+SEARCH_INPUT = '/<string:search_input>'

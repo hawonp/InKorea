@@ -140,6 +140,7 @@ CREATE TABLE App_Tag(
 
 CREATE TABLE App_Info_Block(
     info_id INTEGER NOT NULL AUTO_INCREMENT,
+    info_index INTEGER NOT NULL,
     info_title VARCHAR(100),
     info_text VARCHAR(1000),
     info_image VARCHAR(1000),
