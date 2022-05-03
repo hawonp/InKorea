@@ -1,0 +1,62 @@
+.left{
+    text-align: left;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.right{
+    text-align: right;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#outerBox{
+    display: inline-flex;
+    height: 100px;
+    min-height: 100px;
+    width: 70%;
+    border: 1px solid red;
+    text-align: center;
+}
+
+#speaker{
+    border: 1px solid brown;
+    width: 15%;
+}
+
+#sentence{
+    border: 1px solid purple;
+    width: 70%;
+    padding: 5px;
+}
+
+#other{
+    border: 1px solid green;
+    width: 15%;
+}
+
+#english{   
+    height: 33.3%;
+}
+
+#korean{
+    height: 33.3%;
+}
+
+#pronunciation{
+    display:flex;
+     flex-wrap: wrap;
+    border: 1px solid green;
+    height: 33.3%;
+    width: 100%;
+}
+
+#text{
+    border: 1px solid black;
+}
+
+#sound{
+    border: 1px solid black;
+}

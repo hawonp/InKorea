@@ -1,15 +1,16 @@
 import logo from "./logo.svg";
 import "./styles/App.css";
 import Button from "@mui/material/Button";
+import Heading from "./components/Heading";
+import ConversationLeft from "./components/ConversationLeft";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Button variant="contained">Hello World</Button>
-      </header>
-    </div>
+    <>
+        <Heading/>
+        <ConversationLeft/>
+    </>
+
   );
 }
 
