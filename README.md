@@ -52,13 +52,13 @@
   > cd dbms
 
 - Install Requirements
-  > yarn install
+  > npm install
 
 - 5a) Initialize NextJS Docker Container
   > docker-compose up --build
 
 - 5b) Intialize React dev server
-  > yarn run dev
+  > npm start
 
 ## Required Specs / Compatability
  - Operating System : Any
