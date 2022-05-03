@@ -91,14 +91,14 @@ INSERT INTO App_Tag(app_id, tag_id) VALUES (1, 3);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (2, 2);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (3, 3);
 
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 1", "text 1", "image 1", 1);
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 2", "text 2", "image 2", 1);
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 3", "text 3", "image 3", 1);
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 4", "text 4", "image 4", 1);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 1", 1, "text 1", "image 1", 1);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 2", 2, "text 2", "image 2", 1);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 3", 3, "text 3", "image 3", 1);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 4", 4, "text 4", "image 4", 1);
 
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 1", "text 1", "image 1", 2);
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 2", "text 2", "image 2", 2);
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 3", "text 3", "image 3", 2);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 1", 1, "text 1", "image 1", 2);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 2", 2, "text 2", "image 2", 2);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 3", 3, "text 3", "image 3", 2);
 
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 1", "text 1", "image 1", 3);
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 2", "text 2", "image 2", 3);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 1", 1, "text 1", "image 1", 3);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 2", 2, "text 2", "image 2", 3);
