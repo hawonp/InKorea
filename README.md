@@ -10,9 +10,9 @@
 - Sangwoo Park (sangwoo.park.2@stonybrook.edu)
 - Youngwon Choi (youngwon.choi@stonybrook.edu)
 
-## Where to get the Latest Version of StudyBoard?
-- The [main](https://github.com/hawonp/InKorea) branch of this git repository will always have the latest production version of StudyBoard
-- The [dev](https://github.com/hawonp/InKorea/tree/dev) branch of this git repository will always be the latest development version of StudyBoard
+## Where to get the Latest Version of InKorea?
+- The [main](https://github.com/hawonp/InKorea) branch of this git repository will always have the latest production version of InKorea
+- The [dev](https://github.com/hawonp/InKorea/tree/dev) branch of this git repository will always be the latest development version of InKorea
 
 ## Step 1) Local Development Prep
 - Download/Clone the [main](https://github.com/hawonp/InKorea) branch of InKorea
