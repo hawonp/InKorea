@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./styles/index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
@@ -7,7 +8,16 @@ import reportWebVitals from "./reportWebVitals";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<App />}>
+          {/* <Route path="scenario" element={< />}></Route> */}
+          {/* <Route path="quiz" element={< />}></Route> */}
+          {/* <Route path="document" element={< />}></Route> */}
+          {/* <Route path="appcatalog" element={< />}></Route> */}
+        </Route>
+      </Routes>
+    </BrowserRouter>
   </React.StrictMode>
 );
 
