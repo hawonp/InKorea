@@ -83,5 +83,8 @@
     > docker-compose down
 
 ## FastAPI Commands
-  - run dev server (cd to app folder)
-    > python main.py
+  - run dev server (local)
+    > uvicorn app.main:app
+
+  - run docker container (local)
+    > docker-compose up --build
