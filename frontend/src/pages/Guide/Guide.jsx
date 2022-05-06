@@ -1,5 +1,8 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
+import { Button } from "@mui/material";
+import { IconButton } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import AppBar from "@mui/material/AppBar";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -26,17 +29,6 @@ export default function Guide(props) {
       <Divider />
       <List>
         {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
-      <Divider />
-      <List>
-        {["All mail", "Trash", "Spam"].map((text, index) => (
           <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -133,6 +125,17 @@ export default function Guide(props) {
         }}
       >
         <Toolbar />
+        {/* Drawer trigger button that appears only when its mobile mode */}
+        <Button
+          variant="outlined"
+          edge="start"
+          onClick={() => {
+            handleDrawerToggle();
+          }}
+          sx={{ mr: 2, display: { sm: "none" } }}
+        >
+          Select category
+        </Button>
         <Typography paragraph>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
           dictum, massa eget blandit dictum, massa tellus aliquet justo, ut
