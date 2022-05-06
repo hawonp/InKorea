@@ -34,15 +34,21 @@
 - Go back to root directory
   > cd ..
 
-## Step 4) Initialize Flask Backend
-- Change directories to backend/
-  > cd backend
+## Step 4) Initialize Fast API Backend
+- Change directories to fastapi/
+  > cd fastapi
 
 - Install Requirements
   > pip install -r requirements.txt
 
-- Initialize Flask Docker Container
+- Initialize FastAPI Docker Container
   > docker-compose up --build
+
+- Initialize FastAPI Dev Server
+  > uvicorn app.main:app
+
+- Initialize FastAPI Dev Server (dynamic reloading)
+  > uvicorn app.main:app --reload
 
 - Go back to root directory
   > cd ..
@@ -81,10 +87,3 @@
 
  - Shutdown a docker container
     > docker-compose down
-
-## FastAPI Commands
-  - run dev server (local)
-    > uvicorn app.main:app
-
-  - run docker container (local)
-    > docker-compose up --build
