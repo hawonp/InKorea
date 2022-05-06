@@ -17,8 +17,6 @@
 ## Step 1) Local Development Prep
 - Download/Clone the [main](https://github.com/hawonp/InKorea) branch of InKorea
 
-- Create a virtual environment in the **root** directory of the repository and activate it
-  - VirtualEnv, Venv, Anaconda all work
 ## Step 2) Create Docker Network
 - Create a user-defined bridge to link mariadb and flask
   > docker network create dbms_network
@@ -37,6 +35,15 @@
 ## Step 4) Initialize Fast API Backend
 - Change directories to fastapi/
   > cd fastapi
+
+- Create a virtual environment 
+  > python -m venv venv
+
+- Windows Activation  
+  > venv\Scripts\activate 
+
+- UNIX Activation
+  > source venv/bin/activate
 
 - Install Requirements
   > pip install -r requirements.txt
