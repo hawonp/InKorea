@@ -2,7 +2,7 @@ import mariadb, sys
 
 def get_connection():
     try:
-        # # local dev 
+        # local dev 
         # conn = mariadb.connect(
         #     user="mod",
         #     password="inkorea",
@@ -10,6 +10,7 @@ def get_connection():
         #     port=3306,
         #     database="inkorea_db"
         # )
+
         # docker container
         conn = mariadb.connect(
             user="mod",
