@@ -1,3 +1,7 @@
-export default function Error_404_page() {
-  return <div> Error 404: Page not found</div>;
+export default function Error404page() {
+  return (
+    <div>
+      <h2> Error 404: Page not found </h2>
+    </div>
+  );
 }
