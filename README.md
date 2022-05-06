@@ -14,14 +14,18 @@
 - The [main](https://github.com/hawonp/InKorea) branch of this git repository will always have the latest production version of InKorea
 - The [dev](https://github.com/hawonp/InKorea/tree/dev) branch of this git repository will always be the latest development version of InKorea
 
+
+
 ## Step 1) Local Development Prep
 - Download/Clone the [main](https://github.com/hawonp/InKorea) branch of InKorea
+- NOTE: Order of deployment is DBMS --> FastAPI --> Frontend
 
 ## Step 2) Create Docker Network
 - Create a user-defined bridge to link mariadb and flask
   > docker network create dbms_network
 - Create a user-defined bridge to link nginx to all the different containers (if using nginx)
   > docker network create nginx-proxy
+
 ## Step 3) Initialize MariaDB database
 - Change directories to dbms/
   > cd dbms
@@ -39,10 +43,8 @@
 - Create a virtual environment 
   > python -m venv venv
 
-- Windows Activation  
+- Windows / Unix Activation Respectively  
   > venv\Scripts\activate 
-
-- UNIX Activation
   > source venv/bin/activate
 
 - Install Requirements
