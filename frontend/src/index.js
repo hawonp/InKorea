@@ -2,8 +2,10 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./styles/index.css";
-import App from "./App";
-import Error_404_page from "./pages/error/404";
+import Guide from "./pages/Guide";
+import { Navigate } from "react-router-dom";
+import AppCatalog from "./pages/Appcatalog";
+import Error404page from "./pages/error/404";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -11,13 +13,10 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}>
-          {/* <Route path="scenario" element={< />}></Route> */}
-          {/* <Route path="quiz" element={< />}></Route> */}
-          {/* <Route path="document" element={< />}></Route> */}
-          {/* <Route path="appcatalog" element={< />}></Route> */}
-        </Route>
-        <Route path="*" element={<Error_404_page />} />
+        <Route index path="/guide" element={<Guide />} />
+        <Route exact path="/appcatalog" element={<AppCatalog />} />
+        <Route exact path="/" element={<Navigate to="/guide" />} />
+        <Route path="*" element={<Error404page />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
