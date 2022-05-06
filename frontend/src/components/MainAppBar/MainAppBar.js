@@ -11,10 +11,15 @@ export default function MainAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography
+            align="center"
+            variant="h6"
+            component="div"
+            sx={{ flexGrow: 1 }}
+          >
             <Link to="/guide">InKorea</Link>
           </Typography>
-
+          |
           <Link to="/appcatalog">
             <Button color="inherit">App catalog</Button>
           </Link>

@@ -6,11 +6,13 @@ import AppBar from "@mui/material/AppBar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
+import TextField from "@mui/material/TextField";
 import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import ListItem from "@mui/material/ListItem";
 import ListItemText from "@mui/material/ListItemText";
 import MainAppBar from "../../components/MainAppBar/MainAppBar";
+import Searchbar from "../../components/Sidebar/Searchbar";
 
 const drawerWidth = 240;
 
@@ -18,10 +20,14 @@ export default function Guide(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
 
+  function handleSearch(text) {
+    alert(text);
+  }
+
   const drawer = (
     <div>
       <Toolbar />
-      <Divider />
+      <Searchbar searchHandler={handleSearch} />
       <List>
         {["One", "Two", "Three", "Four"].map((text, index) => (
           <ListItem button key={text}>
