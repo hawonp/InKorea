@@ -41,13 +41,13 @@
 - Install Requirements
   > pip install -r requirements.txt
 
-- Initialize FastAPI Docker Container
+- 4a) Initialize FastAPI Docker Container
   > docker-compose up --build
 
-- Initialize FastAPI Dev Server
+- 4b) Initialize FastAPI Dev Server
   > uvicorn app.main:app
 
-- Initialize FastAPI Dev Server (dynamic reloading)
+- 4c) Initialize FastAPI Dev Server (dynamic reloading)
   > uvicorn app.main:app --reload
 
 - Go back to root directory
