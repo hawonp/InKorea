@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./styles/index.css";
 import App from "./App";
-import Error_404_page from "./pages/error/404";
 import reportWebVitals from "./reportWebVitals";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
@@ -17,7 +16,6 @@ root.render(
           {/* <Route path="document" element={< />}></Route> */}
           {/* <Route path="appcatalog" element={< />}></Route> */}
         </Route>
-        <Route path="*" element={<Error_404_page />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
