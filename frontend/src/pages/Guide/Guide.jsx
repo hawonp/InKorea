@@ -1,8 +1,6 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
-import { IconButton } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import AppBar from "@mui/material/AppBar";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -132,7 +130,8 @@ export default function Guide(props) {
           onClick={() => {
             handleDrawerToggle();
           }}
-          sx={{ mr: 2, display: { sm: "none" } }}
+          fullWidth
+          sx={{ display: { sm: "none" } }}
         >
           Select category
         </Button>
