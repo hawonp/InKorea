@@ -133,7 +133,18 @@ export default function Guide(props) {
         }}
       >
         <Toolbar />
-        <Typography paragraph>Lorem ipsum</Typography>
+        <Typography paragraph>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+          dictum, massa eget blandit dictum, massa tellus aliquet justo, ut
+          facilisis elit felis at massa. Nulla euismod, mauris eget facilisis
+          feugiat, leo enim rutrum libero, et hendrerit lacus felis eget urna.
+          Suspendisse potenti. Fusce molestie, ipsum vitae venenatis suscipit,
+          sem mi vulputate purus, a viverra leo turpis vel magna. Proin placerat
+          facilisis risus gravida mattis. Phasellus purus justo, tempus quis
+          finibus vitae, tempus mattis orci. Integer accumsan mi eu tincidunt
+          tristique. Ut mollis ligula neque. In id ipsum tempus, gravida dolor
+          ac, elementum sapien.
+        </Typography>
       </Box>
     </Box>
   );
