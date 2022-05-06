@@ -81,3 +81,7 @@
 
  - Shutdown a docker container
     > docker-compose down
+
+## FastAPI Commands
+  - run dev server (cd to app folder)
+    > python main.py
