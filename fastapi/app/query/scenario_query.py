@@ -1,34 +1,34 @@
-from config.db_connect import get_connection
-from config.imports import mariadb
+from app.util.db_connect import get_connection
+import mariadb
 
-##########################################################
-#                         SELECT                         #
-##########################################################
-
-# Getting all the required documents for a subcategory :TODO: Check functionality
-def get_first_phrase(subcategory_id):
+def query_scenarios_by_subcategory_id(subcategory_id):
+    json_data = []
     try:
+        print()
+       
         # Obtainting DB cursor
         conn = get_connection()
         cursor = conn.cursor()
 
         # Set up query statements and values
-        query = "SELECT p.* FROM Phrase p INNER JOIN (SELECT phrase_id FROM Phrase_Start WHERE subcategory_id = subcategory_id) AS pid ON pid.phrase_id = p.phrase_id"
+        query = "SELECT P.* from Phrase P WHERE P.phrase_id = (SELECT PS.phrase_id FROM Phrase_Start PS WHERE PS.subcategory_id = ?)"
         values = (subcategory_id,)
-        print("Selecting with query", query)
+
+        # Set up query statements and values
+        
+        print("Selecting with query", query, values)
         cursor.execute(query, values)
 
         # serialize results into JSON
         row_headers = [x[0] for x in cursor.description]
         rv = cursor.fetchall()
-        json_data = []
 
         for result in rv:
             json_data.append(dict(zip(row_headers, result)))
 
     except mariadb.Error as e:
         print(f"Error ocurred while querying database: {e}")
-        return 0
+        json_data = 0
 
     # Closing cursor and commiting  connection
     cursor.close()
@@ -36,30 +36,34 @@ def get_first_phrase(subcategory_id):
     conn.close()
     return json_data
 
-    # Getting all the required documents for a subcategory :TODO: Check functionality
-def get_following_phrase(phrase_id):
+def query_children_for_node(phrase_id):
+    json_data = []
     try:
+        print()
+       
         # Obtainting DB cursor
         conn = get_connection()
         cursor = conn.cursor()
 
         # Set up query statements and values
-        query = "SELECT *.p FROM Phrase p INNER JOIN (SELECT to_id FROM Phrase_Link WHERE from_id = ?) AS pl ON pl.to_id = p.phrase_id"
+        query = "SELECT * FROM Phrase P WHERE P.phrase_id IN (SELECT PL.to_id FROM Phrase_Link PL WHERE PL.from_id = ?)"
         values = (phrase_id,)
-        print("Selecting with query", query)
+
+        # Set up query statements and values
+        
+        print("Selecting with query", query, values)
         cursor.execute(query, values)
 
         # serialize results into JSON
         row_headers = [x[0] for x in cursor.description]
         rv = cursor.fetchall()
-        json_data = []
 
         for result in rv:
             json_data.append(dict(zip(row_headers, result)))
 
     except mariadb.Error as e:
         print(f"Error ocurred while querying database: {e}")
-        return 0
+        json_data = 0
 
     # Closing cursor and commiting  connection
     cursor.close()

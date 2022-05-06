@@ -76,7 +76,7 @@ INSERT INTO Tag(tag_title) VALUES("Tag 1");
 INSERT INTO Tag(tag_title) VALUES("Tag 2");
 INSERT INTO Tag(tag_title) VALUES("Tag 3");
 
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("App 1", "1번 앱", "App 1 Text", "app 1 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("App 1", '1번 앱', "App 1 Text", "app 1 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("App 2", "2번 앱", "App 2 Text", "app 2 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("App 3", "3번 앱", "App 3 Text", "app 3 image url");
 

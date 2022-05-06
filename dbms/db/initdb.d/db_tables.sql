@@ -1,6 +1,10 @@
 -- ------------ DATABASE INITIALISATION ------------
+SET character_set_server = 'utf8';
+SET collation_server = 'utf8_bin';
+
 DROP DATABASE IF EXISTS inkorea_db;
 DROP USER IF EXISTS 'mod'@'localhost';
+
 CREATE DATABASE inkorea_db CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- TODO adjust for server when uploaded
@@ -9,7 +13,6 @@ CREATE USER 'mod'@'localhost' IDENTIFIED by 'inkorea';
 GRANT ALL PRIVILEGES ON inkorea_db.* to 'mod'@'localhost' identified by 'inkorea';
 
 USE inkorea_db;
-
 
 -- TABLE INITIALIZATION
 CREATE TABLE Category(
