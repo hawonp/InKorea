@@ -21,7 +21,6 @@ export default function Searchbar({ searchHandler }) {
     <Box sx={{ m: 1 }}>
       <TextField
         id="standard-basic"
-        label="Search"
         variant="standard"
         onChange={(event) => {
           inputValue = event.target.value;
