@@ -5,12 +5,10 @@ import Drawer from "@mui/material/Drawer";
 import AppBar from "@mui/material/AppBar";
 import CssBaseline from "@mui/material/CssBaseline";
 import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
 import Typography from "@mui/material/Typography";
-import ListItem from "@mui/material/ListItem";
-import ListItemText from "@mui/material/ListItemText";
 import MainAppBar from "../../components/MainAppBar/MainAppBar";
 import Searchbar from "../../components/Sidebar/Searchbar";
+import SidebarAccordion from "../../components/Sidebar/SidebarAccordion";
 
 const drawerWidth = 240;
 
@@ -26,13 +24,7 @@ export default function Guide(props) {
     <div>
       <Toolbar />
       <Searchbar searchHandler={handleSearch} />
-      <List>
-        {["One", "Two", "Three", "Four"].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
-      </List>
+      <SidebarAccordion />
     </div>
   );
 
@@ -98,20 +90,6 @@ export default function Guide(props) {
           {drawer}
         </Drawer>
       </Box>
-      {/* previous drawer */}
-      {/* <Drawer
-        variant="permanent"
-        sx={{
-          width: drawerWidth,
-          flexShrink: 0,
-          [`& .MuiDrawer-paper`]: {
-            width: drawerWidth,
-            boxSizing: "border-box",
-          },
-        }}
-      >
-        <Box sx={{ overflow: "auto" }}>{drawer}</Box>
-      </Drawer> */}
       <Box
         component="main"
         sx={{
