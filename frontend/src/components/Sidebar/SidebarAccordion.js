@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { styled } from "@mui/material/styles";
 import MuiAccordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
@@ -20,21 +20,7 @@ const Accordion = styled((props) => (
   },
 }));
 
-export default function SidebarAccordion() {
-  const [options, setOptions] = useState([
-    {
-      cateogryName: "Banking",
-      subCateogries: [
-        "Getting a bank account",
-        "Withdrawing money from an ATM",
-      ],
-    },
-    {
-      cateogryName: "Phone",
-      subCateogries: ["subcat 11", "subcat 12"],
-    },
-  ]);
-
+export default function SidebarAccordion({ options, handleSubcatSelect }) {
   return (
     <div>
       {options.map((option, index) => (

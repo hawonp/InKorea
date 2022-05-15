@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
@@ -15,16 +15,42 @@ const drawerWidth = 240;
 export default function Guide(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [options, setOptions] = useState([
+    {
+      cateogryName: "Banking",
+      subCateogries: [
+        "Getting a bank account",
+        "Withdrawing money from an ATM",
+      ],
+    },
+    {
+      cateogryName: "Phone",
+      subCateogries: ["subcat 11", "subcat 12"],
+    },
+  ]);
 
   function handleSearch(text) {
-    alert(text);
+    setOptions((prev) => [
+      ...prev,
+      {
+        cateogryName: text,
+        subCateogries: ["subcat 1", "subcat 2"],
+      },
+    ]);
+  }
+
+  function handleSubcatSelect() {
+    alert();
   }
 
   const drawer = (
     <div>
       <Toolbar />
       <Searchbar searchHandler={handleSearch} />
-      <SidebarAccordion />
+      <SidebarAccordion
+        options={options}
+        handleSubcatSelect={handleSubcatSelect}
+      />
     </div>
   );
 
