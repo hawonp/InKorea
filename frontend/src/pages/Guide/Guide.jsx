@@ -9,6 +9,8 @@ import Typography from "@mui/material/Typography";
 import MainAppBar from "../../components/MainAppBar/MainAppBar";
 import Searchbar from "../../components/Sidebar/Searchbar";
 import SidebarAccordion from "../../components/Sidebar/SidebarAccordion";
+import ConversationLeft from "../../components/ConversationLeft";
+import ConversationRight from "../../components/ConversationRight";
 
 const drawerWidth = 240;
 
@@ -149,6 +151,8 @@ export default function Guide(props) {
           tristique. Ut mollis ligula neque. In id ipsum tempus, gravida dolor
           ac, elementum sapien.
         </Typography>
+        <ConversationLeft />
+        <ConversationRight />
       </Box>
     </Box>
   );
