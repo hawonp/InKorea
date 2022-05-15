@@ -1,28 +1,55 @@
-import * as React from "react";
-import Accordion from "@mui/material/Accordion";
+import React, { useState } from "react";
+import { styled } from "@mui/material/styles";
+import MuiAccordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import { List, ListItem, ListItemButton } from "@mui/material";
+
+const Accordion = styled((props) => (
+  <MuiAccordion disableGutters elevation={0} square {...props} />
+))(({ theme }) => ({
+  border: `1px solid ${theme.palette.divider}`,
+  "&:not(:last-child)": {
+    borderBottom: 0,
+  },
+  "&:before": {
+    display: "none",
+  },
+}));
 
 export default function SidebarAccordion() {
+  const [options, setOptions] = useState([
+    {
+      cateogryName: "Bobaboba",
+      subCateogries: ["subcat 1", "subcat 2"],
+    },
+    {
+      cateogryName: "Babobabo",
+      subCateogries: ["subcat 11", "subcat 12"],
+    },
+  ]);
+
   return (
     <div>
-      {["One", "Two", "Three", "Four"].map((text, index) => (
-        <Accordion>
+      {options.map((option, index) => (
+        <Accordion key={index}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
             id="panel2a-header"
           >
-            <Typography>{text}</Typography>
+            <Typography>{option.cateogryName}</Typography>
           </AccordionSummary>
           <AccordionDetails>
-            <Typography>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Suspendisse malesuada lacus ex, sit amet blandit leo lobortis
-              eget.
-            </Typography>
+            <List>
+              {option.subCateogries.map((subcat, index) => (
+                <ListItem disablePadding key={index}>
+                  <ListItemButton>{subcat}</ListItemButton>
+                </ListItem>
+              ))}
+            </List>
           </AccordionDetails>
         </Accordion>
       ))}
