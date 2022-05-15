@@ -14,6 +14,7 @@ const Accordion = styled((props) => (
   "&:not(:last-child)": {
     borderBottom: 0,
   },
+  borderRight: 0,
   "&:before": {
     display: "none",
   },
@@ -22,11 +23,14 @@ const Accordion = styled((props) => (
 export default function SidebarAccordion() {
   const [options, setOptions] = useState([
     {
-      cateogryName: "Bobaboba",
-      subCateogries: ["subcat 1", "subcat 2"],
+      cateogryName: "Banking",
+      subCateogries: [
+        "Getting a bank account",
+        "Withdrawing money from an ATM",
+      ],
     },
     {
-      cateogryName: "Babobabo",
+      cateogryName: "Phone",
       subCateogries: ["subcat 11", "subcat 12"],
     },
   ]);
