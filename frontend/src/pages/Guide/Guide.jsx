@@ -11,6 +11,8 @@ import Searchbar from "../../components/Sidebar/Searchbar";
 import SidebarAccordion from "../../components/Sidebar/SidebarAccordion";
 import ConversationLeft from "../../components/ConversationLeft";
 import ConversationRight from "../../components/ConversationRight";
+import { CATEGORIES } from "../../utils/routeConstants";
+import axiosInstance from "../../utils/routeUtils";
 
 const drawerWidth = 240;
 
@@ -59,6 +61,14 @@ export default function Guide(props) {
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+  axiosInstance
+    .get(CATEGORIES)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
