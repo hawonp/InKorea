@@ -23,7 +23,7 @@ def query_all_categories():
 
     except mariadb.Error as e:
         print(f"Error ocurred while querying database: {e}")
-        return 0
+        json_data = 0
 
     # Closing cursor and commiting  connection
     cursor.close()
