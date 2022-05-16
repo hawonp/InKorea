@@ -1,10 +1,10 @@
 import React from "react";
 import { styled } from "@mui/material/styles";
-import MuiAccordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MuiAccordion from "@mui/material/Accordion";
+import Typography from "@mui/material/Typography";
 import { List, ListItem, ListItemButton } from "@mui/material";
 
 const Accordion = styled((props) => (
