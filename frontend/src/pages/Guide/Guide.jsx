@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
-import Drawer from "@mui/material/Drawer";
 import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
+import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+
 import MainAppBar from "../../components/MainAppBar/MainAppBar";
 import Searchbar from "../../components/Sidebar/Searchbar";
 import SidebarAccordion from "../../components/Sidebar/SidebarAccordion";
-import ConversationLeft from "../../components/ConversationLeft";
-import ConversationRight from "../../components/ConversationRight";
+import ConversationLeft from "../../components/Guide/ConversationLeft";
+import ConversationRight from "../../components/Guide/ConversationRight";
+import DocumentList from "../../components/Guide/DocumentList";
 import { CATEGORIES } from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
 
@@ -155,8 +157,9 @@ export default function Guide(props) {
         component="main"
         sx={{
           flexGrow: 1,
-          p: 3,
+          // p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
+          maxWidth: "md",
         }}
       >
         <Toolbar />
@@ -172,18 +175,7 @@ export default function Guide(props) {
         >
           Select category
         </Button>
-        <Typography paragraph>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
-          dictum, massa eget blandit dictum, massa tellus aliquet justo, ut
-          facilisis elit felis at massa. Nulla euismod, mauris eget facilisis
-          feugiat, leo enim rutrum libero, et hendrerit lacus felis eget urna.
-          Suspendisse potenti. Fusce molestie, ipsum vitae venenatis suscipit,
-          sem mi vulputate purus, a viverra leo turpis vel magna. Proin placerat
-          facilisis risus gravida mattis. Phasellus purus justo, tempus quis
-          finibus vitae, tempus mattis orci. Integer accumsan mi eu tincidunt
-          tristique. Ut mollis ligula neque. In id ipsum tempus, gravida dolor
-          ac, elementum sapien.
-        </Typography>
+        <DocumentList />
         <ConversationLeft />
         <ConversationRight />
       </Box>
