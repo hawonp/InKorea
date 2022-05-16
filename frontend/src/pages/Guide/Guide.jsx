@@ -133,8 +133,9 @@ export default function Guide(props) {
         component="main"
         sx={{
           flexGrow: 1,
-          p: 3,
+          // p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
+          maxWidth: "md",
         }}
       >
         <Toolbar />

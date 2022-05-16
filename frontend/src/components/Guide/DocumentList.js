@@ -5,7 +5,7 @@ import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuiAccordion from "@mui/material/Accordion";
 import { List, ListItem, ListItemButton, Typography } from "@mui/material";
-import { CATEGORIES } from "../../utils/routeConstants";
+import { DOCUMENTS, SLASH } from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
 
 const Accordion = styled((props) => (
@@ -21,11 +21,14 @@ const Accordion = styled((props) => (
 }));
 
 export default function DocumentList({ subCateogry }) {
+  const [documents, setDocuments] = React.useState([]);
+  const sub = "1";
   useEffect(() => {
     axiosInstance
-      .get(CATEGORIES)
+      .get(DOCUMENTS + SLASH + sub)
       .then((response) => {
-        console.log(response);
+        const data = response.data;
+        setDocuments(data);
       })
       .catch((e) => {
         console.log(e);
@@ -43,9 +46,9 @@ export default function DocumentList({ subCateogry }) {
         </AccordionSummary>
         <AccordionDetails>
           <List>
-            {["asd", "f"].map((subcat, index) => (
+            {documents.map((document, index) => (
               <ListItem disablePadding key={index}>
-                <ListItemButton>{subcat}</ListItemButton>
+                <ListItemButton>{document["document_title"]}</ListItemButton>
               </ListItem>
             ))}
           </List>
