@@ -1,7 +1,6 @@
 # package imports
-from typing import Optional
 from fastapi import FastAPI
-import mariadb 
+from fastapi.middleware.cors import CORSMiddleware
 
 # module imports
 from app.util.db_connect import ping_db
@@ -11,6 +10,19 @@ from .routers import AppCatalog, Category, Document, Scenario, Quiz
 
 # initial FastAPI initialization
 app = FastAPI()
+
+# CORS
+origins = [
+    '*',
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 # connect all routes
 app.include_router(Category.router)
