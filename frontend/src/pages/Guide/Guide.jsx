@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
@@ -9,28 +9,66 @@ import Typography from "@mui/material/Typography";
 import MainAppBar from "../../components/MainAppBar/MainAppBar";
 import Searchbar from "../../components/Sidebar/Searchbar";
 import SidebarAccordion from "../../components/Sidebar/SidebarAccordion";
+import ConversationLeft from "../../components/ConversationLeft";
+import ConversationRight from "../../components/ConversationRight";
+import { CATEGORIES } from "../../utils/routeConstants";
+import axiosInstance from "../../utils/routeUtils";
 
 const drawerWidth = 240;
 
 export default function Guide(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
+  const [options, setOptions] = useState([
+    {
+      cateogryName: "Banking",
+      subCateogries: [
+        "Getting a bank account",
+        "Withdrawing money from an ATM",
+      ],
+    },
+    {
+      cateogryName: "Phone",
+      subCateogries: ["subcat 11", "subcat 12"],
+    },
+  ]);
 
   function handleSearch(text) {
-    alert(text);
+    setOptions((prev) => [
+      ...prev,
+      {
+        cateogryName: text,
+        subCateogries: ["subcat 1", "subcat 2"],
+      },
+    ]);
+  }
+
+  function handleSubcatSelect(e) {
+    console.log(e);
   }
 
   const drawer = (
     <div>
       <Toolbar />
       <Searchbar searchHandler={handleSearch} />
-      <SidebarAccordion />
+      <SidebarAccordion
+        options={options}
+        handleSubcatSelect={handleSubcatSelect}
+      />
     </div>
   );
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
+  axiosInstance
+    .get(CATEGORIES)
+    .then((response) => {
+      console.log(response);
+    })
+    .catch((e) => {
+      console.log(e);
+    });
 
   const container =
     window !== undefined ? () => window().document.body : undefined;
@@ -123,6 +161,8 @@ export default function Guide(props) {
           tristique. Ut mollis ligula neque. In id ipsum tempus, gravida dolor
           ac, elementum sapien.
         </Typography>
+        <ConversationLeft />
+        <ConversationRight />
       </Box>
     </Box>
   );
