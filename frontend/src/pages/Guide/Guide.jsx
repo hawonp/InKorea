@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Box from "@mui/material/Box";
 import { Button } from "@mui/material";
 import Drawer from "@mui/material/Drawer";
@@ -19,19 +19,49 @@ const drawerWidth = 240;
 export default function Guide(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  const [options, setOptions] = useState([
-    {
-      cateogryName: "Banking",
-      subCateogries: [
-        "Getting a bank account",
-        "Withdrawing money from an ATM",
-      ],
-    },
-    {
-      cateogryName: "Phone",
-      subCateogries: ["subcat 11", "subcat 12"],
-    },
-  ]);
+  // const [options, setOptions] = useState([
+  //   {
+  //     categoryName: "Banking",
+  //     subCategories: [
+  //       "Getting a bank account",
+  //       "Withdrawing money from an ATM",
+  //     ],
+  //   },
+  //   {
+  //     categoryName: "Phone",
+  //     subCategories: ["subcat 11", "subcat 12"],
+  //   },
+  // ]);
+
+  const [options, setOptions] = useState([]);
+
+  useEffect(() => {
+    console.log("Axios Call to get all categories");
+    axiosInstance
+      .get(CATEGORIES)
+      .then((response) => {
+        if (response["status"] == 200) {
+          var json_data = response["data"];
+
+          var categories = [];
+
+          for (var i = 0; i < json_data.length; i++) {
+            var obj = json_data[i];
+            var temp_dict = {};
+            temp_dict["categoryName"] = obj["category_name"];
+            temp_dict["categoryID"] = obj["category_id"];
+            temp_dict["subCategories"] = obj["subcategories"];
+            categories.push(temp_dict);
+          }
+
+          console.log(categories);
+          setOptions(categories);
+        }
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
 
   function handleSearch(text) {
     setOptions((prev) => [
@@ -43,8 +73,8 @@ export default function Guide(props) {
     ]);
   }
 
-  function handleSubcatSelect(e) {
-    console.log(e);
+  function handleSubcatSelect(id) {
+    console.log("clicked on subcategory_id:", id);
   }
 
   const drawer = (
@@ -58,17 +88,10 @@ export default function Guide(props) {
     </div>
   );
 
+  // mobile version of getting data
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
-  axiosInstance
-    .get(CATEGORIES)
-    .then((response) => {
-      console.log(response);
-    })
-    .catch((e) => {
-      console.log(e);
-    });
 
   const container =
     window !== undefined ? () => window().document.body : undefined;

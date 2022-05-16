@@ -3,23 +3,23 @@ import mariadb, sys
 def get_connection():
     try:
         # local dev 
+        # conn = mariadb.connect(
+        #     user="mod",
+        #     password="inkorea",
+        #     host="localhost",
+        #     port=3306,
+        #     database="inkorea_db"
+        # )
+
+        # docker container
         conn = mariadb.connect(
             user="mod",
             password="inkorea",
-            host="localhost",
+            host="inkorea_db",
             port=3306,
             database="inkorea_db"
         )
 
-        # docker container
-        # conn = mariadb.connect(
-        #     user="mod",
-        #     password="inkorea",
-        #     host="inkorea_db",
-        #     port=3306,
-        #     database="inkorea_db"
-        # )
-        
         return conn
     except mariadb.Error as e:
         print(f"Error connecting to MariaDB Platform: {e}")
