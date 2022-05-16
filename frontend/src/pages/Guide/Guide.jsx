@@ -43,8 +43,8 @@ export default function Guide(props) {
     ]);
   }
 
-  function handleSubcatSelect() {
-    alert();
+  function handleSubcatSelect(e) {
+    console.log(e);
   }
 
   const drawer = (
