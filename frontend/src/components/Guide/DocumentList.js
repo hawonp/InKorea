@@ -22,10 +22,15 @@ const Accordion = styled((props) => (
 
 export default function DocumentList({ subCateogry }) {
   const [documents, setDocuments] = React.useState([]);
-  const sub = "1";
+
   useEffect(() => {
+    const sub = "2";
     axiosInstance
-      .get(DOCUMENTS + SLASH + sub)
+      .get(DOCUMENTS + SLASH, {
+        params: {
+          subcategory_id: sub,
+        },
+      })
       .then((response) => {
         const data = response.data;
         setDocuments(data);
