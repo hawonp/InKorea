@@ -17,8 +17,8 @@ INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to get a hous
 INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to get a house (Rent)", "3");
 
 -- Subcategory (Mobile)
-INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to get basic health insurance", "4");
-INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to upgrade your health insurance", "4");
+INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to get a korean phone", "4");
+INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to change your data plan", "4");
 
 -- Scenario Guide (Banking Specific)
 INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("first phrase", "1번 문장", "random link");
