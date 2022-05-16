@@ -1,8 +1,12 @@
+import React, { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuiAccordion from "@mui/material/Accordion";
+import { List, ListItem, ListItemButton, Typography } from "@mui/material";
+import { CATEGORIES } from "../../utils/routeConstants";
+import axiosInstance from "../../utils/routeUtils";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -11,13 +15,22 @@ const Accordion = styled((props) => (
   "&:not(:last-child)": {
     borderBottom: 0,
   },
-  borderRight: 0,
   "&:before": {
     display: "none",
   },
 }));
 
-export default function DocumentList() {
+export default function DocumentList({ subCateogry }) {
+  useEffect(() => {
+    axiosInstance
+      .get(CATEGORIES)
+      .then((response) => {
+        console.log(response);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }, []);
   return (
     <div>
       <Accordion>
@@ -26,9 +39,17 @@ export default function DocumentList() {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          123
+          <Typography> Documents </Typography>
         </AccordionSummary>
-        <AccordionDetails>dsadasdas</AccordionDetails>
+        <AccordionDetails>
+          <List>
+            {["asd", "f"].map((subcat, index) => (
+              <ListItem disablePadding key={index}>
+                <ListItemButton>{subcat}</ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </AccordionDetails>
       </Accordion>
     </div>
   );
