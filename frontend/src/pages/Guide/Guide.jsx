@@ -9,7 +9,7 @@ import Toolbar from "@mui/material/Toolbar";
 import MainAppBar from "../../components/MainAppBar/MainAppBar";
 import Searchbar from "../../components/Sidebar/Searchbar";
 import SidebarAccordion from "../../components/Sidebar/SidebarAccordion";
-import DocumentList from "../../components/Guide/DocumentList";
+import Documents from "../../components/Guide/Documents";
 import { CATEGORIES, DOCUMENTS, SLASH } from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
 import ScenarioGuide from "../../components/Guide/ScenarioGuide";
@@ -179,7 +179,7 @@ export default function Guide(props) {
         {subCategoryName ? (
           <div>
             <h1 style={{ textAlign: "center" }}> {subCategoryName}</h1>
-            <DocumentList id={subCategoryId} />
+            <Documents id={subCategoryId} />
             <hr />
             <ScenarioGuide id={subCategoryId} />
           </div>

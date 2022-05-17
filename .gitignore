@@ -201,3 +201,4 @@ dbms/db/initdb.d/1.sql
 dbms/db/initdb.d/2.sql
 
 backend/.env
+frontend/package-lock.json
