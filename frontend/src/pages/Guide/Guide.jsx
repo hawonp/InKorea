@@ -10,7 +10,7 @@ import MainAppBar from "../../components/MainAppBar/MainAppBar";
 import Searchbar from "../../components/Sidebar/Searchbar";
 import SidebarAccordion from "../../components/Sidebar/SidebarAccordion";
 import DocumentList from "../../components/Guide/DocumentList";
-import { CATEGORIES } from "../../utils/routeConstants";
+import { CATEGORIES, DOCUMENTS, SLASH } from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
 import ScenarioGuide from "../../components/Guide/ScenarioGuide";
 
@@ -101,7 +101,7 @@ export default function Guide(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box alignItems="center" justifyContent="center" sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -159,7 +159,6 @@ export default function Guide(props) {
         component="main"
         sx={{
           flexGrow: 1,
-          // p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           maxWidth: "md",
         }}
@@ -178,7 +177,7 @@ export default function Guide(props) {
           Select category
         </Button>
         <h1> {subCategoryName}</h1>
-        <DocumentList />
+        <DocumentList id={subCategoryId} />
         <ScenarioGuide data={subCategoryId} />
       </Box>
     </Box>
