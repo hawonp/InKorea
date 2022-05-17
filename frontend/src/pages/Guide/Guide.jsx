@@ -177,7 +177,7 @@ export default function Guide(props) {
           Select category
         </Button>
         <h1> {subCategoryName}</h1>
-        <DocumentList />
+        <DocumentList id={subCategoryId} />
         <ScenarioGuide data={subCategoryId} />
       </Box>
     </Box>
