@@ -1,6 +1,10 @@
 -- ------------ DATABASE INITIALISATION ------------
+SET character_set_server = 'utf8';
+SET collation_server = 'utf8_bin';
+
 DROP DATABASE IF EXISTS inkorea_db;
 DROP USER IF EXISTS 'mod'@'localhost';
+
 CREATE DATABASE inkorea_db CHARACTER SET utf8 COLLATE utf8_bin;
 
 -- TODO adjust for server when uploaded
@@ -9,7 +13,6 @@ CREATE USER 'mod'@'localhost' IDENTIFIED by 'inkorea';
 GRANT ALL PRIVILEGES ON inkorea_db.* to 'mod'@'localhost' identified by 'inkorea';
 
 USE inkorea_db;
-
 
 -- TABLE INITIALIZATION
 CREATE TABLE Category(
@@ -56,7 +59,7 @@ CREATE TABLE Phrase(
     phrase_id INTEGER NOT NULL AUTO_INCREMENT,
     phrase_text VARCHAR(100),
     phrase_text_kor VARCHAR(100),
-    phrase_audio_link VARCHAR(1000),
+    phrase_romanization VARCHAR(1000),
     PRIMARY KEY(phrase_id)
 );
 
@@ -140,6 +143,7 @@ CREATE TABLE App_Tag(
 
 CREATE TABLE App_Info_Block(
     info_id INTEGER NOT NULL AUTO_INCREMENT,
+    info_index INTEGER NOT NULL,
     info_title VARCHAR(100),
     info_text VARCHAR(1000),
     info_image VARCHAR(1000),

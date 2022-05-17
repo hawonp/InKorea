@@ -17,15 +17,15 @@ INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to get a hous
 INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to get a house (Rent)", "3");
 
 -- Subcategory (Mobile)
-INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to get basic health insurance", "4");
-INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to upgrade your health insurance", "4");
+INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to get a korean phone", "4");
+INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to change your data plan", "4");
 
 -- Scenario Guide (Banking Specific)
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("first phrase", "1번 문장", "random link");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("second phrase", "2번 문장", "random link");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("third phrase", "3번 문장", "random link");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("fourth phrase", "4번 문장", "random link");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("fifth phrase", "5번 문장", "random link");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("first phrase", "1번 문장", "onion haseyo");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("second phrase", "2번 문장", "onion haseyo 2");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("third phrase", "3번 문장", "onion haseyo 3");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("fourth phrase", "4번 문장", "onion haseyo 4");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("fifth phrase", "5번 문장", "onion haseyo 5");
 
 INSERT INTO Phrase_Start(subcategory_id, phrase_id) VALUES (1, 1);
 INSERT INTO Phrase_Link(from_id, to_id) VALUES (1, 2);
@@ -76,7 +76,7 @@ INSERT INTO Tag(tag_title) VALUES("Tag 1");
 INSERT INTO Tag(tag_title) VALUES("Tag 2");
 INSERT INTO Tag(tag_title) VALUES("Tag 3");
 
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("App 1", "1번 앱", "App 1 Text", "app 1 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("App 1", '1번 앱', "App 1 Text", "app 1 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("App 2", "2번 앱", "App 2 Text", "app 2 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("App 3", "3번 앱", "App 3 Text", "app 3 image url");
 
@@ -91,14 +91,14 @@ INSERT INTO App_Tag(app_id, tag_id) VALUES (1, 3);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (2, 2);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (3, 3);
 
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 1", "text 1", "image 1", 1);
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 2", "text 2", "image 2", 1);
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 3", "text 3", "image 3", 1);
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 4", "text 4", "image 4", 1);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 1", 1, "text 1", "image 1", 1);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 2", 2, "text 2", "image 2", 1);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 3", 3, "text 3", "image 3", 1);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 4", 4, "text 4", "image 4", 1);
 
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 1", "text 1", "image 1", 2);
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 2", "text 2", "image 2", 2);
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 3", "text 3", "image 3", 2);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 1", 1, "text 1", "image 1", 2);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 2", 2, "text 2", "image 2", 2);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 3", 3, "text 3", "image 3", 2);
 
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 1", "text 1", "image 1", 3);
-INSERT INTO App_Info_Block(info_title, info_text, info_image, app_id) VALUES ("Info Title 2", "text 2", "image 2", 3);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 1", 1, "text 1", "image 1", 3);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 2", 2, "text 2", "image 2", 3);
