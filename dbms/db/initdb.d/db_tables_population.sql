@@ -21,11 +21,11 @@ INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to get a kore
 INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to change your data plan", "4");
 
 -- Scenario Guide (Banking Specific)
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("first phrase", "1번 문장", "random link");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("second phrase", "2번 문장", "random link");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("third phrase", "3번 문장", "random link");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("fourth phrase", "4번 문장", "random link");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("fifth phrase", "5번 문장", "random link");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("first phrase", "1번 문장", "onion haseyo");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("second phrase", "2번 문장", "onion haseyo 2");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("third phrase", "3번 문장", "onion haseyo 3");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("fourth phrase", "4번 문장", "onion haseyo 4");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("fifth phrase", "5번 문장", "onion haseyo 5");
 
 INSERT INTO Phrase_Start(subcategory_id, phrase_id) VALUES (1, 1);
 INSERT INTO Phrase_Link(from_id, to_id) VALUES (1, 2);
