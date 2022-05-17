@@ -3,19 +3,19 @@ import { styled } from "@mui/material/styles";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Box from "@mui/material/Box";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MuiAccordion from "@mui/material/Accordion";
-import { List, ListItem, ListItemButton, Typography } from "@mui/material";
-import { DOCUMENTS } from "../../utils/routeConstants";
-import axiosInstance from "../../utils/routeUtils";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import MuiAccordion from "@mui/material/Accordion";
+import { List, ListItem, ListItemButton, Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
+
+import { DOCUMENTS, INFO, SLASH } from "../../utils/routeConstants";
+import axiosInstance from "../../utils/routeUtils";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -32,16 +32,31 @@ const Accordion = styled((props) => (
 export default function Documents({ id }) {
   const [selectedSubcategory, setSelectedSubcategory] = useState(-1);
   const [documents, setDocuments] = useState([]);
+  const [documentDetails, setDocumentDetails] = useState({
+    documentTitle: "",
+    documentDetails: [],
+  });
   const [open, setOpen] = useState(false);
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
+  // Handlers
   const handleClose = () => {
     setOpen(false);
   };
 
-  function handleDocumentClick(id) {
+  function handleDocumentClick(id, title) {
     setOpen(true);
+    axiosInstance
+      .get(DOCUMENTS + SLASH + id + INFO)
+      .then((response) => {
+        const data = response.data;
+        setDocumentDetails({ documentTitle: title, documentDetails: data });
+        console.log(documentDetails);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
 
   if (selectedSubcategory !== id) {
@@ -80,7 +95,10 @@ export default function Documents({ id }) {
                 {document["has_details"] ? (
                   <ListItemButton
                     onClick={() => {
-                      handleDocumentClick(document["document_id"]);
+                      handleDocumentClick(
+                        document["document_id"],
+                        document["document_title"]
+                      );
                     }}
                   >
                     {document["document_title"]}
@@ -104,13 +122,26 @@ export default function Documents({ id }) {
           aria-labelledby="docdetails-dialog-title"
         >
           <DialogTitle id="docdetails-dialog-title">
-            {"Use Google's location service?"}
+            {documentDetails["documentTitle"]}
           </DialogTitle>
           <DialogContent>
-            <DialogContentText>
-              Let Google help apps determine location. This means sending
-              anonymous location data to Google, even when no apps are running.
-            </DialogContentText>
+            {documentDetails.documentDetails.map((entry) => (
+              <Box key={entry["entry_id"]}>
+                <Accordion
+                  sx={{ borderRight: 0, borderLeft: 0, marginBottom: 2 }}
+                >
+                  <AccordionSummary
+                    expandIcon={<ExpandMoreIcon />}
+                    aria-controls="panel2a-content"
+                    id="panel2a-header"
+                  >
+                    <Typography> {entry["entry_title"]} </Typography>
+                  </AccordionSummary>
+                  <AccordionDetails>{entry["entry_image"]}</AccordionDetails>
+                  <AccordionDetails>{entry["entry_text"]}</AccordionDetails>
+                </Accordion>
+              </Box>
+            ))}
           </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} autoFocus>
