@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuiAccordion from "@mui/material/Accordion";
 import { List, ListItem, ListItemButton, Typography } from "@mui/material";
-import { DOCUMENTS, SLASH } from "../../utils/routeConstants";
+import { CATEGORIES, DOCUMENTS, SLASH } from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
 
 const Accordion = styled((props) => (
@@ -20,25 +20,28 @@ const Accordion = styled((props) => (
   },
 }));
 
-export default function DocumentList({ subCateogry }) {
-  const [documents, setDocuments] = React.useState([]);
+export default function DocumentList({ id }) {
+  const [selectedSubcategory, setSelectedSubcategory] = useState(-1);
+  const [documents, setDocuments] = useState([]);
 
-  useEffect(() => {
-    const sub = "2";
+  if (selectedSubcategory != id) {
     axiosInstance
       .get(DOCUMENTS + SLASH, {
         params: {
-          subcategory_id: sub,
+          subcategory_id: id,
         },
       })
       .then((response) => {
         const data = response.data;
         setDocuments(data);
+        setSelectedSubcategory(id);
+        console.log(data);
       })
       .catch((e) => {
         console.log(e);
       });
-  }, []);
+  }
+
   return (
     <div>
       <Accordion>
@@ -51,9 +54,13 @@ export default function DocumentList({ subCateogry }) {
         </AccordionSummary>
         <AccordionDetails>
           <List>
-            {documents.map((document, index) => (
-              <ListItem disablePadding key={index}>
-                <ListItemButton>{document["document_title"]}</ListItemButton>
+            {documents.map((document) => (
+              <ListItem disablePadding key={document["document_id"]}>
+                {document["has_details"] ? (
+                  <ListItemButton>{document["document_title"]}</ListItemButton>
+                ) : (
+                  <>{document["document_title"]}</>
+                )}
               </ListItem>
             ))}
           </List>

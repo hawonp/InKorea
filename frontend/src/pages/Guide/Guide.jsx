@@ -12,7 +12,7 @@ import SidebarAccordion from "../../components/Sidebar/SidebarAccordion";
 import ConversationLeft from "../../components/Guide/ConversationLeft";
 import ConversationRight from "../../components/Guide/ConversationRight";
 import DocumentList from "../../components/Guide/DocumentList";
-import { CATEGORIES } from "../../utils/routeConstants";
+import { CATEGORIES, DOCUMENTS, SLASH } from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
 
 const drawerWidth = 240;
@@ -35,6 +35,7 @@ export default function Guide(props) {
   // ]);
 
   const [options, setOptions] = useState([]);
+  const [selectedSubcategory, setSelectedSubcategory] = useState(-1);
 
   useEffect(() => {
     console.log("Axios Call to get all categories");
@@ -76,6 +77,7 @@ export default function Guide(props) {
 
   function handleSubcatSelect(id) {
     console.log("clicked on subcategory_id:", id);
+    setSelectedSubcategory(id);
   }
 
   const drawer = (
@@ -174,7 +176,7 @@ export default function Guide(props) {
         >
           Select category
         </Button>
-        <DocumentList />
+        <DocumentList id={selectedSubcategory} />
         <ConversationLeft />
         <ConversationRight />
       </Box>
