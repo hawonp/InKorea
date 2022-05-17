@@ -100,7 +100,7 @@ export default function Guide(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box alignItems="center" justifyContent="center" sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -158,7 +158,6 @@ export default function Guide(props) {
         component="main"
         sx={{
           flexGrow: 1,
-          // p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           maxWidth: "md",
         }}

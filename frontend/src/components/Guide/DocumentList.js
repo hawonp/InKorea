@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { styled } from "@mui/material/styles";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
+import Box from "@mui/material/Box";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuiAccordion from "@mui/material/Accordion";
 import { List, ListItem, ListItemButton, Typography } from "@mui/material";
@@ -44,7 +45,7 @@ export default function DocumentList({ id }) {
 
   return (
     <div>
-      <Accordion>
+      <Accordion sx={{ borderRight: 0, borderLeft: 0 }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -59,7 +60,9 @@ export default function DocumentList({ id }) {
                 {document["has_details"] ? (
                   <ListItemButton>{document["document_title"]}</ListItemButton>
                 ) : (
-                  <>{document["document_title"]}</>
+                  <Box sx={{ padding: 1, paddingLeft: 2 }}>
+                    {document["document_title"]}
+                  </Box>
                 )}
               </ListItem>
             ))}
