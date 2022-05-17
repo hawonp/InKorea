@@ -10,8 +10,8 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuiAccordion from "@mui/material/Accordion";
-import { List, ListItem, ListItemButton, Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { List, ListItem, ListItemButton, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
 import { DOCUMENTS, INFO, SLASH } from "../../utils/routeConstants";
@@ -52,7 +52,6 @@ export default function Documents({ id }) {
       .then((response) => {
         const data = response.data;
         setDocumentDetails({ documentTitle: title, documentDetails: data });
-        console.log(documentDetails);
       })
       .catch((e) => {
         console.log(e);
@@ -70,7 +69,6 @@ export default function Documents({ id }) {
         const data = response.data;
         setDocuments(data);
         setSelectedSubcategory(id);
-        console.log(data);
       })
       .catch((e) => {
         console.log(e);
@@ -137,8 +135,16 @@ export default function Documents({ id }) {
                   >
                     <Typography> {entry["entry_title"]} </Typography>
                   </AccordionSummary>
-                  <AccordionDetails>{entry["entry_image"]}</AccordionDetails>
-                  <AccordionDetails>{entry["entry_text"]}</AccordionDetails>
+                  <AccordionDetails>
+                    {entry["entry_image"] !== "image url" ? (
+                      <img src={entry["entry_image"]} />
+                    ) : (
+                      <></>
+                    )}
+                    <Typography style={{ wordWrap: "break-word" }}>
+                      {entry["entry_text"]}
+                    </Typography>
+                  </AccordionDetails>
                 </Accordion>
               </Box>
             ))}
