@@ -59,7 +59,7 @@ CREATE TABLE Phrase(
     phrase_id INTEGER NOT NULL AUTO_INCREMENT,
     phrase_text VARCHAR(100),
     phrase_text_kor VARCHAR(100),
-    phrase_audio_link VARCHAR(1000),
+    phrase_romanization VARCHAR(1000),
     PRIMARY KEY(phrase_id)
 );
 
