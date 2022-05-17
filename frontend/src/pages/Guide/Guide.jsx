@@ -179,7 +179,7 @@ export default function Guide(props) {
         {subCategoryName ? (
           <div>
             <h1 style={{ textAlign: "center" }}> {subCategoryName}</h1>
-            <DocumentList id={subCategoryId} />
+            <Documents id={subCategoryId} />
             <hr />
             <ScenarioGuide id={subCategoryId} />
           </div>
