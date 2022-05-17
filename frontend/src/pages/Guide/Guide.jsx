@@ -56,7 +56,6 @@ export default function Guide(props) {
             categories.push(temp_dict);
           }
 
-          console.log(categories);
           setOptions(categories);
         }
       })
@@ -179,13 +178,13 @@ export default function Guide(props) {
 
         {subCategoryName ? (
           <div>
-            {" "}
             <h1 style={{ textAlign: "center" }}> {subCategoryName}</h1>
             <DocumentList id={subCategoryId} />
-            <ScenarioGuide data={subCategoryId} />
+            <hr />
+            <ScenarioGuide id={subCategoryId} />
           </div>
         ) : (
-          <h1 style={{ textAlign: "center" }}> Please Select a Scenario</h1>
+          <h1 style={{ textAlign: "center" }}> Page Does Not Exist</h1>
         )}
       </Box>
     </Box>
