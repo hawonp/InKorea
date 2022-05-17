@@ -176,9 +176,17 @@ export default function Guide(props) {
         >
           Select category
         </Button>
-        <h1> {subCategoryName}</h1>
-        <DocumentList id={subCategoryId} />
-        <ScenarioGuide data={subCategoryId} />
+
+        {subCategoryName ? (
+          <div>
+            {" "}
+            <h1 style={{ textAlign: "center" }}> {subCategoryName}</h1>
+            <DocumentList />
+            <ScenarioGuide data={subCategoryId} />
+          </div>
+        ) : (
+          <h1 style={{ textAlign: "center" }}> Please Select a Scenario</h1>
+        )}
       </Box>
     </Box>
   );
