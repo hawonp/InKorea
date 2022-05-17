@@ -9,11 +9,10 @@ import Toolbar from "@mui/material/Toolbar";
 import MainAppBar from "../../components/MainAppBar/MainAppBar";
 import Searchbar from "../../components/Sidebar/Searchbar";
 import SidebarAccordion from "../../components/Sidebar/SidebarAccordion";
-import ConversationLeft from "../../components/Guide/ConversationLeft";
-import ConversationRight from "../../components/Guide/ConversationRight";
 import DocumentList from "../../components/Guide/DocumentList";
 import { CATEGORIES, DOCUMENTS, SLASH } from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
+import ScenarioGuide from "../../components/Guide/ScenarioGuide";
 
 const drawerWidth = 240;
 
@@ -35,7 +34,8 @@ export default function Guide(props) {
   // ]);
 
   const [options, setOptions] = useState([]);
-  const [selectedSubcategory, setSelectedSubcategory] = useState(-1);
+  const [subCategoryId, setSubcategoryId] = useState("");
+  const [subCategoryName, setSubCategoryName] = useState("");
 
   useEffect(() => {
     console.log("Axios Call to get all categories");
@@ -75,9 +75,10 @@ export default function Guide(props) {
     ]);
   }
 
-  function handleSubcatSelect(id) {
-    console.log("clicked on subcategory_id:", id);
-    setSelectedSubcategory(id);
+  function handleSubcatSelect(subcat_dict) {
+    console.log("clicked on subcategory_id:", subcat_dict);
+    setSubcategoryId(subcat_dict[0]);
+    setSubCategoryName(subcat_dict[1]);
   }
 
   const drawer = (
@@ -175,9 +176,9 @@ export default function Guide(props) {
         >
           Select category
         </Button>
-        <DocumentList id={selectedSubcategory} />
-        <ConversationLeft />
-        <ConversationRight />
+        <h1> {subCategoryName}</h1>
+        <DocumentList />
+        <ScenarioGuide data={subCategoryId} />
       </Box>
     </Box>
   );
