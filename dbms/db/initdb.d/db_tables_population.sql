@@ -54,16 +54,16 @@ INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(4, 1);
 INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(5, 1);
 
 -- Document Helper (Banking Specific)
-INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Bank Document 1", "은행 서류 1번", true);
+INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Alien Registration Card", "은행 서류 1번", true);
 INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Bank Document 2", "은행 서류 2번", false);
 
 INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 1);
 INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 2);
 INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(2, 2);
 
-INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(1, "Entry 1", "doc1 text1", "image url", 1);
-INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(2, "Entry 2", "doc1 text2", "image url", 1);
-INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Entry 3", "doc1 text3", "image url", 1);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(1, "Brief introduction", "doc1 text1", "image url", 1);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(2, "Requirements", "text 2", "image url", 1);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Application Procedure", "doc1 text3", "image url", 1);
 
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(1, "Entry 1", "doc2 text1", "image url", 2);
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(2, "Entry 2", "doc2 text2", "image url", 2);

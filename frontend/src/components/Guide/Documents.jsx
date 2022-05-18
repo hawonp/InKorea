@@ -91,16 +91,27 @@ export default function Documents({ id }) {
             {documents.map((document) => (
               <ListItem disablePadding key={document["document_id"]}>
                 {document["has_details"] ? (
-                  <ListItemButton
-                    onClick={() => {
-                      handleDocumentClick(
-                        document["document_id"],
-                        document["document_title"]
-                      );
-                    }}
-                  >
-                    {document["document_title"]}
-                  </ListItemButton>
+                  <>
+                    <ListItemIcon>
+                      <Checkbox
+                        edge="start"
+                        checked={checked.indexOf(value) !== -1}
+                        tabIndex={-1}
+                        disableRipple
+                        inputProps={{ "aria-labelledby": labelId }}
+                      />
+                    </ListItemIcon>
+                    <ListItemButton
+                      onClick={() => {
+                        handleDocumentClick(
+                          document["document_id"],
+                          document["document_title"]
+                        );
+                      }}
+                    >
+                      {document["document_title"]}
+                    </ListItemButton>
+                  </>
                 ) : (
                   <Box sx={{ padding: 1, paddingLeft: 2 }}>
                     {document["document_title"]}
