@@ -64,16 +64,17 @@ INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(4, 1);
 INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(5, 1);
 
 -- Document Helper (Banking Specific)
-INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Bank Document 1", "은행 서류 1번", true);
-INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Bank Document 2", "은행 서류 2번", false);
+INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Alien Registration Card", "외국인등록증", true);
+INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Passport / Visa", "여권 / 비자", false);
 
 INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 1);
 INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 2);
 INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(2, 2);
 
-INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(1, "Entry 1", "doc1 text1", "image url", 1);
-INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(2, "Entry 2", "doc1 text2", "image url", 1);
-INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Entry 3", "doc1 text3", "image url", 1);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(1, "About Alien Registration Card", "Foreigners who will be staying in Korea for more than 90 days (i.e work/study) are required to apply for Alien Registration Card (ARC). Exemptions: Holders of A-1, A-2 and A-3 visa", "https://www3.chosun.ac.kr/sites/eng/images/content/img_visa_2021.png", 1);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(2, "Requirements", "Passport& 3cm x 4cm picture& Document for respective Visa type (ex: Proof of employment, Proof of enrollment)& Application form& Application fee: KRW 30,000", "image url", 1);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Application Procedure", "Make an online reservation to visit an Immigration office or a branch through HiKorea.& Visit the office with the required documents.& Collect the card when ready.", "image url", 1);
+
 
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(1, "Entry 1", "doc2 text1", "image url", 2);
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(2, "Entry 2", "doc2 text2", "image url", 2);
