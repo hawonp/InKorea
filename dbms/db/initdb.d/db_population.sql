@@ -69,7 +69,7 @@ INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("P
 
 INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 1);
 INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 2);
-INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(2, 2);
+INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(2, 1);
 
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(1, "About Alien Registration Card", "Foreigners who will be staying in Korea for more than 90 days (i.e work/study) are required to apply for Alien Registration Card (ARC). Exemptions: Holders of A-1, A-2 and A-3 visa", "https://www3.chosun.ac.kr/sites/eng/images/content/img_visa_2021.png", 1);
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(2, "Requirements", "Passport& 3cm x 4cm picture& Document for respective Visa type (ex: Proof of employment, Proof of enrollment)& Application form& Application fee: KRW 30,000", "image url", 1);
