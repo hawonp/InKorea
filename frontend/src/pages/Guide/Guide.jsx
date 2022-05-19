@@ -38,7 +38,6 @@ export default function Guide(props) {
   const [subCategoryName, setSubCategoryName] = useState("");
 
   useEffect(() => {
-    console.log("Axios Call to get all categories");
     axiosInstance
       .get(CATEGORIES)
       .then((response) => {
