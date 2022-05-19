@@ -27,10 +27,20 @@ INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("t
 INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("fourth phrase", "4번 문장", "onion haseyo 4");
 INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("fifth phrase", "5번 문장", "onion haseyo 5");
 
-INSERT INTO Phrase_Start(subcategory_id, phrase_id) VALUES (1, 1);
-INSERT INTO Phrase_Link(from_id, to_id) VALUES (1, 2);
-INSERT INTO Phrase_Link(from_id, to_id) VALUES (2, 3);
-INSERT INTO Phrase_Link(from_id, to_id) VALUES (4, 5);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (1, 1);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (2, 1);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (3, 1);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (4, 1);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (5, 1);
+
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (1, 2);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (2, 2);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (3, 2);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (4, 2);
+
+INSERT INTO Keyword(keyword_text, keyword_text_kor, keyword_romanization) VALUES("first", "1번", "il bun");
+
+INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (1, 1);
 
 -- Quiz (Banking Specific)
 INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("Question 1", 1);
