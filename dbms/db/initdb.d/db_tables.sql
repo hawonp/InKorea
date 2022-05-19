@@ -100,8 +100,8 @@ CREATE TABLE Entry(
     entry_id INTEGER NOT NULL AUTO_INCREMENT,
     entry_index INTEGER NOT NULL,
     entry_title VARCHAR(100),
-    entry_text VARCHAR(100),
-    entry_image VARCHAR(1000),
+    entry_text VARCHAR(512),
+    entry_image VARCHAR(1024),
     document_id INTEGER,
     PRIMARY KEY(entry_id),
     FOREIGN KEY (document_id) REFERENCES Document(document_id) ON DELETE CASCADE

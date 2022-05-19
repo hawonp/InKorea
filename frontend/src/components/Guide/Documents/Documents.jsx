@@ -11,11 +11,19 @@ import DialogTitle from "@mui/material/DialogTitle";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuiAccordion from "@mui/material/Accordion";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { List, ListItem, ListItemButton, Typography } from "@mui/material";
+import {
+  Checkbox,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  Typography,
+} from "@mui/material";
 import { useTheme } from "@mui/material/styles";
 
-import { DOCUMENTS, INFO, SLASH } from "../../utils/routeConstants";
-import axiosInstance from "../../utils/routeUtils";
+import { DOCUMENTS, INFO, SLASH } from "../../../utils/routeConstants";
+import axiosInstance from "../../../utils/routeUtils";
+import DocumentDetail from "./DocumentDetail";
 
 const Accordion = styled((props) => (
   <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -92,15 +100,15 @@ export default function Documents({ id }) {
               <ListItem disablePadding key={document["document_id"]}>
                 {document["has_details"] ? (
                   <>
-                    <ListItemIcon>
+                    {/* <ListItemIcon>
                       <Checkbox
                         edge="start"
-                        checked={checked.indexOf(value) !== -1}
+                        // checked={checked.indexOf(value) !== -1}
                         tabIndex={-1}
                         disableRipple
-                        inputProps={{ "aria-labelledby": labelId }}
+                        // inputProps={{ "aria-labelledby": labelId }}
                       />
-                    </ListItemIcon>
+                    </ListItemIcon> */}
                     <ListItemButton
                       onClick={() => {
                         handleDocumentClick(
@@ -135,29 +143,7 @@ export default function Documents({ id }) {
           </DialogTitle>
           <DialogContent>
             {documentDetails.documentDetails.map((entry) => (
-              <Box key={entry["entry_id"]}>
-                <Accordion
-                  sx={{ borderRight: 0, borderLeft: 0, marginBottom: 2 }}
-                >
-                  <AccordionSummary
-                    expandIcon={<ExpandMoreIcon />}
-                    aria-controls="panel2a-content"
-                    id="panel2a-header"
-                  >
-                    <Typography> {entry["entry_title"]} </Typography>
-                  </AccordionSummary>
-                  <AccordionDetails>
-                    {entry["entry_image"] !== "image url" ? (
-                      <img src={entry["entry_image"]} />
-                    ) : (
-                      <></>
-                    )}
-                    <Typography style={{ wordWrap: "break-word" }}>
-                      {entry["entry_text"]}
-                    </Typography>
-                  </AccordionDetails>
-                </Accordion>
-              </Box>
+              <DocumentDetail entry={entry} key={entry["entry_id"]} />
             ))}
           </DialogContent>
           <DialogActions>
