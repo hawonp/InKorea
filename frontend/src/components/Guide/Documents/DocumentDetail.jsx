@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import Box from "@mui/material/Box";
@@ -94,7 +94,11 @@ export default function DocumentDetail({ entry }) {
         </AccordionSummary>
         <AccordionDetails>
           {entry["entry_image"] !== "image url" ? (
-            <img src={entry["entry_image"]} style={{ width: "100%" }} />
+            <img
+              src={entry["entry_image"]}
+              style={{ width: "100%" }}
+              alt={"img"}
+            />
           ) : (
             <></>
           )}

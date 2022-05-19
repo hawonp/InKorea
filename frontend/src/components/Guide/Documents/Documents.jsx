@@ -12,11 +12,11 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuiAccordion from "@mui/material/Accordion";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {
-  Checkbox,
+  // Checkbox,
   List,
   ListItem,
   ListItemButton,
-  ListItemIcon,
+  // ListItemIcon,
   Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
