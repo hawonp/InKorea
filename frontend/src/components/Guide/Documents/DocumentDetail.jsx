@@ -25,7 +25,7 @@ export default function DocumentDetail({ entry }) {
   if (entry["entry_index"] == 2) {
     const entryArray = entry["entry_text"].split("&");
     return (
-      <Box key={entry["entry_id"]}>
+      <Box>
         <Accordion sx={{ borderRight: 0, borderLeft: 0, marginBottom: 2 }}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
@@ -36,8 +36,8 @@ export default function DocumentDetail({ entry }) {
           </AccordionSummary>
           <AccordionDetails>
             <List>
-              {entryArray.map((entryText) => (
-                <ListItem>
+              {entryArray.map((entryText, index) => (
+                <ListItem key={index}>
                   <CheckIcon />
                   <Typography style={{ wordWrap: "break-word" }}>
                     {entryText}
@@ -65,9 +65,12 @@ export default function DocumentDetail({ entry }) {
           </AccordionSummary>
           <AccordionDetails>
             <ol>
-              {entryArray.map((entryText) => (
-                <li>
-                  <Typography style={{ wordWrap: "break-word" }}>
+              {entryArray.map((entryText, index) => (
+                <li key={index}>
+                  <Typography
+                    style={{ wordWrap: "break-word" }}
+                    key={entryText["entry_id"]}
+                  >
                     {entryText}
                   </Typography>
                 </li>
@@ -91,7 +94,7 @@ export default function DocumentDetail({ entry }) {
         </AccordionSummary>
         <AccordionDetails>
           {entry["entry_image"] !== "image url" ? (
-            <img src={entry["entry_image"]} />
+            <img src={entry["entry_image"]} style={{ width: "100%" }} />
           ) : (
             <></>
           )}

@@ -86,7 +86,7 @@ export default function Documents({ id }) {
   return (
     <div>
       {/* Document list accordion */}
-      <Accordion sx={{ borderRight: 0, borderLeft: 0 }}>
+      <Accordion defaultExpanded sx={{ borderRight: 0, borderLeft: 0 }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
