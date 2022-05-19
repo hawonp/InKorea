@@ -18,6 +18,7 @@ services:
       MYSQL_USER: mod
       MYSQL_PASSWORD: inkorea
       MYSQL_ROOT_PASSWORD: root
+      LANG: C.UTF-8
     networks:
       - dbms_network
     restart: always
