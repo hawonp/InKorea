@@ -63,19 +63,27 @@ CREATE TABLE Phrase(
     PRIMARY KEY(phrase_id)
 );
 
-CREATE TABLE Phrase_Link(
-    from_id INTEGER,
-    to_id INTEGER,
-    PRIMARY KEY (from_id, to_id),
-    FOREIGN KEY (from_id) REFERENCES Phrase(phrase_id) ON DELETE CASCADE,
-    FOREIGN KEY (to_id) REFERENCES Phrase(phrase_id) ON DELETE CASCADE
+CREATE TABLE Phrase_Subcategory(
+    phrase_id INTEGER NOT NULL,
+    subcategory_id INTEGER NOT NULL,
+    PRIMARY KEY(phrase_id, subcategory_id),
+    FOREIGN KEY (phrase_id) REFERENCES Phrase(phrase_id) ON DELETE CASCADE,
+    FOREIGN KEY (subcategory_id) REFERENCES Subcategory(subcategory_id) ON DELETE CASCADE
 );
 
-CREATE TABLE Phrase_Start(
-    subcategory_id INTEGER,
-    phrase_id INTEGER,
-    PRIMARY KEY (subcategory_id, phrase_id),
-    FOREIGN KEY (subcategory_id) REFERENCES Subcategory(subcategory_id) ON DELETE CASCADE,
+CREATE TABLE Keyword(
+    keyword_id INTEGER NOT NULL AUTO_INCREMENT, 
+    keyword_text VARCHAR(100),
+    keyword_text_kor VARCHAR(100),
+    keyword_romanization VARCHAR(1000),
+    PRIMARY KEY(keyword_id)
+);
+
+CREATE TABLE Keyword_Phrase(
+    keyword_id INTEGER NOT NULL, 
+    phrase_id INTEGER NOT NULL,
+    PRIMARY KEY(keyword_id, phrase_id),
+    FOREIGN KEY (keyword_id) REFERENCES Keyword(keyword_id) ON DELETE CASCADE,
     FOREIGN KEY (phrase_id) REFERENCES Phrase(phrase_id) ON DELETE CASCADE
 );
 
