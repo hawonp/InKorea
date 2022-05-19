@@ -16,6 +16,8 @@ import AbcIcon from "@mui/icons-material/Abc";
 import RecordVoiceOverIcon from "@mui/icons-material/RecordVoiceOver";
 import { List, ListItemText, ListItemIcon } from "@mui/material";
 import { red } from "@mui/material/colors";
+import { CardHeader } from "@mui/material";
+import Keyword from "./Keyword";
 export default function ScenarioItem({ id }) {
   const [phrase, setPhrase] = useState([]);
   const [phraseID, setPhraseID] = useState(-1);
@@ -37,7 +39,7 @@ export default function ScenarioItem({ id }) {
   // }
 
   return (
-    <Card sx={{ minWidth: 5 }}>
+    <Card>
       {/* <CardHeader
         avatar={
           <Avatar sx={{ bgcolor: red[500] }} aria-label="recipe">
@@ -52,44 +54,43 @@ export default function ScenarioItem({ id }) {
         title="Shrimp and Chorizo Paella"
         subheader="September 14, 2016"
       /> */}
-      <CardContent style={{ paddingBottom: "0px", paddingTop: "8px" }}>
-        {/* <Typography variant="h6" component="div">
-          {phrase.phrase_text}
-        </Typography>
-        <Typography variant="body2">{phrase.phrase_text_kor}</Typography>
-        <Typography
-          variant="body2"
-          color="text.secondary"
-          style={{ alignItems: "center", display: "flex" }}
-        >
-          <InterpreterModeIcon /> &nbsp;{phrase.phrase_romanization}
-        </Typography> */}
 
-        <List
-          sx={{
-            width: "100%",
-            maxWidth: 360,
-            bgcolor: "background.paper",
-            paddingY: "0px",
-          }}
-          component="nav"
-          aria-labelledby="nested-list-subheader"
-        >
-          <ListItem disableRipple>
-            <ListItemText style={{ color: "red" }}>english:</ListItemText>
-            <ListItemText>{phrase.phrase_text}</ListItemText>
-          </ListItem>
-          <ListItem disableRipple>
-            <ListItemText style={{ color: "blue" }}>korean:</ListItemText>
+      {/* <CardHeader title = {phrase.phrase_id} /> */}
+      <Typography style={{ textAlign: "center" }} color="text.secondary">
+        Phrase {phrase.phrase_id}
+      </Typography>
+      <hr style={{ color: "#D3D3D3" }} />
 
-            <ListItemText>{phrase.secondary}</ListItemText>
-          </ListItem>
-          <ListItem disableRipple>
-            <ListItemText style={{ color: "gray" }}>sound:</ListItemText>
-
-            <ListItemText>{phrase.phrase_romanization}</ListItemText>
-          </ListItem>
-        </List>
+      <CardContent
+        style={{ paddingBottom: "0px", paddingTop: "8px", textAlign: "center" }}
+      >
+        <Grid container spacing={2}>
+          <Grid item xs={2}>
+            <Typography style={{ textAlign: "right" }}>English: </Typography>{" "}
+          </Grid>
+          <Grid item xs={10}>
+            <Typography style={{ textAlign: "left" }}>
+              {phrase.phrase_text}
+            </Typography>
+          </Grid>
+          <Grid item xs={2}>
+            <Typography style={{ textAlign: "right" }}>Korean: </Typography>{" "}
+          </Grid>
+          <Grid item xs={10}>
+            <Typography style={{ textAlign: "left" }}>
+              {phrase.phrase_text_kor}
+              <Keyword keyword_id={1} />
+            </Typography>
+          </Grid>
+          <Grid item xs={2}>
+            <Typography style={{ textAlign: "right" }}>Sound: </Typography>{" "}
+          </Grid>
+          <Grid item xs={10}>
+            <Typography color="text.secondary" style={{ textAlign: "left" }}>
+              {phrase.phrase_romanization}
+            </Typography>
+          </Grid>
+        </Grid>
       </CardContent>
       <CardActions
         sx={{ paddingTop: "0px", paddingX: "16px", justifyContent: "center" }}

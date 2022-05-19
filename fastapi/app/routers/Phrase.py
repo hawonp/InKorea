@@ -31,3 +31,8 @@ async def get_phrase_info(phrase_id : int):
     return data
 
 
+@router.get('/keywords/{keyword_id}', tags=['phrases'])
+async def get_keyword_info(keyword_id : int):
+    data = query_keyword_by_keyword_id(keyword_id)
+    return data
+
