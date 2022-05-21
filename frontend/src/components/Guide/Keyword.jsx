@@ -1,37 +1,32 @@
-import React, { useState, useEffect } from "react";
-import PropTypes from "prop-types";
-import { withStyles } from "@mui/material/styles";
-import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import React, { useState } from "react";
 
-import Fade from "@mui/material/Fade";
-import Paper from "@mui/material/Paper";
+import Button from "@mui/material/Button";
+import Dialog from "@mui/material/Dialog";
+import DialogActions from "@mui/material/DialogActions";
+import DialogContent from "@mui/material/DialogContent";
+import DialogContentText from "@mui/material/DialogContentText";
+import DialogTitle from "@mui/material/DialogTitle";
+import { Typography } from "@mui/material";
 
 import axiosInstance from "../../utils/routeUtils";
 import { PHRASES, SLASH, KEYWORDS } from "../../utils/routeConstants";
-import Box from "@mui/material/Box";
-
-import Popover from "@mui/material/Popover";
 
 export default function Keyword({ keyword_id }) {
   const [keyword, setKeyword] = useState([]);
   const [keywordID, setKeywordID] = useState(-1);
 
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [open, setOpen] = useState(false);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleClickOpen = () => {
+    setOpen(true);
   };
 
   const handleClose = () => {
-    setAnchorEl(null);
+    setOpen(false);
   };
 
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
-
   if (keywordID != keyword_id) {
-    console.log("getting information for keyword", id);
+    console.log("getting information for keyword", keyword_id);
     axiosInstance
       .get(PHRASES + KEYWORDS + SLASH + keyword_id)
       .then((response) => {
@@ -50,27 +45,30 @@ export default function Keyword({ keyword_id }) {
           textDecorationLine: "underline",
           cursor: "pointer",
         }}
-        aria-describedby={id}
-        onClick={handleClick}
+        onClick={handleClickOpen}
       >
         {keyword.keyword_text}
       </Typography>
-      <Popover
-        id={id}
+      <Dialog
         open={open}
-        anchorEl={anchorEl}
         onClose={handleClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "center",
-        }}
-        transformOrigin={{
-          vertical: "top",
-          horizontal: "center",
-        }}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
       >
-        <Typography sx={{ p: 2 }}>The content of the Popover.</Typography>
-      </Popover>
+        <DialogTitle id="alert-dialog-title">
+          {keyword.keyword_text}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="alert-dialog-description">
+            {keyword.keyword_text_kor}
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose} autoFocus>
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
     </div>
   );
 }
