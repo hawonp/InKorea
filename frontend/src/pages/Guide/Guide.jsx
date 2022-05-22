@@ -13,7 +13,7 @@ import Documents from "../../components/Guide/Documents";
 import { CATEGORIES, DOCUMENTS, SLASH } from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
 import ScenarioGuide from "../../components/Guide/ScenarioGuide";
-import QuizButton from "../../components/Guide/QuizButton";
+import Quiz from "../../components/Guide/Quiz";
 
 const drawerWidth = 240;
 
@@ -182,7 +182,7 @@ export default function Guide(props) {
             <Documents id={subCategoryId} />
             <hr />
             <ScenarioGuide id={subCategoryId} />
-            <QuizButton />
+            <Quiz />
           </div>
         ) : (
           <h1 style={{ textAlign: "center" }}> Page Does Not Exist</h1>
