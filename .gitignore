@@ -202,3 +202,9 @@ dbms/db/initdb.d/2.sql
 
 backend/.env
 frontend/package-lock.json
+frontend/package-lock.json
+frontend/package.json
+nginx/certs/
+nginx/conf.d/
+nginx/vhost.d/
+nginx/html/

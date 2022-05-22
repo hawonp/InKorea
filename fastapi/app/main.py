@@ -6,7 +6,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from app.util.db_connect import ping_db
 
 # api imports
-from .routers import AppCatalog, Category, Document, Scenario, Quiz
+from .routers import AppCatalog, Category, Document, Phrase, Quiz
 
 # initial FastAPI initialization
 app = FastAPI()
@@ -18,6 +18,7 @@ origins = [
     "http://localhost:9090",
     "http://localhost:8080",
     "http://localhost:3000",
+    "http://backend.inkorea.co"
 ]
 
 app.add_middleware(
@@ -32,7 +33,7 @@ app.add_middleware(
 app.include_router(Category.router)
 app.include_router(AppCatalog.router)
 app.include_router(Document.router)
-app.include_router(Scenario.router)
+app.include_router(Phrase.router)
 app.include_router(Quiz.router)
 
 # main routes

@@ -1,0 +1,24 @@
+version: "3"
+services:
+  web:
+    build: .
+    container_name: inkorea_api
+    command: uvicorn app.main:app --host 0.0.0.0 --port 5000
+    ports:
+      - "5000:80"
+    environment:
+      TZ: Asia/Seoul
+      VIRTUAL_HOST: www.backend.inkorea.co, backend.inkorea.co
+      VIRTUAL_PORT: 5000
+      LETSENCRYPT_HOST: www.backend.inkorea.co, backend.inkorea.co
+    networks:
+      - dbms_network
+      - nginx-proxy
+    volumes:
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+networks:
+  dbms_network:
+    external: true
+  nginx-proxy:
+    external: true
