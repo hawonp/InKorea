@@ -25,17 +25,19 @@ async def test_get_apps_by_platform(page : int, platform):
 #########################################################################
 # get the information blocks for an app
 #########################################################################
-@router.get('/{app_id}/info', tags=['apps'])
-async def get_app_info(app_id : int):
+@router.get('/{app_id}/details', tags=['apps'])
+async def get_app_details(app_id : int):
     data = query_app_info_by_id(app_id)
     return data
 
 #########################################################################
-# get platform information for an app
+# get app info
 #########################################################################
-@router.get('/{app_id}/platform', tags=['apps'])
-async def get_app_platform_info(app_id : int):
-    data = query_platform_info_by_app_id(app_id)
+@router.get('/{app_id}', tags=['apps'])
+async def get_app_info(app_id : int):
+    data = query_app_by_id(app_id)
+    data[0]['platforms'] = query_platform_info_by_app_id(app_id)
+    data[0]['tags'] = query_tags_by_app_id(app_id)
     return data
 
 #########################################################################
