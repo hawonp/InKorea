@@ -69,7 +69,7 @@ export default function DocumentDetail({ entry }) {
             <List>
               {entryArray.map((entryText, index) => (
                 <ListItem key={index}>
-                  <CheckIcon />
+                  <CheckIcon sx={{ pr: 1 }} />
                   <Typography style={{ wordWrap: "break-word" }}>
                     {entryText}
                   </Typography>
@@ -133,7 +133,7 @@ export default function DocumentDetail({ entry }) {
                   <LinkIcon />
                   <Link href={entryText.split(">")[1]} underline="none">
                     <Typography style={{ wordWrap: "break-word" }}>
-                      {entryText.split(">")[0]}
+                      &nbsp;{entryText.split(">")[0]}
                     </Typography>
                   </Link>
                 </ListItem>
