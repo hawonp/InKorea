@@ -12,7 +12,7 @@ const axiosInstance = axios.create({
 
 //Deployment
 // const axiosInstance = axios.create({
-//   baseURL: "",
+// baseURL: "https://www.backend.inkorea.co",
 // });
 
 export default axiosInstance;
