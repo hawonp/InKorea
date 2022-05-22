@@ -36,6 +36,17 @@ export default function AppBox({ app_id }) {
     setOpen(false);
   };
 
+  const [open2, setOpen2] = useState(false);
+
+  const handleClickOpen2 = () => {
+    console.log("open dialog");
+    setOpen2(true);
+  };
+
+  const handleClose2 = () => {
+    setOpen2(false);
+  };
+
   if (appID != app_id) {
     axiosInstance.get(APPS + SLASH + app_id).then((response) => {
       const data = response.data;
@@ -46,12 +57,26 @@ export default function AppBox({ app_id }) {
   }
 
   return (
-    <Card sx={{ display: "flex" }}>
-      <CardMedia component="img" sx={{ maxWidth: 150 }} image={app.app_image} />
+    <Card variant="outlined" sx={{ display: "flex" }}>
+      <CardMedia
+        component="img"
+        sx={{
+          maxWidth: 150,
+          borderRight: 1,
+          borderWidth: 0.1,
+          borderColor: "gray",
+        }}
+        image={app.app_image}
+      />
       <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
         <CardContent sx={{ flex: "1 0 auto" }}>
-          <Typography variant="h5" style={{ paddingBottom: "16px" }}>
-            {app.app_title}
+          <Typography variant="h5">{app.app_title}</Typography>
+          <Typography
+            variant="body1"
+            color="text.secondary"
+            style={{ paddingBottom: "16px" }}
+          >
+            {app.app_title_kor}
           </Typography>
           {app.tags != 0 && app.tags != undefined ? (
             <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
@@ -74,11 +99,17 @@ export default function AppBox({ app_id }) {
           }}
         >
           {app["app_id"] === 1 ? (
-            <Button onClick={handleClickOpen}>See More</Button>
+            <div>
+              <Button onClick={handleClickOpen}>See More</Button>
+              {/* <Button onClick={handleClickOpen2}>Download</Button> */}
+            </div>
           ) : (
-            <Button disabled onClick={handleClickOpen}>
-              See More
-            </Button>
+            <div>
+              <Button disabled onClick={handleClickOpen}>
+                See More
+              </Button>
+              {/* <Button onClick={handleClickOpen2}>Download</Button> */}
+            </div>
           )}
         </CardActions>
       </Box>
@@ -94,6 +125,22 @@ export default function AppBox({ app_id }) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} autoFocus>
+            Close
+          </Button>
+        </DialogActions>
+      </Dialog>
+      <Dialog
+        open={open2}
+        onClose={handleClose2}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="alert-dialog-title">{app.app_title}</DialogTitle>
+        <DialogContent>
+          <PlatformInfo data={app.platforms} />
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleClose2} autoFocus>
             Close
           </Button>
         </DialogActions>

@@ -6,9 +6,5 @@ import AppleIcon from "@mui/icons-material/Apple";
 import AbcIcon from "@mui/icons-material/Abc";
 
 export default function PlatformInfo({ data }) {
-  return (
-    <div>
-      {data["platform_title"] === "Google" ? <AndroidIcon /> : <AppleIcon />}
-    </div>
-  );
+  return <div>{/* {data != 0 && data != undefined} */}</div>;
 }
