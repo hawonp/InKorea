@@ -102,7 +102,7 @@ INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Toss", "�
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang Eats", "쿠팡이츠", "App 5 Text", "https://play-lh.googleusercontent.com/VVxIA_jSqBzwzRSE9SXItUNLhT62QYdFNvCWT5msNIV_NXGJHi_C3GnyLvL14-niVQ=w240-h480-rw");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang", "쿠팡", "App 6 Text", "https://play-lh.googleusercontent.com/vQDaqflYMGXqN0NkPju5d_LZCdqRiqWw29S97A9quVzrqy2kBp2qnkeThnRCWBBKpVo=w240-h480-rw");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao T", "카카오 T", "App 7 Text", "https://play-lh.googleusercontent.com/mphI7NpqsF3eJ-DbwW_GeJA7nNe2oZ7_cjTomnDsO3RWhYbgTMWEhZhfTv49yiFyhQ=w240-h480-rw");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("", "고속버티머니", "App 8 Text", "app 8 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Express Bus", "고속버티머니", "App 8 Text", "app 8 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Seoul Bike", "따릉이", "App 9 Text", "app 9 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Pay", "카카오 페이", "App 10 Text", "app 10 image url");
 
