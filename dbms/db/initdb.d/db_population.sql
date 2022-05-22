@@ -21,26 +21,29 @@ INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to get a kore
 INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to change your data plan", "4");
 
 -- Scenario Guide (Banking Specific)
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("first phrase", "1번 문장", "onion haseyo");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("second phrase", "2번 문장", "onion haseyo 2");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("third phrase", "3번 문장", "onion haseyo 3");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("fourth phrase", "4번 문장", "onion haseyo 4");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("fifth phrase", "5번 문장", "onion haseyo 5");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("I would like to make a checking account.", "예금 계좌 하나 만들어 주세요", "yegeum gyejwa hana mandeureo juseyo");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("Do you have your id-card?", "신분증 있으신가요?", "sinbunjeung isseusingayo?");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("Can you enter the four digits of the password you want to use?", "계좌에 사용하실 비밀번호 네자리 입력해주시겠어요?", "gyejwa sayonghasil bimilbeonho ne-jari ipryeokhaejusigesseoyo?");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("Do you want to make a savings account?", "적금 계좌 만드시겠어요?", "jukgeum gyejwa mandeusi gesseoyo?");
+
 
 INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (1, 1);
 INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (2, 1);
 INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (3, 1);
 INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (4, 1);
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (5, 1);
 
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (1, 2);
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (2, 2);
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (3, 2);
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (4, 2);
-
-INSERT INTO Keyword(keyword_text, keyword_text_kor, keyword_romanization) VALUES("first", "1번", "il bun");
+INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("계좌", "계좌 is the korean word for account", "gyejwa");
+INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("예금 계좌", "예금 계좌 indicates a checkings account", "yegeum gyejwa");
+INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("적금 계좌", "적금 계좌 indicates a savings account", "jukgeum gyejwa");
+INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("신분증", "신분증 indicates a national id card", "shin bun jjeung");
+INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("비밀번호",  "비밀번호 means password", "bimil bunho");
 
 INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (1, 1);
+INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (2, 1);
+INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (4, 2);
+INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (5, 3);
+INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (1, 4);
+INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (3, 4);
 
 -- Quiz (Banking Specific)
 INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("Question 1", 1);

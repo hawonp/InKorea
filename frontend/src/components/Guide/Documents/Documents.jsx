@@ -85,6 +85,27 @@ export default function Documents({ id }) {
 
   return (
     <div>
+      <Typography
+        variant="h6"
+        style={{
+          textAlign: "left",
+          paddingLeft: "16px",
+          paddingBottom: "16px",
+        }}
+      >
+        Relevant Documents
+      </Typography>
+      <Typography
+        style={{
+          textAlign: "left",
+          paddingBottom: "16px",
+          paddingLeft: "16px",
+        }}
+      >
+        This section contains documents used in Korea that are relevant to the
+        scenario. You can click on a document to see the full details of a
+        document.
+      </Typography>
       {/* Document list accordion */}
       <Accordion defaultExpanded sx={{ borderRight: 0, borderLeft: 0 }}>
         <AccordionSummary
@@ -92,7 +113,7 @@ export default function Documents({ id }) {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography> Documents </Typography>
+          <Typography>Documents</Typography>
         </AccordionSummary>
         <AccordionDetails>
           <List>
