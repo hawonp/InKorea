@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import Box from "@mui/material/Box";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
@@ -7,51 +6,8 @@ import { CardActionArea, CardActions } from "@mui/material";
 import Keyword from "./Keyword";
 import { PHRASES, SLASH } from "../../../utils/routeConstants";
 import axiosInstance from "../../../utils/routeUtils";
-import { Button } from "@mui/material";
-const bull = (
-  <Box
-    component="span"
-    sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
 
-// HashTagWrapper styling
-const HashtagWrapper = ({ style, children }) => {
-  return (
-    <div
-      style={{
-        padding: "2px 6px",
-        fontSize: "13px",
-        color: "#3F8CB8",
-        background: "#E1ECF4",
-        borderRadius: "4px",
-        marginRight: "4px",
-        marginBottom: "2px",
-        ...style,
-      }}
-    >
-      {children}
-    </div>
-  );
-};
 
-// TagWrapper styling
-const TagWrapper = ({ style, children }) => {
-  return (
-    <div
-      style={{
-        display: "flex",
-        flexFlow: "row wrap",
-        justifyContent: "start",
-        ...style,
-      }}
-    >
-      {children}
-    </div>
-  );
-};
 
 export default function Flashcard({ id }) {
   const [phrase, setPhrase] = useState([]);
@@ -108,7 +64,7 @@ export default function Flashcard({ id }) {
               </Typography>
             </CardContent>
           </CardActionArea>
-          {phrase.keywords != 0 ? (
+          {phrase.keywords !== 0 ? (
             <CardActions
               style={{
                 display: "flex",

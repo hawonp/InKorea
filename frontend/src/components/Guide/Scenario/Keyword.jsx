@@ -6,7 +6,6 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import { Typography } from "@mui/material";
 import { Chip } from "@mui/material";
 import axiosInstance from "../../../utils/routeUtils";
 import { PHRASES, SLASH, KEYWORDS } from "../../../utils/routeConstants";
@@ -26,7 +25,7 @@ export default function Keyword({ keyword_id }) {
     setOpen(false);
   };
 
-  if (keywordID != keyword_id) {
+  if (keywordID !== keyword_id) {
     console.log("getting information for keyword", keyword_id);
     axiosInstance
       .get(PHRASES + KEYWORDS + SLASH + keyword_id)
