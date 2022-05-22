@@ -7,14 +7,14 @@ import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
 
 import MainAppBar from "../../components/MainAppBar/MainAppBar";
+// eslint-disable-next-line
 import Searchbar from "../../components/Sidebar/Searchbar";
 import SidebarAccordion from "../../components/Sidebar/SidebarAccordion";
 import Documents from "../../components/Guide/Documents";
-import { CATEGORIES, DOCUMENTS, SLASH } from "../../utils/routeConstants";
+import { CATEGORIES } from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
 import ScenarioGuide from "../../components/Guide/Scenario/ScenarioGuide";
 import Quiz from "../../components/Guide/Quiz";
-import Error_400_page from "../../components/Guide/400";
 const drawerWidth = 240;
 
 export default function Guide(props) {
@@ -42,7 +42,7 @@ export default function Guide(props) {
     axiosInstance
       .get(CATEGORIES)
       .then((response) => {
-        if (response["status"] == 200) {
+        if (response["status"] === 200) {
           var json_data = response["data"];
 
           var categories = [];
@@ -64,6 +64,7 @@ export default function Guide(props) {
       });
   }, []);
 
+  // eslint-disable-next-line
   function handleSearch(text) {
     setOptions((prev) => [
       ...prev,

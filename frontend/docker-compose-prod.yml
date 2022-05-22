@@ -1,0 +1,23 @@
+version: "3"
+services:
+  front:
+    build:
+      context: .
+    restart: always
+    container_name: inkorea_front
+    environment:
+      TZ: Asia/Seoul
+      VIRTUAL_HOST: www.inkorea.co, inkorea.co
+      VIRTUAL_PORT: 3000
+      LETSENCRYPT_HOST: www.inkorea.co, inkorea.co
+    networks:
+      - nginx-proxy
+    volumes:
+      - ./:/app
+      - /app/node_modules
+      - /app/.next
+      - "/etc/timezone:/etc/timezone:ro"
+      - "/etc/localtime:/etc/localtime:ro"
+networks:
+  nginx-proxy:
+    external: true

@@ -23,7 +23,7 @@ const Accordion = styled((props) => (
 
 export default function DocumentDetail({ entry }) {
   // About the document
-  if (entry["entry_index"] == 1) {
+  if (entry["entry_index"] === 1) {
     return (
       <Box key={entry["entry_id"]}>
         <Accordion
@@ -56,7 +56,7 @@ export default function DocumentDetail({ entry }) {
     );
   }
   // Requirements
-  if (entry["entry_index"] == 2) {
+  if (entry["entry_index"] === 2) {
     const entryArray = entry["entry_text"].split("&");
     return (
       <Box>
@@ -85,7 +85,7 @@ export default function DocumentDetail({ entry }) {
     );
   }
   // Procedure
-  if (entry["entry_index"] == 3) {
+  if (entry["entry_index"] === 3) {
     const entryArray = entry["entry_text"].split("&");
     return (
       <Box key={entry["entry_id"]}>
@@ -117,7 +117,7 @@ export default function DocumentDetail({ entry }) {
   }
 
   // Links
-  if (entry["entry_index"] == 4) {
+  if (entry["entry_index"] === 4) {
     const entryArray = entry["entry_text"].split("&");
     return (
       <Box key={entry["entry_id"]}>
