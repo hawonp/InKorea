@@ -103,10 +103,9 @@ INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang E
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang", "쿠팡", "App 6 Text", "app 6 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao T", "카카오 T", "App 7 Text", "app 7 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("", "고속버티머니", "App 8 Text", "app 8 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Seoul Bike", "따룽이", "App 9 Text", "app 9 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Bus TAGO", "버스 타고", "App 10 Text", "app 10 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Toss", "토스", "App 11 Text", "app 11 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Pay", "카카오 페이", "App 12 Text", "app 12 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Seoul Bike", "따릉이", "App 9 Text", "app 9 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Toss", "토스", "App 10 Text", "app 10 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Pay", "카카오 페이", "App 11 Text", "app 11 image url");
 
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (1, "Google", "https://play.google.com/store/apps/details?id=com.nhn.android.nmap&hl=en&gl=US", "app 1 qr code", true);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (1, "Apple", "https://apps.apple.com/us/app/naver-map-navigation/id311867728", "app 1 qr code", true);
@@ -122,6 +121,14 @@ INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_q
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (6, "Apple", "https://apps.apple.com/us/app/%EC%BF%A0%ED%8C%A1-coupang/id454434967", "app 6 qr code", false);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (7, "Google", "https://play.google.com/store/apps/details?id=com.kakao.taxi&hl=en_US", "app 6 qr code", true);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (7, "Apple", "https://apps.apple.com/us/app/kakao-t/id981110422", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (8, "Google", "https://play.google.com/store/apps/details?id=com.kscc.scxb.mbl", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (8, "Apple", "https://apps.apple.com/us/app/%EA%B3%B5%EC%8B%9D-%EA%B3%A0%EC%86%8D%EB%B2%84%EC%8A%A4-%ED%8B%B0%EB%A8%B8%EB%8B%88/id957276809", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (9, "Google", "https://play.google.com/store/apps/details?id=com.dki.spb_android", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (9, "Apple", "https://apps.apple.com/us/app/%EC%84%9C%EC%9A%B8%EC%9E%90%EC%A0%84%EA%B1%B0-%EB%94%B0%EB%A6%89%EC%9D%B4/id1037272004", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (10, "Google", "https://play.google.com/store/search?q=toss&c=apps", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (10, "Apple", "https://apps.apple.com/us/app/toss-reward-point-topup/id1486116338", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (11, "Google", "https://play.google.com/store/search?q=kakao%20pay&c=apps", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (11, "Apple", "https://apps.apple.com/us/app/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%8E%98%EC%9D%B4/id1464496236", "app 6 qr code", true);
 
 INSERT INTO App_Tag(app_id, tag_id) VALUES (1, 1);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (2, 2);
