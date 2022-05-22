@@ -1,35 +1,47 @@
 import * as React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Stack from "@mui/material/Stack";
 import AndroidIcon from '@mui/icons-material/Android';
 import AppleIcon from '@mui/icons-material/Apple';
 import AbcIcon from '@mui/icons-material/Abc';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import CardMedia from '@mui/material/CardMedia';
+import Typography from '@mui/material/Typography';
+import {useState} from "react";
+import axiosInstance from "../../utils/routeUtils";
+import {APPS} from "../../utils/routeConstants";
 
-const stack = (
-        <Box sx={{ p: 3, border: '2px solid grey' }}>
-            <Stack spacing={2}>
-                <Box sx={{border: '1px solid grey', bgcolor:'#FFE812'}}>
-                    <Stack direction={"row"} spacing={3}>
+export default function AppBox() {
 
-                        <text>Kakao Talk</text>
+    return (
+        <Card sx={{ display: 'flex' }}>
+            <CardMedia
+                component="img"
+                sx={{ width: 151 }}
+                image="https://upload.wikimedia.org/wikipedia/commons/e/e3/KakaoTalk_logo.svg"
+                alt="KakaoTalk Logo"
+            />
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
+                <CardContent sx={{ flex: '1 0 auto' }}>
+                    <Typography component="div" variant="h5">
+                        KakaoTalk
+                    </Typography>
+                    <Typography variant="subtitle1" color="text.secondary" component="div">
+                        #Texting#SocialMedia
+                    </Typography>
+                    <Box sx={{ display: 'flex', alignItems: 'center', pl: 0, pb: 0}}>
                         <AppleIcon></AppleIcon>
                         <AndroidIcon></AndroidIcon>
                         <AbcIcon></AbcIcon>
-                    </Stack>
-                </Box>
-                <text>Extremely long description about what will happen in this box and how you can use the text</text>
-                <Box sx={{border: '1px solid grey'}}>
-                    <Button> See More</Button>
-                </Box>
-            </Stack>
-        </Box>
-);
+                    </Box>
+                </CardContent>
 
-
-
-export default function AppBox() {
-    return (
-       stack
+                <Button>
+                    See More
+                </Button>
+            </Box>
+        </Card>
     );
 }
+
