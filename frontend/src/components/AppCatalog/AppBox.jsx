@@ -47,30 +47,12 @@ export default function AppBox({ app_id }) {
 
   return (
     <Card sx={{ display: "flex" }}>
-      <CardMedia component="img" sx={{ width: 151 }} image={app.app_image} />
-      <Box sx={{ display: "flex", flexDirection: "column" }}>
+      <CardMedia component="img" sx={{ maxWidth: 150 }} image={app.app_image} />
+      <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
         <CardContent sx={{ flex: "1 0 auto" }}>
           <Typography variant="h5" style={{ paddingBottom: "16px" }}>
             {app.app_title}
           </Typography>
-          {/* <Stack
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-            spacing={2}
-            style={{ paddingBottom: "16px" }}
-          >
-            {app.platforms != 0 && app.platforms != undefined ? (
-              <div>
-                {app.platforms.map((platform) => (
-                  <PlatformInfo direction="row" data={platform} />
-                ))}
-              </div>
-            ) : (
-              <div />
-            )}
-          </Stack> */}
-
           {app.tags != 0 && app.tags != undefined ? (
             <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
               {app.tags.map((tag) => (
@@ -81,8 +63,23 @@ export default function AppBox({ app_id }) {
             <div />
           )}
         </CardContent>
-        <CardActions>
-          <Button onClick={handleClickOpen}>See More</Button>
+        <CardActions
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            borderWidth: 0,
+            borderTopWidth: 1,
+            borderColor: "gray",
+            borderStyle: "solid",
+          }}
+        >
+          {app["app_id"] === 1 ? (
+            <Button onClick={handleClickOpen}>See More</Button>
+          ) : (
+            <Button disabled onClick={handleClickOpen}>
+              See More
+            </Button>
+          )}
         </CardActions>
       </Box>
       <Dialog
@@ -93,9 +90,6 @@ export default function AppBox({ app_id }) {
       >
         <DialogTitle id="alert-dialog-title">{app.app_title}</DialogTitle>
         <DialogContent>
-          {/* <DialogContentText id="alert-dialog-description">
-            {keyword.keyword_explanation}
-          </DialogContentText> */}
           <AppInfo id={appID} />
         </DialogContent>
         <DialogActions>

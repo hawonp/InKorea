@@ -46,26 +46,26 @@ INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (1, 4);
 INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (3, 4);
 
 -- Quiz (Banking Specific)
-INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank?", 1);
-INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank account?", 1);
-INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank book? ", 1);
-INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say "I want to make a bank account"?", 1);
-INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say identification (ID) card?", 1);
+-- INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank?", 1);
+-- INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank account?", 1);
+-- INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank book? ", 1);
+-- INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say I want to make a bank account?", 1);
+-- INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say identification (ID) card?", 1);
 
-INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("은행", "은행 is the Korean word for bank", "Eun-haeng", true);
-INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("계좌", "계좌 is the specific word for Bank account", "gye-jwa", false);
-INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("통장", "통장 is the Korean word for bank book/ledger","tong-jang", false);
-INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("예금 계좌 만들고싶어요", "This phrase indicates that you would like to create a normal checkings account", false);
-INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("신분증", "신분증 is the Korean word for ID", "Shin-boon-cheung", true);
+-- INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("은행", "은행 is the Korean word for bank", "Eun-haeng", true);
+-- INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("계좌", "계좌 is the specific word for Bank account", "gye-jwa", false);
+-- INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("통장", "통장 is the Korean word for bank book/ledger","tong-jang", false);
+-- INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("예금 계좌 만들고싶어요", "This phrase indicates that you would like to create a normal checkings account", false);
+-- INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("신분증", "신분증 is the Korean word for ID", "Shin-boon-cheung", true);
 
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 1);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 2);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 3);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 4);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(2, 1);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(3, 1);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(4, 1);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(5, 1);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 1);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 2);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 3);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 4);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(2, 1);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(3, 1);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(4, 1);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(5, 1);
 
 -- Document Helper (Banking Specific)
 INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Alien Registration Card", "외국인등록증", true);

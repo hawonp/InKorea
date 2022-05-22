@@ -7,8 +7,6 @@ import Keyword from "./Keyword";
 import { PHRASES, SLASH } from "../../../utils/routeConstants";
 import axiosInstance from "../../../utils/routeUtils";
 
-
-
 export default function Flashcard({ id }) {
   const [phrase, setPhrase] = useState([]);
   const [phraseID, setPhraseID] = useState(-1);
