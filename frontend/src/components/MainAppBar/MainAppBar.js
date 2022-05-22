@@ -9,17 +9,24 @@ import Typography from "@mui/material/Typography";
 export default function MainAppBar() {
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static">
+      <AppBar position="static" style={{ background: "white" }}>
         <Toolbar>
           <Typography
-            align="center"
             variant="h6"
+            noWrap
             component="div"
-            sx={{ flexGrow: 1 }}
+            sx={{ display: { xs: "none", sm: "block" } }}
           >
-            <Link to="/guide">InKorea</Link>
+            <Link to="/">InKorea</Link>
           </Typography>
-          |
+          <Typography
+            align="left"
+            variant="h6"
+            sx={{ flexGrow: 1 }}
+          ></Typography>
+          <Link to="/guide">
+            <Button color="inherit">Scenarios</Button>
+          </Link>
           <Link to="/appcatalog">
             <Button color="inherit">App catalog</Button>
           </Link>
