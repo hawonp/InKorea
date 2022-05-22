@@ -26,7 +26,10 @@ export default function DocumentDetail({ entry }) {
   if (entry["entry_index"] == 1) {
     return (
       <Box key={entry["entry_id"]}>
-        <Accordion sx={{ borderRight: 0, borderLeft: 0, marginBottom: 2 }}>
+        <Accordion
+          defaultExpanded
+          sx={{ borderRight: 0, borderLeft: 0, marginBottom: 2 }}
+        >
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"

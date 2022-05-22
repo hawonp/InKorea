@@ -107,7 +107,7 @@ export default function Documents({ id }) {
         document.
       </Typography>
       {/* Document list accordion */}
-      <Accordion defaultExpanded sx={{ borderRight: 0, borderLeft: 0 }}>
+      <Accordion defaultExpanded sx={{ background: "#f5f5f5" }}>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
