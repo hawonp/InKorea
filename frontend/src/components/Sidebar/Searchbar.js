@@ -20,6 +20,7 @@ export default function Searchbar({ searchHandler }) {
   return (
     <Box sx={{ m: 1 }}>
       <TextField
+        disabled
         id="standard-basic"
         variant="standard"
         onChange={(event) => {
