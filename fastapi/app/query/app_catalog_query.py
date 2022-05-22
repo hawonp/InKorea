@@ -45,6 +45,42 @@ def query_all_apps_by_platform(page, platform):
     conn.close()
     return json_data
 
+def query_app_by_id(app_id):
+    json_data = []
+    try:
+        print("get app info", app_id)
+
+        # Obtainting DB cursor
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        # query for data
+        query = "SELECT A.* FROM App A WHERE A.app_id = ?"
+        values = (app_id, )
+
+        # send query to database
+        print("Selecting with query", query, values)
+        cursor.execute(query, values)
+        
+        # serialize results into JSON
+        row_headers = [x[0] for x in cursor.description]
+        rv = cursor.fetchall()
+        json_data = []
+
+        for result in rv:
+            json_data.append(dict(zip(row_headers, result)))
+
+
+    except mariadb.Error as e:
+        print(f"Error ocurred while querying database: {e}")
+        json_data = 0
+
+    # Closing cursor and commiting  connection
+    cursor.close()
+    conn.commit()
+    conn.close()
+    return json_data    
+
 def query_app_info_by_id(app_id):
     json_data = []
     try:
@@ -114,7 +150,42 @@ def query_platform_info_by_app_id(app_id):
     cursor.close()
     conn.commit()
     conn.close()
-    return json_data
+    return json_data if len(json_data) > 0 else 0
+
+
+def query_tags_by_app_id(app_id):
+    json_data = []
+    try:
+        print("get the platform information for an app:", app_id)
+
+        # Obtainting DB cursor
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        # query for database
+        query = "SELECT T.* FROM App A, Tag T, App_Tag ApT WHERE ApT.app_id = A.app_id AND ApT.tag_id = T.tag_id AND A.app_id = ?"
+        values = (app_id,)
+
+        print("Selecting with query", query, values)
+        cursor.execute(query, values)
+        
+        # serialize results into JSON
+        row_headers = [x[0] for x in cursor.description]
+        rv = cursor.fetchall()
+        json_data = []
+
+        for result in rv:
+            json_data.append(dict(zip(row_headers, result)))
+
+    except mariadb.Error as e:
+        print(f"Error ocurred while querying database: {e}")
+        json_data = 0
+    
+    # Closing cursor and commiting  connection
+    cursor.close()
+    conn.commit()
+    conn.close()
+    return json_data if len(json_data) > 0 else 0
 
 def query_search_app_by_name(input, platform):
     json_data = []
@@ -190,3 +261,4 @@ def query_search_app_by_tag(input, platform):
     conn.commit()
     conn.close()
     return json_data
+    
