@@ -7,9 +7,9 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import { Typography } from "@mui/material";
-
-import axiosInstance from "../../utils/routeUtils";
-import { PHRASES, SLASH, KEYWORDS } from "../../utils/routeConstants";
+import { Chip } from "@mui/material";
+import axiosInstance from "../../../utils/routeUtils";
+import { PHRASES, SLASH, KEYWORDS } from "../../../utils/routeConstants";
 
 export default function Keyword({ keyword_id }) {
   const [keyword, setKeyword] = useState([]);
@@ -18,6 +18,7 @@ export default function Keyword({ keyword_id }) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
+    console.log("open dialog");
     setOpen(true);
   };
 
@@ -38,17 +39,35 @@ export default function Keyword({ keyword_id }) {
   }
 
   return (
-    <div>
-      <Typography
+    <div
+    // style={{
+    //   padding: "2px 6px",
+    //   fontSize: "13px",
+    //   color: "#3F8CB8",
+    //   background: "#E1ECF4",
+    //   borderRadius: "4px",
+    //   marginRight: "4px",
+    //   marginBottom: "2px",
+    // }}
+    >
+      {/* <Typography
         style={{
-          color: "blue",
-          textDecorationLine: "underline",
+          display: "flex",
+          flexFlow: "row wrap",
+          justifyContent: "start",
           cursor: "pointer",
         }}
         onClick={handleClickOpen}
       >
         {keyword.keyword_text}
-      </Typography>
+      </Typography> */}
+      <Chip
+        color="primary"
+        onClick={handleClickOpen}
+        variant="outlined"
+        label={keyword.keyword_text}
+      />
+
       <Dialog
         open={open}
         onClose={handleClose}
