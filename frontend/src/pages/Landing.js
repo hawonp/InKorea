@@ -25,6 +25,13 @@ const Item = styled(Paper)(({ theme }) => ({
   padding: theme.spacing(2),
   textAlign: "center",
   color: theme.palette.text.secondary,
+  "&:hover": {
+    cursor: "pointer",
+    backgroundColor: theme.palette.grey[100],
+    "& $addIcon": {
+      color: "purple",
+    },
+  },
 }));
 
 export default function Landing() {
@@ -49,6 +56,14 @@ export default function Landing() {
             </Typography>
           </Zoom>
         </ThemeProvider>
+      </Box>
+      <Box>
+        <Typography variant="h6" align="center">
+          InKorea is a website that aims to lwoer the language barriers for
+          foreigners in Korea. We provide guides for processes such as creating
+          a bank account and a catalog of useful applications for one to live in
+          Korea.
+        </Typography>
       </Box>
       <Grid
         style={{
