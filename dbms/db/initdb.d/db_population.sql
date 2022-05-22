@@ -87,23 +87,23 @@ INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id
 
 -- App Catalog 
 
-INSERT INTO Tag(tag_title) VALUES("Tag 1");
-INSERT INTO Tag(tag_title) VALUES("Tag 2");
-INSERT INTO Tag(tag_title) VALUES("Tag 3");
+INSERT INTO Tag(tag_title) VALUES("Transportation");
+INSERT INTO Tag(tag_title) VALUES("Communication");
+INSERT INTO Tag(tag_title) VALUES("Banking");
 
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("App 1", '1번 앱', "App 1 Text", "app 1 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Naver Maps", '네이버 지도', "App 1 Text", "app 1 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("App 2", "2번 앱", "App 2 Text", "app 2 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("App 3", "3번 앱", "App 3 Text", "app 3 image url");
 
-INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (1, "Google", "app 1 google link", "app 1 qr code", true);
-INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (1, "Apple", "app 1 apple link", "app 1 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (1, "Google", "https://play.google.com/store/apps/details?id=com.nhn.android.nmap&hl=en&gl=US", "app 1 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (1, "Apple", "https://apps.apple.com/us/app/naver-map-navigation/id311867728", "app 1 qr code", true);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (2, "Google", "app 2 google link", "app 2 qr code", false);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (3, "Apple", "app 3 apple link", "app 3 qr code", true);
 
 INSERT INTO App_Tag(app_id, tag_id) VALUES (1, 1);
-INSERT INTO App_Tag(app_id, tag_id) VALUES (1, 2);
-INSERT INTO App_Tag(app_id, tag_id) VALUES (1, 3);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (2, 2);
+INSERT INTO App_Tag(app_id, tag_id) VALUES (2, 3);
+INSERT INTO App_Tag(app_id, tag_id) VALUES (3, 2);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (3, 3);
 
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 1", 1, "text 1", "image 1", 1);
