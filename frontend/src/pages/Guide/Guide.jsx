@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -9,11 +9,12 @@ import Toolbar from "@mui/material/Toolbar";
 import MainAppBar from "../../components/MainAppBar/MainAppBar";
 import Searchbar from "../../components/Sidebar/Searchbar";
 import SidebarAccordion from "../../components/Sidebar/SidebarAccordion";
-import DocumentList from "../../components/Guide/DocumentList";
-import { CATEGORIES } from "../../utils/routeConstants";
+import Documents from "../../components/Guide/Documents";
+import { CATEGORIES, DOCUMENTS, SLASH } from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
-import ScenarioGuide from "../../components/Guide/ScenarioGuide";
-
+import ScenarioGuide from "../../components/Guide/Scenario/ScenarioGuide";
+import Quiz from "../../components/Guide/Quiz";
+import Error_400_page from "../../components/Guide/400";
 const drawerWidth = 240;
 
 export default function Guide(props) {
@@ -38,7 +39,6 @@ export default function Guide(props) {
   const [subCategoryName, setSubCategoryName] = useState("");
 
   useEffect(() => {
-    console.log("Axios Call to get all categories");
     axiosInstance
       .get(CATEGORIES)
       .then((response) => {
@@ -56,7 +56,6 @@ export default function Guide(props) {
             categories.push(temp_dict);
           }
 
-          console.log(categories);
           setOptions(categories);
         }
       })
@@ -84,7 +83,7 @@ export default function Guide(props) {
   const drawer = (
     <div>
       <Toolbar />
-      <Searchbar searchHandler={handleSearch} />
+      {/* <Searchbar searchHandler={handleSearch} /> */}
       <SidebarAccordion
         options={options}
         handleSubcatSelect={handleSubcatSelect}
@@ -101,7 +100,7 @@ export default function Guide(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box alignItems="center" justifyContent="center" sx={{ display: "flex" }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -159,7 +158,6 @@ export default function Guide(props) {
         component="main"
         sx={{
           flexGrow: 1,
-          // p: 3,
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           maxWidth: "md",
         }}
@@ -177,9 +175,36 @@ export default function Guide(props) {
         >
           Select category
         </Button>
-        <h1> {subCategoryName}</h1>
-        <DocumentList />
-        <ScenarioGuide data={subCategoryId} />
+
+        {subCategoryName ? (
+          <div>
+            <h1 style={{ textAlign: "center" }}> {subCategoryName}</h1>
+            <Documents id={subCategoryId} />
+            <hr />
+            <ScenarioGuide id={subCategoryId} />
+            <Quiz />
+          </div>
+        ) : (
+          <Box
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {/* <h1 style={{ textAlign: "center" }}> Please select a scenario!</h1> */}
+            {/* <Error_400_page /> */}
+            <div>
+              <Typography
+                style={{ textAlign: "center" }}
+                variant="h1"
+                color="gray"
+              >
+                Please select a scenario!
+              </Typography>
+            </div>
+          </Box>
+        )}
       </Box>
     </Box>
   );

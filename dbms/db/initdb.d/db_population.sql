@@ -21,16 +21,29 @@ INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to get a kore
 INSERT INTO Subcategory(subcategory_name, category_id) VALUES("How to change your data plan", "4");
 
 -- Scenario Guide (Banking Specific)
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("first phrase", "1번 문장", "random link");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("second phrase", "2번 문장", "random link");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("third phrase", "3번 문장", "random link");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("fourth phrase", "4번 문장", "random link");
-INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_audio_link) VALUES ("fifth phrase", "5번 문장", "random link");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("I would like to make a checking account.", "예금 계좌 하나 만들어 주세요", "yegeum gyejwa hana mandeureo juseyo");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("Do you have your id-card?", "신분증 있으신가요?", "sinbunjeung isseusingayo?");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("Can you enter the four digits of the password you want to use?", "계좌에 사용하실 비밀번호 네자리 입력해주시겠어요?", "gyejwa sayonghasil bimilbeonho ne-jari ipryeokhaejusigesseoyo?");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("Do you want to make a savings account?", "적금 계좌 만드시겠어요?", "jukgeum gyejwa mandeusi gesseoyo?");
 
-INSERT INTO Phrase_Start(subcategory_id, phrase_id) VALUES (1, 1);
-INSERT INTO Phrase_Link(from_id, to_id) VALUES (1, 2);
-INSERT INTO Phrase_Link(from_id, to_id) VALUES (2, 3);
-INSERT INTO Phrase_Link(from_id, to_id) VALUES (4, 5);
+
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (1, 1);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (2, 1);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (3, 1);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (4, 1);
+
+INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("계좌", "계좌 is the korean word for account", "gyejwa");
+INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("예금 계좌", "예금 계좌 indicates a checkings account", "yegeum gyejwa");
+INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("적금 계좌", "적금 계좌 indicates a savings account", "jukgeum gyejwa");
+INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("신분증", "신분증 indicates a national id card", "shin bun jjeung");
+INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("비밀번호",  "비밀번호 means password", "bimil bunho");
+
+INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (1, 1);
+INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (2, 1);
+INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (4, 2);
+INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (5, 3);
+INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (1, 4);
+INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (3, 4);
 
 -- Quiz (Banking Specific)
 INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("Question 1", 1);
@@ -54,16 +67,18 @@ INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(4, 1);
 INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(5, 1);
 
 -- Document Helper (Banking Specific)
-INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Bank Document 1", "은행 서류 1번", true);
-INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Bank Document 2", "은행 서류 2번", false);
+INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Alien Registration Card", "외국인등록증", true);
+INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Passport / Visa", "여권 / 비자", false);
 
 INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 1);
 INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 2);
-INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(2, 2);
+INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(2, 1);
 
-INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(1, "Entry 1", "doc1 text1", "image url", 1);
-INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(2, "Entry 2", "doc1 text2", "image url", 1);
-INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Entry 3", "doc1 text3", "image url", 1);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(1, "About Alien Registration Card", "Foreigners who will be staying in Korea for more than 90 days (i.e work/study) are required to apply for Alien Registration Card (ARC). Exemptions: Holders of A-1, A-2 and A-3 visa", "https://www3.chosun.ac.kr/sites/eng/images/content/img_visa_2021.png", 1);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(2, "Requirements", "Passport& 3cm x 4cm picture& Document for respective Visa type (ex: Proof of employment, Proof of enrollment)& Application form& Application fee: KRW 30,000", "image url", 1);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Application Procedure", "Make an online reservation to visit an Immigration office or a branch through HiKorea.& Visit the office with the required documents.& Collect the card when ready.", "image url", 1);
+INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(4, "Useful links", "Link to HiKorea > https://www.hikorea.go.kr/Main.pt", "image url", 1);
+
 
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(1, "Entry 1", "doc2 text1", "image url", 2);
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(2, "Entry 2", "doc2 text2", "image url", 2);

@@ -10,20 +10,22 @@
 - Sangwoo Park (sangwoo.park.2@stonybrook.edu)
 - Youngwon Choi (youngwon.choi@stonybrook.edu)
 
-## Where to get the Latest Version of StudyBoard?
-- The [main](https://github.com/hawonp/InKorea) branch of this git repository will always have the latest production version of StudyBoard
-- The [dev](https://github.com/hawonp/InKorea/tree/dev) branch of this git repository will always be the latest development version of StudyBoard
+## Where to get the Latest Version of InKorea?
+- The [main](https://github.com/hawonp/InKorea) branch of this git repository will always have the latest production version of InKorea
+- The [dev](https://github.com/hawonp/InKorea/tree/dev) branch of this git repository will always be the latest development version of InKorea
+
+
 
 ## Step 1) Local Development Prep
 - Download/Clone the [main](https://github.com/hawonp/InKorea) branch of InKorea
+- NOTE: Order of deployment is DBMS --> FastAPI --> Frontend
 
-- Create a virtual environment in the **root** directory of the repository and activate it
-  - VirtualEnv, Venv, Anaconda all work
 ## Step 2) Create Docker Network
 - Create a user-defined bridge to link mariadb and flask
   > docker network create dbms_network
 - Create a user-defined bridge to link nginx to all the different containers (if using nginx)
   > docker network create nginx-proxy
+
 ## Step 3) Initialize MariaDB database
 - Change directories to dbms/
   > cd dbms
@@ -34,15 +36,28 @@
 - Go back to root directory
   > cd ..
 
-## Step 4) Initialize Flask Backend
-- Change directories to backend/
-  > cd backend
+## Step 4) Initialize Fast API Backend
+- Change directories to fastapi/
+  > cd fastapi
+
+- Create a virtual environment 
+  > python -m venv venv
+
+- Windows / Unix Activation Respectively  
+  > venv\Scripts\activate 
+  > source venv/bin/activate
 
 - Install Requirements
   > pip install -r requirements.txt
 
-- Initialize Flask Docker Container
+- 4a) Initialize FastAPI Docker Container
   > docker-compose up --build
+
+- 4b) Initialize FastAPI Dev Server
+  > uvicorn app.main:app
+
+- 4c) Initialize FastAPI Dev Server (dynamic reloading)
+  > uvicorn app.main:app --reload
 
 - Go back to root directory
   > cd ..
@@ -58,7 +73,7 @@
   > docker-compose up --build
 
 - 5b) Intialize React dev server
-  > npm run dev
+  > npm start
 
 ## Required Specs / Compatability
  - Operating System : Any
