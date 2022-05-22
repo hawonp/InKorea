@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import { Box, Card } from "@mui/material";
 import Zoom from "@mui/material/Zoom";
 import Paper from "@mui/material/Paper";
@@ -60,50 +61,55 @@ export default function Landing() {
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
         <Item elevation={0}>
-          <Card sx={{ minWidth: 275, maxWidth: 600 }}>
-            <CardMedia
-              component="img"
-              height="194"
-              image={guideImage}
-              alt="Scenario"
-            />
-          </Card>
+          <Link to="/guide">
+            <Card sx={{ minWidth: 275, maxWidth: 600 }}>
+              <div style={{ position: "relative" }}>
+                <CardMedia
+                  component="img"
+                  height="194"
+                  src={guideImage}
+                  alt="App catalog"
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    color: "white",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                  }}
+                >
+                  Guides
+                </div>
+              </div>
+            </Card>
+          </Link>
         </Item>
         <Item elevation={0}>
-          <Card sx={{ minWidth: 275, maxWidth: 600 }}>
-            <CardMedia
-              component="img"
-              height="194"
-              src={appsImage}
-              alt="App catalog"
-            />
-          </Card>
-        </Item>
-        {/* <Item>
-          <Card>
-            <div style={{ position: "relative" }}>
-              <CardMedia
-                style={{ height: "250px", paddingTop: "2%" }}
-                component="img"
-                src={appsImage}
-                title="Pancakes"
-                alt="Pancakes"
-              />
-              <div
-                style={{
-                  position: "absolute",
-                  color: "white",
-                  top: 10,
-                  left: "50%",
-                  transform: "translateX(-50%)",
-                }}
-              >
-                {" "}
-                Some text
+          <Link to="/appcatalog">
+            <Card sx={{ minWidth: 275, maxWidth: 600 }}>
+              <div style={{ position: "relative" }}>
+                <CardMedia
+                  component="img"
+                  height="194"
+                  src={appsImage}
+                  alt="App catalog"
+                />
+                <div
+                  style={{
+                    position: "absolute",
+                    color: "white",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                  }}
+                >
+                  App catalog
+                </div>
               </div>
-            </div>
-          </Card>
-        </Item> */}
+            </Card>
+          </Link>
+        </Item>
       </Grid>
     </Box>
   );
