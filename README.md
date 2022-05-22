@@ -64,7 +64,7 @@
 
 ## Step 5) Initial React Frontend
 - Change directories to frontend/
-  > cd dbms
+  > cd frontend
 
 - Install Requirements
   > npm install
