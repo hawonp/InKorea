@@ -92,7 +92,9 @@ export default function Documents({ id }) {
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
-          <Typography> Documents </Typography>
+          <Typography variant="h6" style={{ textAlign: "left" }}>
+            Relevant Documents
+          </Typography>{" "}
         </AccordionSummary>
         <AccordionDetails>
           <List>

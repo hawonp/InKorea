@@ -34,9 +34,23 @@ export default function ScenarioGuide({ id }) {
     <div>
       <Typography
         variant="h6"
-        style={{ textAlign: "center", paddingBottom: "16px" }}
+        style={{
+          textAlign: "left",
+          paddingBottom: "16px",
+          paddingLeft: "16px",
+        }}
       >
         Commonly Used Phrases
+      </Typography>
+      <Typography
+        style={{
+          textAlign: "left",
+          paddingBottom: "16px",
+          paddingLeft: "16px",
+        }}
+      >
+        This section contains commonly used phrases during the scenario. You can
+        click on a card to see the Korean and romanization of a phrase.
       </Typography>
       <Grid container spacing={2}>
         {phraseIDs.map((phraseID) => (

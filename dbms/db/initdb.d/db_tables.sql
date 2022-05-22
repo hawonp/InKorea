@@ -74,7 +74,7 @@ CREATE TABLE Phrase_Subcategory(
 CREATE TABLE Keyword(
     keyword_id INTEGER NOT NULL AUTO_INCREMENT, 
     keyword_text VARCHAR(100),
-    keyword_text_kor VARCHAR(100),
+    keyword_explanation VARCHAR(100),
     keyword_romanization VARCHAR(1000),
     PRIMARY KEY(keyword_id)
 );

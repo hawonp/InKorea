@@ -79,7 +79,7 @@ export default function Keyword({ keyword_id }) {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            {keyword.keyword_text_kor}
+            {keyword.keyword_explanation}
           </DialogContentText>
         </DialogContent>
         <DialogActions>
