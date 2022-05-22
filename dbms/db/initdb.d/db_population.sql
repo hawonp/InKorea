@@ -102,9 +102,9 @@ INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Toss", "�
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang Eats", "쿠팡이츠", "App 5 Text", "https://play-lh.googleusercontent.com/VVxIA_jSqBzwzRSE9SXItUNLhT62QYdFNvCWT5msNIV_NXGJHi_C3GnyLvL14-niVQ=w240-h480-rw");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang", "쿠팡", "App 6 Text", "https://play-lh.googleusercontent.com/vQDaqflYMGXqN0NkPju5d_LZCdqRiqWw29S97A9quVzrqy2kBp2qnkeThnRCWBBKpVo=w240-h480-rw");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao T", "카카오 T", "App 7 Text", "https://play-lh.googleusercontent.com/mphI7NpqsF3eJ-DbwW_GeJA7nNe2oZ7_cjTomnDsO3RWhYbgTMWEhZhfTv49yiFyhQ=w240-h480-rw");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Express Bus", "고속버티머니", "App 8 Text", "app 8 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Seoul Bike", "따릉이", "App 9 Text", "app 9 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Pay", "카카오 페이", "App 10 Text", "app 10 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Express Bus T-money", "고속버스 티머니", "App 8 Text", "https://play-lh.googleusercontent.com/763H-3dcJk80jKe9LCR2Vyzg_fPx4FeUPZFo-gCg0pYnq3-KkhGm_Mei7sgklNhruw=w240-h480-rw");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Seoul Bike", "따릉이", "App 9 Text", "https://play-lh.googleusercontent.com/qxPKLrBi-zwgDqsYf9FtbrHuxbkT_VVS1thV6F5bDw-WJvFiD_9LvTz0VejNFtMnmnE=w240-h480-rw");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Pay", "카카오 페이", "App 10 Text", "https://play-lh.googleusercontent.com/W43xj43ErMIs5BQgCdMKEa0NXCoUUW8DjQc5SxcDfLrC26H8sHDmoFIUWLYmsQahpo0=w240-h480-rw");
 
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (1, "Google", "https://play.google.com/store/apps/details?id=com.nhn.android.nmap&hl=en&gl=US", "app 1 qr code", true);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (1, "Apple", "https://apps.apple.com/us/app/naver-map-navigation/id311867728", "app 1 qr code", true);
