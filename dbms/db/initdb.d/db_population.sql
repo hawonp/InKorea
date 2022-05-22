@@ -106,8 +106,8 @@ INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_q
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (3, "Apple", "https://apps.apple.com/us/app/kakaomap-korea-no-1-map/id304608425", "app 3 qr code", false);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (4, "Google", "https://play.google.com/store/apps/details?id=im.toss.arc&hl=en&gl=US", "app 4 qr code", false);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (4, "Apple", "https://apps.apple.com/kr/app/%ED%86%A0%EC%8A%A4/id839333328", "app 4 qr code", false);
-INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (4, "Google", "https://play.google.com/store/apps/details?id=com.coupang.mobile.eats&hl=en&gl=US", "app 5 qr code", true);
-INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (4, "Apple", "https://apps.apple.com/us/app/coupang-eats/id1445504255", "app 5 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (5, "Google", "https://play.google.com/store/apps/details?id=com.coupang.mobile.eats&hl=en&gl=US", "app 5 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (5, "Apple", "https://apps.apple.com/us/app/coupang-eats/id1445504255", "app 5 qr code", true);
 
 INSERT INTO App_Tag(app_id, tag_id) VALUES (1, 1);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (2, 2);
