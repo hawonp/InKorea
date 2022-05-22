@@ -91,12 +91,16 @@ INSERT INTO Tag(tag_title) VALUES("Transportation");
 INSERT INTO Tag(tag_title) VALUES("Communication");
 INSERT INTO Tag(tag_title) VALUES("Banking");
 INSERT INTO Tag(tag_title) VALUES("Food");
+INSERT INTO Tag(tag_title) VALUES("Shopping");
+INSERT INTO Tag(tag_title) VALUES("Delivery");
 
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Naver Maps", '네이버 지도', "App 1 Text", "app 1 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Talk", "카카오톡", "App 2 Text", "app 2 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Maps", "카카오 맵", "App 3 Text", "app 3 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Toss", "토스", "App 4 Text", "app 3 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang Eats", "쿠팡이츠", "App 5 Text", "app 3 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Toss", "토스", "App 4 Text", "app 4 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang Eats", "쿠팡이츠", "App 5 Text", "app 5 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang", "쿠팡", "App 6 Text", "app 6 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao T", "카카오 T", "App 7 Text", "app 7 image url");
 
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (1, "Google", "https://play.google.com/store/apps/details?id=com.nhn.android.nmap&hl=en&gl=US", "app 1 qr code", true);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (1, "Apple", "https://apps.apple.com/us/app/naver-map-navigation/id311867728", "app 1 qr code", true);
@@ -108,12 +112,20 @@ INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_q
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (4, "Apple", "https://apps.apple.com/kr/app/%ED%86%A0%EC%8A%A4/id839333328", "app 4 qr code", false);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (5, "Google", "https://play.google.com/store/apps/details?id=com.coupang.mobile.eats&hl=en&gl=US", "app 5 qr code", true);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (5, "Apple", "https://apps.apple.com/us/app/coupang-eats/id1445504255", "app 5 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (6, "Google", "https://play.google.com/store/apps/details?id=com.coupang.mobile&hl=en&gl=US", "app 6 qr code", false);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (6, "Apple", "https://apps.apple.com/us/app/%EC%BF%A0%ED%8C%A1-coupang/id454434967", "app 6 qr code", false);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (7, "Google", "https://play.google.com/store/apps/details?id=com.kakao.taxi&hl=en_US", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (7, "Apple", "https://apps.apple.com/us/app/kakao-t/id981110422", "app 6 qr code", true);
 
 INSERT INTO App_Tag(app_id, tag_id) VALUES (1, 1);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (2, 2);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (3, 1);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (4, 3);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (5, 4);
+INSERT INTO App_Tag(app_id, tag_id) VALUES (5, 6);
+INSERT INTO App_Tag(app_id, tag_id) VALUES (6, 5);
+INSERT INTO App_Tag(app_id, tag_id) VALUES (6, 6);
+INSERT INTO App_Tag(app_id, tag_id) VALUES (7, 1);
 
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("About Naver Maps", 1, "Naver maps is a map and navigator application for people who want to get around Korea. With its access to the Korean map data and English support, it makes navigating around Korean easier.", "image url", 1);
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("How to find a location", 2, "Tap on the search bar at the top and search for your destination.", "image url", 1);
