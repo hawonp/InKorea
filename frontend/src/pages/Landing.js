@@ -22,7 +22,7 @@ theme = responsiveFontSizes(theme);
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
   ...theme.typography.body2,
-  padding: theme.spacing(2),
+  margin: theme.spacing(2),
   textAlign: "center",
   color: theme.palette.text.secondary,
   "&:hover": {
@@ -42,7 +42,7 @@ export default function Landing() {
   }, []);
 
   return (
-    <Box>
+    <Box display="flex" flexDirection="column">
       <MainAppBar />
       <Box sx={{ mt: 10 }}>
         <ThemeProvider theme={theme}>
@@ -57,9 +57,15 @@ export default function Landing() {
           </Zoom>
         </ThemeProvider>
       </Box>
-      <Box>
-        <Typography variant="h6" align="center">
-          InKorea is a website that aims to lwoer the language barriers for
+      <Box
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Typography variant="h6" align="center" maxWidth="md">
+          InKorea is a website that aims to lower the language barriers for
           foreigners in Korea. We provide guides for processes such as creating
           a bank account and a catalog of useful applications for one to live in
           Korea.
