@@ -9,10 +9,10 @@ export default function AppCatalog() {
     <div>
       <MainAppBar />
       <h2 align={"center"}> App Catalog</h2>
-        <Box justifySelf={"center"}>
-        <TextField id="standard-basic" label="Search" variant="standard" />
-        </Box>
         <Container maxWidth={"xl"}>
+            <Box sx={{justifyContent:'right', border:5}}>
+                <TextField id="standard-basic" label="Search" variant="standard"/>
+            </Box>
             <CatalogGrid/>
         </Container>
     </div>
