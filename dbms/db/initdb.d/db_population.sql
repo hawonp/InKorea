@@ -95,17 +95,16 @@ INSERT INTO Tag(tag_title) VALUES("Food");
 INSERT INTO Tag(tag_title) VALUES("Shopping");
 INSERT INTO Tag(tag_title) VALUES("Delivery");
 
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Naver Maps", '네이버 지도', "App 1 Text", "app 1 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Talk", "카카오톡", "App 2 Text", "app 2 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Maps", "카카오 맵", "App 3 Text", "app 3 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Toss", "토스", "App 4 Text", "app 4 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang Eats", "쿠팡이츠", "App 5 Text", "app 5 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang", "쿠팡", "App 6 Text", "app 6 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao T", "카카오 T", "App 7 Text", "app 7 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("고속버티머니", "고속버티머니", "App 8 Text", "app 8 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Naver Maps", '네이버 지도', "App 1 Text", "https://play-lh.googleusercontent.com/Cewes10AmAykxX9X18sMsyC4aFalv8jsyXigdfydFcgDVDnyzKsgbEtkQ5LhcCftBB1f=w240-h480-rw");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Talk", "카카오톡", "App 2 Text", "https://play-lh.googleusercontent.com/KwGCiEolNEeR9Q4RFOnDtb8Pvqs3LNiQEdE07wMCnoULO3yLUprHbGGLBYNEt8k7WJY=w240-h480-rw");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Maps", "카카오 맵", "App 3 Text", "https://play-lh.googleusercontent.com/DYeQ02AyIghsirp4ea3oEnyxT3X0GgTZrXYR8G7AN6tRr-9mFcQIJdCUub5VHiWKHA=w240-h480-rw");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Toss", "토스", "App 4 Text", "https://play-lh.googleusercontent.com/W607uSRreW4h6Ar4reYPYCtYXID0_AIsd9m2fgWwdAN7JyZGG3WVM782wa5CfCvKZVM=w240-h480-rw");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang Eats", "쿠팡이츠", "App 5 Text", "https://play-lh.googleusercontent.com/VVxIA_jSqBzwzRSE9SXItUNLhT62QYdFNvCWT5msNIV_NXGJHi_C3GnyLvL14-niVQ=w240-h480-rw");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang", "쿠팡", "App 6 Text", "https://play-lh.googleusercontent.com/vQDaqflYMGXqN0NkPju5d_LZCdqRiqWw29S97A9quVzrqy2kBp2qnkeThnRCWBBKpVo=w240-h480-rw");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao T", "카카오 T", "App 7 Text", "https://play-lh.googleusercontent.com/mphI7NpqsF3eJ-DbwW_GeJA7nNe2oZ7_cjTomnDsO3RWhYbgTMWEhZhfTv49yiFyhQ=w240-h480-rw");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("", "고속버티머니", "App 8 Text", "app 8 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Seoul Bike", "따릉이", "App 9 Text", "app 9 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Toss", "토스", "App 10 Text", "app 10 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Pay", "카카오 페이", "App 11 Text", "app 11 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Pay", "카카오 페이", "App 10 Text", "app 10 image url");
 
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (1, "Google", "https://play.google.com/store/apps/details?id=com.nhn.android.nmap&hl=en&gl=US", "app 1 qr code", true);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (1, "Apple", "https://apps.apple.com/us/app/naver-map-navigation/id311867728", "app 1 qr code", true);
@@ -125,10 +124,8 @@ INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_q
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (8, "Apple", "https://apps.apple.com/us/app/%EA%B3%B5%EC%8B%9D-%EA%B3%A0%EC%86%8D%EB%B2%84%EC%8A%A4-%ED%8B%B0%EB%A8%B8%EB%8B%88/id957276809", "app 6 qr code", true);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (9, "Google", "https://play.google.com/store/apps/details?id=com.dki.spb_android", "app 6 qr code", true);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (9, "Apple", "https://apps.apple.com/us/app/%EC%84%9C%EC%9A%B8%EC%9E%90%EC%A0%84%EA%B1%B0-%EB%94%B0%EB%A6%89%EC%9D%B4/id1037272004", "app 6 qr code", true);
-INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (10, "Google", "https://play.google.com/store/search?q=toss&c=apps", "app 6 qr code", true);
-INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (10, "Apple", "https://apps.apple.com/us/app/toss-reward-point-topup/id1486116338", "app 6 qr code", true);
-INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (11, "Google", "https://play.google.com/store/search?q=kakao%20pay&c=apps", "app 6 qr code", true);
-INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (11, "Apple", "https://apps.apple.com/us/app/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%8E%98%EC%9D%B4/id1464496236", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (10, "Google", "https://play.google.com/store/search?q=kakao%20pay&c=apps", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (10, "Apple", "https://apps.apple.com/us/app/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%8E%98%EC%9D%B4/id1464496236", "app 6 qr code", true);
 
 INSERT INTO App_Tag(app_id, tag_id) VALUES (1, 1);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (2, 2);
