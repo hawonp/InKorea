@@ -172,7 +172,7 @@ export default function Guide(props) {
             handleDrawerToggle();
           }}
           fullWidth
-          sx={{ display: { sm: "none" } }}
+          sx={{ display: { sm: "none" }, borderColor: "gray", color: "gray" }}
         >
           Select category
         </Button>

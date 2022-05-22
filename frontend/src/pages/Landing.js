@@ -48,7 +48,7 @@ export default function Landing() {
         <ThemeProvider theme={theme}>
           <Zoom
             in={checked}
-            timeout={700}
+            timeout={600}
             style={{ transitionDelay: checked ? "500ms" : "100ms" }}
           >
             <Typography variant="h2" align="center">
