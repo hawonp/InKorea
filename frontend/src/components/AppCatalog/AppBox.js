@@ -8,8 +8,12 @@ import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Typography from '@mui/material/Typography';
+import {useState} from "react";
+import axiosInstance from "../../utils/routeUtils";
+import {APPS} from "../../utils/routeConstants";
 
 export default function AppBox() {
+
     return (
         <Card sx={{ display: 'flex' }}>
             <CardMedia
