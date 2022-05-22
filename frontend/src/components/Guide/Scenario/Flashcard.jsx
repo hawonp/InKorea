@@ -75,7 +75,11 @@ export default function Flashcard({ id }) {
     <Card
       variant="outlined"
       display="flex"
-      style={{ alignItems: "center", flexDirection: "column" }}
+      style={{
+        alignItems: "center",
+        flexDirection: "column",
+        background: "#f5f5f5",
+      }}
     >
       {flipped ? (
         <CardActionArea onClick={changeFlipped}>
