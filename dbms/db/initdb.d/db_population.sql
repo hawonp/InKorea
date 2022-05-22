@@ -46,26 +46,26 @@ INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (1, 4);
 INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (3, 4);
 
 -- Quiz (Banking Specific)
-INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank?", 1);
-INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank account?", 1);
-INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank book? ", 1);
-INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say "I want to make a bank account"?", 1);
-INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say identification (ID) card?", 1);
+-- INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank?", 1);
+-- INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank account?", 1);
+-- INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank book? ", 1);
+-- INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say I want to make a bank account?", 1);
+-- INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say identification (ID) card?", 1);
 
-INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("은행", "은행 is the Korean word for bank", "Eun-haeng", true);
-INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("계좌", "계좌 is the specific word for Bank account", "gye-jwa", false);
-INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("통장", "통장 is the Korean word for bank book/ledger","tong-jang", false);
-INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("예금 계좌 만들고싶어요", "This phrase indicates that you would like to create a normal checkings account", false);
-INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("신분증", "신분증 is the Korean word for ID", "Shin-boon-cheung", true);
+-- INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("은행", "은행 is the Korean word for bank", "Eun-haeng", true);
+-- INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("계좌", "계좌 is the specific word for Bank account", "gye-jwa", false);
+-- INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("통장", "통장 is the Korean word for bank book/ledger","tong-jang", false);
+-- INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("예금 계좌 만들고싶어요", "This phrase indicates that you would like to create a normal checkings account", false);
+-- INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("신분증", "신분증 is the Korean word for ID", "Shin-boon-cheung", true);
 
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 1);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 2);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 3);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 4);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(2, 1);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(3, 1);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(4, 1);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(5, 1);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 1);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 2);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 3);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 4);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(2, 1);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(3, 1);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(4, 1);
+-- INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(5, 1);
 
 -- Document Helper (Banking Specific)
 INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Alien Registration Card", "외국인등록증", true);
@@ -102,7 +102,7 @@ INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Toss", "�
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang Eats", "쿠팡이츠", "App 5 Text", "app 5 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Coupang", "쿠팡", "App 6 Text", "app 6 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao T", "카카오 T", "App 7 Text", "app 7 image url");
-INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("", "고속버티머니", "App 8 Text", "app 8 image url");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("고속버티머니", "고속버티머니", "App 8 Text", "app 8 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Seoul Bike", "따릉이", "App 9 Text", "app 9 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Toss", "토스", "App 10 Text", "app 10 image url");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Pay", "카카오 페이", "App 11 Text", "app 11 image url");
