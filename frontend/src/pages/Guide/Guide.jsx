@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button } from "@mui/material";
+import { Button, Typography } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -14,7 +14,7 @@ import { CATEGORIES, DOCUMENTS, SLASH } from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
 import ScenarioGuide from "../../components/Guide/Scenario/ScenarioGuide";
 import Quiz from "../../components/Guide/Quiz";
-
+import Error_400_page from "../../components/Guide/400";
 const drawerWidth = 240;
 
 export default function Guide(props) {
@@ -83,7 +83,7 @@ export default function Guide(props) {
   const drawer = (
     <div>
       <Toolbar />
-      <Searchbar searchHandler={handleSearch} />
+      {/* <Searchbar searchHandler={handleSearch} /> */}
       <SidebarAccordion
         options={options}
         handleSubcatSelect={handleSubcatSelect}
@@ -185,7 +185,25 @@ export default function Guide(props) {
             <Quiz />
           </div>
         ) : (
-          <h1 style={{ textAlign: "center" }}> Page Does Not Exist</h1>
+          <Box
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            {/* <h1 style={{ textAlign: "center" }}> Please select a scenario!</h1> */}
+            {/* <Error_400_page /> */}
+            <div>
+              <Typography
+                style={{ textAlign: "center" }}
+                variant="h1"
+                color="gray"
+              >
+                Please select a scenario!
+              </Typography>
+            </div>
+          </Box>
         )}
       </Box>
     </Box>
