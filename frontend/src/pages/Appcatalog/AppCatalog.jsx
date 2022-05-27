@@ -53,7 +53,7 @@ export default function AppCatalog() {
       >
         <Grid container spacing={2} maxWidth={"md"}>
           {apps.map((app) => (
-            <Grid item xs={12} md={6}>
+            <Grid item xs={12} md={6} lg={6}>
               <AppBox app_id={app["app_id"]} key={app["app_id"]} />
             </Grid>
           ))}

@@ -3,6 +3,10 @@ import React, { useState } from "react";
 import { Chip } from "@mui/material";
 
 export default function Tag({ data }) {
+  const temp = () => {
+    console.log("open dialog");
+  };
+
   return (
     <div
     // style={{
@@ -26,7 +30,13 @@ export default function Tag({ data }) {
       >
         {keyword.keyword_text}
       </Typography> */}
-      <Chip color="primary" variant="outlined" label={data.tag_title} />
+      <Chip
+        color="primary"
+        variant="outlined"
+        size="small"
+        label={data.tag_title}
+        onClick={temp}
+      />
     </div>
   );
 }

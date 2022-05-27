@@ -32,11 +32,11 @@ INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (2, 1);
 INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (3, 1);
 INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (4, 1);
 
-INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("계좌", "계좌 is the korean word for account", "gyejwa");
-INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("예금 계좌", "예금 계좌 indicates a checkings account", "yegeum gyejwa");
-INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("적금 계좌", "적금 계좌 indicates a savings account", "jukgeum gyejwa");
-INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("신분증", "신분증 indicates a national id card", "shin bun jjeung");
-INSERT INTO Keyword(keyword_text, keyword_explanation, keyword_romanization) VALUES("비밀번호",  "비밀번호 means password", "bimil bunho");
+INSERT INTO Keyword(keyword_text, keyword_text_kor, keyword_explanation, keyword_romanization) VALUES("Account", "계좌", "계좌 is the korean word for account", "gyejwa");
+INSERT INTO Keyword(keyword_text, keyword_text_kor, keyword_explanation, keyword_romanization) VALUES("Checkings Account", "예금 계좌", "예금 계좌 indicates a checkings account", "yegeum gyejwa");
+INSERT INTO Keyword(keyword_text, keyword_text_kor,  keyword_explanation, keyword_romanization) VALUES("Savings Account", "적금 계좌", "적금 계좌 indicates a savings account", "jukgeum gyejwa");
+INSERT INTO Keyword(keyword_text, keyword_text_kor, keyword_explanation, keyword_romanization) VALUES("National Identification Card", "신분증", "신분증 indicates a national id card", "shin bun jjeung");
+INSERT INTO Keyword(keyword_text, keyword_text_kor, keyword_explanation, keyword_romanization) VALUES("Password", "비밀번호",  "비밀번호 means password", "bimil bunho");
 
 INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (1, 1);
 INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (2, 1);

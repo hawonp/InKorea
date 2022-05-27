@@ -61,20 +61,30 @@ export default function AppBox({ app_id }) {
       <CardMedia
         component="img"
         sx={{
-          maxWidth: 150,
+          maxWidth: "132px",
+          maxHeight: "132px",
           borderRight: 1,
           borderWidth: 0.1,
           borderColor: "gray",
         }}
         image={app.app_image}
       />
-      <Box sx={{ display: "flex", flexDirection: "column", width: "100%" }}>
-        <CardContent sx={{ flex: "1 0 auto" }}>
-          <Typography variant="h5">{app.app_title}</Typography>
+      <Box
+        sx={{
+          display: "flex",
+          flexDirection: "column",
+          width: "100%",
+        }}
+      >
+        <CardContent
+          style={{ flex: "1 0 auto", paddingBottom: "8px", paddingTop: "8px" }}
+        >
+          <Typography style={{ fontWeight: 500, fontSize: "medium" }}>
+            {app.app_title}
+          </Typography>
           <Typography
-            variant="body1"
             color="text.secondary"
-            style={{ paddingBottom: "16px" }}
+            style={{ paddingBottom: "8px", fontSize: "small" }}
           >
             {app.app_title_kor}
           </Typography>
@@ -96,19 +106,20 @@ export default function AppBox({ app_id }) {
             borderTopWidth: 1,
             borderColor: "gray",
             borderStyle: "solid",
+            paddingTop: "0",
           }}
         >
           {app["app_id"] === 1 ? (
             <div>
-              <Button onClick={handleClickOpen}>See More</Button>
-              {/* <Button onClick={handleClickOpen2}>Download</Button> */}
+              <Button size="small" onClick={handleClickOpen}>
+                See More
+              </Button>
             </div>
           ) : (
             <div>
-              <Button disabled onClick={handleClickOpen}>
+              <Button size="small" disabled onClick={handleClickOpen}>
                 See More
               </Button>
-              {/* <Button onClick={handleClickOpen2}>Download</Button> */}
             </div>
           )}
         </CardActions>

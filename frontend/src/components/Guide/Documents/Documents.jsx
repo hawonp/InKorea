@@ -11,12 +11,12 @@ import DialogTitle from "@mui/material/DialogTitle";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuiAccordion from "@mui/material/Accordion";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { blue } from "@mui/material/colors";
 import {
   // Checkbox,
   List,
   ListItem,
   ListItemButton,
-  // ListItemIcon,
   Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
@@ -121,16 +121,8 @@ export default function Documents({ id }) {
               <ListItem disablePadding key={document["document_id"]}>
                 {document["has_details"] ? (
                   <>
-                    {/* <ListItemIcon>
-                      <Checkbox
-                        edge="start"
-                        // checked={checked.indexOf(value) !== -1}
-                        tabIndex={-1}
-                        disableRipple
-                        // inputProps={{ "aria-labelledby": labelId }}
-                      />
-                    </ListItemIcon> */}
                     <ListItemButton
+                      style={{ textDecoration: "underline", color: "blue" }}
                       onClick={() => {
                         handleDocumentClick(
                           document["document_id"],
