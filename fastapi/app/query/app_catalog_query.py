@@ -2,7 +2,6 @@ from app.util.db_connect import get_connection
 import mariadb
 
 def query_all_apps_by_platform(page, platform):
-    json_data = []
     try:
         print("get_apps_by_platform:", platform, "page", page)
        
@@ -11,8 +10,8 @@ def query_all_apps_by_platform(page, platform):
         cursor = conn.cursor()
 
         # Set up query statements and values
-        limit = 10
-        offset = (page - 1) * 10  # if page 1, then it should start from 1.
+        limit = 8
+        offset = (page - 1) * 8  # if page 1, then it should start from 1.
 
         # no platform filtering
         if platform == 'All':
@@ -29,21 +28,41 @@ def query_all_apps_by_platform(page, platform):
         cursor.execute(query, values)
 
         # serialize results into JSON
+        json_data = []
         row_headers = [x[0] for x in cursor.description]
         rv = cursor.fetchall()
 
         for result in rv:
             json_data.append(dict(zip(row_headers, result)))
 
+        cursor.close()
+
+        # Obtain max page count
+        # Obtainting DB cursor
+        cursor = conn.cursor()
+
+        # Set up query statement and values
+        query = "SELECT COUNT(*) FROM App"
+        # values = (order, offset, limit)
+        # Fetching count with given filter
+        print("Selecting with query", query, " and values ", values)
+        cursor.execute(query)
+
+        # serialize results into JSON
+        rv = cursor.fetchone()
+
+        # return the results!
+        res_data = {'apps': json_data, 'maxPageCount': (rv[0]//10 + 1)}
+
     except mariadb.Error as e:
         print(f"Error ocurred while querying database: {e}")
-        json_data = 0
+        res_data = 0
 
     # Closing cursor and commiting  connection
     cursor.close()
     conn.commit()
     conn.close()
-    return json_data
+    return res_data
 
 def query_app_by_id(app_id):
     json_data = []

@@ -10,7 +10,6 @@ import { useState } from "react";
 import axiosInstance from "../../utils/routeUtils";
 import { APPS, SLASH, INFO } from "../../utils/routeConstants";
 import Tag from "./Tag";
-import { Stack } from "@mui/material";
 import { CardActions } from "@mui/material";
 
 import Dialog from "@mui/material/Dialog";
@@ -20,6 +19,8 @@ import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import AppInfo from "./AppInfo";
 import PlatformInfo from "./PlatformInfo";
+import Grid from "@mui/material/Grid";
+import { Stack } from "@mui/material";
 
 export default function AppBox({ app_id }) {
   const [app, setApp] = useState([]);
@@ -57,15 +58,12 @@ export default function AppBox({ app_id }) {
   }
 
   return (
-    <Card variant="outlined" sx={{ display: "flex" }}>
+    <Card sx={{ display: "flex" }}>
       <CardMedia
         component="img"
         sx={{
           maxWidth: "132px",
           maxHeight: "132px",
-          borderRight: 1,
-          borderWidth: 0.1,
-          borderColor: "gray",
         }}
         image={app.app_image}
       />
@@ -77,17 +75,42 @@ export default function AppBox({ app_id }) {
         }}
       >
         <CardContent
-          style={{ flex: "1 0 auto", paddingBottom: "8px", paddingTop: "8px" }}
+          style={{ flex: "1 0 auto", paddingBottom: "0px", paddingTop: "8px" }}
         >
-          <Typography style={{ fontWeight: 500, fontSize: "medium" }}>
-            {app.app_title}
-          </Typography>
-          <Typography
-            color="text.secondary"
-            style={{ paddingBottom: "8px", fontSize: "small" }}
-          >
-            {app.app_title_kor}
-          </Typography>
+          <Grid container spacing={0}>
+            <Grid item xs={8}>
+              <Typography style={{ fontWeight: 500, fontSize: "medium" }}>
+                {app.app_title}
+              </Typography>
+            </Grid>
+            <Grid item xs={4}>
+              {app.platforms != 0 && app.platforms != undefined ? (
+                <Stack
+                  direction="row"
+                  spacing={0}
+                  style={{ justifyContent: "right" }}
+                >
+                  {app.platforms.map((platform) => (
+                    <PlatformInfo
+                      data={platform}
+                      key={platform["platform_store_link"]}
+                    />
+                  ))}
+                </Stack>
+              ) : (
+                <div />
+              )}
+            </Grid>
+            <Grid item xs={12}>
+              <Typography
+                color="text.secondary"
+                style={{ paddingBottom: "8px", fontSize: "small" }}
+              >
+                {app.app_title_kor}
+              </Typography>
+            </Grid>
+          </Grid>
+
           {app.tags != 0 && app.tags != undefined ? (
             <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
               {app.tags.map((tag) => (
@@ -102,22 +125,26 @@ export default function AppBox({ app_id }) {
           style={{
             display: "flex",
             justifyContent: "center",
-            borderWidth: 0,
-            borderTopWidth: 1,
-            borderColor: "gray",
-            borderStyle: "solid",
-            paddingTop: "0",
           }}
         >
           {app["app_id"] === 1 ? (
             <div>
-              <Button size="small" onClick={handleClickOpen}>
+              <Button
+                size="small"
+                style={{ padding: "0px" }}
+                onClick={handleClickOpen}
+              >
                 See More
               </Button>
             </div>
           ) : (
             <div>
-              <Button size="small" disabled onClick={handleClickOpen}>
+              <Button
+                size="small"
+                style={{ padding: "0px" }}
+                disabled
+                onClick={handleClickOpen}
+              >
                 See More
               </Button>
             </div>
