@@ -20,12 +20,14 @@ const style = {
   position: "fixed",
 };
 
-var quiz;
-var data;
-
-export default function Quiz() {
+export default function Quiz({id}) {
+  const [selectedSubcategory, setSelectedSubcategory] = useState(-1);
+  const [quiz, setQuiz] = useState([]);
+  const [quizDetails, setQuizDetails] = useState({
+    quizTitle: "",
+    quizDetails: "",
+  });
   const [open, setOpen] = useState(false);
-
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -37,25 +39,20 @@ export default function Quiz() {
   function handleQuizFabQuiz(id, title) {
     setOpen(true);
     axiosInstance
-      .get(QUIZ)
+      .get(QUIZ + id)
       .then((response) => {
         const data = response.data;
-        setDocumentDetails({ documentTitle: title, documentDetails: data });
-        console.log(data.length)
+        setQuizDetails({ quizTitle: title, quizDetails: data[0] });
+        console.log(data[0]);
       })
       .catch((e) => {
         console.log(e);
       });
   }
 
-  function setDocumentDetails(title, data){
-    quiz=title;
-    this.data=data;
-  }
-
   return (
     <Box sx={{ "& > :not(style)": { m: 1 } }}>
-      <Fab variant="extended" style={style} onClick={()=> handleQuizFabQuiz()}>
+      <Fab variant="extended" style={style} onClick={()=> handleQuizFabQuiz("?subcategory_id=1")}>
         Take a Quiz!
       </Fab>
       <div>
@@ -65,8 +62,11 @@ export default function Quiz() {
           onClose={handleClose}
           aria-labelledby="docdetails-dialog-title"
         >
-          <DialogTitle id="docdetails-dialog-title">{quiz}</DialogTitle>
-          <DialogContent>{data}</DialogContent>
+          <DialogTitle id="docdetails-dialog-title">Title</DialogTitle>
+          <DialogContent>{quizDetails.quizDetails["question_text"]}
+
+
+          </DialogContent>
           <DialogActions>
             <Button onClick={handleClose} autoFocus>
               Close
