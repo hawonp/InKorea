@@ -8,7 +8,7 @@ import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import Fab from "@mui/material/Fab";
-import {DOCUMENTS, INFO, SLASH} from "../../utils/routeConstants";
+import {QUIZ, INFO, SLASH} from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
 
 const style = {
@@ -20,7 +20,7 @@ const style = {
   position: "fixed",
 };
 
-var title;
+var quiz;
 var data;
 
 export default function Quiz() {
@@ -37,10 +37,11 @@ export default function Quiz() {
   function handleQuizFabQuiz(id, title) {
     setOpen(true);
     axiosInstance
-      .get(DOCUMENTS + SLASH + id + INFO)
+      .get(QUIZ)
       .then((response) => {
         const data = response.data;
         setDocumentDetails({ documentTitle: title, documentDetails: data });
+        console.log(data.length)
       })
       .catch((e) => {
         console.log(e);
@@ -48,7 +49,7 @@ export default function Quiz() {
   }
 
   function setDocumentDetails(title, data){
-    this.title=title;
+    quiz=title;
     this.data=data;
   }
 
@@ -64,7 +65,7 @@ export default function Quiz() {
           onClose={handleClose}
           aria-labelledby="docdetails-dialog-title"
         >
-          <DialogTitle id="docdetails-dialog-title">{title}</DialogTitle>
+          <DialogTitle id="docdetails-dialog-title">{quiz}</DialogTitle>
           <DialogContent>{data}</DialogContent>
           <DialogActions>
             <Button onClick={handleClose} autoFocus>
