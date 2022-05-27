@@ -8,6 +8,8 @@ import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import Fab from "@mui/material/Fab";
+import {DOCUMENTS, INFO, SLASH} from "../../utils/routeConstants";
+import axiosInstance from "../../utils/routeUtils";
 
 const style = {
   margin: 0,
@@ -17,6 +19,9 @@ const style = {
   left: "auto",
   position: "fixed",
 };
+
+var title;
+var data;
 
 export default function Quiz() {
   const [open, setOpen] = useState(false);
@@ -31,29 +36,26 @@ export default function Quiz() {
 
   function handleQuizFabQuiz(id, title) {
     setOpen(true);
-    // axiosInstance
-    //   .get(DOCUMENTS + SLASH + id + INFO)
-    //   .then((response) => {
-    //     const data = response.data;
-    //     setDocumentDetails({ documentTitle: title, documentDetails: data });
-    //   })
-    //   .catch((e) => {
-    //     console.log(e);
-    //   });
+    axiosInstance
+      .get(DOCUMENTS + SLASH + id + INFO)
+      .then((response) => {
+        const data = response.data;
+        setDocumentDetails({ documentTitle: title, documentDetails: data });
+      })
+      .catch((e) => {
+        console.log(e);
+      });
+  }
+
+  function setDocumentDetails(title, data){
+    this.title=title;
+    this.data=data;
   }
 
   return (
     <Box sx={{ "& > :not(style)": { m: 1 } }}>
-      <Fab
-        disabled="true"
-        variant="extended"
-        size="medium"
-        color="primary"
-        aria-label="add"
-        style={style}
-        onClick={() => handleQuizFabQuiz()}
-      >
-        Take a quiz!
+      <Fab variant="extended" style={style} onClick={()=> handleQuizFabQuiz()}>
+        Take a Quiz!
       </Fab>
       <div>
         <Dialog
@@ -62,8 +64,8 @@ export default function Quiz() {
           onClose={handleClose}
           aria-labelledby="docdetails-dialog-title"
         >
-          <DialogTitle id="docdetails-dialog-title">qwer</DialogTitle>
-          <DialogContent>asdf</DialogContent>
+          <DialogTitle id="docdetails-dialog-title">{title}</DialogTitle>
+          <DialogContent>{data}</DialogContent>
           <DialogActions>
             <Button onClick={handleClose} autoFocus>
               Close

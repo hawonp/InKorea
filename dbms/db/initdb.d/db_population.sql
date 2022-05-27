@@ -94,6 +94,7 @@ INSERT INTO Tag(tag_title) VALUES("Banking");
 INSERT INTO Tag(tag_title) VALUES("Food");
 INSERT INTO Tag(tag_title) VALUES("Shopping");
 INSERT INTO Tag(tag_title) VALUES("Delivery");
+INSERT INTO Tag(tag_title) VALUES("Translation");
 
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Naver Maps", '네이버 지도', "App 1 Text", "https://play-lh.googleusercontent.com/Cewes10AmAykxX9X18sMsyC4aFalv8jsyXigdfydFcgDVDnyzKsgbEtkQ5LhcCftBB1f=w240-h480-rw");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Talk", "카카오톡", "App 2 Text", "https://play-lh.googleusercontent.com/KwGCiEolNEeR9Q4RFOnDtb8Pvqs3LNiQEdE07wMCnoULO3yLUprHbGGLBYNEt8k7WJY=w240-h480-rw");
@@ -105,6 +106,10 @@ INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao T",
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Express Bus T-money", "고속버스 티머니", "App 8 Text", "https://play-lh.googleusercontent.com/763H-3dcJk80jKe9LCR2Vyzg_fPx4FeUPZFo-gCg0pYnq3-KkhGm_Mei7sgklNhruw=w240-h480-rw");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Seoul Bike", "따릉이", "App 9 Text", "https://play-lh.googleusercontent.com/qxPKLrBi-zwgDqsYf9FtbrHuxbkT_VVS1thV6F5bDw-WJvFiD_9LvTz0VejNFtMnmnE=w240-h480-rw");
 INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Kakao Pay", "카카오 페이", "App 10 Text", "https://play-lh.googleusercontent.com/W43xj43ErMIs5BQgCdMKEa0NXCoUUW8DjQc5SxcDfLrC26H8sHDmoFIUWLYmsQahpo0=w240-h480-rw");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Yogiyo", " 요기요", "App 11 Text", "https://play-lh.googleusercontent.com/Zkel_nNv9Hq8met65g2HkbCYMoR0tZR5TaWaV5ZMqsfdwY3naycvlUKkarBJOWNPjpo=w240-h480-rw");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Subway Korea", "Subway Korea", "App 12 Text", "https://play-lh.googleusercontent.com/A6a1G2LkgJtlmAgQNiXVXVvXCYVCOJ-MSFZ-W2NijTAtGD3PiR5dpYYuHQBERB6-f80=w240-h480-rw");
+INSERT INTO App(app_title, app_title_kor, app_text, app_image) VALUES("Papago", "파파고", "App 13 Text", "https://play-lh.googleusercontent.com/Df1ecVQZ_E_d9oetc4L2-iReDjo9xXfJAOiaNcljy7MdMtHwbyDsEGWq8uQsldkdnA=w240-h480-rw");
+
 
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (1, "Google", "https://play.google.com/store/apps/details?id=com.nhn.android.nmap&hl=en&gl=US", "app 1 qr code", true);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (1, "Apple", "https://apps.apple.com/us/app/naver-map-navigation/id311867728", "app 1 qr code", true);
@@ -126,6 +131,12 @@ INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_q
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (9, "Apple", "https://apps.apple.com/us/app/%EC%84%9C%EC%9A%B8%EC%9E%90%EC%A0%84%EA%B1%B0-%EB%94%B0%EB%A6%89%EC%9D%B4/id1037272004", "app 6 qr code", true);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (10, "Google", "https://play.google.com/store/search?q=kakao%20pay&c=apps", "app 6 qr code", true);
 INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (10, "Apple", "https://apps.apple.com/us/app/%EC%B9%B4%EC%B9%B4%EC%98%A4%ED%8E%98%EC%9D%B4/id1464496236", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (11, "Google", "https://play.google.com/store/apps/details?id=com.fineapp.yogiyo&hl=en&gl=US", "app 6 qr code", false);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (11, "Apple", "https://apps.apple.com/us/app/%EB%B0%B0%EB%8B%AC%EC%9A%94%EA%B8%B0%EC%9A%94-%EA%B8%B0%EB%8B%A4%EB%A6%BC-%EC%97%86%EB%8A%94-%EB%A7%9B%EC%A7%91-%EB%B0%B0%EB%8B%AC%EC%95%B1/id543831532", "app 6 qr code", false);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (12, "Google", "https://play.google.com/store/apps/details?id=com.imagedrome.jihachul&hl=en_US&gl=US", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (12, "Apple", "https://apps.apple.com/us/app/subway-korea/id325924444", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (13, "Google", "https://play.google.com/store/apps/details?id=com.naver.labs.translator&hl=en&gl=US", "app 6 qr code", true);
+INSERT INTO App_Platform(app_id, platform_title, platform_store_link, platform_qr_code, has_english) VALUES (13, "Apple", "https://apps.apple.com/us/app/naver-papago-ai-translator/id1147874819", "app 6 qr code", true);
 
 INSERT INTO App_Tag(app_id, tag_id) VALUES (1, 1);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (2, 2);
@@ -136,6 +147,14 @@ INSERT INTO App_Tag(app_id, tag_id) VALUES (5, 6);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (6, 5);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (6, 6);
 INSERT INTO App_Tag(app_id, tag_id) VALUES (7, 1);
+INSERT INTO App_Tag(app_id, tag_id) VALUES (8, 1);
+INSERT INTO App_Tag(app_id, tag_id) VALUES (9, 1);
+INSERT INTO App_Tag(app_id, tag_id) VALUES (10, 3);
+INSERT INTO App_Tag(app_id, tag_id) VALUES (11, 4);
+INSERT INTO App_Tag(app_id, tag_id) VALUES (11, 6);
+INSERT INTO App_Tag(app_id, tag_id) VALUES (12, 1);
+INSERT INTO App_Tag(app_id, tag_id) VALUES (13, 7);
+
 
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("About Naver Maps", 1, "Naver maps is a map and navigator application for people who want to get around Korea. With its access to the Korean map data and English support, it makes navigating around Korean easier.", "image url", 1);
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("How to find a location", 2, "Tap on the search bar at the top and search for your destination.", "image url", 1);
