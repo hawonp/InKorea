@@ -43,7 +43,7 @@ def query_all_apps_by_platform(page, platform, search):
         for result in rv:
             json_data.append(dict(zip(row_headers, result)))
         
-        max_page_a = len(rv)
+        max_page_a = (len(rv)//8 + 1)
         cursor.close()
 
         # Obtain max page count
@@ -61,12 +61,13 @@ def query_all_apps_by_platform(page, platform, search):
         rv = cursor.fetchone()
 
         # return the results!
-        max_page_b = (rv[0]//10 + 1)
+        max_page_b = (rv[0]//8 + 1)
         
         if len(search) > 1 and search != "":
             max_page = max_page_a
         else:
             max_page = max_page_b
+        print("\n\n\n\n\nmax_page:", max_page, "\n\n\n\n\n")
         res_data = {'apps': json_data, 'maxPageCount': max_page}
 
     except mariadb.Error as e:
