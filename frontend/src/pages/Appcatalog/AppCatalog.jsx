@@ -9,7 +9,7 @@ import AppBar from "@mui/material/AppBar";
 import React, { useEffect, useState } from "react";
 
 import axiosInstance from "../../utils/routeUtils";
-import { APPS } from "../../utils/routeConstants";
+import { APPS, SEARCH, SLASH } from "../../utils/routeConstants";
 import { Typography } from "@mui/material";
 import { Pagination } from "@mui/material";
 import Radio from "@mui/material/Radio";
@@ -17,6 +17,8 @@ import RadioGroup from "@mui/material/RadioGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
+import { Autocomplete } from "@mui/material";
+import styled from "@emotion/styled";
 
 export default function AppCatalog() {
   const [apps, setApps] = useState([]);
@@ -24,37 +26,82 @@ export default function AppCatalog() {
   const [page, setPage] = useState(1);
   const [platform, setPlatform] = useState("All"); // state for filtering the posts
 
-  // action handling for updating the page (order, filtering)
+  const [searchResults, setSearchResults] = useState([]); // search results data state
+  const [inputValue, setInputValue] = useState(""); // user keystroke input data state
+
   const handleChange = (event, value) => {
     setPage(value);
   };
 
-  // const [value, setValue] = useState("All");
-
   const handleFilter = (event) => {
-    // setValue(event.target.value);
     setPlatform(event.target.value);
   };
 
+  // when the user has typed something in the search bar
+  function handleInputChange(event, value) {
+    // console.log("this is change in motion");
+    if (value != null && value != "") {
+      axiosInstance
+        .get(APPS + SEARCH + "/test", {
+          params: {
+            search_input: value,
+          },
+        })
+        .then((response) => {
+          setSearchResults(response["data"]);
+        })
+        .catch((e) => {
+          const resp = e.response;
+          if (resp["status"] == 400) {
+            // do nothing, error 400 would mean that nothing is in the search bar
+          } else if (resp["status"] == 500) {
+            // router.push("/" + "error/500");
+          }
+        });
+    } else if (value == null) {
+      setSearchResults([]);
+    }
+    setInputValue(value);
+  }
+
+  // function handleSelection(event, value) {
+  //   if (value != null) {
+  //     setInputValue(value);
+  //     console.log("this is the current selection:", value);
+  //   }
+  // }
+
+  function handleClear(event, value) {
+    setSearchResults([]);
+  }
+
   useEffect(() => {
-    axiosInstance
-      .get(APPS + "/test", {
-        params: {
-          page: page,
-          platform: platform,
-        },
-      })
-      .then((response) => {
-        const data = response.data;
-        console.log(data);
-        setApps(data["apps"]); // setMaxPage(JSON.parse(response.data)["maxPageCount"]);
-        setMaxPage(data["maxPageCount"]);
-        console.log("app data");
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-  }, [page, platform]);
+    if (inputValue != undefined) {
+      console.log(
+        "searching for apps with filters:",
+        page,
+        platform,
+        inputValue
+      );
+      axiosInstance
+        .get(APPS + "/test", {
+          params: {
+            page: page,
+            platform: platform,
+            search: inputValue,
+          },
+        })
+        .then((response) => {
+          const data = response.data;
+          console.log("app data was received from backend", data);
+          setApps(data["apps"]);
+          setMaxPage(data["maxPageCount"]);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    }
+  }, [page, platform, inputValue]);
 
   return (
     <Box>
@@ -70,38 +117,72 @@ export default function AppCatalog() {
       >
         Usefull Apps in Korea
       </Typography>
-      <FormControl
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingBottom: "16px",
-        }}
-      >
-        <FormLabel id="demo-controlled-radio-buttons-group">
-          Platforms:
-        </FormLabel>
-        <RadioGroup
-          aria-labelledby="demo-controlled-radio-buttons-group"
-          name="controlled-radio-buttons-group"
-          value={platform}
-          onChange={handleFilter}
-          row
-        >
-          <FormControlLabel value="All" control={<Radio />} label="All" />
-          <FormControlLabel value="Google" control={<Radio />} label="Google" />
-          <FormControlLabel value="Apple" control={<Radio />} label="Apple" />
-        </RadioGroup>
-      </FormControl>
-
       <div
         style={{
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
           paddingBottom: "16px",
+          flexDirection: "column",
         }}
       >
+        <Grid container maxWidth={"md"}>
+          <Grid item xs={12} md={4}>
+            <FormControl
+              style={{
+                paddingBottom: "16px",
+              }}
+            >
+              <FormLabel id="demo-controlled-radio-buttons-group">
+                Platforms:
+              </FormLabel>
+              <RadioGroup
+                aria-labelledby="demo-controlled-radio-buttons-group"
+                name="controlled-radio-buttons-group"
+                value={platform}
+                onChange={handleFilter}
+                row
+              >
+                <FormControlLabel value="All" control={<Radio />} label="All" />
+                <FormControlLabel
+                  value="Google"
+                  control={<Radio />}
+                  label="Google"
+                />
+                <FormControlLabel
+                  value="Apple"
+                  control={<Radio />}
+                  label="Apple"
+                />
+              </RadioGroup>
+            </FormControl>
+          </Grid>
+          <Grid item xs={12} md={8}>
+            <Autocomplete
+              id="free-solo-demo"
+              freeSolo
+              options={searchResults}
+              sx={{ width: "auto" }}
+              inputValue={inputValue}
+              onInputChange={handleInputChange}
+              onClose={handleClear}
+              groupBy={(option) => option.type.toString()}
+              getOptionLabel={(option) => option.text.toString()}
+              renderInput={(params) => (
+                <TextField
+                  {...params}
+                  label="Search"
+                  placeholder="Search for what you want"
+                  InputProps={{
+                    ...params.InputProps,
+                    type: "search",
+                  }}
+                />
+              )}
+            />
+          </Grid>
+        </Grid>
+
         <Grid container spacing={2} maxWidth={"md"}>
           {apps.map((app) => (
             <Grid item xs={12} md={6} lg={6} key={app["app_id"]}>

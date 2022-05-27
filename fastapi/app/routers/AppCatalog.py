@@ -18,8 +18,8 @@ async def get_apps_by_platform(request: Request):
     return data
 
 @router.get('/test', tags=['apps'])
-async def test_get_apps_by_platform(page : int, platform):
-    data = query_all_apps_by_platform(page, platform)
+async def test_get_apps_by_platform(page : int, platform, search):
+    data = query_all_apps_by_platform(page, platform, search)
     return data
 
 #########################################################################
@@ -45,28 +45,31 @@ async def get_app_info(app_id : int):
 #########################################################################
 @router.get('/search', tags=['apps'])
 async def get_search_results(request : Request):
-    platform = request.query_params['platform']
     search_input = request.query_params['search_input']
 
-    data_by_name = query_search_app_by_name(search_input, platform)
-    data_by_tag = query_search_app_by_tag(search_input, platform)
+    data_by_name = query_search_for_names(search_input)
+    data_by_tag = query_search_for_tags(search_input)
 
-    result_json = {
-        "names": data_by_name,
-        "tags": data_by_tag
-    }
+    # result_json = {
+    #     "names": data_by_name,
+    #     "tags": data_by_tag
+    # }
 
-    return result_json
+    # return result_json
+
+    return data_by_name + data_by_tag
 
 @router.get('/search/test', tags=['apps'])
-async def get_search_results(search_input, platform):
-    data_by_name = query_search_app_by_name(search_input, platform)
-    data_by_tag = query_search_app_by_tag(search_input, platform)
+async def get_search_results(search_input):
+    data_by_name = query_search_for_names(search_input)
+    data_by_tag = query_search_for_tags(search_input)
 
-    result_json = {
-        "names": data_by_name,
-        "tags": data_by_tag
-    }
+    # result_json = {
+    #     "names": data_by_name,
+    #     "tags": data_by_tag
+    # }
 
-    return result_json
+    # return result_json
+
+    return data_by_name + data_by_tag
     

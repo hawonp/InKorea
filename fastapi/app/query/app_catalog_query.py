@@ -1,10 +1,10 @@
 from app.util.db_connect import get_connection
 import mariadb
 
-def query_all_apps_by_platform(page, platform):
+def query_all_apps_by_platform(page, platform, search):
     try:
         print("get_apps_by_platform:", platform, "page", page)
-       
+        print("this is the current search patterns:", search)
         # Obtainting DB cursor
         conn = get_connection()
         cursor = conn.cursor()
@@ -15,12 +15,20 @@ def query_all_apps_by_platform(page, platform):
 
         # no platform filtering
         if platform == 'All':
-            query = "SELECT A.* FROM App A LIMIT ?, ?"
-            values = (offset, limit)
+            if len(search) > 1 and search != "":
+                query = "SELECT A.* FROM App A, Tag T, App_Tag ApT WHERE ApT.app_id = A.app_id AND Apt.tag_id = T.tag_id and LOWER(T.tag_title) LIKE LOWER(?) UNION DISTINCT SELECT A.* FROM App A WHERE LOWER(A.app_title) LIKE LOWER(?) ORDER BY app_id LIMIT ?, ?"
+                values = (search, search, offset, limit)
+            else:
+                query = "SELECT A.* FROM App A LIMIT ?, ?"
+                values = ( offset, limit)
         # platform filtering
         else:
-            query = "SELECT s.*, a.app_id, a.app_title, a.app_title_kor, a.app_text, a.app_image FROM App a INNER JOIN(SELECT DISTINCT * FROM App_Platform WHERE platform_title = ?) AS s ON s.app_id = a.app_id LIMIT ?, ?"
-            values = (platform, offset, limit)
+            if len(search) > 1 and search != "":
+                query = "SELECT A.* FROM App A, App_Platform P WHERE A.app_id = P.app_id AND P.platform_title = ? intersect (SELECT A.* FROM App A, Tag T, App_Tag ApT WHERE ApT.app_id = A.app_id AND Apt.tag_id = T.tag_id and LOWER(T.tag_title) LIKE LOWER(?) UNION DISTINCT SELECT A.* FROM App A WHERE LOWER(A.app_title) LIKE LOWER(?)) ORDER BY app_id LIMIT ?, ?"
+                values = (platform, search, search, offset, limit)
+            else:
+                query = "SELECT s.*, a.app_id, a.app_title, a.app_title_kor, a.app_text, a.app_image FROM App a INNER JOIN(SELECT DISTINCT * FROM App_Platform WHERE platform_title = ?) AS s ON s.app_id = a.app_id LIMIT ?, ?"
+                values = (platform, offset, limit)
 
         # Set up query statements and values
         
@@ -34,7 +42,8 @@ def query_all_apps_by_platform(page, platform):
 
         for result in rv:
             json_data.append(dict(zip(row_headers, result)))
-
+        
+        max_page_a = len(rv)
         cursor.close()
 
         # Obtain max page count
@@ -52,7 +61,13 @@ def query_all_apps_by_platform(page, platform):
         rv = cursor.fetchone()
 
         # return the results!
-        res_data = {'apps': json_data, 'maxPageCount': (rv[0]//10 + 1)}
+        max_page_b = (rv[0]//10 + 1)
+        
+        if len(search) > 1 and search != "":
+            max_page = max_page_a
+        else:
+            max_page = max_page_b
+        res_data = {'apps': json_data, 'maxPageCount': max_page}
 
     except mariadb.Error as e:
         print(f"Error ocurred while querying database: {e}")
@@ -259,7 +274,7 @@ def query_search_app_by_tag(input, platform):
             print("check app names by platform", platform)
             query = "SELECT DISTINCT A.*, T.tag_title FROM App A, App_Tag X, Tag T, App_Platform P WHERE A.app_id = X.app_id AND T.tag_id = X.tag_id AND A.app_id = P.app_id AND LOWER(P.platform_title) = LOWER(?) AND LOWER(T.tag_title) LIKE LOWER(?)"
             values = (platform, "%" + input + "%",)
-
+        
         print("Selecting with query", query, " and values ", values)
         cursor.execute(query, values)
 
@@ -280,4 +295,69 @@ def query_search_app_by_tag(input, platform):
     conn.commit()
     conn.close()
     return json_data
+
+def query_search_for_names(input):
+    try:
+        # Obtainting DB cursor
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        if(len(input) < 1):
+            return None
+
+        # Set up query statements and values
+        query = "SELECT DISTINCT  A.* FROM App A WHERE LOWER(A.app_title) LIKE LOWER(?)"
+        values = ("%" + input + "%",)
+        print("Selecting with query", query, " and values ", values)
+        cursor.execute(query, values)
+
+        app_result = cursor.fetchall()
+        return_result = []
+
+        for i in range(len(app_result)):
+            temp = {"type": "app", "id": app_result[i][0], "text": app_result[i][1]}
+            return_result.append(temp)
+
+    except mariadb.Error as e:
+        print(f"Error search database for app: {e}")
+        return None
+
+    # Closing cursor and commiting  connection
+    cursor.close()
+    conn.commit()
+    conn.close()
+    return return_result
+
+def query_search_for_tags(input):
+    try:
+        # Obtainting DB cursor
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        if(len(input) < 1):
+            return None
+
+        # Set up query statements and values
+        query = "SELECT DISTINCT  Tag.tag_id, Tag.tag_title From Tag where LOWER(Tag.tag_title) LIKE LOWER(?)"
+        values = ("%" + input + "%",)
+        print("Selecting with query", query, " and values ", values)
+        cursor.execute(query, values)
+
+        tag_result = cursor.fetchall()
+        return_result = []
+
+        for i in range(len(tag_result)):
+            # tag_result[i] = "[TAG] " + tag_result[i]
+            temp = {"type": "tag", "id": tag_result[i][0], "text": tag_result[i][1]}
+            return_result.append(temp)
+
+    except mariadb.Error as e:
+        print(f"Error search database for tags: {e}")
+        return None
+
+    # Closing cursor and commiting  connection
+    cursor.close()
+    conn.commit()
+    conn.close()
+    return return_result
     
