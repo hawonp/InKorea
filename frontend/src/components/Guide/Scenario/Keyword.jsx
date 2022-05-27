@@ -6,14 +6,15 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
-import { Chip } from "@mui/material";
+import { Chip, Typography } from "@mui/material";
 import axiosInstance from "../../../utils/routeUtils";
 import { PHRASES, SLASH, KEYWORDS } from "../../../utils/routeConstants";
 
 export default function Keyword({ keyword_id }) {
   const [keyword, setKeyword] = useState([]);
   const [keywordID, setKeywordID] = useState(-1);
-
+  const [isHover, setIsHover] = useState(true);
+  const [text, setText] = useState("");
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -23,6 +24,18 @@ export default function Keyword({ keyword_id }) {
 
   const handleClose = () => {
     setOpen(false);
+  };
+
+  const handleHover = () => {
+    setIsHover(!isHover);
+    if (isHover) {
+      const temp = keyword.keyword_text;
+
+      setText(temp);
+    } else {
+      const temp = keyword.keyword_text_kor;
+      setText(temp);
+    }
   };
 
   if (keywordID !== keyword_id) {
@@ -38,33 +51,14 @@ export default function Keyword({ keyword_id }) {
   }
 
   return (
-    <div
-    // style={{
-    //   padding: "2px 6px",
-    //   fontSize: "13px",
-    //   color: "#3F8CB8",
-    //   background: "#E1ECF4",
-    //   borderRadius: "4px",
-    //   marginRight: "4px",
-    //   marginBottom: "2px",
-    // }}
-    >
-      {/* <Typography
-        style={{
-          display: "flex",
-          flexFlow: "row wrap",
-          justifyContent: "start",
-          cursor: "pointer",
-        }}
-        onClick={handleClickOpen}
-      >
-        {keyword.keyword_text}
-      </Typography> */}
+    <div>
       <Chip
         color="primary"
         onClick={handleClickOpen}
         variant="outlined"
-        label={keyword.keyword_text}
+        onMouseEnter={handleHover}
+        onMouseLeave={handleHover}
+        label={text != "" ? text : keyword.keyword_text_kor}
       />
 
       <Dialog
@@ -74,11 +68,11 @@ export default function Keyword({ keyword_id }) {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {keyword.keyword_text}
+          {keyword.keyword_text_kor}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-            {keyword.keyword_explanation}
+            <Typography> {keyword.keyword_explanation}</Typography>
           </DialogContentText>
         </DialogContent>
         <DialogActions>
