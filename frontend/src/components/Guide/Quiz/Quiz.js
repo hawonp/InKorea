@@ -8,11 +8,11 @@ import DialogTitle from "@mui/material/DialogTitle";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import { useTheme } from "@mui/material/styles";
 import Fab from "@mui/material/Fab";
-import {QUIZ, INFO, SLASH} from "../../../utils/routeConstants";
+import { QUIZ, INFO, SLASH } from "../../../utils/routeConstants";
 import axiosInstance from "../../../utils/routeUtils";
-import {Typography} from "@mui/material";
+import { Typography } from "@mui/material";
 import { Stack } from "@mui/material";
-import Popper from '@mui/material/Popper';
+import Popper from "@mui/material/Popper";
 import getParentNode from "@popperjs/core/lib/dom-utils/getParentNode";
 
 const style = {
@@ -22,10 +22,10 @@ const style = {
   bottom: 20,
   left: "auto",
   position: "fixed",
-  backgroundColor:"#7cc6fe"
+  backgroundColor: "#7cc6fe",
 };
 
-export default function Quiz({id}) {
+export default function Quiz({ id }) {
   const [selectedSubcategory, setSelectedSubcategory] = useState(-1);
   const [questions, setQuestions] = useState([]);
   const [answers, setAnswers] = useState([]);
@@ -76,7 +76,7 @@ export default function Quiz({id}) {
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
 
-  function handleAnswerOptionClick (isCorrect) {
+  function handleAnswerOptionClick(isCorrect) {
     if (isCorrect) {
       setScore(score + 1);
       const nextQuestion = currentQuestion + 1;
@@ -85,12 +85,9 @@ export default function Quiz({id}) {
       } else {
         setShowScore(true);
       }
+    } else {
     }
-    else{
-
-    }
-
-  };
+  }
 
   // Handlers
   const handleClose = () => {
@@ -103,25 +100,29 @@ export default function Quiz({id}) {
     setScore(0);
     setShowScore(false);
     axiosInstance
-      .get(QUIZ + SLASH +id)
+      .get(QUIZ, {
+        params: {
+          subcategory_id: id,
+        },
+      })
       .then((response) => {
         const data = response.data;
         setQuestions(data);
-        console.log(questions)
+        console.log(questions);
       })
       .catch((e) => {
         console.log(e);
       });
     axiosInstance
-        .get(QUIZ+SLASH+id+SLASH + "answers")
-        .then((response) => {
-          const data = response.data;
-          setAnswers(data);
-          console.log(answers);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
+      .get(QUIZ + SLASH + id + SLASH + "answers")
+      .then((response) => {
+        const data = response.data;
+        setAnswers(data);
+        console.log(answers);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
   }
 
   // function makeQuiz (questions, answers){
@@ -133,50 +134,72 @@ export default function Quiz({id}) {
 
   return (
     <Box sx={{ "& > :not(style)": { m: 1 } }}>
-      <Fab variant="extended" style={style} onClick={()=> handleQuizFabQuiz("1")}>
+      <Fab
+        variant="extended"
+        style={style}
+        onClick={() => handleQuizFabQuiz("1")}
+      >
         Take a Quiz!
       </Fab>
       <div>
         <Box>
           <Dialog
-              fullScreen={fullScreen}
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="docdetails-dialog-title"
+            fullScreen={fullScreen}
+            open={open}
+            onClose={handleClose}
+            aria-labelledby="docdetails-dialog-title"
           >
             {/*<DialogTitle id="docdetails-dialog-title">Title</DialogTitle>*/}
-            <DialogContent style={{backgroundColor:"#252d4a"}}>
-
+            <DialogContent style={{ backgroundColor: "#252d4a" }}>
               <div>
                 {showScore ? (
-                    <Typography color={"white"}>
-                      You scored {score} out of {questions.length}
-                    </Typography>
+                  <Typography color={"white"}>
+                    You scored {score} out of {questions.length}
+                  </Typography>
                 ) : (
-                    <>
+                  <>
+                    <div>
                       <div>
-                        <div>
-                          <Stack direction={"row"} spacing={2}>
-                            <Stack spacing={1}>
-                                <Typography marginTop={5} alignSelf={"center"} fontSize={30} color={"#ffffff"}>Question {currentQuestion + 1}/{questions.length}</Typography>
-                                <Typography alignSelf={"center"} color={"#ffffff"}> How do you say "Bank?"</Typography>
-                              {/*{console.log(questions[0]["question_text"])}*/}
-                            </Stack>
-                              <div className='answer-section'>
-                                <Stack spacing={1}>
-                                {answers.map((answerOption) => (
-                                    <Button sx={{border:"1px solid grey", color:"white"}} onClick={() => handleAnswerOptionClick(answerOption["is_correct"])}>{answerOption["answer_text"]}</Button>
-                                ))}
-                                </Stack>
-                              </div>
-
+                        <Stack direction={"row"} spacing={2}>
+                          <Stack spacing={1}>
+                            <Typography
+                              marginTop={5}
+                              alignSelf={"center"}
+                              fontSize={30}
+                              color={"#ffffff"}
+                            >
+                              Question {currentQuestion + 1}/{questions.length}
+                            </Typography>
+                            <Typography alignSelf={"center"} color={"#ffffff"}>
+                              {" "}
+                              How do you say "Bank?"
+                            </Typography>
+                            {/*{console.log(questions[0]["question_text"])}*/}
                           </Stack>
-                        </div>
+                          <div className="answer-section">
+                            <Stack spacing={1}>
+                              {answers.map((answerOption) => (
+                                <Button
+                                  sx={{
+                                    border: "1px solid grey",
+                                    color: "white",
+                                  }}
+                                  onClick={() =>
+                                    handleAnswerOptionClick(
+                                      answerOption["is_correct"]
+                                    )
+                                  }
+                                >
+                                  {answerOption["answer_text"]}
+                                </Button>
+                              ))}
+                            </Stack>
+                          </div>
+                        </Stack>
                       </div>
-
-                    </>
-                )
-                }
+                    </div>
+                  </>
+                )}
               </div>
             </DialogContent>
             <DialogActions>
@@ -186,7 +209,6 @@ export default function Quiz({id}) {
             </DialogActions>
           </Dialog>
         </Box>
-
       </div>
     </Box>
   );
