@@ -190,10 +190,10 @@ export default function Landing() {
 
       <Divider style={{margin: "50px", width: "80%", alignSelf: "center"}}/>
 
-      <Box style= {{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
+      <Box maxWidth = "md" style= {{display: "flex", flexWrap: "wrap", justifyContent: "center", alignSelf: "center", border: "none"}}>
         <Card style={{border: "none", boxShadow: "none", marginBottom: 30, padding: 10}}>
           <Typography variant="h5" maxWidth="md">About InKorea</Typography>
-          <Typography paragraph maxWidth="md" border= "none">
+          <Typography paragraph maxWidth="md" style={{border: "none"}}>
           Adjusting to a new life in a foreign country is difficult for anyone. It is especially difficult in
           Korea, one of the most homogenous countries in the world. Therefore, InKorea aims toward foreigners living in
           Korea who may be faced with many challenges on a regular basis. 
@@ -203,7 +203,7 @@ export default function Landing() {
         </Card>
       </Box>
       <Box maxWidth = "md" style= {{display: "flex", flexWrap: "wrap", justifyContent: "center", alignSelf: "center", border: "none"}}>
-        <Card style={{width: "100%", minWidth: "350px", border: "none", boxShadow: "none", marginBottom: 30}}>
+        <Card style={{width: "100%", minWidth: "350px", border: "none", boxShadow: "none", marginBottom: 30, padding: 10}}>
           <Typography variant="h5" maxWidth= "md">Our Goals</Typography>
           <Typography maxWidth= "md">InKorea aims to lower the language barrier and help foreigners adapt quickly to life in Korea.</Typography>
           <Typography maxWidth= "md"><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Lower the language boundaries for different scenarios</Typography>
@@ -211,7 +211,7 @@ export default function Landing() {
           <Typography maxWidth= "md"><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Provide information on required documents</Typography>
           <Typography maxWidth= "md"><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Recommand Apps for better convenience in Korea </Typography>
         </Card>
-        <Card style={{width: "100%", minWidth: "350px", border: "none", boxShadow: "none"}}>
+        <Card style={{width: "100%", minWidth: "350px", border: "none", boxShadow: "none", padding: 10}}>
           <Typography variant="h5" maxWidth= "md">Making Process</Typography>
           <Typography maxWidth= "md" border = "none">From conducting research, we've come to InKorea.</Typography>
 
