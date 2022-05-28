@@ -26,6 +26,11 @@ import MainAppBar from "../components/MainAppBar/MainAppBar";
 import { experimentalStyled as styled } from "@mui/material/styles";
 import { maxWidth, style } from "@mui/system";
 
+import Profile1 from "../assets/images/hawon_profile.jpg"
+import Profile2 from "../assets/images/joseph_profile.jpg"
+import Profile3 from "../assets/images/sangwoo_profile.jpg"
+import Profile4 from "../assets/images/youngwon_profile.jpg"
+
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
 
@@ -186,7 +191,7 @@ export default function Landing() {
       <Divider style={{margin: "50px", width: "80%", alignSelf: "center"}}/>
 
       <Box style= {{display: "flex", flexWrap: "wrap", justifyContent: "center"}}>
-        <Card style={{border: "none", boxShadow: "none", marginBottom: 40}}>
+        <Card style={{border: "none", boxShadow: "none", marginBottom: 30, padding: 10}}>
           <Typography variant="h5" maxWidth="md">About InKorea</Typography>
           <Typography paragraph maxWidth="md" border= "none">
           Adjusting to a new life in a foreign country is difficult for anyone. It is especially difficult in
@@ -197,8 +202,8 @@ export default function Landing() {
           </Typography>
         </Card>
       </Box>
-      <Box style= {{display: "flex", flexWrap: "wrap", justifyContent: "center", border: "none"}}>
-        <Card style={{width: '30%', minWidth: "350px", border: "none", boxShadow: "none", marginBottom: 30}}>
+      <Box maxWidth = "md" style= {{display: "flex", flexWrap: "wrap", justifyContent: "center", alignSelf: "center", border: "none"}}>
+        <Card style={{width: "100%", minWidth: "350px", border: "none", boxShadow: "none", marginBottom: 30}}>
           <Typography variant="h5" maxWidth= "md">Our Goals</Typography>
           <Typography maxWidth= "md">InKorea aims to lower the language barrier and help foreigners adapt quickly to life in Korea.</Typography>
           <Typography maxWidth= "md"><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Lower the language boundaries for different scenarios</Typography>
@@ -206,7 +211,7 @@ export default function Landing() {
           <Typography maxWidth= "md"><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Provide information on required documents</Typography>
           <Typography maxWidth= "md"><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Recommand Apps for better convenience in Korea </Typography>
         </Card>
-        <Card style={{width: '30%', minWidth: "350px", border: "none", boxShadow: "none"}}>
+        <Card style={{width: "100%", minWidth: "350px", border: "none", boxShadow: "none"}}>
           <Typography variant="h5" maxWidth= "md">Making Process</Typography>
           <Typography maxWidth= "md" border = "none">From conducting research, we've come to InKorea.</Typography>
 
@@ -248,9 +253,9 @@ export default function Landing() {
           <Card style={{hegith: 190, width: 190}}>
             <CardMedia
               component="img"
-              src={guideImage}
+              src={Profile1}
               alt="Profile"
-              style={{ height: 170, width: 170, border: "1px solid black", borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
+              style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
             />
             <Typography style={{marginTop: "20px"}}>Hawon Park</Typography>
             <ExpandMore
@@ -278,9 +283,9 @@ export default function Landing() {
           <Card style={{hegith: 190, width: 190}}>
             <CardMedia
               component="img"
-              src={guideImage}
+              src={Profile2}
               alt="Profile"
-              style={{ height: 170, width: 170, border: "1px solid black", borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
+              style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
             />
             <Typography style={{marginTop: "20px"}}>Jeong Ho Shin</Typography>
             <ExpandMore
@@ -308,9 +313,9 @@ export default function Landing() {
           <Card style={{hegith: 190, width: 190}}>
             <CardMedia
               component="img"
-              src={guideImage}
+              src={Profile3}
               alt="Profile"
-              style={{ height: 170, width: 170, border: "1px solid black", borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
+              style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
             />
             <Typography style={{marginTop: "20px"}}>Sangwoo Park</Typography>
             <ExpandMore
@@ -338,9 +343,9 @@ export default function Landing() {
           <Card style={{hegith: 190, width: 190}}>
             <CardMedia
               component="img"
-              src={guideImage}
+              src={Profile4}
               alt="Profile"
-              style={{ height: 170, width: 170, border: "1px solid black", borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
+              style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
             />
             <Typography style={{marginTop: "20px"}}>Youngwon Choi</Typography>
             <ExpandMore
