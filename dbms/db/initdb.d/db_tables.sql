@@ -24,6 +24,7 @@ CREATE TABLE Category(
 CREATE TABLE Subcategory(
     subcategory_id INTEGER NOT NULL AUTO_INCREMENT,
     subcategory_name VARCHAR(100),
+    subcategory_description VARCHAR(1024),
     category_id INTEGER,
     PRIMARY KEY(subcategory_id),
     FOREIGN KEY (category_id) REFERENCES Category(category_id) ON DELETE CASCADE
