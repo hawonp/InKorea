@@ -171,8 +171,7 @@ export default function AppCatalog() {
               renderInput={(params) => (
                 <TextField
                   {...params}
-                  label="Search"
-                  placeholder="Search for what you want"
+                  label="Search by app names or tags"
                   InputProps={{
                     ...params.InputProps,
                     type: "search",

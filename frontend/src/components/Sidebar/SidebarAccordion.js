@@ -24,7 +24,7 @@ export default function SidebarAccordion({ options, handleSubcatSelect }) {
   return (
     <div>
       {options.map((option, index) => (
-        <Accordion key={index}>
+        <Accordion defaultExpanded key={index}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
