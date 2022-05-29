@@ -11,15 +11,15 @@ import {
   ThemeProvider,
   useTheme,
 } from "@mui/material/styles";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import IconButton from '@mui/material/IconButton';
-import AttachmentRoundedIcon from '@mui/icons-material/AttachmentRounded';
-import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
-import Collapse from '@mui/material/Collapse';
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import IconButton from "@mui/material/IconButton";
+import AttachmentRoundedIcon from "@mui/icons-material/AttachmentRounded";
+import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
+import Collapse from "@mui/material/Collapse";
 import guideImage from "../assets/images/guide.jpg";
 import appsImage from "../assets/images/apps.jpg";
 import MainAppBar from "../components/MainAppBar/MainAppBar";
@@ -48,9 +48,9 @@ const ExpandMore = styled((props) => {
   const { expand, ...other } = props;
   return <IconButton {...other} />;
 })(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
+  transform: !expand ? "rotate(0deg)" : "rotate(180deg)",
+  marginLeft: "auto",
+  transition: theme.transitions.create("transform", {
     duration: theme.transitions.duration.shortest,
   }),
 }));
@@ -63,23 +63,23 @@ export default function Landing() {
   const [expanded4, setExpanded4] = useState(false);
 
   const handleExpandClick = (event) => {
-    switch(event.target.id){
-      case "1": 
+    switch (event.target.id) {
+      case "1":
         setExpanded1(!expanded1);
         break;
-      case "2": 
+      case "2":
         setExpanded2(!expanded2);
         break;
-      case "3": 
+      case "3":
         setExpanded3(!expanded3);
         break;
-      case "4": 
+      case "4":
         setExpanded4(!expanded4);
         break;
-      default: break;
+      default:
+        break;
     }
   };
-  
 
   useEffect(() => {
     setChecked(true);
@@ -177,189 +177,359 @@ export default function Landing() {
         </Item>
       </Grid>
 
-      <Divider style={{margin: "50px", width: "80%", alignSelf: "center"}}/>
+      <Divider style={{ margin: "50px", width: "80%", alignSelf: "center" }} />
 
-      <Box style= {{display: "flex"}}>
-        <Card style={{width: '100%', border: "none", boxShadow: "none", marginLeft: '20%', marginRight: '20%', marginBottom: 40}}>
+      <Box style={{ display: "flex" }}>
+        <Card
+          style={{
+            width: "100%",
+            border: "none",
+            boxShadow: "none",
+            marginLeft: "20%",
+            marginRight: "20%",
+            marginBottom: 40,
+          }}
+        >
           <Typography variant="h5">About InKorea</Typography>
           <Typography paragraph>
-          Adjusting to a new life in a foreign country is difficult for anyone. It is especially difficult in
-          Korea, one of the most homogenous countries in the world. Therefore, InKorea aims toward foreigners living in
-          Korea who may be faced with many challenges on a regular basis. 
-          By providing learning on different situations and recommending convenient information, 
-          InKorea hopes to lower the level of difficulties living in Korea. 
+            Adjusting to a new life in a foreign country is difficult for
+            anyone. It is especially difficult in Korea, one of the most
+            homogenous countries in the world. Therefore, InKorea aims toward
+            foreigners living in Korea who may be faced with many challenges on
+            a regular basis. By providing learning on different situations and
+            recommending convenient information, InKorea hopes to lower the
+            level of difficulties living in Korea.
           </Typography>
         </Card>
       </Box>
-      <Box style= {{display: "flex"}}>
-        <Card style={{width: '30%', border: "none", boxShadow: "none", marginLeft: '20%'}}>
+      <Box style={{ display: "flex" }}>
+        <Card
+          style={{
+            width: "30%",
+            border: "none",
+            boxShadow: "none",
+            marginLeft: "20%",
+          }}
+        >
           <Typography variant="h5">Our Goals</Typography>
-          <Typography>InKorea aims to lower the language barrier and help foreigners adapt quickly to life in Korea.</Typography>
-          <Typography><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Lower the language boundaries for different scenarios</Typography>
-          <Typography><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Help learn keywords used in Korea through quizes</Typography>
-          <Typography><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Provide information on required documents</Typography>
-          <Typography><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Recommand Apps for better convenience in Korea </Typography>
+          <Typography>
+            InKorea aims to lower the language barrier and help foreigners adapt
+            quickly to life in Korea.
+          </Typography>
+          <Typography>
+            <LockOpenOutlinedIcon style={{ transform: "translateY(20%)" }} />
+            Lower the language boundaries for different scenarios
+          </Typography>
+          <Typography>
+            <LockOpenOutlinedIcon style={{ transform: "translateY(20%)" }} />
+            Help learn keywords used in Korea through quizes
+          </Typography>
+          <Typography>
+            <LockOpenOutlinedIcon style={{ transform: "translateY(20%)" }} />
+            Provide information on required documents
+          </Typography>
+          <Typography>
+            <LockOpenOutlinedIcon style={{ transform: "translateY(20%)" }} />
+            Recommand Apps for better convenience in Korea{" "}
+          </Typography>
         </Card>
-        <Box style={{width: '50%', display: "flex"}}>
-          <Card style={{width: '50%', border: "none", boxShadow: "none"}}>
+        <Box style={{ width: "50%", display: "flex" }}>
+          <Card style={{ width: "50%", border: "none", boxShadow: "none" }}>
             <Typography variant="h5">Making Process</Typography>
-            <Typography>From conducting research and survey, we've come to InKorea.</Typography>
-
-              <Typography>
-              <a href = "https://drive.google.com/file/d/1s7Up6HgntsC1-azmKG8Ywk4nBaQsTabO/view?usp=sharing" 
-                target={"_blank"} style={{textDecoration: "none", color: "inherit"}} > 
-                <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Formative research report </a>
-            </Typography>
             <Typography>
-              <a href = "https://www.youtube.com/watch?v=tCOShCInpdI" 
-                target={"_blank"} style={{textDecoration: "none", color: "inherit"}} > 
-                <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Paper prototype video </a>
-            </Typography>
-            <Typography>
-              <a href = "https://drive.google.com/file/d/12tPuYooxdqs5Wwop5Q_gs5PSlvvQTc8F/view?usp=sharing" 
-                target={"_blank"} style={{textDecoration: "none", color: "inherit"}} > 
-                <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Mid-fidelity prototype report </a>
+              From conducting research and survey, we've come to InKorea.
             </Typography>
 
             <Typography>
-              <a href = "https://drive.google.com/file/d/1fLmNPc2x6GYFg2ScKJOJlJ4vb4lhB6WZ/view?usp=sharing" 
-                target={"_blank"} style={{textDecoration: "none", color: "inherit"}} > 
-                <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Mid-fidelity prototype video </a>
+              <a
+                href="https://drive.google.com/file/d/1s7Up6HgntsC1-azmKG8Ywk4nBaQsTabO/view?usp=sharing"
+                target={"_blank"}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <AttachmentRoundedIcon
+                  style={{ transform: "translateY(30%)" }}
+                />{" "}
+                Formative research report{" "}
+              </a>
+            </Typography>
+            <Typography>
+              <a
+                href="https://www.youtube.com/watch?v=tCOShCInpdI"
+                target={"_blank"}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <AttachmentRoundedIcon
+                  style={{ transform: "translateY(30%)" }}
+                />{" "}
+                Paper prototype video{" "}
+              </a>
+            </Typography>
+            <Typography>
+              <a
+                href="https://drive.google.com/file/d/12tPuYooxdqs5Wwop5Q_gs5PSlvvQTc8F/view?usp=sharing"
+                target={"_blank"}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <AttachmentRoundedIcon
+                  style={{ transform: "translateY(30%)" }}
+                />{" "}
+                Mid-fidelity prototype report{" "}
+              </a>
             </Typography>
 
             <Typography>
-              <a href = "#" 
-                target={"_blank"} style={{textDecoration: "none", color: "inherit"}} > 
-                <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Final presentation video </a>
+              <a
+                href="https://drive.google.com/file/d/1fLmNPc2x6GYFg2ScKJOJlJ4vb4lhB6WZ/view?usp=sharing"
+                target={"_blank"}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <AttachmentRoundedIcon
+                  style={{ transform: "translateY(30%)" }}
+                />{" "}
+                Mid-fidelity prototype video{" "}
+              </a>
             </Typography>
 
+            <Typography>
+              <a
+                href="#"
+                target={"_blank"}
+                style={{ textDecoration: "none", color: "inherit" }}
+              >
+                <AttachmentRoundedIcon
+                  style={{ transform: "translateY(30%)" }}
+                />{" "}
+                Final presentation video{" "}
+              </a>
+            </Typography>
           </Card>
         </Box>
       </Box>
-      
-      <Divider style={{marginTop: "80px", marginBottom: "20px", width: "80%", alignSelf: "center", fontSize: "20px"}}>Team Members</Divider>
 
-      <Grid style={{ display: "flex", justifyContent: "center", alignItems: "baseline", marginBottom: 30}} container>
+      <Divider
+        style={{
+          marginTop: "80px",
+          marginBottom: "20px",
+          width: "80%",
+          alignSelf: "center",
+          fontSize: "20px",
+        }}
+      >
+        Team Members
+      </Divider>
+
+      <Grid
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "baseline",
+          marginBottom: 30,
+        }}
+        container
+      >
         <Item>
-          <Card style={{hegith: 250, width: 250}}>
+          <Card style={{ hegith: 250, width: 250 }}>
             <CardMedia
               component="img"
               src={guideImage}
               alt="Profile"
-              style={{ height: 200, width: 200, border: "1px solid black", borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
+              style={{
+                height: 200,
+                width: 200,
+                border: "1px solid black",
+                borderRadius: "50%",
+                marginBottom: "20px",
+                margin: "auto",
+                marginTop: "20px",
+              }}
             />
-            <Typography style={{marginTop: "20px"}}>Hawon Park</Typography>
+            <Typography style={{ marginTop: "20px" }}>Hawon Park</Typography>
             <ExpandMore
               expand={expanded1}
               onClick={handleExpandClick}
               aria-expanded={expanded1}
               aria-label="show more"
             >
-              <ExpandMoreIcon id = "1"/>
+              <ExpandMoreIcon id="1" />
             </ExpandMore>
-            <Collapse in={expanded1} timeout="auto" unmountOnExit style={{maxWidth: 200, margin: "auto"}}>
-              <Typography paragraph style={{textAlign: "center"}}>
+            <Collapse
+              in={expanded1}
+              timeout="auto"
+              unmountOnExit
+              style={{ maxWidth: 200, margin: "auto" }}
+            >
+              <Typography paragraph style={{ textAlign: "center" }}>
                 brief description about self
               </Typography>
-                
-              <a href='https://github.com/hawonp' target={"_blank"}><GitHubIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><FacebookIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a>
+
+              <a href="https://github.com/hawonp" target={"_blank"}>
+                <GitHubIcon style={{ color: "black", marginRight: "5%" }} />
+              </a>
+              <a href="#" target={"_blank"}>
+                <LinkedInIcon style={{ color: "black", marginRight: "5%" }} />
+              </a>
+              <a href="#" target={"_blank"}>
+                <FacebookIcon style={{ color: "black", marginRight: "5%" }} />
+              </a>
+              <a href="#" target={"_blank"}>
+                <InstagramIcon style={{ color: "black" }} />
+              </a>
             </Collapse>
           </Card>
         </Item>
 
         <Item>
-          <Card style={{hegith: 250, width: 250}}>
+          <Card style={{ hegith: 250, width: 250 }}>
             <CardMedia
               component="img"
               src={guideImage}
               alt="Profile"
-              style={{ height: 200, width: 200, border: "1px solid black", borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
+              style={{
+                height: 200,
+                width: 200,
+                border: "1px solid black",
+                borderRadius: "50%",
+                marginBottom: "20px",
+                margin: "auto",
+                marginTop: "20px",
+              }}
             />
-            <Typography style={{marginTop: "20px"}}>Jeong Ho Shin</Typography>
+            <Typography style={{ marginTop: "20px" }}>Jeong Ho Shin</Typography>
             <ExpandMore
               expand={expanded2}
               onClick={handleExpandClick}
               aria-expanded={expanded2}
               aria-label="show more"
             >
-              <ExpandMoreIcon id = "2"/>
+              <ExpandMoreIcon id="2" />
             </ExpandMore>
-            <Collapse in={expanded2} timeout="auto" unmountOnExit style={{maxWidth: 200, margin: "auto"}}>
-              <Typography paragraph style={{textAlign: "center"}}>
+            <Collapse
+              in={expanded2}
+              timeout="auto"
+              unmountOnExit
+              style={{ maxWidth: 200, margin: "auto" }}
+            >
+              <Typography paragraph style={{ textAlign: "center" }}>
                 brief description about self
               </Typography>
-                
-              <a href='https://github.com/je0shin' target={"_blank"}><GitHubIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><FacebookIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a>
+
+              <a href="https://github.com/je0shin" target={"_blank"}>
+                <GitHubIcon style={{ color: "black", marginRight: "5%" }} />
+              </a>
+              <a href="#" target={"_blank"}>
+                <LinkedInIcon style={{ color: "black", marginRight: "5%" }} />
+              </a>
+              <a href="#" target={"_blank"}>
+                <FacebookIcon style={{ color: "black", marginRight: "5%" }} />
+              </a>
+              <a href="#" target={"_blank"}>
+                <InstagramIcon style={{ color: "black" }} />
+              </a>
             </Collapse>
           </Card>
         </Item>
 
         <Item>
-          <Card style={{hegith: 250, width: 250}}>
+          <Card style={{ hegith: 250, width: 250 }}>
             <CardMedia
               component="img"
               src={guideImage}
               alt="Profile"
-              style={{ height: 200, width: 200, border: "1px solid black", borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
+              style={{
+                height: 200,
+                width: 200,
+                border: "1px solid black",
+                borderRadius: "50%",
+                marginBottom: "20px",
+                margin: "auto",
+                marginTop: "20px",
+              }}
             />
-            <Typography style={{marginTop: "20px"}}>Sangwoo Park</Typography>
+            <Typography style={{ marginTop: "20px" }}>Sangwoo Park</Typography>
             <ExpandMore
               expand={expanded3}
               onClick={handleExpandClick}
               aria-expanded={expanded3}
               aria-label="show more"
             >
-              <ExpandMoreIcon id = "3"/>
+              <ExpandMoreIcon id="3" />
             </ExpandMore>
-            <Collapse in={expanded3} timeout="auto" unmountOnExit style={{maxWidth: 200, margin: "auto"}}>
-              <Typography paragraph style={{textAlign: "center"}}>
+            <Collapse
+              in={expanded3}
+              timeout="auto"
+              unmountOnExit
+              style={{ maxWidth: 200, margin: "auto" }}
+            >
+              <Typography paragraph style={{ textAlign: "center" }}>
                 brief description about self
               </Typography>
-                
-              <a href='https://github.com/uprain1116' target={"_blank"}><GitHubIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><FacebookIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a>
+
+              <a href="https://github.com/uprain1116" target={"_blank"}>
+                <GitHubIcon style={{ color: "black", marginRight: "5%" }} />
+              </a>
+              <a href="#" target={"_blank"}>
+                <LinkedInIcon style={{ color: "black", marginRight: "5%" }} />
+              </a>
+              <a href="#" target={"_blank"}>
+                <FacebookIcon style={{ color: "black", marginRight: "5%" }} />
+              </a>
+              <a href="#" target={"_blank"}>
+                <InstagramIcon style={{ color: "black" }} />
+              </a>
             </Collapse>
           </Card>
         </Item>
 
         <Item>
-          <Card style={{hegith: 250, width: 250}}>
+          <Card style={{ hegith: 250, width: 250 }}>
             <CardMedia
               component="img"
               src={guideImage}
               alt="Profile"
-              style={{ height: 200, width: 200, border: "1px solid black", borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
+              style={{
+                height: 200,
+                width: 200,
+                border: "1px solid black",
+                borderRadius: "50%",
+                marginBottom: "20px",
+                margin: "auto",
+                marginTop: "20px",
+              }}
             />
-            <Typography style={{marginTop: "20px"}}>Youngwon Choi</Typography>
+            <Typography style={{ marginTop: "20px" }}>Youngwon Choi</Typography>
             <ExpandMore
               expand={expanded4}
               onClick={handleExpandClick}
               aria-expanded={expanded4}
               aria-label="show more"
             >
-              <ExpandMoreIcon id = "4"/>
+              <ExpandMoreIcon id="4" />
             </ExpandMore>
-            <Collapse in={expanded4} timeout="auto" unmountOnExit style={{maxWidth: 200, margin: "auto"}}>
-              <Typography paragraph style={{textAlign: "center"}}>
+            <Collapse
+              in={expanded4}
+              timeout="auto"
+              unmountOnExit
+              style={{ maxWidth: 200, margin: "auto" }}
+            >
+              <Typography paragraph style={{ textAlign: "center" }}>
                 brief description about self
               </Typography>
-                
-              <a href='https://github.com/youngecko1' target={"_blank"}><GitHubIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><FacebookIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a>
+
+              <a href="https://github.com/youngecko1" target={"_blank"}>
+                <GitHubIcon style={{ color: "black", marginRight: "5%" }} />
+              </a>
+              <a href="#" target={"_blank"}>
+                <LinkedInIcon style={{ color: "black", marginRight: "5%" }} />
+              </a>
+              <a href="#" target={"_blank"}>
+                <FacebookIcon style={{ color: "black", marginRight: "5%" }} />
+              </a>
+              <a href="#" target={"_blank"}>
+                <InstagramIcon style={{ color: "black" }} />
+              </a>
             </Collapse>
           </Card>
         </Item>
-
       </Grid>
     </Box>
   );

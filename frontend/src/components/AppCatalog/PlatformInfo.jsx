@@ -1,19 +1,15 @@
 import React, { useState } from "react";
-import axiosInstance from "../../utils/routeUtils";
-import { APPS, SLASH, DETAILS } from "../../utils/routeConstants";
 import AppleIcon from "@mui/icons-material/Apple";
 import GoogleIcon from "@mui/icons-material/Google";
 import IconButton from "@mui/material/IconButton";
-import SubtitlesIcon from "@mui/icons-material/Subtitles";
 import { Stack, Typography } from "@mui/material";
 
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
-import Link from "@mui/icons-material/Link";
+
 export default function PlatformInfo({ data }) {
   // const title = {data.platform_title}
   const [title, setTitle] = useState("");
@@ -31,7 +27,7 @@ export default function PlatformInfo({ data }) {
     setOpen(false);
   };
 
-  if (data != undefined && title === "") {
+  if (data !== undefined && title === "") {
     setTitle(data.platform_title);
     setStore(data.platform_store_link);
     setQRCode(data.platform_qr_code);

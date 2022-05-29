@@ -1,22 +1,7 @@
 import React from "react";
 import { Typography } from "@mui/material";
-import { Box } from "@mui/material";
-import { Paper } from "@mui/material";
 export default function ScenarioInfo() {
   return (
-    // <Box
-    //   style={{
-    //     display: "flex",
-    //     justifyContent: "center",
-    //     alignItems: "center",
-    //   }}
-    // >
-    //   <div>
-    //     <Typography style={{ textAlign: "center" }} variant="h1" color="gray">
-    //       Please select a scenario!
-    //     </Typography>
-    //   </div>
-    // </Box>
     <div
       style={{
         position: "absolute",

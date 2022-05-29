@@ -55,10 +55,11 @@ export default function Keyword({ keyword_id }) {
       <Chip
         color="primary"
         onClick={handleClickOpen}
+        size="small"
         variant="outlined"
         onMouseEnter={handleHover}
         onMouseLeave={handleHover}
-        label={text != "" ? text : keyword.keyword_text_kor}
+        label={text !== "" ? text : keyword.keyword_text_kor}
       />
 
       <Dialog

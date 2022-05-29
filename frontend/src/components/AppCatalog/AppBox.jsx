@@ -8,14 +8,13 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import axiosInstance from "../../utils/routeUtils";
-import { APPS, SLASH, INFO } from "../../utils/routeConstants";
+import { APPS, SLASH } from "../../utils/routeConstants";
 import Tag from "./Tag";
 import { CardActions } from "@mui/material";
 
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
-import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import AppInfo from "./AppInfo";
 import PlatformInfo from "./PlatformInfo";
@@ -37,18 +36,7 @@ export default function AppBox({ app_id }) {
     setOpen(false);
   };
 
-  const [open2, setOpen2] = useState(false);
-
-  const handleClickOpen2 = () => {
-    console.log("open dialog");
-    setOpen2(true);
-  };
-
-  const handleClose2 = () => {
-    setOpen2(false);
-  };
-
-  if (appID != app_id) {
+  if (appID !== app_id) {
     axiosInstance.get(APPS + SLASH + app_id).then((response) => {
       const data = response.data;
       setApp(data[0]);
@@ -84,7 +72,7 @@ export default function AppBox({ app_id }) {
               </Typography>
             </Grid>
             <Grid item xs={4}>
-              {app.platforms != 0 && app.platforms != undefined ? (
+              {app.platforms !== 0 && app.platforms !== undefined ? (
                 <Stack
                   direction="row"
                   spacing={0}
@@ -111,7 +99,7 @@ export default function AppBox({ app_id }) {
             </Grid>
           </Grid>
 
-          {app.tags != 0 && app.tags != undefined ? (
+          {app.tags !== 0 && app.tags !== undefined ? (
             <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
               {app.tags.map((tag) => (
                 <Tag data={tag} key={tag["tag_id"]} />
@@ -163,22 +151,6 @@ export default function AppBox({ app_id }) {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} autoFocus>
-            Close
-          </Button>
-        </DialogActions>
-      </Dialog>
-      <Dialog
-        open={open2}
-        onClose={handleClose2}
-        aria-labelledby="alert-dialog-title"
-        aria-describedby="alert-dialog-description"
-      >
-        <DialogTitle id="alert-dialog-title">{app.app_title}</DialogTitle>
-        <DialogContent>
-          <PlatformInfo data={app.platforms} />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleClose2} autoFocus>
             Close
           </Button>
         </DialogActions>

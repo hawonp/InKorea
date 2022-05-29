@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Typography } from "@mui/material";
+import { Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -21,19 +21,6 @@ const drawerWidth = 240;
 export default function Guide(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  // const [options, setOptions] = useState([
-  //   {
-  //     categoryName: "Banking",
-  //     subCategories: [
-  //       "Getting a bank account",
-  //       "Withdrawing money from an ATM",
-  //     ],
-  //   },
-  //   {
-  //     categoryName: "Phone",
-  //     subCategories: ["subcat 11", "subcat 12"],
-  //   },
-  // ]);
 
   const [options, setOptions] = useState([]);
   const [selectedSubcat, setSelectedSubcat] = useState(null);

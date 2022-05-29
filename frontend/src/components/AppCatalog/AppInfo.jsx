@@ -5,16 +5,14 @@ import axiosInstance from "../../utils/routeUtils";
 import { APPS, SLASH, DETAILS } from "../../utils/routeConstants";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import Box from "@mui/material/Box";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import LinkIcon from "@mui/icons-material/Link";
 
 import { Accordion } from "@mui/material";
 export default function AppInfo({ id }) {
   const [appInfo, setAppInfo] = useState([]);
   const [appID, setAppID] = useState(-1);
 
-  if (appID != id) {
+  if (appID !== id) {
     axiosInstance.get(APPS + SLASH + id + DETAILS).then((response) => {
       const data = response.data;
       setAppInfo(data);
@@ -25,7 +23,7 @@ export default function AppInfo({ id }) {
 
   return (
     <div>
-      {appInfo != 0 && appInfo != undefined ? (
+      {appInfo !== 0 && appInfo !== undefined ? (
         <div>
           {appInfo.map((info) => (
             <Accordion
