@@ -17,7 +17,7 @@ INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) 
 INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("How to get a house (Rent)", "Subcategory description", "3");
 
 -- Subcategory (Mobile)
-INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("How to get a korean phone", "Subcategory description", "4");
+INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("How to get a korean sim", "This will help you to get a Korean sim and activate your phone in Korea.", "4");
 INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("How to change your data plan", "Subcategory description", "4");
 
 -- Phrases (Banking Specific)
@@ -51,6 +51,18 @@ INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (1, 4);
 INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (3, 4);
 INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (6, 5);
 INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (7, 6);
+
+-- Phrases (Getting a Korean sim)
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("Which data plan do you want to use?", "요금제 뭐로 하시겠어요?", "yogeumjae mworo hassigaesseoyo?");
+
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (2, 2);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (5, 2);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (6, 2);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (7, 2);
+
+INSERT INTO Keyword(keyword_text, keyword_text_kor, keyword_explanation, keyword_romanization) VALUES("Data plan", "요금제",  "요금제 means data plan", "yogeumjae");
+
+INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (8, 7);
 
 -- Quiz (Banking Specific)
 INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank?", 1);
@@ -93,6 +105,13 @@ INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(2, "Entry 2", "doc2 text2", "image url", 2);
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Entry 3", "doc2 text3", "image url", 2);
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Entry 4", "doc2 text4", "image url", 2);
+
+-- Document Helper (Banking Specific)
+INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Copy of bank account", "통장 사본", false);
+
+INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 2);
+INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(2, 2);
+INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(3, 2);
 
 -- App Catalog 
 
