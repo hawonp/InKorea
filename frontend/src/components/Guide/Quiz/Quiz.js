@@ -22,7 +22,7 @@ const style = {
   bottom: 20,
   left: "auto",
   position: "fixed",
-  backgroundColor: "#7cc6fe",
+  // backgroundColor: "#7cc6fe",
 };
 
 export default function Quiz({ id }) {
@@ -136,6 +136,7 @@ export default function Quiz({ id }) {
     <Box sx={{ "& > :not(style)": { m: 1 } }}>
       <Fab
         variant="extended"
+        // color="primary"
         style={style}
         onClick={() => handleQuizFabQuiz("1")}
       >

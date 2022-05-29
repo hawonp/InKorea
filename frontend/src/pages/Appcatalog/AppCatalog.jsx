@@ -1,15 +1,13 @@
 import MainAppBar from "../../components/MainAppBar/MainAppBar";
-import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Grid from "@mui/material/Grid";
 import AppBox from "../../components/AppCatalog/AppBox";
 import CssBaseline from "@mui/material/CssBaseline";
-import AppBar from "@mui/material/AppBar";
 import React, { useEffect, useState } from "react";
 
 import axiosInstance from "../../utils/routeUtils";
-import { APPS, SEARCH, SLASH } from "../../utils/routeConstants";
+import { APPS, SEARCH } from "../../utils/routeConstants";
 import { Typography } from "@mui/material";
 import { Pagination } from "@mui/material";
 import Radio from "@mui/material/Radio";
@@ -18,7 +16,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { Autocomplete } from "@mui/material";
-import styled from "@emotion/styled";
 
 export default function AppCatalog() {
   const [apps, setApps] = useState([]);
@@ -40,7 +37,7 @@ export default function AppCatalog() {
   // when the user has typed something in the search bar
   function handleInputChange(event, value) {
     // console.log("this is change in motion");
-    if (value != null && value != "") {
+    if (value !== null && value !== "") {
       axiosInstance
         .get(APPS + SEARCH + "/test", {
           params: {
@@ -52,9 +49,9 @@ export default function AppCatalog() {
         })
         .catch((e) => {
           const resp = e.response;
-          if (resp["status"] == 400) {
+          if (resp["status"] === 400) {
             // do nothing, error 400 would mean that nothing is in the search bar
-          } else if (resp["status"] == 500) {
+          } else if (resp["status"] === 500) {
             // router.push("/" + "error/500");
           }
         });
@@ -64,19 +61,12 @@ export default function AppCatalog() {
     setInputValue(value);
   }
 
-  // function handleSelection(event, value) {
-  //   if (value != null) {
-  //     setInputValue(value);
-  //     console.log("this is the current selection:", value);
-  //   }
-  // }
-
   function handleClear(event, value) {
     setSearchResults([]);
   }
 
   useEffect(() => {
-    if (inputValue != undefined) {
+    if (inputValue !== undefined) {
       console.log(
         "searching for apps with filters:",
         page,

@@ -11,14 +11,14 @@ import reportWebVitals from "./reportWebVitals";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
-    <BrowserRouter>
-      <Routes>
-        <Route exact path="/" element={<Landing />} />
-        <Route index path="/guide" element={<Guide />} />
-        <Route exact path="/appcatalog" element={<AppCatalog />} />
-        <Route path="*" element={<Error404page />} />
-      </Routes>
-    </BrowserRouter>
+  <BrowserRouter>
+    <Routes>
+      <Route exact path="/" element={<Landing />} />
+      <Route index path="/guide" element={<Guide />} />
+      <Route exact path="/appcatalog" element={<AppCatalog />} />
+      <Route path="*" element={<Error404page />} />
+    </Routes>
+  </BrowserRouter>
   // </React.StrictMode>
 );
 
