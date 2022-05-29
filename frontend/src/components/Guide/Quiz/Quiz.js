@@ -12,8 +12,6 @@ import { QUIZ, INFO, SLASH } from "../../../utils/routeConstants";
 import axiosInstance from "../../../utils/routeUtils";
 import { Typography } from "@mui/material";
 import { Stack } from "@mui/material";
-import Popper from "@mui/material/Popper";
-import getParentNode from "@popperjs/core/lib/dom-utils/getParentNode";
 
 const style = {
   margin: 0,
@@ -32,45 +30,6 @@ export default function Quiz({ id }) {
   const [open, setOpen] = useState(false);
   const theme = useTheme();
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
-
-  // const questions = [
-  //   {
-  //     questionText: 'What is the capital of France?',
-  //     answerOptions: [
-  //       { answerText: 'New York', isCorrect: false },
-  //       { answerText: 'London', isCorrect: false },
-  //       { answerText: 'Paris', isCorrect: true },
-  //       { answerText: 'Dublin', isCorrect: false },
-  //     ],
-  //   },
-  //   {
-  //     questionText: 'Who is CEO of Tesla?',
-  //     answerOptions: [
-  //       { answerText: 'Jeff Bezos', isCorrect: false },
-  //       { answerText: 'Elon Musk', isCorrect: true },
-  //       { answerText: 'Bill Gates', isCorrect: false },
-  //       { answerText: 'Tony Stark', isCorrect: false },
-  //     ],
-  //   },
-  //   {
-  //     questionText: 'The iPhone was created by which company?',
-  //     answerOptions: [
-  //       { answerText: 'Apple', isCorrect: true },
-  //       { answerText: 'Intel', isCorrect: false },
-  //       { answerText: 'Amazon', isCorrect: false },
-  //       { answerText: 'Microsoft', isCorrect: false },
-  //     ],
-  //   },
-  //   {
-  //     questionText: 'How many Harry Potter books are there?',
-  //     answerOptions: [
-  //       { answerText: '1', isCorrect: false },
-  //       { answerText: '4', isCorrect: false },
-  //       { answerText: '6', isCorrect: false },
-  //       { answerText: '7', isCorrect: true },
-  //     ],
-  //   },
-  // ];
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
@@ -94,7 +53,7 @@ export default function Quiz({ id }) {
     setOpen(false);
   };
 
-  function handleQuizFabQuiz(id, title) {
+  function handleQuizFabQuiz() {
     setOpen(true);
     setCurrentQuestion(0);
     setScore(0);

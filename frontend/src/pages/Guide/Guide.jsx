@@ -174,7 +174,7 @@ export default function Guide(props) {
               description={selectedSubcat["subcategory_description"]}
               id={selectedSubcat["subcategory_id"]}
             />
-            <Quiz />
+            <Quiz id={selectedSubcat["subcategory_id"]} />
           </div>
         ) : (
           <ScenarioInfo />
