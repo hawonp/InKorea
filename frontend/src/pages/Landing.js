@@ -240,7 +240,7 @@ export default function Landing() {
           <Typography maxWidth= "md">
             <a href = "#" 
               target={"_blank"} style={{textDecoration: "none", color: "inherit"}} > 
-              <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Final presentation video </a>
+              <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Final presentation video (yet have link) </a>
           </Typography>
 
         </Card>
@@ -271,10 +271,10 @@ export default function Landing() {
                 brief description about self
               </Typography>
                 
-              <a href='https://github.com/hawonp' target={"_blank"}><GitHubIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
+              <a href='https://github.com/hawonp' target={"_blank"}><GitHubIcon style={{color: "black"}}/></a>
+              {/* <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
               <a href='#' target={"_blank"}><FacebookIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a>
+              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a> */}
             </Collapse>
           </Card>
         </Item>
@@ -301,10 +301,10 @@ export default function Landing() {
                 brief description about self
               </Typography>
                 
-              <a href='https://github.com/je0shin' target={"_blank"}><GitHubIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
+              <a href='https://github.com/je0shin' target={"_blank"}><GitHubIcon style={{color: "black"}}/></a>
+              {/* <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
               <a href='#' target={"_blank"}><FacebookIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a>
+              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a> */}
             </Collapse>
           </Card>
         </Item>
@@ -331,10 +331,10 @@ export default function Landing() {
                 brief description about self
               </Typography>
                 
-              <a href='https://github.com/uprain1116' target={"_blank"}><GitHubIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
+              <a href='https://github.com/uprain1116' target={"_blank"}><GitHubIcon style={{color: "black"}}/></a>
+              {/* <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
               <a href='#' target={"_blank"}><FacebookIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a>
+              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a> */}
             </Collapse>
           </Card>
         </Item>
@@ -361,10 +361,10 @@ export default function Landing() {
                 brief description about self
               </Typography>
                 
-              <a href='https://github.com/youngecko1' target={"_blank"}><GitHubIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
+              <a href='https://github.com/youngecko1' target={"_blank"}><GitHubIcon style={{color: "black"}}/></a>
+              {/* <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
               <a href='#' target={"_blank"}><FacebookIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a>
+              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a> */}
             </Collapse>
           </Card>
         </Item>
