@@ -54,15 +54,19 @@ INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (7, 6);
 
 -- Phrases (Getting a Korean sim)
 INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("Which data plan do you want to use?", "요금제 뭐로 하시겠어요?", "yogeumjae mworo hassigaesseoyo?");
+INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("I would like to activate a phone number", "휴대폰 개통하고 싶어요", "hyudaepone gaetong hago shipeoyo");
 
 INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (2, 2);
 INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (5, 2);
 INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (6, 2);
 INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (7, 2);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (8, 2);
 
 INSERT INTO Keyword(keyword_text, keyword_text_kor, keyword_explanation, keyword_romanization) VALUES("Data plan", "요금제",  "요금제 means data plan", "yogeumjae");
+INSERT INTO Keyword(keyword_text, keyword_text_kor, keyword_explanation, keyword_romanization) VALUES("To activate a phone number", "개통",  "개통 means to activate a phone number", "gaetong");
 
 INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (8, 7);
+INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (9, 8);
 
 -- Quiz (Banking Specific)
 INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank?", 1);
