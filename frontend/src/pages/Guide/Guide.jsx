@@ -36,8 +36,7 @@ export default function Guide(props) {
   // ]);
 
   const [options, setOptions] = useState([]);
-  const [subCategoryId, setSubcategoryId] = useState("");
-  const [subCategoryName, setSubCategoryName] = useState("");
+  const [selectedSubcat, setSelectedSubcat] = useState(null);
 
   useEffect(() => {
     axiosInstance
@@ -76,10 +75,8 @@ export default function Guide(props) {
     ]);
   }
 
-  function handleSubcatSelect(subcat_dict) {
-    console.log("clicked on subcategory_id:", subcat_dict);
-    setSubcategoryId(subcat_dict[0]);
-    setSubCategoryName(subcat_dict[1]);
+  function handleSubcatSelect(subcat) {
+    setSelectedSubcat(subcat);
   }
 
   const drawer = (
@@ -178,12 +175,18 @@ export default function Guide(props) {
           Select category
         </Button>
 
-        {subCategoryName ? (
+        {selectedSubcat ? (
           <div>
-            <h1 style={{ textAlign: "center" }}> {subCategoryName}</h1>
-            <Documents id={subCategoryId} />
+            <h1 style={{ textAlign: "center" }}>
+              {" "}
+              {selectedSubcat["subcategory_name"]}
+            </h1>
+            <Documents id={selectedSubcat["subcategory_id"]} />
             <hr />
-            <ScenarioGuide id={subCategoryId} />
+            <ScenarioGuide
+              description={selectedSubcat["subcategory_description"]}
+              id={selectedSubcat["subcategory_id"]}
+            />
             <Quiz />
           </div>
         ) : (

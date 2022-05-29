@@ -5,7 +5,7 @@ import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
 import Flashcard from "./Flashcard";
 
-export default function ScenarioGuide({ id }) {
+export default function ScenarioGuide({ description, id }) {
   const [subcategoryID, setSubcategoryID] = useState(-1);
   const [phraseIDs, setPhraseIDs] = useState([]);
 
@@ -47,8 +47,7 @@ export default function ScenarioGuide({ id }) {
           paddingBottom: "16px",
         }}
       >
-        This section contains commonly used phrases during the scenario. You can
-        click on a card to see the Korean and romanization of a phrase.
+        {description}
       </Typography>
       <Grid container spacing={2}>
         {phraseIDs.map((phraseID) => (
