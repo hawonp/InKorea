@@ -11,14 +11,16 @@ export default function MainAppBar() {
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ background: "white" }}>
         <Toolbar>
-          <Typography
-            variant="h6"
-            noWrap
-            component="div"
-            sx={{ display: { xs: "none", sm: "block" } }}
-          >
-            <Link to="/">InKorea</Link>
-          </Typography>
+          <Link to="/">
+            <Typography
+              variant="h6"
+              noWrap
+              component="div"
+              sx={{ display: { sm: "block" } }}
+            >
+              InKorea
+            </Typography>
+          </Link>
           <Typography
             align="left"
             variant="h6"
