@@ -232,7 +232,7 @@ export default function Landing() {
           </Typography>
 
           <Typography maxWidth= "md">
-            <a href = "https://drive.google.com/file/d/1fLmNPc2x6GYFg2ScKJOJlJ4vb4lhB6WZ/view?usp=sharing" 
+            <a href = "https://youtu.be/iiQtPJ_cXsg" 
               target={"_blank"} style={{textDecoration: "none", color: "inherit"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Mid-fidelity prototype video </a>
           </Typography>
