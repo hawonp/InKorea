@@ -232,7 +232,7 @@ export default function Landing() {
           </Typography>
 
           <Typography maxWidth= "md">
-            <a href = "https://drive.google.com/file/d/1fLmNPc2x6GYFg2ScKJOJlJ4vb4lhB6WZ/view?usp=sharing" 
+            <a href = "https://youtu.be/iiQtPJ_cXsg" 
               target={"_blank"} style={{textDecoration: "none", color: "inherit"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Mid-fidelity prototype video </a>
           </Typography>
@@ -266,15 +266,10 @@ export default function Landing() {
             >
               <ExpandMoreIcon id="1" />
             </ExpandMore>
-            <Collapse
-              in={expanded1}
-              timeout="auto"
-              unmountOnExit
-              style={{ maxWidth: 200, margin: "auto" }}
-            >
-              <Typography paragraph style={{ textAlign: "center" }}>
+            <Collapse in={expanded1} timeout="auto" unmountOnExit style={{maxWidth: 200, margin: "auto"}}>
+              {/* <Typography paragraph style={{textAlign: "center"}}>
                 brief description about self
-              </Typography>
+              </Typography> */}
                 
               <a href='https://github.com/hawonp' target={"_blank"}><GitHubIcon style={{color: "black"}}/></a>
               {/* <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
@@ -301,15 +296,10 @@ export default function Landing() {
             >
               <ExpandMoreIcon id="2" />
             </ExpandMore>
-            <Collapse
-              in={expanded2}
-              timeout="auto"
-              unmountOnExit
-              style={{ maxWidth: 200, margin: "auto" }}
-            >
-              <Typography paragraph style={{ textAlign: "center" }}>
+            <Collapse in={expanded2} timeout="auto" unmountOnExit style={{maxWidth: 200, margin: "auto"}}>
+              {/* <Typography paragraph style={{textAlign: "center"}}>
                 brief description about self
-              </Typography>
+              </Typography> */}
                 
               <a href='https://github.com/je0shin' target={"_blank"}><GitHubIcon style={{color: "black"}}/></a>
               {/* <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
@@ -336,15 +326,10 @@ export default function Landing() {
             >
               <ExpandMoreIcon id="3" />
             </ExpandMore>
-            <Collapse
-              in={expanded3}
-              timeout="auto"
-              unmountOnExit
-              style={{ maxWidth: 200, margin: "auto" }}
-            >
-              <Typography paragraph style={{ textAlign: "center" }}>
+            <Collapse in={expanded3} timeout="auto" unmountOnExit style={{maxWidth: 200, margin: "auto"}}>
+              {/* <Typography paragraph style={{textAlign: "center"}}>
                 brief description about self
-              </Typography>
+              </Typography> */}
                 
               <a href='https://github.com/uprain1116' target={"_blank"}><GitHubIcon style={{color: "black"}}/></a>
               {/* <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
@@ -371,15 +356,10 @@ export default function Landing() {
             >
               <ExpandMoreIcon id="4" />
             </ExpandMore>
-            <Collapse
-              in={expanded4}
-              timeout="auto"
-              unmountOnExit
-              style={{ maxWidth: 200, margin: "auto" }}
-            >
-              <Typography paragraph style={{ textAlign: "center" }}>
+            <Collapse in={expanded4} timeout="auto" unmountOnExit style={{maxWidth: 200, margin: "auto"}}>
+              {/* <Typography paragraph style={{textAlign: "center"}}>
                 brief description about self
-              </Typography>
+              </Typography> */}
                 
               <a href='https://github.com/youngecko1' target={"_blank"}><GitHubIcon style={{color: "black"}}/></a>
               {/* <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
