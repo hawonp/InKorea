@@ -15,6 +15,7 @@ import { CATEGORIES } from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
 import ScenarioGuide from "../../components/Guide/Scenario/ScenarioGuide";
 import Quiz from "../../components/Guide/Quiz/Quiz";
+import ScenarioInfo from "../../components/Guide/Scenario/ScenarioInfo";
 const drawerWidth = 240;
 
 export default function Guide(props) {
@@ -186,25 +187,7 @@ export default function Guide(props) {
             <Quiz />
           </div>
         ) : (
-          <Box
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            {/* <h1 style={{ textAlign: "center" }}> Please select a scenario!</h1> */}
-            {/* <Error_400_page /> */}
-            <div>
-              <Typography
-                style={{ textAlign: "center" }}
-                variant="h1"
-                color="gray"
-              >
-                Please select a scenario!
-              </Typography>
-            </div>
-          </Box>
+          <ScenarioInfo />
         )}
       </Box>
     </Box>

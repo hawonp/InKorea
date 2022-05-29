@@ -31,13 +31,12 @@ export default function ScenarioGuide({ id }) {
   }
 
   return (
-    <div>
+    <div style={{ paddingLeft: "16px", paddingRight: "16px" }}>
       <Typography
         variant="h6"
         style={{
           textAlign: "left",
           paddingBottom: "16px",
-          paddingLeft: "16px",
         }}
       >
         Commonly Used Phrases
@@ -46,7 +45,6 @@ export default function ScenarioGuide({ id }) {
         style={{
           textAlign: "left",
           paddingBottom: "16px",
-          paddingLeft: "16px",
         }}
       >
         This section contains commonly used phrases during the scenario. You can

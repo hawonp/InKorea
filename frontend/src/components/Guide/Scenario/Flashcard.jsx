@@ -27,21 +27,20 @@ export default function Flashcard({ id }) {
 
   return (
     <Card
-      variant="outlined"
+      // variant="outlined"
       display="flex"
       style={{
         alignItems: "center",
         flexDirection: "column",
-        background: "#f5f5f5",
       }}
     >
       {flipped ? (
         <CardActionArea onClick={changeFlipped}>
           <CardContent>
             <Typography
-              variant="h5"
+              variant="h6"
               margin="auto"
-              style={{ textAlign: "center" }}
+              style={{ textAlign: "left" }}
             >
               {phrase.phrase_text}
             </Typography>
@@ -51,13 +50,10 @@ export default function Flashcard({ id }) {
         <div>
           <CardActionArea onClick={changeFlipped}>
             <CardContent>
-              <Typography variant="h5" style={{ textAlign: "center" }}>
+              <Typography variant="h6" style={{ textAlign: "left" }}>
                 {phrase.phrase_text_kor}
               </Typography>
-              <Typography
-                color="text.secondary"
-                style={{ textAlign: "center" }}
-              >
+              <Typography color="text.secondary" style={{ textAlign: "left" }}>
                 {phrase.phrase_romanization}
               </Typography>
             </CardContent>

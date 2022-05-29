@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { styled } from "@mui/material/styles";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -11,12 +10,13 @@ import DialogTitle from "@mui/material/DialogTitle";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import MuiAccordion from "@mui/material/Accordion";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { blue } from "@mui/material/colors";
 import {
   // Checkbox,
   List,
   ListItem,
   ListItemButton,
+  ListItemIcon,
+  ListItemText,
   Typography,
 } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
@@ -30,7 +30,7 @@ const Accordion = styled((props) => (
 ))(({ theme }) => ({
   border: `1px solid ${theme.palette.divider}`,
   "&:not(:last-child)": {
-    borderBottom: 0,
+    // borderBottom: 0,
   },
   "&:before": {
     display: "none",
@@ -84,12 +84,11 @@ export default function Documents({ id }) {
   }
 
   return (
-    <div>
+    <div style={{ paddingLeft: "16px", paddingRight: "16px" }}>
       <Typography
         variant="h6"
         style={{
           textAlign: "left",
-          paddingLeft: "16px",
           paddingBottom: "16px",
         }}
       >
@@ -99,7 +98,6 @@ export default function Documents({ id }) {
         style={{
           textAlign: "left",
           paddingBottom: "16px",
-          paddingLeft: "16px",
         }}
       >
         This section contains documents used in Korea that are relevant to the
@@ -107,7 +105,10 @@ export default function Documents({ id }) {
         document.
       </Typography>
       {/* Document list accordion */}
-      <Accordion defaultExpanded sx={{ background: "#f5f5f5" }}>
+      <Accordion
+        defaultExpanded
+        // sx={{ background: "#f5f5f5" }}
+      >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"
@@ -122,7 +123,6 @@ export default function Documents({ id }) {
                 {document["has_details"] ? (
                   <>
                     <ListItemButton
-                      style={{ textDecoration: "underline", color: "blue" }}
                       onClick={() => {
                         handleDocumentClick(
                           document["document_id"],
@@ -130,13 +130,16 @@ export default function Documents({ id }) {
                         );
                       }}
                     >
-                      {document["document_title"]}
+                      {/* <ListItemIcon>
+                        <InfoIcon />
+                      </ListItemIcon> */}
+                      <ListItemText primary={document["document_title"]} />
                     </ListItemButton>
                   </>
                 ) : (
-                  <Box sx={{ padding: 1, paddingLeft: 2 }}>
-                    {document["document_title"]}
-                  </Box>
+                  <ListItemButton disabled>
+                    <ListItemText primary={document["document_title"]} />
+                  </ListItemButton>
                 )}
               </ListItem>
             ))}
