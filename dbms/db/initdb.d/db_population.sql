@@ -72,20 +72,36 @@ INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say 
 INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say identification (ID) card?", 1);
 
 INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("은행", "은행 is the Korean word for bank", true);
+INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("은행", "은행 is the Korean word for bank", false);
+INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("계좌", "계좌 is the specific word for Bank account", true);
 INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("계좌", "계좌 is the specific word for Bank account", false);
+INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("통장", "통장 is the Korean word for bank book/ledger", true);
 INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("통장", "통장 is the Korean word for bank book/ledger", false);
+INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("예금 계좌 만들고싶어요", "This phrase indicates that you would like to create a normal checkings account", true);
 INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("예금 계좌 만들고싶어요", "This phrase indicates that you would like to create a normal checkings account", false);
 INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("신분증", "신분증 is the Korean word for ID", true);
-INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("Testing", "Why is this crap not working", true);
+INSERT INTO Quiz_Answer(answer_text, explanation, is_correct) VALUES("신분증", "신분증 is the Korean word for ID", false);
 
 INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 1);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 2);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 3);
 INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 4);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(2, 1);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(3, 1);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(4, 1);
-INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(5, 1);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 6);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(1, 8);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(2, 2);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(2, 3);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(2, 6);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(2, 8);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(3, 2);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(3, 4);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(3, 5);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(3, 8);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(4, 2);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(4, 4);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(4, 6);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(4, 7);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(5, 9);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(5, 2);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(5, 4);
+INSERT INTO Question_To_Answer(question_id, answer_id) VALUES(5, 6);
 
 -- Document Helper (Banking Specific)
 INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Alien Registration Card", "외국인등록증", true);

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {useEffect, useState} from "react";
 import Box from "@mui/material/Box";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
@@ -12,6 +12,8 @@ import { QUIZ, INFO, SLASH } from "../../../utils/routeConstants";
 import axiosInstance from "../../../utils/routeUtils";
 import { Typography } from "@mui/material";
 import { Stack } from "@mui/material";
+import axios from "axios";
+import QuizTest from "./QuizTest";
 
 const style = {
   margin: 0,
@@ -26,6 +28,7 @@ const style = {
 export default function Quiz({ id }) {
   const [selectedSubcategory, setSelectedSubcategory] = useState(-1);
   const [questions, setQuestions] = useState([]);
+  const [questionId, setQuestionId] = useState(1);
   const [answers, setAnswers] = useState([]);
   const [open, setOpen] = useState(false);
   const theme = useTheme();
@@ -34,24 +37,88 @@ export default function Quiz({ id }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  const [questionAnswer, setQuestionAnswer] = useState([]);
+
+  function makeQuestionAnswerSet(){
+    setQuestionAnswer({questions: questions, answers: answers});
+  }
+
 
   function handleAnswerOptionClick(isCorrect) {
     if (isCorrect) {
       setScore(score + 1);
       const nextQuestion = currentQuestion + 1;
+      const nextQuestionId = questionId + 1;
+      setQuestionId(nextQuestionId);
       if (nextQuestion < questions.length) {
         setCurrentQuestion(nextQuestion);
       } else {
         setShowScore(true);
       }
-    } else {
     }
+  }
+
+  function renderButtons(){
+    return(
+        <Stack spacing={1}>
+          {answers.map((answerOption) => (
+              <Button
+                  sx={{
+                    border: "1px solid grey",
+                    color: "black"
+                  }}
+                  onClick={() =>
+                      handleAnswerOptionClick(
+                          answerOption["is_correct"]
+                      )
+                  }
+              >
+                {answerOption["answer_text"]}
+              </Button>
+          ))}
+
+        </Stack>
+    );
   }
 
   // Handlers
   const handleClose = () => {
     setOpen(false);
+    setQuestionId(1);
   };
+
+  // function useQuestionAxios(){
+  //   useEffect(()=>{
+  //     axiosInstance
+  //         .get(QUIZ, {
+  //           params: {
+  //             subcategory_id: id,
+  //           },
+  //         })
+  //         .then(response => {
+  //           const data = response.data;
+  //             setQuestions(data);
+  //             console.log(questions);
+  //         })
+  //         .catch((e) => {
+  //           console.log(e);
+  //         });
+  //   },[]);
+  // }
+  //
+  // useQuestionAxios();
+
+  function axiosAnswers(){
+    axiosInstance
+        .get(QUIZ + SLASH + questionId + SLASH + "answers")
+        .then((response) => {
+          const data = response.data;
+          setAnswers(data);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+  }
 
   function handleQuizFabQuiz() {
     setOpen(true);
@@ -59,37 +126,31 @@ export default function Quiz({ id }) {
     setScore(0);
     setShowScore(false);
     axiosInstance
-      .get(QUIZ, {
-        params: {
-          subcategory_id: id,
-        },
-      })
-      .then((response) => {
-        const data = response.data;
-        setQuestions(data);
-        console.log(questions);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
-    axiosInstance
-      .get(QUIZ + SLASH + id + SLASH + "answers")
-      .then((response) => {
-        const data = response.data;
-        setAnswers(data);
-        console.log(answers);
-      })
-      .catch((e) => {
-        console.log(e);
-      });
+        .get(QUIZ, {
+          params: {
+            subcategory_id: id,
+          },
+        })
+        .then((response) => {
+          const data = response.data;
+            setQuestions(data);
+          console.log(questions);
+        })
+        .catch((e) => {
+          console.log(e);
+        });
+    axiosAnswers();
+    makeQuestionAnswerSet();
   }
 
-  // function makeQuiz (questions, answers){
-  //
-  //   for(let i=0;i<questions.length;i++){
-  //     quizDictionary.push({questionText:questions[i].questionText, answerOptions: answers});
-  //   }
-  // }
+  function isRendered(){
+    if(questions.length!==0){
+      const renderedQuestion = questions[currentQuestion]["question_text"];
+      //console.log(questionAnswer);
+      return renderedQuestion;
+    }
+  }
+
 
   return (
     <Box sx={{ "& > :not(style)": { m: 1 } }}>
@@ -97,7 +158,7 @@ export default function Quiz({ id }) {
         variant="extended"
         // color="primary"
         style={style}
-        onClick={() => handleQuizFabQuiz("1")}
+        onClick={() => handleQuizFabQuiz()}
       >
         Take a Quiz!
       </Fab>
@@ -110,10 +171,10 @@ export default function Quiz({ id }) {
             aria-labelledby="docdetails-dialog-title"
           >
             {/*<DialogTitle id="docdetails-dialog-title">Title</DialogTitle>*/}
-            <DialogContent style={{ backgroundColor: "#252d4a" }}>
+            <DialogContent>
               <div>
                 {showScore ? (
-                  <Typography color={"white"}>
+                  <Typography>
                     You scored {score} out of {questions.length}
                   </Typography>
                 ) : (
@@ -126,34 +187,15 @@ export default function Quiz({ id }) {
                               marginTop={5}
                               alignSelf={"center"}
                               fontSize={30}
-                              color={"#ffffff"}
                             >
                               Question {currentQuestion + 1}/{questions.length}
                             </Typography>
-                            <Typography alignSelf={"center"} color={"#ffffff"}>
-                              {" "}
-                              How do you say "Bank?"
+                            <Typography alignSelf={"center"}>
+                              {isRendered()}
                             </Typography>
-                            {/*{console.log(questions[0]["question_text"])}*/}
                           </Stack>
                           <div className="answer-section">
-                            <Stack spacing={1}>
-                              {answers.map((answerOption) => (
-                                <Button
-                                  sx={{
-                                    border: "1px solid grey",
-                                    color: "white",
-                                  }}
-                                  onClick={() =>
-                                    handleAnswerOptionClick(
-                                      answerOption["is_correct"]
-                                    )
-                                  }
-                                >
-                                  {answerOption["answer_text"]}
-                                </Button>
-                              ))}
-                            </Stack>
+                            {renderButtons()}
                           </div>
                         </Stack>
                       </div>
