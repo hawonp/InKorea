@@ -24,7 +24,7 @@ export default function SidebarAccordion({ options, handleSubcatSelect }) {
   return (
     <div>
       {options.map((option, index) => (
-        <Accordion key={index}>
+        <Accordion defaultExpanded key={index}>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
@@ -37,14 +37,7 @@ export default function SidebarAccordion({ options, handleSubcatSelect }) {
               {option.subCategories.map((subcat) => (
                 <ListItem disablePadding key={subcat["subcategory_name"]}>
                   {subcat["subcategory_id"] === 1 ? (
-                    <ListItemButton
-                      onClick={() =>
-                        handleSubcatSelect([
-                          subcat["subcategory_id"],
-                          subcat["subcategory_name"],
-                        ])
-                      }
-                    >
+                    <ListItemButton onClick={() => handleSubcatSelect(subcat)}>
                       <div>
                         <p style={{ fontSize: 12 }}>
                           {subcat["subcategory_name"]}
@@ -54,12 +47,7 @@ export default function SidebarAccordion({ options, handleSubcatSelect }) {
                   ) : (
                     <ListItemButton
                       disabled
-                      onClick={() =>
-                        handleSubcatSelect([
-                          subcat["subcategory_id"],
-                          subcat["subcategory_name"],
-                        ])
-                      }
+                      onClick={() => handleSubcatSelect(subcat)}
                     >
                       <div>
                         <p style={{ fontSize: 12 }}>

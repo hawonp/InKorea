@@ -24,6 +24,7 @@ CREATE TABLE Category(
 CREATE TABLE Subcategory(
     subcategory_id INTEGER NOT NULL AUTO_INCREMENT,
     subcategory_name VARCHAR(100),
+    subcategory_description VARCHAR(1024),
     category_id INTEGER,
     PRIMARY KEY(subcategory_id),
     FOREIGN KEY (category_id) REFERENCES Category(category_id) ON DELETE CASCADE
@@ -74,6 +75,7 @@ CREATE TABLE Phrase_Subcategory(
 CREATE TABLE Keyword(
     keyword_id INTEGER NOT NULL AUTO_INCREMENT, 
     keyword_text VARCHAR(100),
+    keyword_text_kor VARCHAR(100),
     keyword_explanation VARCHAR(100),
     keyword_romanization VARCHAR(1000),
     PRIMARY KEY(keyword_id)

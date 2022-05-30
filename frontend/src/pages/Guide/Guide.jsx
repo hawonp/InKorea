@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Typography } from "@mui/material";
+import { Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -14,29 +14,16 @@ import Documents from "../../components/Guide/Documents";
 import { CATEGORIES } from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
 import ScenarioGuide from "../../components/Guide/Scenario/ScenarioGuide";
-import Quiz from "../../components/Guide/Quiz";
+import Quiz from "../../components/Guide/Quiz/Quiz";
+import ScenarioInfo from "../../components/Guide/Scenario/ScenarioInfo";
 const drawerWidth = 240;
 
 export default function Guide(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  // const [options, setOptions] = useState([
-  //   {
-  //     categoryName: "Banking",
-  //     subCategories: [
-  //       "Getting a bank account",
-  //       "Withdrawing money from an ATM",
-  //     ],
-  //   },
-  //   {
-  //     categoryName: "Phone",
-  //     subCategories: ["subcat 11", "subcat 12"],
-  //   },
-  // ]);
 
   const [options, setOptions] = useState([]);
-  const [subCategoryId, setSubcategoryId] = useState("");
-  const [subCategoryName, setSubCategoryName] = useState("");
+  const [selectedSubcat, setSelectedSubcat] = useState(null);
 
   useEffect(() => {
     axiosInstance
@@ -75,10 +62,8 @@ export default function Guide(props) {
     ]);
   }
 
-  function handleSubcatSelect(subcat_dict) {
-    console.log("clicked on subcategory_id:", subcat_dict);
-    setSubcategoryId(subcat_dict[0]);
-    setSubCategoryName(subcat_dict[1]);
+  function handleSubcatSelect(subcat) {
+    setSelectedSubcat(subcat);
   }
 
   const drawer = (
@@ -172,39 +157,27 @@ export default function Guide(props) {
             handleDrawerToggle();
           }}
           fullWidth
-          sx={{ display: { sm: "none" } }}
+          sx={{ display: { sm: "none" }, borderColor: "gray", color: "gray" }}
         >
           Select category
         </Button>
 
-        {subCategoryName ? (
+        {selectedSubcat ? (
           <div>
-            <h1 style={{ textAlign: "center" }}> {subCategoryName}</h1>
-            <Documents id={subCategoryId} />
+            <h1 style={{ textAlign: "center" }}>
+              {" "}
+              {selectedSubcat["subcategory_name"]}
+            </h1>
+            <Documents id={selectedSubcat["subcategory_id"]} />
             <hr />
-            <ScenarioGuide id={subCategoryId} />
-            <Quiz />
+            <ScenarioGuide
+              description={selectedSubcat["subcategory_description"]}
+              id={selectedSubcat["subcategory_id"]}
+            />
+            <Quiz id={selectedSubcat["subcategory_id"]} />
           </div>
         ) : (
-          <Box
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            {/* <h1 style={{ textAlign: "center" }}> Please select a scenario!</h1> */}
-            {/* <Error_400_page /> */}
-            <div>
-              <Typography
-                style={{ textAlign: "center" }}
-                variant="h1"
-                color="gray"
-              >
-                Please select a scenario!
-              </Typography>
-            </div>
-          </Box>
+          <ScenarioInfo />
         )}
       </Box>
     </Box>
