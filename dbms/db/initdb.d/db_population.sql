@@ -20,7 +20,7 @@ INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) 
 INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("How to get a korean sim", "This will help you to get a Korean sim and activate your phone in Korea.", "4");
 INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("How to change your data plan", "Subcategory description", "4");
 
--- Phrases (Banking Specific)
+-- -- Phrases (Banking Specific)
 INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("I would like to make a checking account.", "예금 계좌 하나 만들어 주세요", "yegeum gyejwa hana mandeureo juseyo");
 INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("Do you have your id-card?", "신분증 있으신가요?", "sinbunjeung isseusingayo?");
 INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("Can you enter the four digits of the password you want to use?", "계좌에 사용하실 비밀번호 네자리 입력해주시겠어요?", "gyejwa sayonghasil bimilbeonho ne-jari ipryeokhaejusigesseoyo?");
@@ -68,7 +68,7 @@ INSERT INTO Keyword(keyword_text, keyword_text_kor, keyword_explanation, keyword
 INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (8, 7);
 INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (9, 8);
 
--- Quiz (Banking Specific)
+-- -- Quiz (Banking Specific)
 INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank?", 1);
 INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank account?", 1);
 INSERT INTO Quiz_Question(question_text, subcategory_id) VALUES("How do you say bank book? ", 1);
@@ -129,7 +129,7 @@ INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id
 -- Document Helper (Banking Specific)
 INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Copy of bank account", "통장 사본", false);
 
-INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 2);
+-- INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 2);
 INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(2, 2);
 INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(3, 2);
 
