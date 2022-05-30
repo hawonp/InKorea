@@ -14,6 +14,7 @@ import { Typography } from "@mui/material";
 import { Stack } from "@mui/material";
 import axios from "axios";
 import QuizTest from "./QuizTest";
+import Grid from "@mui/material/Grid";
 
 const style = {
   margin: 0,
@@ -27,7 +28,6 @@ const style = {
 
 export default function Quiz({ id }) {
   const [selectedSubcategory, setSelectedSubcategory] = useState(-1);
-  const [questions, setQuestions] = useState([]);
   const [questionId, setQuestionId] = useState(1);
   const [answers, setAnswers] = useState([]);
   const [open, setOpen] = useState(false);
@@ -37,19 +37,51 @@ export default function Quiz({ id }) {
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
-  const [questionAnswer, setQuestionAnswer] = useState([]);
 
-  function makeQuestionAnswerSet(){
-    setQuestionAnswer({questions: questions, answers: answers});
-  }
+  const questions = [
+    {
+      questionText: 'How do you say bank?',
+      answerOptions: [
+        { answerText: '은행', isCorrect: true },
+        { answerText: '계좌', isCorrect: false },
+        { answerText: '신분증', isCorrect: false },
+        { answerText: '통장', isCorrect: false },
+      ],
+    },
+    {
+      questionText: 'How do you say bank account?',
+      answerOptions: [
+        { answerText: '계정', isCorrect: false },
+        { answerText: '계산', isCorrect: false },
+        { answerText: '계좌', isCorrect: true },
+        { answerText: '은행', isCorrect: false },
+      ],
+    },
+    {
+      questionText: 'How do you say bank book?',
+      answerOptions: [
+        { answerText: '계산', isCorrect: false },
+        { answerText: '통장', isCorrect: true },
+        { answerText: '은행 책', isCorrect: false },
+        { answerText: '돈', isCorrect: false },
+      ],
+    },
+    {
+      questionText: 'How do you say ID card?',
+      answerOptions: [
+        { answerText: '여권', isCorrect: false },
+        { answerText: '통장', isCorrect: false },
+        { answerText: '비밀 번호', isCorrect: false },
+        { answerText: '신분증', isCorrect: true },
+      ],
+    },
+  ];
 
 
   function handleAnswerOptionClick(isCorrect) {
     if (isCorrect) {
       setScore(score + 1);
       const nextQuestion = currentQuestion + 1;
-      const nextQuestionId = questionId + 1;
-      setQuestionId(nextQuestionId);
       if (nextQuestion < questions.length) {
         setCurrentQuestion(nextQuestion);
       } else {
@@ -61,20 +93,24 @@ export default function Quiz({ id }) {
   function renderButtons(){
     return(
         <Stack spacing={1}>
-          {answers.map((answerOption) => (
-              <Button
-                  sx={{
-                    border: "1px solid grey",
-                    color: "black"
-                  }}
-                  onClick={() =>
-                      handleAnswerOptionClick(
-                          answerOption["is_correct"]
-                      )
-                  }
-              >
-                {answerOption["answer_text"]}
-              </Button>
+          {/*{answers.map((answerOption) => (*/}
+          {/*    <Button*/}
+          {/*        sx={{*/}
+          {/*          border: "1px solid grey",*/}
+          {/*          color: "black"*/}
+          {/*        }}*/}
+          {/*        onClick={() =>*/}
+          {/*            handleAnswerOptionClick(*/}
+          {/*                answerOption["is_correct"]*/}
+          {/*            )*/}
+          {/*        }*/}
+          {/*    >*/}
+          {/*      {answerOption["answer_text"]}*/}
+          {/*    </Button>*/}
+          {/*))}*/}
+          {questions[currentQuestion].answerOptions.map((answerOption) => (
+              <Button sx={{border: "1px solid grey", color: "black"}}
+                      onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</Button>
           ))}
 
         </Stack>
@@ -108,48 +144,48 @@ export default function Quiz({ id }) {
   //
   // useQuestionAxios();
 
-  function axiosAnswers(){
-    axiosInstance
-        .get(QUIZ + SLASH + questionId + SLASH + "answers")
-        .then((response) => {
-          const data = response.data;
-          setAnswers(data);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-  }
+  // function axiosAnswers(){
+  //   axiosInstance
+  //       .get(QUIZ + SLASH + questionId + SLASH + "answers")
+  //       .then((response) => {
+  //         const data = response.data;
+  //         setAnswers(data);
+  //       })
+  //       .catch((e) => {
+  //         console.log(e);
+  //       });
+  // }
 
   function handleQuizFabQuiz() {
     setOpen(true);
     setCurrentQuestion(0);
     setScore(0);
     setShowScore(false);
-    axiosInstance
-        .get(QUIZ, {
-          params: {
-            subcategory_id: id,
-          },
-        })
-        .then((response) => {
-          const data = response.data;
-            setQuestions(data);
-          console.log(questions);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    axiosAnswers();
-    makeQuestionAnswerSet();
+    // axiosInstance
+    //     .get(QUIZ, {
+    //       params: {
+    //         subcategory_id: id,
+    //       },
+    //     })
+    //     .then((response) => {
+    //       const data = response.data;
+    //         setQuestions(data);
+    //       console.log(questions);
+    //     })
+    //     .catch((e) => {
+    //       console.log(e);
+    //     });
+    // axiosAnswers();
+    // makeQuestionAnswerSet();
   }
 
-  function isRendered(){
-    if(questions.length!==0){
-      const renderedQuestion = questions[currentQuestion]["question_text"];
-      //console.log(questionAnswer);
-      return renderedQuestion;
-    }
-  }
+  // function isRendered(){
+  //   if(questions.length!==0){
+  //     const renderedQuestion = questions[currentQuestion]["question_text"];
+  //     //console.log(questionAnswer);
+  //     return renderedQuestion;
+  //   }
+  // }
 
 
   return (
@@ -171,7 +207,9 @@ export default function Quiz({ id }) {
             aria-labelledby="docdetails-dialog-title"
           >
             {/*<DialogTitle id="docdetails-dialog-title">Title</DialogTitle>*/}
+            <Grid flex={"fit-content"}>
             <DialogContent>
+
               <div>
                 {showScore ? (
                   <Typography>
@@ -191,7 +229,8 @@ export default function Quiz({ id }) {
                               Question {currentQuestion + 1}/{questions.length}
                             </Typography>
                             <Typography alignSelf={"center"}>
-                              {isRendered()}
+                              {/*{isRendered()}*/}
+                              {questions[currentQuestion].questionText}
                             </Typography>
                           </Stack>
                           <div className="answer-section">
@@ -203,12 +242,14 @@ export default function Quiz({ id }) {
                   </>
                 )}
               </div>
+
             </DialogContent>
             <DialogActions>
               <Button onClick={handleClose} autoFocus>
                 Close
               </Button>
             </DialogActions>
+            </Grid>
           </Dialog>
         </Box>
       </div>
