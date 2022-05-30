@@ -206,8 +206,8 @@ INSERT INTO App_Tag(app_id, tag_id) VALUES (13, 7);
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("About Naver Maps", 1, "Naver maps is a map and navigator application for people who want to get around Korea. With its access to the Korean map data and English support, it makes navigating around Korean easier.", "image url", 1);
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("How to find a location", 2, "Tap on the search bar at the top and search for your destination.", "image url", 1);
 
-INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("About Kakao Talk", 1, "Kakao Talk is the most popular messaging service in Korea. It is an app that almost everyone uses, and is hence commonly used as the medium of communication.", "image url", 1);
-INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("How to add a friend", 2, "Tap on the + button at the top and add.", "image url", 1);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("About Kakao Talk", 1, "Kakao Talk is the most popular messaging service in Korea. It is an app that almost everyone uses, and is hence commonly used as the medium of communication.", "image url", 2);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("How to add a friend", 2, "Tap on the + button at the top and add.", "image url", 2);
 
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 1", 1, "text 1", "image 1", 3);
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 2", 2, "text 2", "image 2", 3);
