@@ -56,11 +56,11 @@ INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (7, 6);
 INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("Which data plan do you want to use?", "요금제 뭐로 하시겠어요?", "yogeumjae mworo hassigaesseoyo?");
 INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("I would like to activate a phone number", "휴대폰 개통하고 싶어요", "hyudaepone gaetong hago shipeoyo");
 
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (2, 2);
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (5, 2);
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (6, 2);
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (7, 2);
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (8, 2);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (2, 7);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (5, 7);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (6, 7);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (7, 7);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (8, 7);
 
 INSERT INTO Keyword(keyword_text, keyword_text_kor, keyword_explanation, keyword_romanization) VALUES("Data plan", "요금제",  "요금제 means data plan", "yogeumjae");
 INSERT INTO Keyword(keyword_text, keyword_text_kor, keyword_explanation, keyword_romanization) VALUES("To activate a phone number", "개통",  "개통 means to activate a phone number", "gaetong");
@@ -126,12 +126,12 @@ INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Entry 3", "doc2 text3", "image url", 2);
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Entry 4", "doc2 text4", "image url", 2);
 
--- Document Helper (Banking Specific)
+-- Document Helper (phone Specific)
 INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Copy of bank account", "통장 사본", false);
 
--- INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 2);
-INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(2, 2);
-INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(3, 2);
+INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 7);
+INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(2, 7);
+INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(3, 7);
 
 -- App Catalog 
 
