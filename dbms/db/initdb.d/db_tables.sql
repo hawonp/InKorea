@@ -161,3 +161,10 @@ CREATE TABLE App_Info_Block(
     PRIMARY KEY(info_id, app_id),
     FOREIGN KEY (app_id) REFERENCES App(app_id) ON DELETE CASCADE
 );
+
+CREATE TABLE App_Images(
+    app_id INTEGER,
+    img_src VARCHAR(1000),
+    PRIMARY KEY(app_id, img_src),
+    FOREIGN KEY (app_id) REFERENCES App(app_id) ON DELETE CASCADE
+)

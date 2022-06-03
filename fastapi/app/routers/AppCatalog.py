@@ -28,7 +28,14 @@ async def test_get_apps_by_platform(page : int, platform, search):
 @router.get('/{app_id}/details', tags=['apps'])
 async def get_app_details(app_id : int):
     data = query_app_info_by_id(app_id)
-    return data
+    imgs = query_app_images_by_id(app_id)
+
+    result_json = {
+        "data": data,
+        "imgs": imgs
+    }
+
+    return result_json
 
 #########################################################################
 # get app info

@@ -162,23 +162,24 @@ export default function Guide(props) {
           Select category
         </Button>
 
-        {selectedSubcat ? (
-          <div>
-            <h1 style={{ textAlign: "center" }}>
-              {" "}
-              {selectedSubcat["subcategory_name"]}
-            </h1>
-            <Documents id={selectedSubcat["subcategory_id"]} />
-            <hr />
-            <ScenarioGuide
-              description={selectedSubcat["subcategory_description"]}
-              id={selectedSubcat["subcategory_id"]}
-            />
-            <Quiz id={selectedSubcat["subcategory_id"]} />
-          </div>
-        ) : (
-          <ScenarioInfo />
-        )}
+        <Box p={{ xs: 1, sm: 2, md: 0 }}>
+          {selectedSubcat ? (
+            <div>
+              <h1 style={{ textAlign: "center" }}>
+                {selectedSubcat["subcategory_name"]}
+              </h1>
+              <Documents id={selectedSubcat["subcategory_id"]} />
+              <hr />
+              <ScenarioGuide
+                description={selectedSubcat["subcategory_description"]}
+                id={selectedSubcat["subcategory_id"]}
+              />
+              <Quiz id={selectedSubcat["subcategory_id"]} />
+            </div>
+          ) : (
+            <ScenarioInfo />
+          )}
+        </Box>
       </Box>
     </Box>
   );

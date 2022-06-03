@@ -9,6 +9,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import Button from "@mui/material/Button";
+import { Tooltip } from "@mui/material";
 
 export default function PlatformInfo({ data }) {
   // const title = {data.platform_title}
@@ -19,7 +20,7 @@ export default function PlatformInfo({ data }) {
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
-    console.log("open dialog");
+    // console.log("open dialog");
     setOpen(true);
   };
 
@@ -37,23 +38,29 @@ export default function PlatformInfo({ data }) {
   return (
     <div>
       {title === "Apple" ? (
-        <IconButton
-          aria-label="delete"
-          size="small"
-          onClick={handleClickOpen}
-          sx={{ "&:hover": { color: "black" } }}
-        >
-          <AppleIcon fontSize="small" />
-        </IconButton>
+        <Tooltip title="Check App Store" arrow>
+          <IconButton
+            aria-label="delete"
+            size="small"
+            onClick={handleClickOpen}
+            color="primary"
+            sx={{ "&:hover": { color: "secondary.main" } }}
+          >
+            <AppleIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
       ) : (
-        <IconButton
-          aria-label="delete"
-          size="small"
-          onClick={handleClickOpen}
-          sx={{ "&:hover": { color: "black" } }}
-        >
-          <GoogleIcon fontSize="small" />
-        </IconButton>
+        <Tooltip title="Check Play Store" arrow>
+          <IconButton
+            aria-label="delete"
+            size="small"
+            onClick={handleClickOpen}
+            color="primary"
+            sx={{ "&:hover": { color: "secondary.main" } }}
+          >
+            <GoogleIcon fontSize="small" />
+          </IconButton>
+        </Tooltip>
       )}
       <Dialog
         open={open}
@@ -61,8 +68,12 @@ export default function PlatformInfo({ data }) {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle style={{ paddingBottom: "0px" }} id="alert-dialog-title">
-          <Typography style={{ textAlign: "center" }}>{title}</Typography>
+        <DialogTitle
+          style={{ paddingBottom: "0px", textAlign: "center" }}
+          id="alert-dialog-title"
+          color="text.primary"
+        >
+          {title}
         </DialogTitle>
         <DialogContent style={{ paddingBottom: "0px" }}>
           {/* <Link href={store}>Link</Link> */}

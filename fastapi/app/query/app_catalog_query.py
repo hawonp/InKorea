@@ -153,6 +153,43 @@ def query_app_info_by_id(app_id):
     conn.close()
     return json_data
 
+def query_app_images_by_id(app_id):
+    json_data = []
+    try:
+        print("get the app imgs:", app_id)
+
+        # Obtainting DB cursor
+        conn = get_connection()
+        cursor = conn.cursor()
+
+        # query for data
+        query = "SELECT * FROM App_Images A Where A.app_id = ?"
+        values = (app_id, )
+
+
+        # send query to database
+        print("Selecting with query", query, values)
+        cursor.execute(query, values)
+        
+        # serialize results into JSON
+        row_headers = [x[0] for x in cursor.description]
+        rv = cursor.fetchall()
+        json_data = []
+
+        for result in rv:
+            json_data.append(dict(zip(row_headers, result)))
+
+
+    except mariadb.Error as e:
+        print(f"Error ocurred while querying database: {e}")
+        json_data = 0
+
+    # Closing cursor and commiting  connection
+    cursor.close()
+    conn.commit()
+    conn.close()
+    return json_data
+
 def query_platform_info_by_app_id(app_id):
     json_data = []
     try:

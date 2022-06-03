@@ -211,3 +211,9 @@ INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id
 
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 1", 1, "text 1", "image 1", 3);
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 2", 2, "text 2", "image 2", 3);
+
+INSERT INTO App_Images(app_id, img_src) VALUES (1, "https://play-lh.googleusercontent.com/fUUMRihnBK3CTedABW-l0cISECCYQ-Sr6dNiNZHKh0IpsXa4JhQb73J2M7TAkAS9Rm6Z=w2560-h1440");
+INSERT INTO App_Images(app_id, img_src) VALUES (1, "https://play-lh.googleusercontent.com/Y9428Bntx6WUNp13qwHa8KsyPledfwDFwb0hwvuEAoHA7XKBaXU0KyA1fp4mRZ4Elo9-=w2560-h1440");
+INSERT INTO App_Images(app_id, img_src) VALUES (1, "https://play-lh.googleusercontent.com/DU3B9doGaMwd86m4dAt5TY6YfDULsS-LC3BYZPnL4uvYMBwZs_xYmONZervmetSv2IU=w2560-h1440");
+INSERT INTO App_Images(app_id, img_src) VALUES (1, "https://play-lh.googleusercontent.com/WxiTlp5FljxJ5vCjBUMnIosOpRsRvS3qwfxAHCaai1T482Hzbqf7D7wBwoPS-P7f6A=w2560-h1440");
+INSERT INTO App_Images(app_id, img_src) VALUES (1, "https://play-lh.googleusercontent.com/SqsNlPuHTrnhLmQjM14pKCM_bnT-vUwCY16zNizx4ad0R1ok8vq3WjfHmopfs7Fno4M=w2560-h1440");
