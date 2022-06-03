@@ -5,30 +5,32 @@ import axiosInstance from "../../utils/routeUtils";
 import { APPS, SLASH, DETAILS } from "../../utils/routeConstants";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import Box from "@mui/material/Box";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import LinkIcon from "@mui/icons-material/Link";
-
+import ImageList from "@mui/material/ImageList";
+import ImageListItem from "@mui/material/ImageListItem";
 import { Accordion } from "@mui/material";
+
 export default function AppInfo({ id }) {
   const [appInfo, setAppInfo] = useState([]);
   const [appID, setAppID] = useState(-1);
+  const [images, setImages] = useState([]);
 
-  if (appID != id) {
+  if (appID !== id) {
     axiosInstance.get(APPS + SLASH + id + DETAILS).then((response) => {
       const data = response.data;
-      setAppInfo(data);
-      console.log("app data", data);
+      setAppInfo(data["data"]);
+      setImages(data["imgs"]);
       setAppID(id);
     });
   }
 
   return (
     <div>
-      {appInfo != 0 && appInfo != undefined ? (
+      {appInfo !== 0 && appInfo !== undefined ? (
         <div>
           {appInfo.map((info) => (
             <Accordion
+              defaultExpanded
               key={info["info_id"]}
               sx={{ borderRight: 0, borderLeft: 0, marginBottom: 2 }}
             >
@@ -37,7 +39,9 @@ export default function AppInfo({ id }) {
                 aria-controls="panel2a-content"
                 id="panel2a-header"
               >
-                <Typography> {info["info_title"]} </Typography>
+                <Typography color="text.primary" fontWeight="bold">
+                  {info["info_title"]}{" "}
+                </Typography>
               </AccordionSummary>
               <AccordionDetails>
                 {info["info_image"] !== "image url" ? (
@@ -49,12 +53,22 @@ export default function AppInfo({ id }) {
                 ) : (
                   <></>
                 )}
-                <Typography style={{ wordWrap: "break-word" }}>
+                <Typography
+                  color="text.primary"
+                  style={{ wordWrap: "break-word" }}
+                >
                   {info["info_text"]}
                 </Typography>
               </AccordionDetails>
             </Accordion>
           ))}
+          <ImageList sx={{ height: 400 }} cols={3} spacing={1}>
+            {images.map((image) => (
+              <ImageListItem key={image.img_src}>
+                <img src={image.img_src} alt="Image" loading="lazy" />
+              </ImageListItem>
+            ))}
+          </ImageList>
         </div>
       ) : (
         <Typography>This app has no details yet</Typography>

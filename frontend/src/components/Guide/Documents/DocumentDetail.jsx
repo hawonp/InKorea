@@ -10,12 +10,16 @@ import { styled } from "@mui/material/styles";
 import CheckIcon from "@mui/icons-material/Check";
 
 const Accordion = styled((props) => (
-  <MuiAccordion disableGutters elevation={0} square {...props} />
+  <MuiAccordion
+    {...props}
+    sx={{
+      borderRight: 0,
+      borderLeft: 0,
+      marginBottom: 2,
+    }}
+  />
 ))(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
-  "&:not(:last-child)": {
-    borderBottom: 0,
-  },
+  "&:not(:last-child)": {},
   "&:before": {
     display: "none",
   },
@@ -26,10 +30,7 @@ export default function DocumentDetail({ entry }) {
   if (entry["entry_index"] === 1) {
     return (
       <Box key={entry["entry_id"]}>
-        <Accordion
-          defaultExpanded
-          sx={{ borderRight: 0, borderLeft: 0, marginBottom: 2 }}
-        >
+        <Accordion defaultExpanded>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
@@ -60,7 +61,7 @@ export default function DocumentDetail({ entry }) {
     const entryArray = entry["entry_text"].split("&");
     return (
       <Box>
-        <Accordion sx={{ borderRight: 0, borderLeft: 0, marginBottom: 2 }}>
+        <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
@@ -89,7 +90,7 @@ export default function DocumentDetail({ entry }) {
     const entryArray = entry["entry_text"].split("&");
     return (
       <Box key={entry["entry_id"]}>
-        <Accordion sx={{ borderRight: 0, borderLeft: 0, marginBottom: 2 }}>
+        <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
@@ -121,7 +122,7 @@ export default function DocumentDetail({ entry }) {
     const entryArray = entry["entry_text"].split("&");
     return (
       <Box key={entry["entry_id"]}>
-        <Accordion sx={{ borderRight: 0, borderLeft: 0, marginBottom: 2 }}>
+        <Accordion>
           <AccordionSummary
             expandIcon={<ExpandMoreIcon />}
             aria-controls="panel2a-content"
@@ -150,7 +151,7 @@ export default function DocumentDetail({ entry }) {
 
   return (
     <Box key={entry["entry_id"]}>
-      <Accordion sx={{ borderRight: 0, borderLeft: 0, marginBottom: 2 }}>
+      <Accordion>
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
           aria-controls="panel2a-content"

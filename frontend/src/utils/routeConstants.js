@@ -6,3 +6,6 @@ export const PHRASES = "/phrases";
 export const KEYWORDS = "/keywords";
 export const APPS = "/apps";
 export const DETAILS = "/details";
+export const SEARCH = "/search";
+export const QUIZ = "/quiz";
+

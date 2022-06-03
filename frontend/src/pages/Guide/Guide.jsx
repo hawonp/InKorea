@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Button, Typography } from "@mui/material";
+import { Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -7,36 +7,22 @@ import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
 
 import MainAppBar from "../../components/MainAppBar/MainAppBar";
-// eslint-disable-next-line
-import Searchbar from "../../components/Sidebar/Searchbar";
+// import Searchbar from "../../components/Sidebar/Searchbar";
 import SidebarAccordion from "../../components/Sidebar/SidebarAccordion";
 import Documents from "../../components/Guide/Documents";
 import { CATEGORIES } from "../../utils/routeConstants";
 import axiosInstance from "../../utils/routeUtils";
 import ScenarioGuide from "../../components/Guide/Scenario/ScenarioGuide";
-import Quiz from "../../components/Guide/Quiz";
+import Quiz from "../../components/Guide/Quiz/Quiz";
+import ScenarioInfo from "../../components/Guide/Scenario/ScenarioInfo";
 const drawerWidth = 240;
 
 export default function Guide(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
-  // const [options, setOptions] = useState([
-  //   {
-  //     categoryName: "Banking",
-  //     subCategories: [
-  //       "Getting a bank account",
-  //       "Withdrawing money from an ATM",
-  //     ],
-  //   },
-  //   {
-  //     categoryName: "Phone",
-  //     subCategories: ["subcat 11", "subcat 12"],
-  //   },
-  // ]);
 
   const [options, setOptions] = useState([]);
-  const [subCategoryId, setSubcategoryId] = useState("");
-  const [subCategoryName, setSubCategoryName] = useState("");
+  const [selectedSubcat, setSelectedSubcat] = useState(null);
 
   useEffect(() => {
     axiosInstance
@@ -75,10 +61,8 @@ export default function Guide(props) {
     ]);
   }
 
-  function handleSubcatSelect(subcat_dict) {
-    console.log("clicked on subcategory_id:", subcat_dict);
-    setSubcategoryId(subcat_dict[0]);
-    setSubCategoryName(subcat_dict[1]);
+  function handleSubcatSelect(subcat) {
+    setSelectedSubcat(subcat);
   }
 
   const drawer = (
@@ -162,6 +146,7 @@ export default function Guide(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           maxWidth: "md",
         }}
+        height="100vh"
       >
         <Toolbar />
         {/* Drawer trigger button that appears only when its mobile mode */}
@@ -172,40 +157,31 @@ export default function Guide(props) {
             handleDrawerToggle();
           }}
           fullWidth
-          sx={{ display: { sm: "none" } }}
+          sx={{ display: { sm: "none" }, borderColor: "gray", color: "gray" }}
         >
           Select category
         </Button>
 
-        {subCategoryName ? (
-          <div>
-            <h1 style={{ textAlign: "center" }}> {subCategoryName}</h1>
-            <Documents id={subCategoryId} />
-            <hr />
-            <ScenarioGuide id={subCategoryId} />
-            <Quiz />
-          </div>
-        ) : (
-          <Box
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            {/* <h1 style={{ textAlign: "center" }}> Please select a scenario!</h1> */}
-            {/* <Error_400_page /> */}
+        <Box p={{ xs: 1, sm: 2, md: 0 }}>
+          {selectedSubcat ? (
             <div>
-              <Typography
-                style={{ textAlign: "center" }}
-                variant="h1"
-                color="gray"
-              >
-                Please select a scenario!
-              </Typography>
+              <h1 style={{ textAlign: "center" }}>
+                {selectedSubcat["subcategory_name"]}
+              </h1>
+              <Documents
+                id={selectedSubcat["subcategory_id"]}
+                subcatName={selectedSubcat["subcategory_name"]}
+              />
+              <ScenarioGuide
+                description={selectedSubcat["subcategory_description"]}
+                id={selectedSubcat["subcategory_id"]}
+              />
+              <Quiz id={selectedSubcat["subcategory_id"]} />
             </div>
-          </Box>
-        )}
+          ) : (
+            <ScenarioInfo />
+          )}
+        </Box>
       </Box>
     </Box>
   );
