@@ -1,14 +1,14 @@
 import React, { useState } from "react";
-import { styled } from "@mui/material/styles";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
+import { Box } from "@mui/material";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogTitle from "@mui/material/DialogTitle";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import MuiAccordion from "@mui/material/Accordion";
+import { Accordion } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 import {
   // Checkbox,
@@ -24,20 +24,9 @@ import { DOCUMENTS, INFO, SLASH } from "../../../utils/routeConstants";
 import axiosInstance from "../../../utils/routeUtils";
 import DocumentDetail from "./DocumentDetail";
 
-const Accordion = styled((props) => (
-  <MuiAccordion disableGutters elevation={0} square {...props} />
-))(({ theme }) => ({
-  border: `1px solid ${theme.palette.divider}`,
-  "&:not(:last-child)": {
-    // borderBottom: 0,
-  },
-  "&:before": {
-    display: "none",
-  },
-}));
-
-export default function Documents({ id }) {
+export default function Documents({ id, subcatName }) {
   const [selectedSubcategory, setSelectedSubcategory] = useState(-1);
+  const [selectedSubcategoryName, setSelectedSubcategoryName] = useState("");
   const [documents, setDocuments] = useState([]);
   const [documentDetails, setDocumentDetails] = useState({
     documentTitle: "",
@@ -76,6 +65,7 @@ export default function Documents({ id }) {
         const data = response.data;
         setDocuments(data);
         setSelectedSubcategory(id);
+        setSelectedSubcategoryName(subcatName);
       })
       .catch((e) => {
         console.log(e);
@@ -83,7 +73,13 @@ export default function Documents({ id }) {
   }
 
   return (
-    <div>
+    <Box
+      sx={{
+        padding: "16px",
+        borderBottom: "1px solid",
+        borderColor: "primary.main",
+      }}
+    >
       <Typography
         variant="h6"
         style={{
@@ -99,14 +95,18 @@ export default function Documents({ id }) {
           paddingBottom: "16px",
         }}
       >
-        This section contains documents used in Korea that are relevant to the
-        scenario. You can click on a document to see the full details of a
-        document.
+        This section contains documents used in Korea that are relevant to{" "}
+        {selectedSubcategoryName}. You can click on a document to see the full
+        details of a document.
       </Typography>
       {/* Document list accordion */}
       <Accordion
         defaultExpanded
-        // sx={{ background: "#f5f5f5" }}
+        // sx={{ background: "#cad2c5", border: 0 }}
+        disableGutters
+        elevation={0}
+        square
+        sx={{ backgroundColor: "#cad2c5" }}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -168,6 +168,6 @@ export default function Documents({ id }) {
           </DialogActions>
         </Dialog>
       </div>
-    </div>
+    </Box>
   );
 }

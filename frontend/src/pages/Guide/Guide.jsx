@@ -168,8 +168,10 @@ export default function Guide(props) {
               <h1 style={{ textAlign: "center" }}>
                 {selectedSubcat["subcategory_name"]}
               </h1>
-              <Documents id={selectedSubcat["subcategory_id"]} />
-              <hr />
+              <Documents
+                id={selectedSubcat["subcategory_id"]}
+                subcatName={selectedSubcat["subcategory_name"]}
+              />
               <ScenarioGuide
                 description={selectedSubcat["subcategory_description"]}
                 id={selectedSubcat["subcategory_id"]}
