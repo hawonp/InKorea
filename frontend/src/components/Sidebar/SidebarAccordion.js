@@ -32,13 +32,16 @@ export default function SidebarAccordion({ options, handleSubcatSelect }) {
           >
             <Typography>{option.categoryName}</Typography>
           </AccordionSummary>
-          <AccordionDetails>
+          <AccordionDetails sx={{ paddingTop: 0 }}>
             <List>
               {option.subCategories.map((subcat) => (
                 <ListItem disablePadding key={subcat["subcategory_name"]}>
                   {subcat["subcategory_id"] === 1 ||
                   subcat["subcategory_id"] === 7 ? (
-                    <ListItemButton onClick={() => handleSubcatSelect(subcat)}>
+                    <ListItemButton
+                      onClick={() => handleSubcatSelect(subcat)}
+                      sx={{ paddingTop: 0, paddingBottom: 0 }}
+                    >
                       <div>
                         <p style={{ fontSize: 12 }}>
                           {subcat["subcategory_name"]}
@@ -49,6 +52,7 @@ export default function SidebarAccordion({ options, handleSubcatSelect }) {
                     <ListItemButton
                       disabled
                       onClick={() => handleSubcatSelect(subcat)}
+                      sx={{ paddingTop: 0, paddingBottom: 0 }}
                     >
                       <div>
                         <p style={{ fontSize: 12 }}>

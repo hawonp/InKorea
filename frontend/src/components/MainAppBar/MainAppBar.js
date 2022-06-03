@@ -19,9 +19,9 @@ export default function MainAppBar() {
 
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ background: "white" }}>
+      <AppBar position="static" style={{ background: "primary.main" }}>
         <Toolbar>
-          <Link to="/">
+          <Link to="/" style={{ textDecoration: "none" }}>
             <Typography
               variant="h6"
               noWrap
@@ -36,11 +36,11 @@ export default function MainAppBar() {
             variant="h6"
             sx={{ flexGrow: 1 }}
           ></Typography>
-          <Link to="/guide">
-            <Button color="inherit">Scenarios</Button>
+          <Link to="/guide" style={{ textDecoration: "none" }}>
+            <Button color="secondary">Scenarios</Button>
           </Link>
-          <Link to="/appcatalog">
-            <Button color="inherit">App catalog</Button>
+          <Link to="/appcatalog" style={{ textDecoration: "none" }}>
+            <Button color="secondary">App catalog</Button>
           </Link>
           {/* {darkMode ? (
             <IconButton color="primary" onClick={handleClick}>

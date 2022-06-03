@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import "./styles/index.css";
-import Guide from "./pages/Guide";
+import Guide from "./pages/Guide/Guide";
 import Landing from "./pages/Landing";
 import AppCatalog from "./pages/Appcatalog";
 import Error404page from "./pages/error/404";

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { PHRASES } from "../../../utils/routeConstants";
-import axiosInstance from "../../../utils/routeUtils";
+import { Box } from "@mui/material";
 import Grid from "@mui/material/Grid";
 import { Typography } from "@mui/material";
 import Flashcard from "./Flashcard";
+import { PHRASES } from "../../../utils/routeConstants";
+import axiosInstance from "../../../utils/routeUtils";
 
 export default function ScenarioGuide({ description, id }) {
   const [subcategoryID, setSubcategoryID] = useState(-1);
@@ -31,12 +32,17 @@ export default function ScenarioGuide({ description, id }) {
   }
 
   return (
-    <div>
+    <Box
+      sx={{
+        marginTop: 3,
+        padding: "16px",
+        borderTop: 1,
+      }}
+    >
       <Typography
         variant="h6"
         style={{
           textAlign: "left",
-          paddingBottom: "16px",
         }}
       >
         Commonly Used Phrases
@@ -56,6 +62,6 @@ export default function ScenarioGuide({ description, id }) {
           </Grid>
         ))}
       </Grid>
-    </div>
+    </Box>
   );
 }

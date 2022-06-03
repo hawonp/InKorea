@@ -147,6 +147,7 @@ export default function Guide(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           maxWidth: "md",
         }}
+        height="100vh"
       >
         <Toolbar />
         {/* Drawer trigger button that appears only when its mobile mode */}
@@ -168,8 +169,10 @@ export default function Guide(props) {
               <h1 style={{ textAlign: "center" }}>
                 {selectedSubcat["subcategory_name"]}
               </h1>
-              <Documents id={selectedSubcat["subcategory_id"]} />
-              <hr />
+              <Documents
+                id={selectedSubcat["subcategory_id"]}
+                subcatName={selectedSubcat["subcategory_name"]}
+              />
               <ScenarioGuide
                 description={selectedSubcat["subcategory_description"]}
                 id={selectedSubcat["subcategory_id"]}
