@@ -147,6 +147,7 @@ export default function Guide(props) {
           width: { sm: `calc(100% - ${drawerWidth}px)` },
           maxWidth: "md",
         }}
+        height="100vh"
       >
         <Toolbar />
         {/* Drawer trigger button that appears only when its mobile mode */}

@@ -35,8 +35,8 @@ export default function ScenarioGuide({ description, id }) {
     <Box
       sx={{
         marginTop: 3,
-        boxShadow: 1,
         padding: "16px",
+        borderTop: 1,
       }}
     >
       <Typography

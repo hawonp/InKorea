@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import { Box, Paper } from "@mui/material";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
+import { Box, Button } from "@mui/material";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Accordion } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -73,9 +74,10 @@ export default function Documents({ id, subcatName }) {
   }
 
   return (
-    <Paper
+    <Box
       sx={{
         padding: "16px",
+        borderTop: 1,
       }}
     >
       <Typography
@@ -102,11 +104,9 @@ export default function Documents({ id, subcatName }) {
         sx={{
           marginLeft: 2,
           marginRight: 2,
-          borderTop: 1,
-          borderColor: "secondary.main",
         }}
         disableGutters
-        elevation={0}
+        // elevation={0}
         square
       >
         <AccordionSummary
@@ -170,6 +170,6 @@ export default function Documents({ id, subcatName }) {
           </DialogActions>
         </Dialog>
       </div>
-    </Paper>
+    </Box>
   );
 }
