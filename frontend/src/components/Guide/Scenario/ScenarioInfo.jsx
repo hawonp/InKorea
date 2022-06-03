@@ -19,13 +19,17 @@ export default function ScenarioInfo() {
         transform: "translate( 0%, 50%)",
       }}
     >
-      <Typography style={{ textAlign: "center" }} variant="h2" color="gray">
+      <Typography
+        style={{ textAlign: "center" }}
+        variant="h2"
+        color="text.primary"
+      >
         Hello!
       </Typography>
-      <Typography style={{ textAlign: "center" }} color="gray">
+      <Typography style={{ textAlign: "center" }} color="text.primary">
         Welcome to InKorea's scenario guide!
       </Typography>
-      <Typography style={{ textAlign: "center" }} color="gray">
+      <Typography style={{ textAlign: "center" }} color="text.primary">
         Please use the side bar on the left to select a scenario that you want
         to learn more about!
       </Typography>

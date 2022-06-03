@@ -110,7 +110,12 @@ export default function Documents({ id, subcatName }) {
         square
       >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={
+            <ExpandMoreIcon
+              color="primary"
+              sx={{ "&:hover": { color: "secondary.main" } }}
+            />
+          }
           aria-controls="panel2a-content"
           id="panel2a-header"
         >
@@ -123,7 +128,6 @@ export default function Documents({ id, subcatName }) {
                 {document["has_details"] ? (
                   <>
                     <ListItemButton
-                      color="primary"
                       onClick={() => {
                         handleDocumentClick(
                           document["document_id"],
