@@ -185,29 +185,29 @@ export default function Landing() {
 
             <Typography maxWidth= "md">
             <a href = "https://drive.google.com/file/d/1s7Up6HgntsC1-azmKG8Ywk4nBaQsTabO/view?usp=sharing" 
-              target={"_blank"} style={{textDecoration: "none", color: "text.secondary"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Formative research report </a>
           </Typography>
           <Typography maxWidth= "md">
             <a href = "https://www.youtube.com/watch?v=tCOShCInpdI" 
-              target={"_blank"} style={{textDecoration: "none", color: "text.secondary"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Paper prototype video </a>
           </Typography>
           <Typography maxWidth= "md">
             <a href = "https://drive.google.com/file/d/12tPuYooxdqs5Wwop5Q_gs5PSlvvQTc8F/view?usp=sharing" 
-              target={"_blank"} style={{textDecoration: "none", color: "text.secondary"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Mid-fidelity prototype report </a>
           </Typography>
 
           <Typography maxWidth= "md">
             <a href = "https://youtu.be/iiQtPJ_cXsg" 
-              target={"_blank"} style={{textDecoration: "none", color: "text.secondary"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Mid-fidelity prototype video </a>
           </Typography>
 
           <Typography maxWidth= "md">
             <a href = "#" 
-              target={"_blank"} style={{textDecoration: "none", color: "text.secondary"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Final presentation video (yet have link) </a>
           </Typography>
 
