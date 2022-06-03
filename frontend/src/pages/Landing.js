@@ -69,7 +69,7 @@ export default function Landing() {
             timeout={600}
             style={{ transitionDelay: checked ? "500ms" : "100ms" }}
           >
-            <Typography variant="h2" align="center">
+            <Typography variant="h2" align="center" color = "text.primary">
               Welcome to InKorea
             </Typography>
           </Zoom>
@@ -156,12 +156,12 @@ export default function Landing() {
         </Item>
       </Grid>
 
-      <Divider style={{margin: "50px", width: "80%", alignSelf: "center", fontSize: "20px"}}>About InKorea</Divider>
+      <Divider style={{margin: "50px", width: "80%", alignSelf: "center", fontSize: "20px", color: "text.primary"}}>About InKorea</Divider>
 
       <Box maxWidth = "md" style= {{display: "flex", flexWrap: "wrap", justifyContent: "center", alignSelf: "center", border: "none"}}>
         <Card style={{border: "none", boxShadow: "none", marginBottom: 30, padding: 10}}>
-          <Typography variant="h5" maxWidth="md">Overview of the Problem</Typography>
-          <Typography paragraph maxWidth="md" style={{border: "none"}}>
+          <Typography variant="h5" maxWidth="md" color = "text.primary">Overview of the Problem</Typography>
+          <Typography paragraph maxWidth="md" style={{border: "none", color: "text.secondary"}}>
           Adjusting to a new life in a foreign country is difficult for anyone. It is especially difficult in
           Korea, one of the most homogenous countries in the world. Therefore, InKorea aims toward foreigners living in
           Korea who may be faced with many challenges on a regular basis. 
@@ -172,49 +172,49 @@ export default function Landing() {
       </Box>
       <Box maxWidth = "md" style= {{display: "flex", flexWrap: "wrap", justifyContent: "center", alignSelf: "center", border: "none"}}>
         <Card style={{width: "100%", minWidth: "350px", border: "none", boxShadow: "none", marginBottom: 30, padding: 10}}>
-          <Typography variant="h5" maxWidth= "md">Our Goals</Typography>
-          <Typography maxWidth= "md">InKorea aims to lower the language barrier and help foreigners adapt quickly to life in Korea.</Typography>
-          <Typography maxWidth= "md"><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Lower the language boundaries for different scenarios</Typography>
-          <Typography maxWidth= "md"><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Help learn keywords used in Korea through quizes</Typography>
-          <Typography maxWidth= "md"><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Provide information on required documents</Typography>
-          <Typography maxWidth= "md"><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Recommand Apps for better convenience in Korea </Typography>
+          <Typography variant="h5" maxWidth= "md" style = {{color: "text.primary"}}>Our Goals</Typography>
+          <Typography maxWidth= "md" style = {{color: "text.secondary"}}>InKorea aims to lower the language barrier and help foreigners adapt quickly to life in Korea.</Typography>
+          <Typography maxWidth= "md" style = {{color: "text.secondary"}}><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Lower the language boundaries for different scenarios</Typography>
+          <Typography maxWidth= "md" style = {{color: "text.secondary"}}><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Help learn keywords used in Korea through quizes</Typography>
+          <Typography maxWidth= "md" style = {{color: "text.secondary"}}><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Provide information on required documents</Typography>
+          <Typography maxWidth= "md" style = {{color: "text.secondary"}}><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Recommand Apps for better convenience in Korea </Typography>
         </Card>
         <Card style={{width: "100%", minWidth: "350px", border: "none", boxShadow: "none", padding: 10}}>
-          <Typography variant="h5" maxWidth= "md">Making Process</Typography>
+          <Typography variant="h5" maxWidth= "md" style = {{color: "text.primary"}}>Making Process</Typography>
           <Typography maxWidth= "md" border = "none">From conducting research, we've come to InKorea.</Typography>
 
             <Typography maxWidth= "md">
             <a href = "https://drive.google.com/file/d/1s7Up6HgntsC1-azmKG8Ywk4nBaQsTabO/view?usp=sharing" 
-              target={"_blank"} style={{textDecoration: "none", color: "inherit"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "text.secondary"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Formative research report </a>
           </Typography>
           <Typography maxWidth= "md">
             <a href = "https://www.youtube.com/watch?v=tCOShCInpdI" 
-              target={"_blank"} style={{textDecoration: "none", color: "inherit"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "text.secondary"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Paper prototype video </a>
           </Typography>
           <Typography maxWidth= "md">
             <a href = "https://drive.google.com/file/d/12tPuYooxdqs5Wwop5Q_gs5PSlvvQTc8F/view?usp=sharing" 
-              target={"_blank"} style={{textDecoration: "none", color: "inherit"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "text.secondary"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Mid-fidelity prototype report </a>
           </Typography>
 
           <Typography maxWidth= "md">
             <a href = "https://youtu.be/iiQtPJ_cXsg" 
-              target={"_blank"} style={{textDecoration: "none", color: "inherit"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "text.secondary"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Mid-fidelity prototype video </a>
           </Typography>
 
           <Typography maxWidth= "md">
             <a href = "#" 
-              target={"_blank"} style={{textDecoration: "none", color: "inherit"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "text.secondary"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Final presentation video (yet have link) </a>
           </Typography>
 
         </Card>
       </Box>
       
-      <Divider style={{marginTop: "40px", marginBottom: "20px", width: "80%", alignSelf: "center", fontSize: "20px"}}>Team Members</Divider>
+      <Divider style={{marginTop: "40px", marginBottom: "20px", width: "80%", alignSelf: "center", fontSize: "20px", color: "text.primary"}}>Team Members</Divider>
 
       <Grid style={{ display: "flex", justifyContent: "center", alignSelf: "center", alignItems: "baseline", marginBottom: 30, maxWidth: "60%", border: "none"}} container columns={{ xs: 4, sm: 8, md: 10 }}>
         <Item>
@@ -226,7 +226,7 @@ export default function Landing() {
               alt="Profile"
               style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
             />
-            <Typography style={{marginTop: "20px", marginBottom: "20px"}}>Hawon Park</Typography>  
+            <Typography style={{marginTop: "20px", marginBottom: "20px", color: "text.secondary"}}>Hawon Park</Typography>  
               {/* <GitHubIcon style={{color: "black"}}/> */}
           </Card>
           </a>
@@ -241,7 +241,7 @@ export default function Landing() {
               alt="Profile"
               style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
             />
-            <Typography style={{marginTop: "20px", marginBottom: "20px"}}>Jeong Ho Shin</Typography>                
+            <Typography style={{marginTop: "20px", marginBottom: "20px", color: "text.secondary"}}>Jeong Ho Shin</Typography>                
               {/* <GitHubIcon style={{color: "black"}}/> */}
 
           </Card>
@@ -257,7 +257,7 @@ export default function Landing() {
               alt="Profile"
               style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
             />
-            <Typography style={{marginTop: "20px", marginBottom: "20px"}}>Sangwoo Park</Typography>
+            <Typography style={{marginTop: "20px", marginBottom: "20px", color: "text.secondary"}}>Sangwoo Park</Typography>
               {/* <GitHubIcon style={{color: "black"}}/> */}
           </Card>
           </a>
@@ -272,7 +272,7 @@ export default function Landing() {
               alt="Profile"
               style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
             />
-            <Typography style={{marginTop: "20px", marginBottom: "20px"}}>Youngwon Choi</Typography>
+            <Typography style={{marginTop: "20px", marginBottom: "20px", color: "text.secondary"}}>Youngwon Choi</Typography>
             {/* <GitHubIcon style={{color: "black"}}/> */}
 
           </Card>
