@@ -83,7 +83,7 @@ export default function Documents({ id }) {
   }
 
   return (
-    <div style={{ paddingLeft: "16px", paddingRight: "16px" }}>
+    <div>
       <Typography
         variant="h6"
         style={{

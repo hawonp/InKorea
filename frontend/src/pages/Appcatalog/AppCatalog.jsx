@@ -17,6 +17,23 @@ import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { Autocomplete } from "@mui/material";
 
+// import { ThemeProvider, createTheme } from "@mui/material/styles";
+
+// const theme = createTheme({
+//   palette: {
+//     primary: {
+//       main: "#84A98C",
+//     },
+//     secondary: {
+//       main: "#2F3E46",
+//     },
+//     text: {
+//       primary: "#2F3E46",
+//       secondary: "#354F52",
+//     },
+//   },
+// });
+
 export default function AppCatalog() {
   const [apps, setApps] = useState([]);
   const [maxPage, setMaxPage] = useState(10); // pagination state (default of one page)
@@ -65,14 +82,19 @@ export default function AppCatalog() {
     setSearchResults([]);
   }
 
+  const handleTagClick = (childData) => {
+    setInputValue(childData);
+    setPage(1);
+  };
+
   useEffect(() => {
     if (inputValue !== undefined) {
-      console.log(
-        "searching for apps with filters:",
-        page,
-        platform,
-        inputValue
-      );
+      // console.log(
+      //   "searching for apps with filters:",
+      //   page,
+      //   platform,
+      //   inputValue
+      // );
       axiosInstance
         .get(APPS + "/test", {
           params: {
@@ -83,7 +105,7 @@ export default function AppCatalog() {
         })
         .then((response) => {
           const data = response.data;
-          console.log("app data was received from backend", data);
+          // console.log("app data was received from backend", data);
           setApps(data["apps"]);
           setMaxPage(data["maxPageCount"]);
         })
@@ -94,104 +116,119 @@ export default function AppCatalog() {
   }, [page, platform, inputValue]);
 
   return (
-    <Box>
+    // <ThemeProvider theme={theme}>
+    <div>
       <CssBaseline />
       <MainAppBar />
-      <Typography
-        style={{
-          textAlign: "center",
-          paddingBottom: "16px",
-          paddingTop: "16px",
-        }}
-        variant="h4"
-      >
-        Usefull Apps in Korea
-      </Typography>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingBottom: "16px",
-          flexDirection: "column",
-        }}
-      >
-        <Grid container maxWidth={"md"}>
-          <Grid item xs={12} md={4}>
-            <FormControl
-              style={{
-                paddingBottom: "16px",
-              }}
-            >
-              <FormLabel id="demo-controlled-radio-buttons-group">
-                Platforms:
-              </FormLabel>
-              <RadioGroup
-                aria-labelledby="demo-controlled-radio-buttons-group"
-                name="controlled-radio-buttons-group"
-                value={platform}
-                onChange={handleFilter}
-                row
+      <Box p={{ xs: 1, sm: 2, md: 0 }}>
+        <Typography
+          color="text.primary"
+          style={{
+            textAlign: "center",
+            paddingBottom: "16px",
+            paddingTop: "16px",
+          }}
+          variant="h4"
+        >
+          Usefull Apps in Korea
+        </Typography>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            paddingBottom: "16px",
+            flexDirection: "column",
+          }}
+        >
+          <Grid container maxWidth={"md"}>
+            <Grid item xs={12} md={4}>
+              <FormControl
+                style={{
+                  paddingBottom: "16px",
+                }}
               >
-                <FormControlLabel value="All" control={<Radio />} label="All" />
-                <FormControlLabel
-                  value="Google"
-                  control={<Radio />}
-                  label="Google"
-                />
-                <FormControlLabel
-                  value="Apple"
-                  control={<Radio />}
-                  label="Apple"
-                />
-              </RadioGroup>
-            </FormControl>
-          </Grid>
-          <Grid item xs={12} md={8}>
-            <Autocomplete
-              id="free-solo-demo"
-              freeSolo
-              options={searchResults}
-              sx={{ width: "auto" }}
-              inputValue={inputValue}
-              onInputChange={handleInputChange}
-              onClose={handleClear}
-              groupBy={(option) => option.type.toString()}
-              getOptionLabel={(option) => option.text.toString()}
-              renderInput={(params) => (
-                <TextField
-                  {...params}
-                  label="Search by app names or tags"
-                  InputProps={{
-                    ...params.InputProps,
-                    type: "search",
-                  }}
-                />
-              )}
-            />
-          </Grid>
-        </Grid>
-
-        <Grid container spacing={2} maxWidth={"md"}>
-          {apps.map((app) => (
-            <Grid item xs={12} md={6} lg={6} key={app["app_id"]}>
-              <AppBox app_id={app["app_id"]} />
+                <FormLabel id="demo-controlled-radio-buttons-group">
+                  Platforms:
+                </FormLabel>
+                <RadioGroup
+                  aria-labelledby="demo-controlled-radio-buttons-group"
+                  name="controlled-radio-buttons-group"
+                  value={platform}
+                  onChange={handleFilter}
+                  row
+                >
+                  <FormControlLabel
+                    value="All"
+                    control={<Radio />}
+                    label="All"
+                  />
+                  <FormControlLabel
+                    value="Google"
+                    control={<Radio />}
+                    label="Google"
+                  />
+                  <FormControlLabel
+                    value="Apple"
+                    control={<Radio />}
+                    label="Apple"
+                  />
+                </RadioGroup>
+              </FormControl>
             </Grid>
-          ))}
-        </Grid>
-      </div>
-      <Pagination
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          paddingBottom: "16px",
-        }}
-        variant="outlined"
-        count={maxPage}
-        page={page}
-        onChange={handleChange}
-      />
-    </Box>
+            <Grid item xs={12} md={8}>
+              <Autocomplete
+                id="free-solo-demo"
+                freeSolo
+                options={searchResults}
+                sx={{ width: "auto", color: "text.primary" }}
+                inputValue={inputValue}
+                onInputChange={handleInputChange}
+                onClose={handleClear}
+                groupBy={(option) => option.type.toString()}
+                getOptionLabel={(option) => option.text.toString()}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    label="Search by app names or tags"
+                    InputProps={{
+                      ...params.InputProps,
+                      type: "search",
+                      style: { color: "text.primary" },
+                    }}
+                  />
+                )}
+              />
+            </Grid>
+          </Grid>
+
+          <Grid container spacing={2} maxWidth={"md"}>
+            {apps.map((app) => (
+              <Grid item xs={12} md={6} lg={6} key={app["app_id"]}>
+                <AppBox
+                  app_id={app["app_id"]}
+                  parentCallback={handleTagClick}
+                />
+              </Grid>
+            ))}
+          </Grid>
+        </div>
+        <Pagination
+          color="primary"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            paddingBottom: "16px",
+          }}
+          variant="outlined"
+          count={maxPage}
+          page={page}
+          onChange={handleChange}
+        />
+      </Box>
+    </div>
+
+    // </ThemeProvider>
   );
 }

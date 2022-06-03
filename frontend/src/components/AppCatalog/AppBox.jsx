@@ -20,15 +20,15 @@ import AppInfo from "./AppInfo";
 import PlatformInfo from "./PlatformInfo";
 import Grid from "@mui/material/Grid";
 import { Stack } from "@mui/material";
-
-export default function AppBox({ app_id }) {
+import { useTheme } from "@mui/material/styles";
+import useMediaQuery from "@mui/material/useMediaQuery";
+export default function AppBox({ app_id, parentCallback }) {
   const [app, setApp] = useState([]);
   const [appID, setAppID] = useState(-1);
 
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
-    console.log("open dialog");
     setOpen(true);
   };
 
@@ -36,11 +36,19 @@ export default function AppBox({ app_id }) {
     setOpen(false);
   };
 
+  function handleTagClick(value) {
+    parentCallback(value.target.innerText);
+  }
+
+  const theme = useTheme();
+
+  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+
   if (appID !== app_id) {
     axiosInstance.get(APPS + SLASH + app_id).then((response) => {
       const data = response.data;
       setApp(data[0]);
-      console.log("app data", data[0]);
+      // console.log("app data", data[0]);
       setAppID(app_id);
     });
   }
@@ -102,7 +110,7 @@ export default function AppBox({ app_id }) {
           {app.tags !== 0 && app.tags !== undefined ? (
             <Stack direction={{ xs: "column", sm: "row" }} spacing={1}>
               {app.tags.map((tag) => (
-                <Tag data={tag} key={tag["tag_id"]} />
+                <Tag data={tag} handler={handleTagClick} key={tag["tag_id"]} />
               ))}
             </Stack>
           ) : (
@@ -144,8 +152,15 @@ export default function AppBox({ app_id }) {
         onClose={handleClose}
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
+        fullScreen={fullScreen}
       >
-        <DialogTitle id="alert-dialog-title">{app.app_title}</DialogTitle>
+        <DialogTitle
+          id="alert-dialog-title"
+          color="text.primary"
+          style={{ textAlign: "center" }}
+        >
+          {app.app_title}
+        </DialogTitle>
         <DialogContent>
           <AppInfo id={appID} />
         </DialogContent>
