@@ -7,8 +7,7 @@ import Drawer from "@mui/material/Drawer";
 import Toolbar from "@mui/material/Toolbar";
 
 import MainAppBar from "../../components/MainAppBar/MainAppBar";
-// eslint-disable-next-line
-import Searchbar from "../../components/Sidebar/Searchbar";
+// import Searchbar from "../../components/Sidebar/Searchbar";
 import SidebarAccordion from "../../components/Sidebar/SidebarAccordion";
 import Documents from "../../components/Guide/Documents";
 import { CATEGORIES } from "../../utils/routeConstants";

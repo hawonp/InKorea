@@ -95,8 +95,8 @@ export default function Documents({ id, subcatName }) {
         }}
       >
         This section contains documents used in Korea that are relevant to{" "}
-        {selectedSubcategoryName}. You can click on a document to see the full
-        details of a document.
+        {selectedSubcategoryName.toLowerCase()}. You can click on a document to
+        see the full details of a document.
       </Typography>
       {/* Document list accordion */}
       <Accordion
