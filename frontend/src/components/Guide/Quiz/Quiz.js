@@ -32,38 +32,17 @@ const style = {
 export default function Quiz({ id }) {
   const [selectedSubcategory, setSelectedSubcategory] = useState(-1);
   const [questionId, setQuestionId] = useState(1);
-  const [answers, setAnswers] = useState([]);
   const [open, setOpen] = useState(false);
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
   const [isWrong, setIsWrong] = useState(false);
-
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
-  const [showPopper, setShowPopper] = useState(false);
-
   const [wrongAnswerAnchor, setWrongAnswerAnchor] = React.useState(null);
-  // const [rightAnswerAnchor, setRightAnswerAnchor] = React.useState(null);
-
-  const handleClick = (isCorrect) => (event) => {
-    if(isCorrect){
-      setIsWrong(true);
-    }
-    else{
-      setIsWrong(false);
-    }
-      setWrongAnswerAnchor(wrongAnswerAnchor ? null : event.currentTarget);
-
-    // else{
-    //   setRightAnswerAnchor(rightAnswerAnchor ? null : event.currentTarget);
-    // }
-
-  };
-
   const openPopper = Boolean(wrongAnswerAnchor);
   const wrongAnswerPopper = openPopper ? 'wrong-answer-popper' : undefined;
- // const rightAnswerPopper = openPopper ? 'right-answer-popper' : undefined;
+  const [closePopper, setClosePopper] = useState(false);
+  const [placement, setPlacement] = React.useState();
 
   const questions = [
     {
@@ -104,65 +83,94 @@ export default function Quiz({ id }) {
     },
   ];
 
-
-  function handleAnswerOptionClick() {
-      if(isWrong){
-        setScore(score + 1);
-      }
-      setIsWrong(false);
-      setWrongAnswerAnchor(null);
-      const nextQuestion = currentQuestion + 1;
-      if (nextQuestion < questions.length) {
-        setCurrentQuestion(nextQuestion);
-      } else {
-        setShowScore(true);
-      }
-
-  }
+  const questions2 = [
+    {
+      questionText: 'How do you phone number?',
+      answerOptions: [
+        { answerText: '전화 번호 (Jeon-hwa beon-ho)', isCorrect: true },
+        { answerText: '계좌 (Gye-jwa)', isCorrect: false },
+        { answerText: '신분증 (Shin-boon-cheung)', isCorrect: false },
+        { answerText: '통장 (Tong-jang)', isCorrect: false },
+      ],
+    },
+    {
+      questionText: 'How do you say sign here?',
+      answerOptions: [
+        { answerText: '계정 (Gye-jeong)', isCorrect: false },
+        { answerText: '계산 (Gye-san)', isCorrect: false },
+        { answerText: '여기에 싸인 해주세요 (Yeo-gi-eh sign hae-ju-sae-yo))', isCorrect: true },
+        { answerText: '은행 (Eun-haeng)', isCorrect: false },
+      ],
+    },
+    {
+      questionText: 'How do you say activate?',
+      answerOptions: [
+        { answerText: '계산 (Gye-san)', isCorrect: false },
+        { answerText: '활성화 (Hwal-seong-hwa)', isCorrect: true },
+        { answerText: '은행 책 (Eun-haeng chaek)', isCorrect: false },
+        { answerText: '돈 (Don)', isCorrect: false },
+      ],
+    },
+    {
+      questionText: 'How do you say ID card?',
+      answerOptions: [
+        { answerText: '여권 (Yeo-kwon)', isCorrect: false },
+        { answerText: '통장 (Tong-jang))', isCorrect: false },
+        { answerText: '비밀 번호 (Bi-mil beon-ho)', isCorrect: false },
+        { answerText: '신분증 (Shin-boon-cheung)', isCorrect: true },
+      ],
+    },
+  ];
 
   function renderButtons(){
-    return(
-        <Grid container direction={"row"} columns={{xs:2, md:4, xl:4}}>
-          {/*{answers.map((answerOption) => (*/}
-          {/*    <Button*/}
-          {/*        sx={{*/}
-          {/*          border: "1px solid grey",*/}
-          {/*          color: "black"*/}
-          {/*        }}*/}
-          {/*        onClick={() =>*/}
-          {/*            handleAnswerOptionClick(*/}
-          {/*                answerOption["is_correct"]*/}
-          {/*            )*/}
-          {/*        }*/}
-          {/*    >*/}
-          {/*      {answerOption["answer_text"]}*/}
-          {/*    </Button>*/}
-          {/*))}*/}
-          {questions[currentQuestion].answerOptions.map((answerOption) => (
-              <Grid item xs={2}>
-              <Button
-                  // style={{backgroundColor: isWrong ? 'salmon' : '',}}
-                  sx={{border: "1px solid grey", color: "black", margin:.5, width:'270px'}}
+    if(id===1){
+      return(
+          <Grid container direction={"row"} columns={{xs:2, md:4, xl:4}}>
 
-                      // onClick={() => {
-                      //   handleAnswerOptionClick(answerOption.isCorrect);
-                      //
-                      // }}
-                  onClick={handleClick(answerOption.isCorrect)}>
-                {answerOption.answerText}
-              </Button>
-              </Grid>
-          ))}
-          <div>
-            <Popper id={wrongAnswerPopper} open={openPopper} anchorEl={wrongAnswerAnchor} sx={{zIndex: theme.zIndex.modal}}>
-              {tryAgain(isWrong)}
-            </Popper>
-          </div>
-        </Grid>
-    );
+            {questions[currentQuestion].answerOptions.map((answerOption) => (
+                <Grid item xs={2}>
+                  <Button
+                      sx={{border: "1px solid grey", margin:.5, width:'270px', height:'100px'}}
+                      onClick={handleClick(answerOption.isCorrect)}>
+                    {answerOption.answerText}
+                  </Button>
+
+                </Grid>
+            ))}
+            <div>
+              <Popper id={wrongAnswerPopper} open={openPopper} anchorEl={wrongAnswerAnchor} sx={{zIndex: theme.zIndex.modal}}>
+                {tryAgain(isWrong)}
+              </Popper>
+            </div>
+          </Grid>
+      );
+    }
+    else if(id===7){
+      return(
+          <Grid container direction={"row"} columns={{xs:2, md:4, xl:4}}>
+
+            {questions2[currentQuestion].answerOptions.map((answerOption) => (
+                <Grid item xs={2}>
+                  <Button
+                      sx={{border: "1px solid grey", margin:.5, width:'270px', height:'100px'}}
+                      onClick={handleClick(answerOption.isCorrect)}>
+                    {answerOption.answerText}
+                  </Button>
+                </Grid>
+            ))}
+            <div>
+              <Popper id={wrongAnswerPopper} open={openPopper} anchorEl={wrongAnswerAnchor} sx={{zIndex: theme.zIndex.modal}}>
+                {tryAgain()}
+              </Popper>
+            </div>
+          </Grid>
+      );
+    }
+
+
   }
 
-  function tryAgain (isWrong) {
+  function tryAgain () {
     if(!isWrong){
       return(
           <Box sx={{ border: 1, p: 1, backgroundColor: 'background.paper' , color: "red"}}>
@@ -179,46 +187,28 @@ export default function Quiz({ id }) {
     }
   }
 
+  function generateQuestion(){
+    if(id===1){
+      return(
+          <Typography alignSelf={"center"} color={'#84A98C'}>
+            {questions[currentQuestion].questionText}
+          </Typography>
+      );
+    }
+    else if(id===7){
+      return(
+          <Typography alignSelf={"center"} color={'#84A98C'}>
+            {questions2[currentQuestion].questionText}
+          </Typography>
+      );
+    }
+  }
 
   // Handlers
   const handleClose = () => {
     setOpen(false);
-    setQuestionId(1);
     setWrongAnswerAnchor(null);
   };
-
-  // function useQuestionAxios(){
-  //   useEffect(()=>{
-  //     axiosInstance
-  //         .get(QUIZ, {
-  //           params: {
-  //             subcategory_id: id,
-  //           },
-  //         })
-  //         .then(response => {
-  //           const data = response.data;
-  //             setQuestions(data);
-  //             console.log(questions);
-  //         })
-  //         .catch((e) => {
-  //           console.log(e);
-  //         });
-  //   },[]);
-  // }
-  //
-  // useQuestionAxios();
-
-  // function axiosAnswers(){
-  //   axiosInstance
-  //       .get(QUIZ + SLASH + questionId + SLASH + "answers")
-  //       .then((response) => {
-  //         const data = response.data;
-  //         setAnswers(data);
-  //       })
-  //       .catch((e) => {
-  //         console.log(e);
-  //       });
-  // }
 
   function handleQuizFabQuiz() {
     setOpen(true);
@@ -226,32 +216,34 @@ export default function Quiz({ id }) {
     setScore(0);
     setShowScore(false);
     setIsWrong(false);
-    // axiosInstance
-    //     .get(QUIZ, {
-    //       params: {
-    //         subcategory_id: id,
-    //       },
-    //     })
-    //     .then((response) => {
-    //       const data = response.data;
-    //         setQuestions(data);
-    //       console.log(questions);
-    //     })
-    //     .catch((e) => {
-    //       console.log(e);
-    //     });
-    // axiosAnswers();
-    // makeQuestionAnswerSet();
   }
 
-  // function isRendered(){
-  //   if(questions.length!==0){
-  //     const renderedQuestion = questions[currentQuestion]["question_text"];
-  //     //console.log(questionAnswer);
-  //     return renderedQuestion;
-  //   }
-  // }
+  const handleClick = (isCorrect, newPlacement) => (event) => {
+    setWrongAnswerAnchor(wrongAnswerAnchor ? null : event.currentTarget);
+    setClosePopper((prev) => placement !== newPlacement || !prev);
+    setPlacement(newPlacement);
+    if(isCorrect){
+      setIsWrong(true);
+    }
+    else{
+      setIsWrong(false);
+    }
 
+  };
+
+  function handleNextButtonClick() {
+    if(isWrong){
+      setScore(score + 1);
+    }
+    setIsWrong(false);
+    setWrongAnswerAnchor(null);
+    const nextQuestion = currentQuestion + 1;
+    if (nextQuestion < questions.length) {
+      setCurrentQuestion(nextQuestion);
+    } else {
+      setShowScore(true);
+    }
+  }
 
   return (
     <Box sx={{ "& > :not(style)": { m: 1 } }}>
@@ -273,12 +265,12 @@ export default function Quiz({ id }) {
             fullWidth={true}
           >
             {/*<DialogTitle id="docdetails-dialog-title" fontSize={30} alignSelf={"center"}>Creating a bank account</DialogTitle>*/}
-            <DialogContent>
+            <DialogContent style={{backgroundColor:'#2F3E46'}}>
               <Stack justifyContent={"center"} direction={"row"}>
                 {showScore ? (
                     <Stack>
-                      <Typography alignSelf={"center"}>You scored {score} out of {questions.length}</Typography>
-                      <Typography>Would you like to try again?</Typography>
+                      <Typography color={'#84A98C'} alignSelf={"center"}>You scored {score} out of {questions.length}</Typography>
+                      <Typography color={'#84A98C'}>Would you like to try again?</Typography>
                         <Button disableRipple={true} style={{backgroundColor:'transparent'}} sx={{marginTop:2}} onClick={handleQuizFabQuiz}>
                           <ReplayIcon fontSize={"large"}/>
                         </Button>
@@ -293,25 +285,22 @@ export default function Quiz({ id }) {
                               marginTop={2}
                               alignSelf={"center"}
                               fontSize={30}
+                              color={'#84A98C'}
                             >
                               Question {currentQuestion + 1}/{questions.length}
                             </Typography>
-                            <Typography alignSelf={"center"}>
-                              {/*{isRendered()}*/}
-                              {questions[currentQuestion].questionText}
-                            </Typography>
+                            {generateQuestion()}
                           </Stack>
                           <div className="answer-section">
                             {renderButtons()}
                           </div>
-                          <Button style={{backgroundColor: 'transparent'}} disableRipple={true} sx={{marginTop:5}} onClick={handleAnswerOptionClick}>
+                          <Button style={{backgroundColor: 'transparent'}} disableRipple={true} sx={{marginTop:5}} onClick={handleNextButtonClick}>
                             <PlayArrowIcon fontSize={"large"}/>
                           </Button>
                         </Stack>
 
                   </>
                 )}
-                {/*<Button>Next</Button>*/}
               </Stack>
             </DialogContent>
             <DialogActions sx={{justifyContent: "right"}}>
