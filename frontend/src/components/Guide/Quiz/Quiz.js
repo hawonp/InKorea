@@ -10,11 +10,14 @@ import { useTheme } from "@mui/material/styles";
 import Fab from "@mui/material/Fab";
 import { QUIZ, INFO, SLASH } from "../../../utils/routeConstants";
 import axiosInstance from "../../../utils/routeUtils";
-import { Typography } from "@mui/material";
+import {Popper, Typography} from "@mui/material";
 import { Stack } from "@mui/material";
 import axios from "axios";
-import QuizTest from "./QuizTest";
 import Grid from "@mui/material/Grid";
+import PlayArrowIcon from '@mui/icons-material/PlayArrow';
+import ReplayIcon from '@mui/icons-material/Replay';
+// import questions from '../Quiz/Questions';
+
 
 const style = {
   margin: 0,
@@ -32,67 +35,94 @@ export default function Quiz({ id }) {
   const [answers, setAnswers] = useState([]);
   const [open, setOpen] = useState(false);
   const theme = useTheme();
-  const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
+  const fullScreen = useMediaQuery(theme.breakpoints.down("md"));
+  const [isWrong, setIsWrong] = useState(false);
 
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [showScore, setShowScore] = useState(false);
   const [score, setScore] = useState(0);
+  const [showPopper, setShowPopper] = useState(false);
+
+  const [wrongAnswerAnchor, setWrongAnswerAnchor] = React.useState(null);
+  // const [rightAnswerAnchor, setRightAnswerAnchor] = React.useState(null);
+
+  const handleClick = (isCorrect) => (event) => {
+    if(isCorrect){
+      setIsWrong(true);
+    }
+    else{
+      setIsWrong(false);
+    }
+      setWrongAnswerAnchor(wrongAnswerAnchor ? null : event.currentTarget);
+
+    // else{
+    //   setRightAnswerAnchor(rightAnswerAnchor ? null : event.currentTarget);
+    // }
+
+  };
+
+  const openPopper = Boolean(wrongAnswerAnchor);
+  const wrongAnswerPopper = openPopper ? 'wrong-answer-popper' : undefined;
+ // const rightAnswerPopper = openPopper ? 'right-answer-popper' : undefined;
 
   const questions = [
     {
       questionText: 'How do you say bank?',
       answerOptions: [
-        { answerText: '은행', isCorrect: true },
-        { answerText: '계좌', isCorrect: false },
-        { answerText: '신분증', isCorrect: false },
-        { answerText: '통장', isCorrect: false },
+        { answerText: '은행 (Eun-haeng)', isCorrect: true },
+        { answerText: '계좌 (Gye-jwa)', isCorrect: false },
+        { answerText: '신분증 (Shin-boon-cheung)', isCorrect: false },
+        { answerText: '통장 (Tong-jang)', isCorrect: false },
       ],
     },
     {
       questionText: 'How do you say bank account?',
       answerOptions: [
-        { answerText: '계정', isCorrect: false },
-        { answerText: '계산', isCorrect: false },
-        { answerText: '계좌', isCorrect: true },
-        { answerText: '은행', isCorrect: false },
+        { answerText: '계정 (Gye-jeong)', isCorrect: false },
+        { answerText: '계산 (Gye-san)', isCorrect: false },
+        { answerText: '계좌 (Gye-jwa))', isCorrect: true },
+        { answerText: '은행 (Eun-haeng)', isCorrect: false },
       ],
     },
     {
       questionText: 'How do you say bank book?',
       answerOptions: [
-        { answerText: '계산', isCorrect: false },
-        { answerText: '통장', isCorrect: true },
-        { answerText: '은행 책', isCorrect: false },
-        { answerText: '돈', isCorrect: false },
+        { answerText: '계산 (Gye-san)', isCorrect: false },
+        { answerText: '통장 (Tong-jang)', isCorrect: true },
+        { answerText: '은행 책 (Eun-haeng chaek)', isCorrect: false },
+        { answerText: '돈 (Don)', isCorrect: false },
       ],
     },
     {
       questionText: 'How do you say ID card?',
       answerOptions: [
-        { answerText: '여권', isCorrect: false },
-        { answerText: '통장', isCorrect: false },
-        { answerText: '비밀 번호', isCorrect: false },
-        { answerText: '신분증', isCorrect: true },
+        { answerText: '여권 (Yeo-kwon)', isCorrect: false },
+        { answerText: '통장 (Tong-jang))', isCorrect: false },
+        { answerText: '비밀 번호 (Bi-mil beon-ho)', isCorrect: false },
+        { answerText: '신분증 (Shin-boon-cheung)', isCorrect: true },
       ],
     },
   ];
 
 
-  function handleAnswerOptionClick(isCorrect) {
-    if (isCorrect) {
-      setScore(score + 1);
+  function handleAnswerOptionClick() {
+      if(isWrong){
+        setScore(score + 1);
+      }
+      setIsWrong(false);
+      setWrongAnswerAnchor(null);
       const nextQuestion = currentQuestion + 1;
       if (nextQuestion < questions.length) {
         setCurrentQuestion(nextQuestion);
       } else {
         setShowScore(true);
       }
-    }
+
   }
 
   function renderButtons(){
     return(
-        <Stack spacing={1}>
+        <Grid container direction={"row"} columns={{xs:2, md:4, xl:4}}>
           {/*{answers.map((answerOption) => (*/}
           {/*    <Button*/}
           {/*        sx={{*/}
@@ -109,18 +139,52 @@ export default function Quiz({ id }) {
           {/*    </Button>*/}
           {/*))}*/}
           {questions[currentQuestion].answerOptions.map((answerOption) => (
-              <Button sx={{border: "1px solid grey", color: "black"}}
-                      onClick={() => handleAnswerOptionClick(answerOption.isCorrect)}>{answerOption.answerText}</Button>
-          ))}
+              <Grid item xs={2}>
+              <Button
+                  // style={{backgroundColor: isWrong ? 'salmon' : '',}}
+                  sx={{border: "1px solid grey", color: "black", margin:.5, width:'270px'}}
 
-        </Stack>
+                      // onClick={() => {
+                      //   handleAnswerOptionClick(answerOption.isCorrect);
+                      //
+                      // }}
+                  onClick={handleClick(answerOption.isCorrect)}>
+                {answerOption.answerText}
+              </Button>
+              </Grid>
+          ))}
+          <div>
+            <Popper id={wrongAnswerPopper} open={openPopper} anchorEl={wrongAnswerAnchor} sx={{zIndex: theme.zIndex.modal}}>
+              {tryAgain(isWrong)}
+            </Popper>
+          </div>
+        </Grid>
     );
   }
+
+  function tryAgain (isWrong) {
+    if(!isWrong){
+      return(
+          <Box sx={{ border: 1, p: 1, backgroundColor: 'background.paper' , color: "red"}}>
+            <Typography>Try Again!</Typography>
+          </Box>
+      );
+    }
+    else{
+      return(
+          <Box sx={{ border: 1, p: 1, backgroundColor: 'background.paper' , color: "green"}}>
+            <Typography>Correct!</Typography>
+          </Box>
+      );
+    }
+  }
+
 
   // Handlers
   const handleClose = () => {
     setOpen(false);
     setQuestionId(1);
+    setWrongAnswerAnchor(null);
   };
 
   // function useQuestionAxios(){
@@ -161,6 +225,7 @@ export default function Quiz({ id }) {
     setCurrentQuestion(0);
     setScore(0);
     setShowScore(false);
+    setIsWrong(false);
     // axiosInstance
     //     .get(QUIZ, {
     //       params: {
@@ -201,28 +266,31 @@ export default function Quiz({ id }) {
       <div>
         <Box>
           <Dialog
-            fullScreen={fullScreen}
+            // fullScreen={fullScreen}
             open={open}
             onClose={handleClose}
             aria-labelledby="docdetails-dialog-title"
+            fullWidth={true}
           >
-            {/*<DialogTitle id="docdetails-dialog-title">Title</DialogTitle>*/}
-            <Grid flex={"fit-content"}>
+            {/*<DialogTitle id="docdetails-dialog-title" fontSize={30} alignSelf={"center"}>Creating a bank account</DialogTitle>*/}
             <DialogContent>
-
-              <div>
+              <Stack justifyContent={"center"} direction={"row"}>
                 {showScore ? (
-                  <Typography>
-                    You scored {score} out of {questions.length}
-                  </Typography>
+                    <Stack>
+                      <Typography alignSelf={"center"}>You scored {score} out of {questions.length}</Typography>
+                      <Typography>Would you like to try again?</Typography>
+                        <Button disableRipple={true} style={{backgroundColor:'transparent'}} sx={{marginTop:2}} onClick={handleQuizFabQuiz}>
+                          <ReplayIcon fontSize={"large"}/>
+                        </Button>
+                    </Stack>
+
                 ) : (
                   <>
-                    <div>
-                      <div>
-                        <Stack direction={"row"} spacing={2}>
+
+                        <Stack spacing={2}>
                           <Stack spacing={1}>
                             <Typography
-                              marginTop={5}
+                              marginTop={2}
                               alignSelf={"center"}
                               fontSize={30}
                             >
@@ -236,20 +304,21 @@ export default function Quiz({ id }) {
                           <div className="answer-section">
                             {renderButtons()}
                           </div>
+                          <Button style={{backgroundColor: 'transparent'}} disableRipple={true} sx={{marginTop:5}} onClick={handleAnswerOptionClick}>
+                            <PlayArrowIcon fontSize={"large"}/>
+                          </Button>
                         </Stack>
-                      </div>
-                    </div>
+
                   </>
                 )}
-              </div>
-
+                {/*<Button>Next</Button>*/}
+              </Stack>
             </DialogContent>
-            <DialogActions>
+            <DialogActions sx={{justifyContent: "right"}}>
               <Button onClick={handleClose} autoFocus>
                 Close
               </Button>
             </DialogActions>
-            </Grid>
           </Dialog>
         </Box>
       </div>
