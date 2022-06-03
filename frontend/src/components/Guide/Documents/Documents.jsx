@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import { Box } from "@mui/material";
+import { Box, Paper } from "@mui/material";
 import Button from "@mui/material/Button";
 import Dialog from "@mui/material/Dialog";
 import DialogActions from "@mui/material/DialogActions";
@@ -73,18 +73,15 @@ export default function Documents({ id, subcatName }) {
   }
 
   return (
-    <Box
+    <Paper
       sx={{
         padding: "16px",
-        borderBottom: "1px solid",
-        borderColor: "primary.main",
       }}
     >
       <Typography
         variant="h6"
         style={{
           textAlign: "left",
-          paddingBottom: "16px",
         }}
       >
         Relevant Documents
@@ -102,11 +99,15 @@ export default function Documents({ id, subcatName }) {
       {/* Document list accordion */}
       <Accordion
         defaultExpanded
-        // sx={{ background: "#cad2c5", border: 0 }}
+        sx={{
+          marginLeft: 2,
+          marginRight: 2,
+          borderTop: 1,
+          borderColor: "secondary.main",
+        }}
         disableGutters
         elevation={0}
         square
-        sx={{ backgroundColor: "#cad2c5" }}
       >
         <AccordionSummary
           expandIcon={<ExpandMoreIcon />}
@@ -122,6 +123,7 @@ export default function Documents({ id, subcatName }) {
                 {document["has_details"] ? (
                   <>
                     <ListItemButton
+                      color="primary"
                       onClick={() => {
                         handleDocumentClick(
                           document["document_id"],
@@ -168,6 +170,6 @@ export default function Documents({ id, subcatName }) {
           </DialogActions>
         </Dialog>
       </div>
-    </Box>
+    </Paper>
   );
 }
