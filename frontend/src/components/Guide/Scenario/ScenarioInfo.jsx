@@ -2,28 +2,21 @@ import React from "react";
 import { Typography } from "@mui/material";
 import { styled, createTheme, ThemeProvider } from "@mui/system";
 
-// const MyThemeComponent = styled("div")(({ theme }) => ({
-//   [theme.breakpoints.up("sm")]: {
-//     p: "100px",
-//   },
-//   [theme.breakpoints.up("md")]: {
-//     zIndex: "modal",
-//     transform: "translate(0%, 100%)",
-//   },
-// }));
+const MyThemeComponent = styled("div")(({ theme }) => ({
+  [theme.breakpoints.up("sm")]: {
+    // p: "100px",
+  },
+  [theme.breakpoints.up("md")]: {
+    position: "absolute",
+    left: "50%",
+    top: "50%",
+    transform: "translate(-50%, -50%)",
+  },
+}));
 export default function ScenarioInfo() {
   return (
-    <div
-      style={{
-        // position: "absolute",
-        transform: "translate( 0%, 50%)",
-      }}
-    >
-      <Typography
-        style={{ textAlign: "center" }}
-        variant="h2"
-        color="text.primary"
-      >
+    <MyThemeComponent>
+      <Typography style={{ textAlign: "center" }} variant="h2" color="gray">
         Hello!
       </Typography>
       <Typography style={{ textAlign: "center" }} color="text.primary">
