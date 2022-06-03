@@ -11,25 +11,20 @@ import {
   ThemeProvider,
   useTheme,
 } from "@mui/material/styles";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import GitHubIcon from '@mui/icons-material/GitHub';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import IconButton from '@mui/material/IconButton';
 import AttachmentRoundedIcon from '@mui/icons-material/AttachmentRounded';
 import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
-import Collapse from '@mui/material/Collapse';
 import guideImage from "../assets/images/guide.jpg";
 import appsImage from "../assets/images/apps.jpg";
 import MainAppBar from "../components/MainAppBar/MainAppBar";
 import { experimentalStyled as styled } from "@mui/material/styles";
-import { maxWidth, style } from "@mui/system";
+import { maxWidth, style, textAlign } from "@mui/system";
 
 import Profile1 from "../assets/images/hawon_profile.jpg"
 import Profile2 from "../assets/images/joseph_profile.jpg"
 import Profile3 from "../assets/images/sangwoo_profile.jpg"
 import Profile4 from "../assets/images/youngwon_profile.jpg"
+import zIndex from "@mui/material/styles/zIndex";
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -49,41 +44,15 @@ const Item = styled(Paper)(({ theme }) => ({
   },
 }));
 
-const ExpandMore = styled((props) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
-
 export default function Landing() {
   const [checked, setChecked] = useState(false);
-  const [expanded1, setExpanded1] = useState(false);
-  const [expanded2, setExpanded2] = useState(false);
-  const [expanded3, setExpanded3] = useState(false);
-  const [expanded4, setExpanded4] = useState(false);
 
-  const handleExpandClick = (event) => {
-    switch(event.target.id){
-      case "1": 
-        setExpanded1(!expanded1);
-        break;
-      case "2": 
-        setExpanded2(!expanded2);
-        break;
-      case "3": 
-        setExpanded3(!expanded3);
-        break;
-      case "4": 
-        setExpanded4(!expanded4);
-        break;
-      default: break;
-    }
-  };
+  const changeOpacitytoZero = (e) => {
+    e.target.style.opacity = 0;
+  }
+  const changeOpacitytoOne = (e) => {
+    e.target.style.opacity = 1;
+  }
   
 
   useEffect(() => {
@@ -113,12 +82,12 @@ export default function Landing() {
           alignItems: "center",
         }}
       >
-        <Typography variant="h6" align="center" maxWidth="md" border = "none">
+        {/* <Typography variant="h6" align="center" maxWidth="md" border = "none" color = "text.primary">
           InKorea is a website that aims to lower the language barriers for
           foreigners in Korea. We provide guides for processes such as creating
           a bank account and a catalog of useful applications for one to live in
           Korea.
-        </Typography>
+        </Typography> */}
       </Box>
       <Grid
         style={{
@@ -132,27 +101,27 @@ export default function Landing() {
       >
         <Item elevation={0}>
           <Link to="/guide">
-            <Card sx={{ minWidth: 275, maxWidth: 600 }}>
-              <div style={{ position: "relative" }}>
+            <Card sx={{ minWidth: 275, maxWidth: 600}}>
+              <div style={{ position: "relative"}}>
                 <CardMedia
                   component="img"
                   height="194"
                   src={guideImage}
                   alt="App catalog"
+                  onMouseOver = {changeOpacitytoZero} onMouseLeave = {changeOpacitytoOne}
                 />
                 <div
                   style={{
                     position: "absolute",
-                    color: "white",
-                    top: "45%",
+                    color: "black",
+                    top: "50%",
                     left: "50%",
                     transform: "translateX(-50%)",
-                    backgroundColor: "rgba(0,0,0, 0.5)",
                     borderRadius: "10%",
                     fontSize: "20px",
                   }}
                 >
-                  Guides
+                  {/* Guides */}
                 </div>
               </div>
             </Card>
@@ -160,7 +129,7 @@ export default function Landing() {
         </Item>
         <Item elevation={0}>
           <Link to="/appcatalog">
-            <Card sx={{ minWidth: 275, maxWidth: 600 }}>
+            <Card sx={{ minWidth: 275, maxWidth: 600 }} onMouseOver = {changeOpacitytoZero} onMouseLeave = {changeOpacitytoOne}>
               <div style={{ position: "relative" }}>
                 <CardMedia
                   component="img"
@@ -171,16 +140,15 @@ export default function Landing() {
                 <div
                   style={{
                     position: "absolute",
-                    color: "white",
-                    top: "45%",
-                    left: "53%",
+                    color: "black",
+                    top: "50%",
+                    left: "50%",
                     transform: "translateX(-50%)",
-                    backgroundColor: "rgba(0,0,0, 0.5)",
                     borderRadius: "10%",
                     fontSize: "20px",
                   }}
                 >
-                  App catalog
+                  {/* App catalog */}
                 </div>
               </div>
             </Card>
@@ -188,11 +156,11 @@ export default function Landing() {
         </Item>
       </Grid>
 
-      <Divider style={{margin: "50px", width: "80%", alignSelf: "center"}}/>
+      <Divider style={{margin: "50px", width: "80%", alignSelf: "center", fontSize: "20px"}}>About InKorea</Divider>
 
       <Box maxWidth = "md" style= {{display: "flex", flexWrap: "wrap", justifyContent: "center", alignSelf: "center", border: "none"}}>
         <Card style={{border: "none", boxShadow: "none", marginBottom: 30, padding: 10}}>
-          <Typography variant="h5" maxWidth="md">About InKorea</Typography>
+          <Typography variant="h5" maxWidth="md">Overview of the Problem</Typography>
           <Typography paragraph maxWidth="md" style={{border: "none"}}>
           Adjusting to a new life in a foreign country is difficult for anyone. It is especially difficult in
           Korea, one of the most homogenous countries in the world. Therefore, InKorea aims toward foreigners living in
@@ -250,6 +218,7 @@ export default function Landing() {
 
       <Grid style={{ display: "flex", justifyContent: "center", alignSelf: "center", alignItems: "baseline", marginBottom: 30, maxWidth: "60%", border: "none"}} container columns={{ xs: 4, sm: 8, md: 10 }}>
         <Item>
+          <a href='https://github.com/hawonp' target={"_blank"} style={{textDecoration: "none"}}>
           <Card style={{hegith: 190, width: 190}}>
             <CardMedia
               component="img"
@@ -257,29 +226,14 @@ export default function Landing() {
               alt="Profile"
               style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
             />
-            <Typography style={{marginTop: "20px"}}>Hawon Park</Typography>
-            <ExpandMore
-              expand={expanded1}
-              onClick={handleExpandClick}
-              aria-expanded={expanded1}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon id = "1"/>
-            </ExpandMore>
-            <Collapse in={expanded1} timeout="auto" unmountOnExit style={{maxWidth: 200, margin: "auto"}}>
-              {/* <Typography paragraph style={{textAlign: "center"}}>
-                brief description about self
-              </Typography> */}
-                
-              <a href='https://github.com/hawonp' target={"_blank"}><GitHubIcon style={{color: "black"}}/></a>
-              {/* <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><FacebookIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a> */}
-            </Collapse>
+            <Typography style={{marginTop: "20px", marginBottom: "20px"}}>Hawon Park</Typography>  
+              {/* <GitHubIcon style={{color: "black"}}/> */}
           </Card>
+          </a>
         </Item>
 
         <Item>
+          <a href='https://github.com/je0shin' target={"_blank"} style={{textDecoration: "none"}}>
           <Card style={{hegith: 190, width: 190}}>
             <CardMedia
               component="img"
@@ -287,29 +241,15 @@ export default function Landing() {
               alt="Profile"
               style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
             />
-            <Typography style={{marginTop: "20px"}}>Jeong Ho Shin</Typography>
-            <ExpandMore
-              expand={expanded2}
-              onClick={handleExpandClick}
-              aria-expanded={expanded2}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon id = "2"/>
-            </ExpandMore>
-            <Collapse in={expanded2} timeout="auto" unmountOnExit style={{maxWidth: 200, margin: "auto"}}>
-              {/* <Typography paragraph style={{textAlign: "center"}}>
-                brief description about self
-              </Typography> */}
-                
-              <a href='https://github.com/je0shin' target={"_blank"}><GitHubIcon style={{color: "black"}}/></a>
-              {/* <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><FacebookIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a> */}
-            </Collapse>
+            <Typography style={{marginTop: "20px", marginBottom: "20px"}}>Jeong Ho Shin</Typography>                
+              {/* <GitHubIcon style={{color: "black"}}/> */}
+
           </Card>
+          </a>
         </Item>
 
         <Item>
+          <a href='https://github.com/uprain1116' target={"_blank"} style={{textDecoration: "none"}}>
           <Card style={{hegith: 190, width: 190}}>
             <CardMedia
               component="img"
@@ -317,29 +257,14 @@ export default function Landing() {
               alt="Profile"
               style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
             />
-            <Typography style={{marginTop: "20px"}}>Sangwoo Park</Typography>
-            <ExpandMore
-              expand={expanded3}
-              onClick={handleExpandClick}
-              aria-expanded={expanded3}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon id = "3"/>
-            </ExpandMore>
-            <Collapse in={expanded3} timeout="auto" unmountOnExit style={{maxWidth: 200, margin: "auto"}}>
-              {/* <Typography paragraph style={{textAlign: "center"}}>
-                brief description about self
-              </Typography> */}
-                
-              <a href='https://github.com/uprain1116' target={"_blank"}><GitHubIcon style={{color: "black"}}/></a>
-              {/* <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><FacebookIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a> */}
-            </Collapse>
+            <Typography style={{marginTop: "20px", marginBottom: "20px"}}>Sangwoo Park</Typography>
+              {/* <GitHubIcon style={{color: "black"}}/> */}
           </Card>
+          </a>
         </Item>
 
         <Item>
+          <a href='https://github.com/youngecko1' target={"_blank"} style={{textDecoration: "none"}}>
           <Card style={{hegith: 190, width: 190}}>
             <CardMedia
               component="img"
@@ -347,28 +272,12 @@ export default function Landing() {
               alt="Profile"
               style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
             />
-            <Typography style={{marginTop: "20px"}}>Youngwon Choi</Typography>
-            <ExpandMore
-              expand={expanded4}
-              onClick={handleExpandClick}
-              aria-expanded={expanded4}
-              aria-label="show more"
-            >
-              <ExpandMoreIcon id = "4"/>
-            </ExpandMore>
-            <Collapse in={expanded4} timeout="auto" unmountOnExit style={{maxWidth: 200, margin: "auto"}}>
-              {/* <Typography paragraph style={{textAlign: "center"}}>
-                brief description about self
-              </Typography> */}
-                
-              <a href='https://github.com/youngecko1' target={"_blank"}><GitHubIcon style={{color: "black"}}/></a>
-              {/* <a href='#' target={"_blank"}><LinkedInIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><FacebookIcon style={{color: "black", marginRight: "5%"}}/></a>
-              <a href='#' target={"_blank"}><InstagramIcon style={{color: "black"}}/></a> */}
-            </Collapse>
-          </Card>
-        </Item>
+            <Typography style={{marginTop: "20px", marginBottom: "20px"}}>Youngwon Choi</Typography>
+            {/* <GitHubIcon style={{color: "black"}}/> */}
 
+          </Card>
+          </a>
+        </Item>
       </Grid>
     </Box>
   );
