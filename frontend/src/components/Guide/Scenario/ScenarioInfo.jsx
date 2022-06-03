@@ -26,6 +26,6 @@ export default function ScenarioInfo() {
         Please use the side bar on the left to select a scenario that you want
         to learn more about!
       </Typography>
-    </div>
+    </MyThemeComponent>
   );
 }
