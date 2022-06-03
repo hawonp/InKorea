@@ -56,11 +56,11 @@ INSERT INTO Keyword_Phrase(keyword_id, phrase_id) VALUES (7, 6);
 INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("Which data plan do you want to use?", "요금제 뭐로 하시겠어요?", "yogeumjae mworo hassigaesseoyo?");
 INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("I would like to activate a phone number", "휴대폰 개통하고 싶어요", "hyudaepone gaetong hago shipeoyo");
 
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (2, 2);
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (5, 2);
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (6, 2);
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (7, 2);
-INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (8, 2);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (2, 7);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (5, 7);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (6, 7);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (7, 7);
+INSERT INTO Phrase_Subcategory(phrase_id, subcategory_id) VALUES (8, 7);
 
 INSERT INTO Keyword(keyword_text, keyword_text_kor, keyword_explanation, keyword_romanization) VALUES("Data plan", "요금제",  "요금제 means data plan", "yogeumjae");
 INSERT INTO Keyword(keyword_text, keyword_text_kor, keyword_explanation, keyword_romanization) VALUES("To activate a phone number", "개통",  "개통 means to activate a phone number", "gaetong");
@@ -126,12 +126,12 @@ INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Entry 3", "doc2 text3", "image url", 2);
 INSERT INTO Entry(entry_index, entry_title, entry_text, entry_image, document_id) VALUES(3, "Entry 4", "doc2 text4", "image url", 2);
 
--- Document Helper (Banking Specific)
+-- Document Helper (phone Specific)
 INSERT INTO Document(document_title, document_title_kor, has_details) VALUES ("Copy of bank account", "통장 사본", false);
 
--- INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 2);
-INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(2, 2);
-INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(3, 2);
+INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(1, 7);
+INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(2, 7);
+INSERT INTO Document_Subcategory(document_id, subcategory_id) VALUES(3, 7);
 
 -- App Catalog 
 
@@ -206,8 +206,8 @@ INSERT INTO App_Tag(app_id, tag_id) VALUES (13, 7);
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("About Naver Maps", 1, "Naver maps is a map and navigator application for people who want to get around Korea. With its access to the Korean map data and English support, it makes navigating around Korean easier.", "image url", 1);
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("How to find a location", 2, "Tap on the search bar at the top and search for your destination.", "image url", 1);
 
-INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("About Kakao Talk", 1, "Kakao Talk is the most popular messaging service in Korea. It is an app that almost everyone uses, and is hence commonly used as the medium of communication.", "image url", 1);
-INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("How to add a friend", 2, "Tap on the + button at the top and add.", "image url", 1);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("About Kakao Talk", 1, "Kakao Talk is the most popular messaging service in Korea. It is an app that almost everyone uses, and is hence commonly used as the medium of communication.", "image url", 2);
+INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("How to add a friend", 2, "Tap on the + button at the top and add.", "image url", 2);
 
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 1", 1, "text 1", "image 1", 3);
 INSERT INTO App_Info_Block(info_title, info_index, info_text, info_image, app_id) VALUES ("Info Title 2", 2, "text 2", "image 2", 3);

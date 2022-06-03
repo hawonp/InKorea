@@ -36,7 +36,8 @@ export default function SidebarAccordion({ options, handleSubcatSelect }) {
             <List>
               {option.subCategories.map((subcat) => (
                 <ListItem disablePadding key={subcat["subcategory_name"]}>
-                  {subcat["subcategory_id"] === 1 ? (
+                  {subcat["subcategory_id"] === 1 ||
+                  subcat["subcategory_id"] === 7 ? (
                     <ListItemButton onClick={() => handleSubcatSelect(subcat)}>
                       <div>
                         <p style={{ fontSize: 12 }}>
