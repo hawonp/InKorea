@@ -8,13 +8,17 @@ import AppCatalog from "./pages/Appcatalog";
 import Error404page from "./pages/error/404";
 import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#84A98C",
+      main: "#52796F",
     },
     secondary: {
       main: "#2F3E46",
+    },
+    error: {
+      main: "#FF0000",
     },
     text: {
       primary: "#2F3E46",
@@ -26,7 +30,6 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   // <React.StrictMode>
   <ThemeProvider theme={theme}>
-    {" "}
     <BrowserRouter>
       <Routes>
         <Route exact path="/" element={<Landing />} />
