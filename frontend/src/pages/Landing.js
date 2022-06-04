@@ -24,7 +24,6 @@ import Profile1 from "../assets/images/hawon_profile.jpg"
 import Profile2 from "../assets/images/joseph_profile.jpg"
 import Profile3 from "../assets/images/sangwoo_profile.jpg"
 import Profile4 from "../assets/images/youngwon_profile.jpg"
-import zIndex from "@mui/material/styles/zIndex";
 
 let theme = createTheme();
 theme = responsiveFontSizes(theme);
@@ -47,12 +46,14 @@ const Item = styled(Paper)(({ theme }) => ({
 export default function Landing() {
   const [checked, setChecked] = useState(false);
 
-  const changeOpacitytoZero = (e) => {
-    e.target.style.opacity = 0;
-  }
-  const changeOpacitytoOne = (e) => {
-    e.target.style.opacity = 1;
-  }
+  const [guide, setGuide] = useState(false);
+  const [app, setApp] = useState(false);
+
+  const seeGuideWord = (e) => { setGuide(true); }
+  const seeAppWord = (e) => { setApp(true); }
+  const hideGuideWord = (e) => { setGuide(false); }
+  const hideAppWord = (e) => { setApp(false); }
+
   
 
   useEffect(() => {
@@ -61,15 +62,16 @@ export default function Landing() {
 
   return (
     <Box display="flex" flexDirection="column">
-      <MainAppBar />
-      <Box sx={{ mt: 10 }}>
+      <MainAppBar/>
+      <Box style={{height:"100vh"}}>
+      <Box sx={{ mt: 5 }}>
         <ThemeProvider theme={theme}>
           <Zoom
             in={checked}
             timeout={600}
             style={{ transitionDelay: checked ? "500ms" : "100ms" }}
           >
-            <Typography variant="h2" align="center" color = "text.primary">
+            <Typography align="center" color = "text.primary" style={{fontSize: "8vw"}}>
               Welcome to InKorea
             </Typography>
           </Zoom>
@@ -88,6 +90,10 @@ export default function Landing() {
           a bank account and a catalog of useful applications for one to live in
           Korea.
         </Typography> */}
+        <Typography variant="h6" align="center" maxWidth="md" border = "none" color = "text.primary" style={{padding: 10}} >
+          A website that aims to lower the language barriers for
+          foreigners in Korea
+        </Typography>
       </Box>
       <Grid
         style={{
@@ -100,43 +106,49 @@ export default function Landing() {
         columns={{ xs: 4, sm: 8, md: 12 }}
       >
         <Item elevation={0}>
-          <Link to="/guide">
+          <Link to="/guide" style={{textDecoration: "none"}}>
             <Card sx={{ minWidth: 275, maxWidth: 600}}>
-              <div style={{ position: "relative"}}>
-                <CardMedia
-                  component="img"
-                  height="194"
-                  src={guideImage}
-                  alt="App catalog"
-                  onMouseOver = {changeOpacitytoZero} onMouseLeave = {changeOpacitytoOne}
-                />
-                <div
-                  style={{
-                    position: "absolute",
-                    color: "black",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    borderRadius: "10%",
-                    fontSize: "20px",
-                  }}
-                >
-                  {/* Guides */}
-                </div>
+              <div className="guide" style={{ position: "relative"}} onMouseOver = {seeGuideWord} onMouseLeave = {hideGuideWord}>
+                {
+                  guide ? 
+                  <Card id = "guide" style={{height: 194, display: "flex", justifyContent: "center", alignItems: "center", fontSize: "50px"}}>
+                    Guide
+                  </Card>
+                  :
+                  <Card>
+                    <CardMedia
+                    component="img"
+                    height="194"
+                    src={guideImage}
+                    alt="Guide"
+                  />
+                  </Card>
+
+                }
               </div>
             </Card>
           </Link>
         </Item>
         <Item elevation={0}>
-          <Link to="/appcatalog">
-            <Card sx={{ minWidth: 275, maxWidth: 600 }} onMouseOver = {changeOpacitytoZero} onMouseLeave = {changeOpacitytoOne}>
-              <div style={{ position: "relative" }}>
-                <CardMedia
-                  component="img"
-                  height="194"
-                  src={appsImage}
-                  alt="App catalog"
-                />
+          <Link to="/appcatalog" style={{textDecoration: "none"}}>
+            <Card sx={{ minWidth: 275, maxWidth: 600 }}>
+              <div style={{ position: "relative" }} onMouseOver = {seeAppWord} onMouseLeave = {hideAppWord}>
+                {
+                  app ? 
+                  <Card style={{height: 194, display: "flex", justifyContent: "center", alignItems: "center", fontSize: "50px"}}>
+                    App Catalog
+                  </Card>
+                  :
+                  <Card>
+                    <CardMedia
+                      component="img"
+                      height="194"
+                      src={appsImage}
+                      alt="App catalog"
+                    />
+                  </Card>
+                }
+
                 <div
                   style={{
                     position: "absolute",
@@ -155,6 +167,7 @@ export default function Landing() {
           </Link>
         </Item>
       </Grid>
+      </Box>
 
       <Divider style={{margin: "50px", width: "80%", alignSelf: "center", fontSize: "20px", color: "text.primary"}}>About InKorea</Divider>
 
@@ -185,29 +198,29 @@ export default function Landing() {
 
             <Typography maxWidth= "md">
             <a href = "https://drive.google.com/file/d/1s7Up6HgntsC1-azmKG8Ywk4nBaQsTabO/view?usp=sharing" 
-              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "#2F3E46"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Formative research report </a>
           </Typography>
           <Typography maxWidth= "md">
             <a href = "https://www.youtube.com/watch?v=tCOShCInpdI" 
-              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "#2F3E46"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Paper prototype video </a>
           </Typography>
           <Typography maxWidth= "md">
             <a href = "https://drive.google.com/file/d/12tPuYooxdqs5Wwop5Q_gs5PSlvvQTc8F/view?usp=sharing" 
-              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "#2F3E46"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Mid-fidelity prototype report </a>
           </Typography>
 
           <Typography maxWidth= "md">
             <a href = "https://youtu.be/iiQtPJ_cXsg" 
-              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "#2F3E46"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Mid-fidelity prototype video </a>
           </Typography>
 
           <Typography maxWidth= "md">
             <a href = "#" 
-              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
+              target={"_blank"} style={{textDecoration: "none", color: "#2F3E46"}} > 
               <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Final presentation video (yet have link) </a>
           </Typography>
 
