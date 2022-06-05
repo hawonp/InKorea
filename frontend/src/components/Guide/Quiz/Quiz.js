@@ -126,21 +126,22 @@ export default function Quiz({ id }) {
   function renderButtons(){
     if(id===1){
       return(
+
           <Grid container direction={"row"} columns={{xs:2, md:4, xl:4}}>
 
             {questions[currentQuestion].answerOptions.map((answerOption) => (
                 <Grid item xs={2}>
-                  <Button
-                      sx={{border: "1px solid grey", margin:.5, width:'270px', height:'100px'}}
-                      onClick={handleClick(answerOption.isCorrect)}>
-                    {answerOption.answerText}
-                  </Button>
-
+                      <Button
+                          style={{color:"error"}}
+                          sx={{border: "1px solid green", margin:.5, width:'270px', height:'100px'}}
+                          onClick={handleClick(answerOption.isCorrect)}>
+                        {answerOption.answerText}
+                      </Button>
                 </Grid>
             ))}
             <div>
               <Popper id={wrongAnswerPopper} open={openPopper} anchorEl={wrongAnswerAnchor} sx={{zIndex: theme.zIndex.modal}}>
-                {tryAgain(isWrong)}
+                {/*{tryAgain(isWrong)}*/}
               </Popper>
             </div>
           </Grid>
@@ -161,7 +162,7 @@ export default function Quiz({ id }) {
             ))}
             <div>
               <Popper id={wrongAnswerPopper} open={openPopper} anchorEl={wrongAnswerAnchor} sx={{zIndex: theme.zIndex.modal}}>
-                {tryAgain()}
+                {/*{tryAgain()}*/}
               </Popper>
             </div>
           </Grid>
@@ -169,22 +170,22 @@ export default function Quiz({ id }) {
     }
   }
 
-  function tryAgain () {
-    if(!isWrong){
-      return(
-            <Box sx={{ border: 1, p: 1, backgroundColor: 'background.paper' , color: "red"}}>
-              <Typography>Try Again!</Typography>
-            </Box>
-      );
-    }
-    else{
-      return(
-          <Box sx={{ border: 1, p: 1, backgroundColor: 'background.paper' , color: "green"}}>
-            <Typography>Correct!</Typography>
-          </Box>
-      );
-    }
-  }
+  // function tryAgain () {
+  //   if(!isWrong){
+  //     return(
+  //           <Box sx={{ border: 1, p: 1, backgroundColor: 'background.paper' , color: "red"}}>
+  //             <Typography>Try Again!</Typography>
+  //           </Box>
+  //     );
+  //   }
+  //   else{
+  //     return(
+  //         <Box sx={{ border: 1, p: 1, backgroundColor: 'background.paper' , color: "green"}}>
+  //           <Typography>Correct!</Typography>
+  //         </Box>
+  //     );
+  //   }
+  // }
 
   function generateQuestion(){
     if(id===1){
@@ -234,7 +235,6 @@ export default function Quiz({ id }) {
       setScore(score + 1);
     }
     setIsWrong(false);
-    setWrongAnswerAnchor(null);
     const nextQuestion = currentQuestion + 1;
     if (nextQuestion < questions.length) {
       setCurrentQuestion(nextQuestion);
@@ -243,9 +243,6 @@ export default function Quiz({ id }) {
     }
   }
 
-  const handleClickAway = () => {
-    setPopperOpen(false);
-  };
 
   return (
     <Box sx={{ "& > :not(style)": { m: 1 } }}>
