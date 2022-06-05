@@ -6,19 +6,19 @@ INSERT INTO Category(category_name) VALUES("Mobile");
 
 -- Subcategory (Banking)
 INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("Creating a bank account", "This will help you in case you go to the bank to make a bank account and when the clerk does not know how to speak fluent English. However, most bank branch will have at least one clerk who can speak English fluently enough to guide you through the process of making a bank account.", "1");
-INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("How to use an ATM", "Subcategory description", "1");
+INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("Using an ATM", "Subcategory description", "1");
 
 -- Subcategory (Health)
-INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("How to get basic health insurance", "Subcategory description", "2");
-INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("How to upgrade your health insurance", "Subcategory description", "2");
+INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("Getting basic health insurance", "Subcategory description", "2");
+INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("Upgrading your health insurance", "Subcategory description", "2");
 
 -- Subcategory (Housing)
-INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("How to get a house (Jeonse)", "Subcategory description", "3");
-INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("How to get a house (Rent)", "Subcategory description", "3");
+INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("Getting a house (Jeonse)", "Subcategory description", "3");
+INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("Getting a house (Rent)", "Subcategory description", "3");
 
 -- Subcategory (Mobile)
-INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("How to get a korean sim", "This will help you to get a Korean sim and activate your phone in Korea.", "4");
-INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("How to change your data plan", "Subcategory description", "4");
+INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("Getting a korean sim", "This will help you to get a Korean sim and activate your phone in Korea.", "4");
+INSERT INTO Subcategory(subcategory_name, subcategory_description, category_id) VALUES("Changing your data plan", "Subcategory description", "4");
 
 -- -- Phrases (Banking Specific)
 INSERT INTO Phrase(phrase_text, phrase_text_kor, phrase_romanization) VALUES ("I would like to make a checking account.", "예금 계좌 하나 만들어 주세요", "yegeum gyejwa hana mandeureo juseyo");

@@ -11,19 +11,14 @@ import CheckIcon from "@mui/icons-material/Check";
 
 const Accordion = styled((props) => (
   <MuiAccordion
-    disableGutters
-    elevation={0}
-    square
     {...props}
     sx={{
       borderRight: 0,
       borderLeft: 0,
       marginBottom: 2,
-      borderColor: "primary.main",
     }}
   />
 ))(({ theme }) => ({
-  borderTop: `1px solid`,
   "&:not(:last-child)": {},
   "&:before": {
     display: "none",

@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
-import { Box } from "@mui/material";
-import Button from "@mui/material/Button";
-import Dialog from "@mui/material/Dialog";
-import DialogActions from "@mui/material/DialogActions";
-import DialogContent from "@mui/material/DialogContent";
-import DialogTitle from "@mui/material/DialogTitle";
+import { Box, Button } from "@mui/material";
+import {
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Accordion } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
@@ -76,15 +77,13 @@ export default function Documents({ id, subcatName }) {
     <Box
       sx={{
         padding: "16px",
-        borderBottom: "1px solid",
-        borderColor: "primary.main",
+        borderTop: 1,
       }}
     >
       <Typography
         variant="h6"
         style={{
           textAlign: "left",
-          paddingBottom: "16px",
         }}
       >
         Relevant Documents
@@ -96,20 +95,27 @@ export default function Documents({ id, subcatName }) {
         }}
       >
         This section contains documents used in Korea that are relevant to{" "}
-        {selectedSubcategoryName}. You can click on a document to see the full
-        details of a document.
+        {selectedSubcategoryName.toLowerCase()}. You can click on a document to
+        see the full details of a document.
       </Typography>
       {/* Document list accordion */}
       <Accordion
         defaultExpanded
-        // sx={{ background: "#cad2c5", border: 0 }}
+        sx={{
+          marginLeft: 2,
+          marginRight: 2,
+        }}
         disableGutters
-        elevation={0}
+        // elevation={0}
         square
-        sx={{ backgroundColor: "#cad2c5" }}
       >
         <AccordionSummary
-          expandIcon={<ExpandMoreIcon />}
+          expandIcon={
+            <ExpandMoreIcon
+              color="primary"
+              sx={{ "&:hover": { color: "secondary.main" } }}
+            />
+          }
           aria-controls="panel2a-content"
           id="panel2a-header"
         >

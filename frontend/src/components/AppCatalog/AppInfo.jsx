@@ -53,7 +53,10 @@ export default function AppInfo({ id }) {
                 ) : (
                   <></>
                 )}
-                <Typography style={{ wordWrap: "break-word" }}>
+                <Typography
+                  color="text.primary"
+                  style={{ wordWrap: "break-word" }}
+                >
                   {info["info_text"]}
                 </Typography>
               </AccordionDetails>
