@@ -17,6 +17,7 @@ import Grid from "@mui/material/Grid";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import ReplayIcon from '@mui/icons-material/Replay';
 // import questions from '../Quiz/Questions';
+import ClickAwayListener from '@mui/base/ClickAwayListener';
 
 
 const style = {
@@ -41,8 +42,8 @@ export default function Quiz({ id }) {
   const [wrongAnswerAnchor, setWrongAnswerAnchor] = React.useState(null);
   const openPopper = Boolean(wrongAnswerAnchor);
   const wrongAnswerPopper = openPopper ? 'wrong-answer-popper' : undefined;
-  const [closePopper, setClosePopper] = useState(false);
-  const [placement, setPlacement] = React.useState();
+  const [popperOpen, setPopperOpen] = useState(false);
+
 
   const questions = [
     {
@@ -166,16 +167,14 @@ export default function Quiz({ id }) {
           </Grid>
       );
     }
-
-
   }
 
   function tryAgain () {
     if(!isWrong){
       return(
-          <Box sx={{ border: 1, p: 1, backgroundColor: 'background.paper' , color: "red"}}>
-            <Typography>Try Again!</Typography>
-          </Box>
+            <Box sx={{ border: 1, p: 1, backgroundColor: 'background.paper' , color: "red"}}>
+              <Typography>Try Again!</Typography>
+            </Box>
       );
     }
     else{
@@ -190,14 +189,14 @@ export default function Quiz({ id }) {
   function generateQuestion(){
     if(id===1){
       return(
-          <Typography alignSelf={"center"} color={'#84A98C'}>
+          <Typography alignSelf={"center"} >
             {questions[currentQuestion].questionText}
           </Typography>
       );
     }
     else if(id===7){
       return(
-          <Typography alignSelf={"center"} color={'#84A98C'}>
+          <Typography alignSelf={"center"} >
             {questions2[currentQuestion].questionText}
           </Typography>
       );
@@ -218,10 +217,9 @@ export default function Quiz({ id }) {
     setIsWrong(false);
   }
 
-  const handleClick = (isCorrect, newPlacement) => (event) => {
+  const handleClick = (isCorrect) => (event) => {
+    setWrongAnswerAnchor(null);
     setWrongAnswerAnchor(wrongAnswerAnchor ? null : event.currentTarget);
-    setClosePopper((prev) => placement !== newPlacement || !prev);
-    setPlacement(newPlacement);
     if(isCorrect){
       setIsWrong(true);
     }
@@ -245,6 +243,10 @@ export default function Quiz({ id }) {
     }
   }
 
+  const handleClickAway = () => {
+    setPopperOpen(false);
+  };
+
   return (
     <Box sx={{ "& > :not(style)": { m: 1 } }}>
       <Fab
@@ -265,12 +267,12 @@ export default function Quiz({ id }) {
             fullWidth={true}
           >
             {/*<DialogTitle id="docdetails-dialog-title" fontSize={30} alignSelf={"center"}>Creating a bank account</DialogTitle>*/}
-            <DialogContent style={{backgroundColor:'#2F3E46'}}>
+            <DialogContent>
               <Stack justifyContent={"center"} direction={"row"}>
                 {showScore ? (
                     <Stack>
-                      <Typography color={'#84A98C'} alignSelf={"center"}>You scored {score} out of {questions.length}</Typography>
-                      <Typography color={'#84A98C'}>Would you like to try again?</Typography>
+                      <Typography alignSelf={"center"}>You scored {score} out of {questions.length}</Typography>
+                      <Typography>Would you like to try again?</Typography>
                         <Button disableRipple={true} style={{backgroundColor:'transparent'}} sx={{marginTop:2}} onClick={handleQuizFabQuiz}>
                           <ReplayIcon fontSize={"large"}/>
                         </Button>
@@ -285,7 +287,6 @@ export default function Quiz({ id }) {
                               marginTop={2}
                               alignSelf={"center"}
                               fontSize={30}
-                              color={'#84A98C'}
                             >
                               Question {currentQuestion + 1}/{questions.length}
                             </Typography>
