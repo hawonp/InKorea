@@ -63,7 +63,7 @@ export default function Landing() {
   return (
     <Box display="flex" flexDirection="column">
       <MainAppBar/>
-      <Box style={{height:"100vh"}}>
+      <Box style={{height:"97vh"}}>
       <Box sx={{ mt: 5 }}>
         <ThemeProvider theme={theme}>
           <Zoom
@@ -71,7 +71,7 @@ export default function Landing() {
             timeout={600}
             style={{ transitionDelay: checked ? "500ms" : "100ms" }}
           >
-            <Typography align="center" color = "text.primary" style={{fontSize: "8vw"}}>
+            <Typography align="center" color = "text.primary" style={{fontSize: "6vw"}}>
               Welcome to InKorea
             </Typography>
           </Zoom>
@@ -100,6 +100,7 @@ export default function Landing() {
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          marginTop: "20px"
         }}
         container
         // spacing={{ xs: 2, md: 3 }}
@@ -136,7 +137,7 @@ export default function Landing() {
                 {
                   app ? 
                   <Card style={{height: 194, display: "flex", justifyContent: "center", alignItems: "center", fontSize: "50px"}}>
-                    App Catalog
+                    app Catalog
                   </Card>
                   :
                   <Card>
