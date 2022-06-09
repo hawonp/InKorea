@@ -43,6 +43,7 @@ const Item = styled(Paper)(({ theme }) => ({
   },
 }));
 
+
 export default function Landing() {
   const [checked, setChecked] = useState(false);
 
@@ -71,7 +72,7 @@ export default function Landing() {
             timeout={600}
             style={{ transitionDelay: checked ? "500ms" : "100ms" }}
           >
-            <Typography align="center" color = "text.primary" style={{fontSize: "6vw"}}>
+            <Typography align="center" color = "text.primary" style={{fontSize: "calc(20px + 2vw)"}}> {/* 4vw */}
               Welcome to InKorea
             </Typography>
           </Zoom>
@@ -168,9 +169,13 @@ export default function Landing() {
           </Link>
         </Item>
       </Grid>
+
+
+
+
       </Box>
 
-      <Divider style={{margin: "50px", width: "80%", alignSelf: "center", fontSize: "20px", color: "text.primary"}}>About InKorea</Divider>
+      <Divider id = "aboutPage" style={{margin: "50px", width: "80%", alignSelf: "center", fontSize: "20px", color: "text.primary"}}>About InKorea</Divider>
 
       <Box maxWidth = "md" style= {{display: "flex", flexWrap: "wrap", justifyContent: "center", alignSelf: "center", border: "none"}}>
         <Card style={{border: "none", boxShadow: "none", marginBottom: 30, padding: 10}}>
