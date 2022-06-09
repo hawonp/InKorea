@@ -8,7 +8,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { useState } from "react";
 import axiosInstance from "../../utils/routeUtils";
-import { APPS, SLASH } from "../../utils/routeConstants";
+import { APPS_ROUTE, SLASH } from "../../utils/routeConstants";
 import Tag from "./Tag";
 import { CardActions } from "@mui/material";
 
@@ -45,7 +45,7 @@ export default function AppBox({ app_id, parentCallback }) {
   const fullScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   if (appID !== app_id) {
-    axiosInstance.get(APPS + SLASH + app_id).then((response) => {
+    axiosInstance.get(APPS_ROUTE + SLASH + app_id).then((response) => {
       const data = response.data;
       setApp(data[0]);
       // console.log("app data", data[0]);

@@ -18,7 +18,9 @@ origins = [
     "http://localhost:9090",
     "http://localhost:8080",
     "http://localhost:3000",
-    "http://backend.inkorea.co"
+    "http://backend.inkorea.co",
+    "https://www.backend.inkorea.co",
+    "*"
 ]
 
 app.add_middleware(

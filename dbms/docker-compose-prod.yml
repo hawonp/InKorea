@@ -19,7 +19,7 @@ services:
       MYSQL_DATABASE: inkorea_db
       MYSQL_USER: mod
       MYSQL_PASSWORD: inkorea
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: ego5Eek~
       VIRTUAL_HOST: www.db.inkorea.co, db.inkorea.co
       VIRTUAL_PORT: 3306
       VIRTUAL_PROTO: https
@@ -40,7 +40,7 @@ services:
       - "3030:80"
     environment:
       PMA_HOST: db
-      MYSQL_ROOT_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: ego5Eek~
       VIRTUAL_HOST: www.db.inkorea.co, db.inkorea.co
       VIRTUAL_PORT: 3030
       VIRTUAL_PROTO: https

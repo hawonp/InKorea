@@ -2,7 +2,7 @@ import { Typography } from "@mui/material";
 import React, { useState } from "react";
 
 import axiosInstance from "../../utils/routeUtils";
-import { APPS, SLASH, DETAILS } from "../../utils/routeConstants";
+import { APPS_ROUTE, SLASH, DETAILS } from "../../utils/routeConstants";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
@@ -16,7 +16,7 @@ export default function AppInfo({ id }) {
   const [images, setImages] = useState([]);
 
   if (appID !== id) {
-    axiosInstance.get(APPS + SLASH + id + DETAILS).then((response) => {
+    axiosInstance.get(APPS_ROUTE + SLASH + id + DETAILS).then((response) => {
       const data = response.data;
       setAppInfo(data["data"]);
       setImages(data["imgs"]);
@@ -65,7 +65,8 @@ export default function AppInfo({ id }) {
           <ImageList sx={{ height: 400 }} cols={3} spacing={1}>
             {images.map((image) => (
               <ImageListItem key={image.img_src}>
-                <img src={image.img_src} alt="Image" loading="lazy" />
+{                //eslint-disable-next-line
+}                <img src={image.img_src} alt="Image" loading="lazy" />
               </ImageListItem>
             ))}
           </ImageList>

@@ -7,7 +7,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import React, { useEffect, useState } from "react";
 
 import axiosInstance from "../../utils/routeUtils";
-import { APPS, SEARCH } from "../../utils/routeConstants";
+import { APPS_ROUTE, SEARCH } from "../../utils/routeConstants";
 import { Typography } from "@mui/material";
 import { Pagination } from "@mui/material";
 import Radio from "@mui/material/Radio";
@@ -16,23 +16,6 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import FormControl from "@mui/material/FormControl";
 import FormLabel from "@mui/material/FormLabel";
 import { Autocomplete } from "@mui/material";
-
-// import { ThemeProvider, createTheme } from "@mui/material/styles";
-
-// const theme = createTheme({
-//   palette: {
-//     primary: {
-//       main: "#84A98C",
-//     },
-//     secondary: {
-//       main: "#2F3E46",
-//     },
-//     text: {
-//       primary: "#2F3E46",
-//       secondary: "#354F52",
-//     },
-//   },
-// });
 
 export default function AppCatalog() {
   const [apps, setApps] = useState([]);
@@ -56,7 +39,7 @@ export default function AppCatalog() {
     // console.log("this is change in motion");
     if (value !== null && value !== "") {
       axiosInstance
-        .get(APPS + SEARCH + "/test", {
+        .get(APPS_ROUTE + SEARCH + "/test", {
           params: {
             search_input: value,
           },
@@ -96,7 +79,7 @@ export default function AppCatalog() {
       //   inputValue
       // );
       axiosInstance
-        .get(APPS + "/test", {
+        .get(APPS_ROUTE + "/test", {
           params: {
             page: page,
             platform: platform,
@@ -202,8 +185,9 @@ export default function AppCatalog() {
             </Grid>
           </Grid>
 
+          {apps !== 0 && apps !== undefined ? (          
           <Grid container spacing={2} maxWidth={"md"}>
-            {apps.map((app) => (
+          {apps.map((app) => (
               <Grid item xs={12} md={6} lg={6} key={app["app_id"]}>
                 <AppBox
                   app_id={app["app_id"]}
@@ -211,7 +195,7 @@ export default function AppCatalog() {
                 />
               </Grid>
             ))}
-          </Grid>
+          </Grid>) : (<Typography>Could not load apps</Typography>)}
         </div>
         <Pagination
           color="primary"
