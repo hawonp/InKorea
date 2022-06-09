@@ -1,284 +1,570 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
-import { Box, Card } from "@mui/material";
-import Zoom from "@mui/material/Zoom";
-import Paper from "@mui/material/Paper";
+import React, { useEffect, useState, useRef } from "react";
+import { Box, Button, Card, CardActions } from "@mui/material";
+
 import Grid from "@mui/material/Grid";
 import { CardMedia, Typography, Divider, CardContent } from "@mui/material";
-import {
-  createTheme,
-  responsiveFontSizes,
-  ThemeProvider,
-  useTheme,
-} from "@mui/material/styles";
-import GitHubIcon from '@mui/icons-material/GitHub';
-import AttachmentRoundedIcon from '@mui/icons-material/AttachmentRounded';
-import LockOpenOutlinedIcon from '@mui/icons-material/LockOpenOutlined';
+
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LockOpenOutlinedIcon from "@mui/icons-material/LockOpenOutlined";
 import guideImage from "../assets/images/guide.jpg";
 import appsImage from "../assets/images/apps.jpg";
 import MainAppBar from "../components/MainAppBar/MainAppBar";
-import { experimentalStyled as styled } from "@mui/material/styles";
-import { maxWidth, style, textAlign } from "@mui/system";
-
-import Profile1 from "../assets/images/hawon_profile.jpg"
-import Profile2 from "../assets/images/joseph_profile.jpg"
-import Profile3 from "../assets/images/sangwoo_profile.jpg"
-import Profile4 from "../assets/images/youngwon_profile.jpg"
-import zIndex from "@mui/material/styles/zIndex";
-
-let theme = createTheme();
-theme = responsiveFontSizes(theme);
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === "dark" ? "#1A2027" : "#fff",
-  ...theme.typography.body2,
-  margin: theme.spacing(2),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-  "&:hover": {
-    cursor: "pointer",
-    backgroundColor: theme.palette.grey[100],
-    "& $addIcon": {
-      color: "purple",
-    },
-  },
-}));
+import IconButton from "@mui/material/IconButton";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import ArticleIcon from "@mui/icons-material/Article";
+import VideoFileIcon from "@mui/icons-material/VideoFile";
+import { Stack } from "@mui/material";
+import { Link } from "@mui/material";
+import { Link as Reroute } from "react-router-dom";
+import { Avatar } from "@mui/material";
+import Profile1 from "../assets/images/hawon_profile.jpg";
+import Profile2 from "../assets/images/joseph_profile.jpg";
+import Profile3 from "../assets/images/sangwoo_profile.jpg";
+import Profile4 from "../assets/images/youngwon_profile.jpg";
+import Logo from "../assets/images/logo.png";
 
 export default function Landing() {
-  const [checked, setChecked] = useState(false);
+  const myRef = useRef(null);
 
-  const changeOpacitytoZero = (e) => {
-    e.target.style.opacity = 0;
-  }
-  const changeOpacitytoOne = (e) => {
-    e.target.style.opacity = 1;
-  }
-  
-
-  useEffect(() => {
-    setChecked(true);
-  }, []);
+  const executeScroll = () =>
+    myRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
 
   return (
     <Box display="flex" flexDirection="column">
       <MainAppBar />
-      <Box sx={{ mt: 10 }}>
-        <ThemeProvider theme={theme}>
-          <Zoom
-            in={checked}
-            timeout={600}
-            style={{ transitionDelay: checked ? "500ms" : "100ms" }}
-          >
-            <Typography variant="h2" align="center" color = "text.primary">
-              Welcome to InKorea
+      <Box display="flex" justifyContent="center" alignItems="center">
+        <Box
+          sx={{ height: "100vh" }}
+          display="flex"
+          flexDirection="column"
+          alignItems="center"
+          justifyContent="center"
+          maxWidth="md"
+          p={{ xs: 1, sm: 2, md: 0 }}
+        >
+          <img src={Logo} alt="cur" />
+
+          <div style={{ paddingBottom: "16px" }}>
+            <Typography
+              variant={{ md: "h5", sm: "h6" }}
+              align="left"
+              color="text.secondary"
+            >
+              We aim to lower the language barrier for foreigners living in
+              Korea
             </Typography>
-          </Zoom>
-        </ThemeProvider>
+          </div>
+          <Stack direction="row" spacing={1}>
+            <Reroute to="/guide" style={{ textDecoration: "none" }}>
+              <Button variant="outlined">
+                <Typography variant={{ md: "h5", sm: "body1" }}>
+                  See Scenarios
+                </Typography>
+              </Button>
+            </Reroute>
+            <Reroute to="/appcatalog" style={{ textDecoration: "none" }}>
+              <Button variant="outlined">
+                <Typography variant={{ md: "h5", sm: "body1" }}>
+                  See Apps
+                </Typography>
+              </Button>
+            </Reroute>
+
+            <Divider orientation="vertical" flexItem />
+            <Button variant="contained" onClick={executeScroll}>
+              <Typography variant={{ md: "h5", sm: "body1" }}>
+                See More
+              </Typography>
+            </Button>
+          </Stack>
+        </Box>
       </Box>
+
+      <Divider
+        ref={myRef}
+        id="aboutPage"
+        style={{
+          paddingTop: "20px",
+          paddingBottom: "20px",
+          width: "50%",
+          alignSelf: "center",
+          fontSize: "20px",
+          color: "text.primary",
+        }}
+      >
+        About InKorea
+      </Divider>
+
       <Box
+        maxWidth="md"
         style={{
           display: "flex",
+          flexWrap: "wrap",
           justifyContent: "center",
-          alignItems: "center",
+          alignSelf: "center",
+          border: "none",
         }}
+        p={{ xs: 1, sm: 2, md: 0 }}
       >
-        {/* <Typography variant="h6" align="center" maxWidth="md" border = "none" color = "text.primary">
-          InKorea is a website that aims to lower the language barriers for
-          foreigners in Korea. We provide guides for processes such as creating
-          a bank account and a catalog of useful applications for one to live in
-          Korea.
-        </Typography> */}
+        <Card
+          style={{
+            border: "none",
+            boxShadow: "none",
+            paddingBottom: "20px",
+          }}
+        >
+          <Typography variant="h5" maxWidth="md" color="text.primary">
+            Overview of the Problem
+          </Typography>
+          <Typography
+            paragraph
+            maxWidth="md"
+            style={{
+              border: "none",
+              color: "text.secondary",
+              margin: "0px",
+            }}
+          >
+            Adjusting to a new life in a foreign country is difficult for
+            anyone. It is especially difficult in Korea, one of the most
+            homogenous countries in the world. InKorea was built to help
+            foreigners who are struggling to adjust to Korea due to the language
+            barrier. InKorea's features are designed in such a way so that you
+            can absorb the Korean language with ease.
+          </Typography>
+        </Card>
+        <Card
+          style={{
+            width: "100%",
+            border: "none",
+            boxShadow: "none",
+            paddingBottom: "20px",
+          }}
+        >
+          <Typography
+            variant="h5"
+            maxWidth="md"
+            style={{ color: "text.primary" }}
+          >
+            InKorea's Goals
+          </Typography>
+          <Typography
+            maxWidth="md"
+            style={{ color: "text.secondary", paddingBottom: "4px" }}
+          >
+            InKorea aims to lower the language barrier for foreigners by
+            providing these features:
+          </Typography>
+
+          <Stack direction="row" alignItems="center" gap={1}>
+            <LockOpenOutlinedIcon color="primary" />
+            <Typography variant="body1" color="text.primary">
+              Check out a currated list of apps that are useful for life in
+              Korea
+            </Typography>
+          </Stack>
+
+          <Stack direction="row" alignItems="center" gap={1}>
+            <LockOpenOutlinedIcon color="primary" />
+            <Typography variant="body1" color="text.primary">
+              Go through common scenarios with their keywords, phrases, and
+              accompanying documentation{" "}
+            </Typography>
+          </Stack>
+        </Card>
+        <Card
+          style={{
+            width: "100%",
+            border: "none",
+            boxShadow: "none",
+          }}
+        >
+          <Typography
+            variant="h5"
+            maxWidth="md"
+            style={{ color: "text.primary" }}
+          >
+            InKorea's Progress
+          </Typography>
+          <Typography style={{ paddingBottom: "4px" }}>
+            You can view InKorea's journey starting from the formative research
+            all the way to the final product
+          </Typography>
+
+          <Stack direction="row" alignItems="center" gap={1}>
+            <ArticleIcon color="primary" />
+            <Typography>
+              <Link
+                target="_blank"
+                href="https://drive.google.com/file/d/1s7Up6HgntsC1-azmKG8Ywk4nBaQsTabO/view?usp=sharing"
+                rel="noreferrer"
+                color="text.primary"
+              >
+                Formative Research Report
+              </Link>
+            </Typography>
+          </Stack>
+
+          <Stack direction="row" alignItems="center" gap={1}>
+            <VideoFileIcon color="primary" />
+            <Typography>
+              <Link
+                target="_blank"
+                href="https://www.youtube.com/watch?v=tCOShCInpdI"
+                rel="noreferrer"
+                color="text.primary"
+              >
+                Paper Prototype Video
+              </Link>
+            </Typography>
+          </Stack>
+
+          <Stack direction="row" alignItems="center" gap={1}>
+            <ArticleIcon color="primary" />
+            <Typography>
+              <Link
+                target="_blank"
+                href="https://drive.google.com/file/d/12tPuYooxdqs5Wwop5Q_gs5PSlvvQTc8F/view?usp=sharing"
+                rel="noreferrer"
+                color="text.primary"
+              >
+                Mid-fidelity Prototype Report
+              </Link>
+            </Typography>
+          </Stack>
+
+          <Stack direction="row" alignItems="center" gap={1}>
+            <VideoFileIcon color="primary" />
+            <Typography>
+              <Link
+                target="_blank"
+                href="https://youtu.be/iiQtPJ_cXsg"
+                rel="noreferrer"
+                color="text.primary"
+              >
+                Mid-fidelity Prototype Video
+              </Link>
+            </Typography>
+          </Stack>
+
+          <Stack direction="row" alignItems="center" gap={1}>
+            <VideoFileIcon color="primary" />
+            <Typography>
+              <Link
+                target="_blank"
+                href="http://www.google.com"
+                rel="noreferrer"
+                color="text.primary"
+              >
+                Final presentation video{" "}
+              </Link>
+            </Typography>
+          </Stack>
+        </Card>
       </Box>
-      <Grid
+
+      <Divider
         style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          paddingTop: "20px",
+          paddingBottom: "20px",
+          width: "50%",
+          alignSelf: "center",
+          fontSize: "20px",
+          color: "text.primary",
         }}
-        container
-        // spacing={{ xs: 2, md: 3 }}
-        columns={{ xs: 4, sm: 8, md: 12 }}
       >
-        <Item elevation={0}>
-          <Link to="/guide">
-            <Card sx={{ minWidth: 275, maxWidth: 600}}>
-              <div style={{ position: "relative"}}>
-                <CardMedia
-                  component="img"
-                  height="194"
-                  src={guideImage}
-                  alt="App catalog"
-                  onMouseOver = {changeOpacitytoZero} onMouseLeave = {changeOpacitytoOne}
-                />
-                <div
+        Team Members
+      </Divider>
+
+      <Box
+        display="flex"
+        justifyContent="center"
+        alignItems="center"
+        pb={"20px"}
+        paddingLeft={{ xs: 1, sm: 2, md: 0 }}
+        paddingRight={{ xs: 1, sm: 2, md: 0 }}
+      >
+        <Grid container maxWidth={"md"} spacing={1}>
+          <Grid item xs={12} sm={12} md={3}>
+            <Card
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <CardMedia
+                component="img"
+                src={Profile1}
+                alt="Profile"
+                style={{
+                  height: 190,
+                }}
+              />
+              <CardContent>
+                <Typography
                   style={{
-                    position: "absolute",
-                    color: "black",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    borderRadius: "10%",
-                    fontSize: "20px",
+                    color: "text.primary",
+                    textAlign: "center",
+                    fontWeight: "bold",
                   }}
                 >
-                  {/* Guides */}
-                </div>
-              </div>
-            </Card>
-          </Link>
-        </Item>
-        <Item elevation={0}>
-          <Link to="/appcatalog">
-            <Card sx={{ minWidth: 275, maxWidth: 600 }} onMouseOver = {changeOpacitytoZero} onMouseLeave = {changeOpacitytoOne}>
-              <div style={{ position: "relative" }}>
-                <CardMedia
-                  component="img"
-                  height="194"
-                  src={appsImage}
-                  alt="App catalog"
-                />
-                <div
+                  Hawon Park
+                </Typography>
+                <Typography
                   style={{
-                    position: "absolute",
-                    color: "black",
-                    top: "50%",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    borderRadius: "10%",
-                    fontSize: "20px",
+                    color: "gray",
+                    fontSize: "small",
+                    textAlign: "left",
                   }}
                 >
-                  {/* App catalog */}
-                </div>
-              </div>
+                  Hawon is a Senior in CSE who enjoys playing games and solving
+                  LeetCode
+                </Typography>
+              </CardContent>
+              <CardActions
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  borderWidth: 0,
+                  borderTopWidth: 1,
+
+                  borderColor: "gray",
+                  borderStyle: "solid",
+                }}
+              >
+                <IconButton
+                  size="small"
+                  href="https://github.com/hawonp/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="primary"
+                  sx={{ "&:hover": { color: "secondary.main" } }}
+                >
+                  <GitHubIcon fontSize="inherit" />
+                </IconButton>
+                <IconButton
+                  size="small"
+                  href="https://www.linkedin.com/in/hawonpark/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="primary"
+                  sx={{ "&:hover": { color: "secondary.main" } }}
+                >
+                  <LinkedInIcon fontSize="inherit" />
+                </IconButton>
+              </CardActions>
             </Card>
-          </Link>
-        </Item>
-      </Grid>
+          </Grid>
 
-      <Divider style={{margin: "50px", width: "80%", alignSelf: "center", fontSize: "20px", color: "text.primary"}}>About InKorea</Divider>
+          <Grid item xs={12} sm={12} md={3}>
+            <Card
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <CardMedia
+                component="img"
+                src={Profile2}
+                alt="Profile"
+                style={{
+                  height: 190,
+                }}
+              />
+              <CardContent>
+                <Typography
+                  style={{
+                    color: "text.primary",
+                    textAlign: "center",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Jeong Ho Shin
+                </Typography>
+                <Typography
+                  style={{
+                    color: "gray",
+                    fontSize: "small",
+                    textAlign: "left",
+                  }}
+                >
+                  Jeong Ho is a Senior in CSE who enjoys raiding in LostArk and
+                  eating mint chocolate
+                </Typography>
+              </CardContent>
+              <CardActions
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  borderWidth: 0,
+                  borderTopWidth: 1,
 
-      <Box maxWidth = "md" style= {{display: "flex", flexWrap: "wrap", justifyContent: "center", alignSelf: "center", border: "none"}}>
-        <Card style={{border: "none", boxShadow: "none", marginBottom: 30, padding: 10}}>
-          <Typography variant="h5" maxWidth="md" color = "text.primary">Overview of the Problem</Typography>
-          <Typography paragraph maxWidth="md" style={{border: "none", color: "text.secondary"}}>
-          Adjusting to a new life in a foreign country is difficult for anyone. It is especially difficult in
-          Korea, one of the most homogenous countries in the world. Therefore, InKorea aims toward foreigners living in
-          Korea who may be faced with many challenges on a regular basis. 
-          By providing learning on different situations and recommending convenient information, 
-          InKorea hopes to lower the level of difficulties living in Korea. 
-          </Typography>
-        </Card>
+                  borderColor: "gray",
+                  borderStyle: "solid",
+                }}
+              >
+                <IconButton
+                  size="small"
+                  href="https://github.com/je0shin"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="primary"
+                  sx={{ "&:hover": { color: "secondary.main" } }}
+                >
+                  <GitHubIcon fontSize="inherit" />
+                </IconButton>
+                <IconButton
+                  size="small"
+                  href="https://www.linkedin.com/in/jeongho-shin-771a1717b/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="primary"
+                  sx={{ "&:hover": { color: "secondary.main" } }}
+                >
+                  <LinkedInIcon fontSize="inherit" />
+                </IconButton>
+              </CardActions>
+            </Card>
+          </Grid>
+
+          <Grid item xs={12} sm={12} md={3}>
+            <Card
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <CardMedia
+                component="img"
+                src={Profile3}
+                alt="Profile"
+                style={{
+                  height: 190,
+                }}
+              />
+              <CardContent>
+                <Typography
+                  style={{
+                    color: "text.primary",
+                    textAlign: "center",
+                    fontWeight: "bold",
+                    margin: "0px",
+                  }}
+                >
+                  Sangwoo Park
+                </Typography>
+                <Typography
+                  style={{
+                    color: "gray",
+                    fontSize: "small",
+                    textAlign: "left",
+                  }}
+                >
+                  Sangwoo is a Junior in CSE who enjoys traveling and watching
+                  movies
+                </Typography>
+              </CardContent>
+              <CardActions
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  borderWidth: 0,
+                  borderTopWidth: 1,
+
+                  borderColor: "gray",
+                  borderStyle: "solid",
+                }}
+              >
+                <IconButton
+                  size="small"
+                  href="https://github.com/uprain1116"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="primary"
+                  sx={{ "&:hover": { color: "secondary.main" } }}
+                >
+                  <GitHubIcon fontSize="inherit" />
+                </IconButton>
+              </CardActions>
+            </Card>
+          </Grid>
+
+          <Grid item xs={12} sm={12} md={3}>
+            <Card
+              style={{
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+              }}
+            >
+              <CardMedia
+                component="img"
+                src={Profile4}
+                alt="Profile"
+                style={{
+                  height: 190,
+                }}
+              />
+              <CardContent>
+                <Typography
+                  style={{
+                    color: "text.primary",
+                    textAlign: "center",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Youngwon Choi
+                </Typography>
+                <Typography
+                  style={{
+                    color: "gray",
+                    fontSize: "small",
+                    textAlign: "left",
+                  }}
+                >
+                  Youngwon is a Senior in TSM who likes to create music and eat
+                  good food
+                </Typography>
+              </CardContent>
+              <CardActions
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  borderWidth: 0,
+                  borderTopWidth: 1,
+
+                  borderColor: "gray",
+                  borderStyle: "solid",
+                }}
+              >
+                <IconButton
+                  size="small"
+                  href="https://github.com/youngecko1"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="primary"
+                  sx={{ "&:hover": { color: "secondary.main" } }}
+                >
+                  <GitHubIcon fontSize="inherit" />
+                </IconButton>
+                <IconButton
+                  size="small"
+                  href="https://www.linkedin.com/in/youngwonchoi97/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  color="primary"
+                  sx={{ "&:hover": { color: "secondary.main" } }}
+                >
+                  <LinkedInIcon fontSize="inherit" />
+                </IconButton>
+              </CardActions>
+            </Card>
+          </Grid>
+        </Grid>
       </Box>
-      <Box maxWidth = "md" style= {{display: "flex", flexWrap: "wrap", justifyContent: "center", alignSelf: "center", border: "none"}}>
-        <Card style={{width: "100%", minWidth: "350px", border: "none", boxShadow: "none", marginBottom: 30, padding: 10}}>
-          <Typography variant="h5" maxWidth= "md" style = {{color: "text.primary"}}>Our Goals</Typography>
-          <Typography maxWidth= "md" style = {{color: "text.secondary"}}>InKorea aims to lower the language barrier and help foreigners adapt quickly to life in Korea.</Typography>
-          <Typography maxWidth= "md" style = {{color: "text.secondary"}}><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Lower the language boundaries for different scenarios</Typography>
-          <Typography maxWidth= "md" style = {{color: "text.secondary"}}><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Help learn keywords used in Korea through quizes</Typography>
-          <Typography maxWidth= "md" style = {{color: "text.secondary"}}><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Provide information on required documents</Typography>
-          <Typography maxWidth= "md" style = {{color: "text.secondary"}}><LockOpenOutlinedIcon style={{transform: "translateY(20%)"}}/>Recommand Apps for better convenience in Korea </Typography>
-        </Card>
-        <Card style={{width: "100%", minWidth: "350px", border: "none", boxShadow: "none", padding: 10}}>
-          <Typography variant="h5" maxWidth= "md" style = {{color: "text.primary"}}>Making Process</Typography>
-          <Typography maxWidth= "md" border = "none">From conducting research, we've come to InKorea.</Typography>
-
-            <Typography maxWidth= "md">
-            <a href = "https://drive.google.com/file/d/1s7Up6HgntsC1-azmKG8Ywk4nBaQsTabO/view?usp=sharing" 
-              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
-              <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Formative research report </a>
-          </Typography>
-          <Typography maxWidth= "md">
-            <a href = "https://www.youtube.com/watch?v=tCOShCInpdI" 
-              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
-              <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Paper prototype video </a>
-          </Typography>
-          <Typography maxWidth= "md">
-            <a href = "https://drive.google.com/file/d/12tPuYooxdqs5Wwop5Q_gs5PSlvvQTc8F/view?usp=sharing" 
-              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
-              <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Mid-fidelity prototype report </a>
-          </Typography>
-
-          <Typography maxWidth= "md">
-            <a href = "https://youtu.be/iiQtPJ_cXsg" 
-              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
-              <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Mid-fidelity prototype video </a>
-          </Typography>
-
-          <Typography maxWidth= "md">
-            <a href = "#" 
-              target={"_blank"} style={{textDecoration: "none", color: "#2f3e46"}} > 
-              <AttachmentRoundedIcon style={{transform: "translateY(30%)"}}/> Final presentation video (yet have link) </a>
-          </Typography>
-
-        </Card>
-      </Box>
-      
-      <Divider style={{marginTop: "40px", marginBottom: "20px", width: "80%", alignSelf: "center", fontSize: "20px", color: "text.primary"}}>Team Members</Divider>
-
-      <Grid style={{ display: "flex", justifyContent: "center", alignSelf: "center", alignItems: "baseline", marginBottom: 30, maxWidth: "60%", border: "none"}} container columns={{ xs: 4, sm: 8, md: 10 }}>
-        <Item>
-          <a href='https://github.com/hawonp' target={"_blank"} style={{textDecoration: "none"}}>
-          <Card style={{hegith: 190, width: 190}}>
-            <CardMedia
-              component="img"
-              src={Profile1}
-              alt="Profile"
-              style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
-            />
-            <Typography style={{marginTop: "20px", marginBottom: "20px", color: "text.secondary"}}>Hawon Park</Typography>  
-              {/* <GitHubIcon style={{color: "black"}}/> */}
-          </Card>
-          </a>
-        </Item>
-
-        <Item>
-          <a href='https://github.com/je0shin' target={"_blank"} style={{textDecoration: "none"}}>
-          <Card style={{hegith: 190, width: 190}}>
-            <CardMedia
-              component="img"
-              src={Profile2}
-              alt="Profile"
-              style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
-            />
-            <Typography style={{marginTop: "20px", marginBottom: "20px", color: "text.secondary"}}>Jeong Ho Shin</Typography>                
-              {/* <GitHubIcon style={{color: "black"}}/> */}
-
-          </Card>
-          </a>
-        </Item>
-
-        <Item>
-          <a href='https://github.com/uprain1116' target={"_blank"} style={{textDecoration: "none"}}>
-          <Card style={{hegith: 190, width: 190}}>
-            <CardMedia
-              component="img"
-              src={Profile3}
-              alt="Profile"
-              style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
-            />
-            <Typography style={{marginTop: "20px", marginBottom: "20px", color: "text.secondary"}}>Sangwoo Park</Typography>
-              {/* <GitHubIcon style={{color: "black"}}/> */}
-          </Card>
-          </a>
-        </Item>
-
-        <Item>
-          <a href='https://github.com/youngecko1' target={"_blank"} style={{textDecoration: "none"}}>
-          <Card style={{hegith: 190, width: 190}}>
-            <CardMedia
-              component="img"
-              src={Profile4}
-              alt="Profile"
-              style={{ height: 170, width: 170, borderRadius: '50%', marginBottom: '20px', margin: "auto", marginTop: "20px"}}
-            />
-            <Typography style={{marginTop: "20px", marginBottom: "20px", color: "text.secondary"}}>Youngwon Choi</Typography>
-            {/* <GitHubIcon style={{color: "black"}}/> */}
-
-          </Card>
-          </a>
-        </Item>
-      </Grid>
     </Box>
   );
 }

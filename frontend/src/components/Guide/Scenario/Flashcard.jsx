@@ -27,9 +27,9 @@ export default function Flashcard({ id }) {
 
   return (
     <Card
-      // variant="outlined"
-      style={{
-        height: "120px",
+      variant="outlined"
+      sx={{
+        height: { md: "120px", sm: "auto" },
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",

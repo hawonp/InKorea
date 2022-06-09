@@ -22,7 +22,7 @@ const theme = createTheme({
     },
     text: {
       primary: "#2F3E46",
-      secondary: "#354F52",
+      // secondary: "#354F52",
     },
   },
 });
