@@ -176,7 +176,7 @@ export default function Quiz({ id }) {
         <Grid container direction={"row"} columns={{ xs: 2, md: 4, xl: 4 }}>
           {questions2[currentQuestion].answerOptions.map(
             (answerOption, index) => (
-              <Grid item xs={2}>
+              <Grid item xs={2} key={index}>
                 {isAnswered && selectedIndex === index && isWrong ? (
                   <Button
                     color={"primary"}
@@ -218,13 +218,13 @@ export default function Quiz({ id }) {
   function generateQuestion() {
     if (id === 1) {
       return (
-        <Typography color={"primary"} alignSelf={"center"}>
+        <Typography color={"text.primary"} alignSelf={"center"}>
           {questions[currentQuestion].questionText}
         </Typography>
       );
     } else if (id === 7) {
       return (
-        <Typography color={"primary"} alignSelf={"center"}>
+        <Typography color={"text.primary"} alignSelf={"center"}>
           {questions2[currentQuestion].questionText}
         </Typography>
       );
@@ -280,10 +280,10 @@ export default function Quiz({ id }) {
     if (id === 1) {
       return (
         <Stack alignItems={"left"}>
-          <Typography color={"primary"}>1. 은행 (Eun-haeng)</Typography>
-          <Typography color={"primary"}>2. 계좌 (Gye-jwa)</Typography>
-          <Typography color={"primary"}>3. 통장 (Tong-jang)</Typography>
-          <Typography color={"primary"}>
+          <Typography color={"text.primary"}>1. 은행 (Eun-haeng)</Typography>
+          <Typography color={"text.primary"}>2. 계좌 (Gye-jwa)</Typography>
+          <Typography color={"text.primary"}>3. 통장 (Tong-jang)</Typography>
+          <Typography color={"text.primary"}>
             4. 신분증 (Shin-boon-cheung)
           </Typography>
         </Stack>
@@ -291,14 +291,16 @@ export default function Quiz({ id }) {
     } else if (id === 7) {
       return (
         <Stack alignItems={"center"}>
-          <Typography color={"primary"}>
+          <Typography color={"text.primary"}>
             1. 전화 번호 (Jeon-hwa beon-ho)
           </Typography>
-          <Typography color={"primary"}>
+          <Typography color={"text.primary"}>
             2. 여기에 싸인 해주세요 (Yeo-gi-eh sign hae-ju-sae-yo)
           </Typography>
-          <Typography color={"primary"}>3. 활성화 (Hwal-seong-hwa)</Typography>
-          <Typography color={"primary"}>
+          <Typography color={"text.primary"}>
+            3. 활성화 (Hwal-seong-hwa)
+          </Typography>
+          <Typography color={"text.primary"}>
             4. 신분증 (Shin-boon-cheung)
           </Typography>
         </Stack>
@@ -331,14 +333,14 @@ export default function Quiz({ id }) {
                 {showScore ? (
                   <Stack>
                     <Typography
-                      color={"primary"}
+                      color={"text.primary"}
                       alignSelf={"center"}
                       fontSize={30}
                     >
                       You scored {score} out of {questions.length}
                     </Typography>
                     <Typography
-                      color={"primary"}
+                      color={"text.primary"}
                       alignSelf={"center"}
                       marginTop={2}
                     >
@@ -348,7 +350,7 @@ export default function Quiz({ id }) {
                       {correctAnswers()}
                     </Typography>
                     <Typography
-                      color={"primary"}
+                      color={"text.primary"}
                       alignSelf={"center"}
                       marginTop={2}
                     >
