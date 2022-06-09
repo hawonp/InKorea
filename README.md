@@ -64,7 +64,7 @@
 
 ## Step 5) Initial React Frontend
 - Change directories to frontend/
-  > cd dbms
+  > cd frontend
 
 - Install Requirements
   > npm install
@@ -96,3 +96,6 @@
 
  - Shutdown a docker container
     > docker-compose down
+
+## Website Link
+- [Prototype](https://www.inkorea.co/)

@@ -16,7 +16,7 @@ def query_all_apps_by_platform(page, platform, search):
         # no platform filtering
         if platform == 'All':
             if len(search) > 1 and search != "":
-                query = "SELECT A.* FROM App A, Tag T, App_Tag ApT WHERE ApT.app_id = A.app_id AND Apt.tag_id = T.tag_id and LOWER(T.tag_title) LIKE LOWER(?) UNION DISTINCT SELECT A.* FROM App A WHERE LOWER(A.app_title) LIKE LOWER(?) ORDER BY app_id LIMIT ?, ?"
+                query = "SELECT A.* FROM App A, Tag T, App_Tag ApT WHERE ApT.app_id = A.app_id AND ApT.tag_id = T.tag_id and LOWER(T.tag_title) LIKE LOWER(?) UNION DISTINCT SELECT A.* FROM App A WHERE LOWER(A.app_title) LIKE LOWER(?) ORDER BY app_id LIMIT ?, ?"
                 values = (search, search, offset, limit)
             else:
                 query = "SELECT A.* FROM App A LIMIT ?, ?"
