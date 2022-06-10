@@ -123,7 +123,7 @@ export default function AppBox({ app_id, parentCallback }) {
             justifyContent: "center",
           }}
         >
-          {/* {app["app_id"] === 1 ? (
+          {app["app_id"] === 1 ? (
             <div>
               <Button
                 size="small"
@@ -144,16 +144,8 @@ export default function AppBox({ app_id, parentCallback }) {
                 See More
               </Button>
             </div>
-          )} */}
-          <div>
-            <Button
-              size="small"
-              style={{ padding: "0px" }}
-              onClick={handleClickOpen}
-            >
-              See More
-            </Button>
-          </div>
+          )}
+
         </CardActions>
       </Box>
       <Dialog
