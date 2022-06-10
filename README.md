@@ -97,8 +97,6 @@ InKorea is a website geared towards foreigners who are having trouble overcoming
  - Shutdown a docker container
     > docker-compose down
 
-## Paper Prototyping Video Link
-- [YouTube Link](https://youtu.be/tCOShCInpdI)
-
 ## Website Link
-- [Prototype](https://www.inkorea.co/)
+- [Final Prototype](https://www.inkorea.co/)
+- [FastAPI](https://www.backend.inkorea.co/docs)
