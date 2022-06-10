@@ -24,7 +24,7 @@ def query_all_apps_by_platform(page, platform, search):
         # platform filtering
         else:
             if len(search) > 1 and search != "":
-                query = "SELECT A.* FROM App A, App_Platform P WHERE A.app_id = P.app_id AND P.platform_title = ? intersect (SELECT A.* FROM App A, Tag T, App_Tag ApT WHERE ApT.app_id = A.app_id AND Apt.tag_id = T.tag_id and LOWER(T.tag_title) LIKE LOWER(?) UNION DISTINCT SELECT A.* FROM App A WHERE LOWER(A.app_title) LIKE LOWER(?)) ORDER BY app_id LIMIT ?, ?"
+                query = "SELECT A.* FROM App A, App_Platform P WHERE A.app_id = P.app_id AND P.platform_title = ? intersect (SELECT A.* FROM App A, Tag T, App_Tag ApT WHERE ApT.app_id = A.app_id AND ApT.tag_id = T.tag_id and LOWER(T.tag_title) LIKE LOWER(?) UNION DISTINCT SELECT A.* FROM App A WHERE LOWER(A.app_title) LIKE LOWER(?)) ORDER BY app_id LIMIT ?, ?"
                 values = (platform, search, search, offset, limit)
             else:
                 query = "SELECT s.*, a.app_id, a.app_title, a.app_title_kor, a.app_text, a.app_image FROM App a INNER JOIN(SELECT DISTINCT * FROM App_Platform WHERE platform_title = ?) AS s ON s.app_id = a.app_id LIMIT ?, ?"

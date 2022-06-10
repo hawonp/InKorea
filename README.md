@@ -1,8 +1,10 @@
-## Welcome to InKorea! (To Be Updated Later)
-
-## Paper Prototyping Video Link
-- [YouTube Link](https://youtu.be/tCOShCInpdI)
-
+## Welcome to InKorea!
+InKorea is a website geared towards foreigners who are having trouble overcoming the language barrier while living in South Korea. InKorea offers two features that will hopefully help users learn something new with each visit.
+- Scenario Guide contains helpful information about common scenarios that occur while living in Korea
+  - List of Common Documents
+  - Widely Used Phrases
+  - Practice Quizzes
+- App Catalog is a currated list of apps that are useful when living in South Korea
 
 ## Team Members
 - Hawon Park (hawon.park@stonybrook.edu)
@@ -13,8 +15,6 @@
 ## Where to get the Latest Version of InKorea?
 - The [main](https://github.com/hawonp/InKorea) branch of this git repository will always have the latest production version of InKorea
 - The [dev](https://github.com/hawonp/InKorea/tree/dev) branch of this git repository will always be the latest development version of InKorea
-
-
 
 ## Step 1) Local Development Prep
 - Download/Clone the [main](https://github.com/hawonp/InKorea) branch of InKorea
@@ -96,6 +96,9 @@
 
  - Shutdown a docker container
     > docker-compose down
+
+## Paper Prototyping Video Link
+- [YouTube Link](https://youtu.be/tCOShCInpdI)
 
 ## Website Link
 - [Prototype](https://www.inkorea.co/)

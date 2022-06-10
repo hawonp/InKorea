@@ -252,11 +252,11 @@ export default function Landing() {
             <Typography>
               <Link
                 target="_blank"
-                href="http://www.google.com"
+                href="https://www.youtube.com/watch?v=_2K-L0V_ow4"
                 rel="noreferrer"
                 color="text.primary"
               >
-                Final presentation video{" "}
+                Final Presentation Video{" "}
               </Link>
             </Typography>
           </Stack>
